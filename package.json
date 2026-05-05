@@ -1,0 +1,18 @@
+{
+  "name": "trend-scanner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local Playwright scraper for ladies-nighty B2B design evidence (Amazon.in, Myntra, Meesho, IndiaMART).",
+  "scripts": {
+    "postinstall": "playwright install chromium",
+    "scrape": "node scrape.js",
+    "scrape:amazon": "node scrape.js --sources=amazon",
+    "scrape:myntra": "node scrape.js --sources=myntra",
+    "scrape:meesho": "node scrape.js --sources=meesho",
+    "scrape:indiamart": "node scrape.js --sources=indiamart"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}
