@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trend Catalog — Discover Viral Social Media Trends</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #ececec;
+    --text: #0f0f12;
+    --text-muted: #6b6b76;
+    --accent: #ff2e63;
+    --accent-2: #7d5fff;
+    --accent-grad: linear-gradient(135deg, #ff2e63 0%, #7d5fff 100%);
+    --shadow-sm: 0 1px 2px rgba(15,15,18,.06);
+    --shadow-md: 0 6px 24px rgba(15,15,18,.08);
+    --radius: 14px;
+    --radius-lg: 20px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -.01em;
+  }
+  .brand-logo {
+    width: 32px; height: 32px;
+    border-radius: 9px;
+    background: var(--accent-grad);
+    display: grid; place-items: center;
+    color: white; font-weight: 800;
+  }
+  .nav-pills { display: flex; gap: 8px; }
+  .nav-pills button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all .15s ease;
+  }
+  .nav-pills button:hover { color: var(--text); border-color: #d0d0d6; }
+  .nav-pills button.active {
+    background: var(--text);
+    color: white;
+    border-color: var(--text);
+  }
+
+  /* Main */
+  main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px 22px 180px;
+  }
+  .hero {
+    text-align: center;
+    padding: 14px 0 28px;
+  }
+  .hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: -.02em;
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  /* Chip filters */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 22px 0 18px;
+  }
+  .chip {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    padding: 7px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all .15s ease;
+  }
+  .chip:hover { border-color: #d0d0d6; }
+  .chip.active {
+    background: var(--accent-grad);
+    color: white;
+    border-color: transparent;
+  }
+
+  /* Catalog grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform .18s ease, box-shadow .18s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .thumb {
+    aspect-ratio: 4 / 5;
+    background: var(--accent-grad) center/cover no-repeat;
+    display: grid;
+    place-items: end center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+  .card:hover .thumb img { transform: scale(1.05); }
+  .thumb::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 45%);
+    pointer-events: none;
+  }
+  .thumb-emoji {
+    position: absolute;
+    bottom: 12px; left: 14px;
+    font-size: 22px;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+  .platform-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    z-index: 1;
+  }
+  .trend-score {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(255,255,255,.95);
+    color: var(--accent);
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    z-index: 1;
+    display: flex; align-items: center; gap: 3px;
+  }
+  .card-body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -.01em;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .card-meta span { display: inline-flex; align-items: center; gap: 4px; }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+  }
+  .tag {
+    background: #f3f3f6;
+    color: var(--text-muted);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* Empty state */
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+  .empty svg { opacity: .4; margin-bottom: 12px; }
+
+  /* Chat input bar */
+  .chat-bar {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 44px);
+    max-width: 760px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(15,15,18,.12);
+    padding: 12px 12px 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 40;
+  }
+  .chat-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    color: var(--text);
+    font-family: inherit;
+    padding: 8px 0;
+  }
+  .chat-bar input[type="text"]::placeholder { color: #9c9ca6; }
+  .icon-btn {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: #f3f3f6;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: background .15s ease;
+  }
+  .icon-btn:hover { background: #e7e7ec; }
+  .send-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-grad);
+    cursor: pointer;
+    display: grid; place-items: center;
+    color: white;
+    transition: transform .12s ease, opacity .15s ease;
+  }
+  .send-btn:hover { transform: scale(1.05); }
+  .send-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* User query bubble */
+  .query-bubble {
+    align-self: flex-end;
+    background: var(--accent-grad);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 18px 18px 4px 18px;
+    font-size: 14px;
+    max-width: 70%;
+    margin: 8px 0 18px auto;
+    box-shadow: var(--shadow-sm);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .query-bubble.has-img { padding: 6px 6px 6px 14px; }
+  .query-bubble img {
+    max-width: 80px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+
+  /* Image preview chip in chat bar */
+  .img-preview {
+    display: flex; align-items: center; gap: 6px;
+    background: #f3f3f6;
+    border-radius: 10px;
+    padding: 4px 8px 4px 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .img-preview img {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  .img-preview button {
+    border: none; background: transparent;
+    cursor: pointer; color: var(--text-muted);
+    padding: 0 2px;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(15,15,18,.55);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 100;
+    padding: 22px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    max-width: 520px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.3);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-thumb {
+    aspect-ratio: 16/9;
+    background: var(--accent-grad) center/cover no-repeat;
+    display: grid; place-items: end center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .modal-thumb img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .modal-thumb::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.55), transparent 50%);
+    pointer-events: none;
+  }
+  .modal-thumb .thumb-emoji {
+    position: absolute;
+    bottom: 14px; left: 18px;
+    font-size: 32px;
+    z-index: 1;
+    text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  }
+  .modal-body { padding: 22px; }
+  .modal h2 { margin: 0 0 8px; letter-spacing: -.01em; font-size: 22px; }
+  .modal-meta {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    color: var(--text-muted); font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .modal p { color: #38383f; font-size: 14px; line-height: 1.55; margin: 0 0 16px; }
+  .modal-close {
+    position: absolute; top: 10px; right: 10px;
+    background: rgba(0,0,0,.5);
+    border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: grid; place-items: center;
+    z-index: 2;
+    font-size: 18px;
+  }
+
+  @media (max-width: 600px) {
+    main { padding: 18px 14px 200px; }
+    .header-inner { padding: 12px 14px; }
+    .nav-pills { display: none; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+    .card-title { font-size: 14px; }
+    .thumb { font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">T</div>
+      <span>Trend Catalog</span>
+    </div>
+    <div class="nav-pills">
+      <button class="active">Discover</button>
+      <button>Saved</button>
+      <button>Insights</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>What's trending right now</h1>
+    <p>Ask anything. Drop an image. Discover viral social media trends instantly.</p>
+  </section>
+
+  <div id="queryDisplay"></div>
+
+  <div class="chips" id="chipFilters">
+    <div class="chip active" data-cat="all">All</div>
+    <div class="chip" data-cat="fashion">Fashion</div>
+    <div class="chip" data-cat="beauty">Beauty</div>
+    <div class="chip" data-cat="dance">Dance</div>
+    <div class="chip" data-cat="food">Food</div>
+    <div class="chip" data-cat="tech">Tech</div>
+    <div class="chip" data-cat="memes">Memes</div>
+    <div class="chip" data-cat="lifestyle">Lifestyle</div>
+  </div>
+
+  <div class="grid" id="trendGrid"></div>
+  <div class="empty" id="emptyState" style="display:none;">
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <div style="font-weight:600; color:var(--text); margin-bottom:4px;">No trends found</div>
+    <div>Try a different keyword or category</div>
+  </div>
+</main>
+
+<!-- Chat input bar -->
+<div class="chat-bar">
+  <div id="imgPreview"></div>
+  <button class="icon-btn" id="uploadBtn" title="Upload image">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+  </button>
+  <input type="file" id="fileInput" accept="image/*" hidden />
+  <input type="text" id="queryInput" placeholder="Search trends, e.g. 'cottagecore aesthetic' or 'viral dance'..." />
+  <button class="send-btn" id="sendBtn" title="Search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-thumb" id="modalThumb">
+      <img id="modalImg" src="" alt="" onerror="this.style.display='none'"/>
+      <button class="modal-close" id="modalClose">×</button>
+      <span class="thumb-emoji" id="modalEmoji">🔥</span>
+    </div>
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <div class="modal-meta">
+        <span id="modalPlatform"></span>
+        <span id="modalViews"></span>
+        <span id="modalScore"></span>
+      </div>
+      <p id="modalDesc"></p>
+      <div class="tags" id="modalTags"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ----- Sample trend dataset -----
+const IMG = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=600&q=70`;
+const TRENDS = [
+  { id:1, title:"Mob Wife Aesthetic", emoji:"🧥", platform:"TikTok", category:"fashion", views:"24.6M", score:98, image:IMG("photo-1539109136881-3be0616acf4b"), tags:["#mobwife","#aesthetic","#fur","#glam"], desc:"Bold fur coats, oversized sunglasses, slick-back buns — the maximalist anti-clean-girl look dominating fashion FYPs." },
+  { id:2, title:"Latte Makeup", emoji:"☕", platform:"Instagram", category:"beauty", views:"18.2M", score:94, image:IMG("photo-1512496015851-a90fb38ba796"), tags:["#lattemakeup","#bronze","#warmtones"], desc:"Warm, monochromatic brown tones across eyes, cheeks and lips — a creamy, cozy take on everyday glam." },
+  { id:3, title:"Of Course Trend", emoji:"💁‍♀️", platform:"TikTok", category:"memes", views:"42.1M", score:97, image:IMG("photo-1531746020798-e6953c6e8e04"), tags:["#ofcourse","#meme","#viral"], desc:"Creators stating relatable obvious truths in deadpan deliveries — peak self-aware comedy energy." },
+  { id:4, title:"Girl Dinner", emoji:"🧀", platform:"TikTok", category:"food", views:"31.5M", score:92, image:IMG("photo-1544025162-d76694265947"), tags:["#girldinner","#snackplate","#aesthetic"], desc:"Charcuterie-style snack plates as full meals — pickles, cheese, bread, olives — the chaos-snack era." },
+  { id:5, title:"Cottagecore Revival", emoji:"🌿", platform:"Pinterest", category:"lifestyle", views:"12.8M", score:88, image:IMG("photo-1490750967868-88aa4486c946"), tags:["#cottagecore","#slowliving","#nature"], desc:"Linen dresses, sourdough baking, wildflower bouquets — the romanticized rural aesthetic returning for spring." },
+  { id:6, title:"AI Avatars", emoji:"🤖", platform:"Instagram", category:"tech", views:"56.3M", score:99, image:IMG("photo-1620712943543-bcc4688e7485"), tags:["#aiart","#avatar","#midjourney"], desc:"Hyper-stylized AI-generated portraits flooding feeds — surreal, glossy, and instantly recognizable." },
+  { id:7, title:"Espresso Martini Era", emoji:"🍸", platform:"TikTok", category:"food", views:"19.7M", score:90, image:IMG("photo-1551024709-8f23befc6f87"), tags:["#espressomartini","#cocktail","#bar"], desc:"The caffeinated cocktail comeback — every café and bar reel is mixing one. Foam ratio is everything." },
+  { id:8, title:"Y2K Tops", emoji:"💗", platform:"Instagram", category:"fashion", views:"38.4M", score:96, image:IMG("photo-1483985988355-763728e1935b"), tags:["#y2k","#tops","#nostalgia"], desc:"Halter necks, butterfly motifs, baby tees — early 2000s tops returning with a Gen Z twist." },
+  { id:9, title:"Boom Boom Dance", emoji:"💃", platform:"TikTok", category:"dance", views:"61.2M", score:99, image:IMG("photo-1547153760-18fc86324498"), tags:["#boomboom","#dance","#challenge"], desc:"The latest viral choreo — quick footwork plus a signature shoulder pop. Replicated across every duet." },
+  {id:10, title:"Glazed Donut Skin", emoji:"🍩", platform:"Instagram", category:"beauty", views:"27.9M", score:93, image:IMG("photo-1487412947147-5cebf100ffc2"), tags:["#glazedskin","#dewy","#skincare"], desc:"Hyper-hydrated, luminous skin finish — pioneered by Hailey Bieber and now everywhere on beauty TikTok." },
+  {id:11, title:"Coastal Grandmother", emoji:"👒", platform:"Pinterest", category:"fashion", views:"14.6M", score:85, image:IMG("photo-1469334031218-e382a71b716b"), tags:["#coastalgranny","#linen","#hamptons"], desc:"Linen sets, straw hats, neutral palettes — Nancy Meyers movie energy translated to a wardrobe." },
+  {id:12, title:"Loud Budgeting", emoji:"💰", platform:"TikTok", category:"lifestyle", views:"22.3M", score:91, image:IMG("photo-1554224155-6726b3ff858f"), tags:["#loudbudgeting","#money","#financialfreedom"], desc:"Openly saying 'no' to expensive plans — the anti-quiet-luxury trend reshaping money conversations online." },
+  {id:13, title:"Wide-Leg Pajamas", emoji:"🌙", platform:"Instagram", category:"fashion", views:"9.4M", score:82, image:IMG("photo-1571513722275-4b41940f54b8"), tags:["#sleepwear","#pajamas","#loungewear"], desc:"Silky wide-leg PJ sets crossing over from bed to brunch — the loungewear-as-outerwear continues." },
+  {id:14, title:"Phone Stack Dinners", emoji:"📵", platform:"TikTok", category:"lifestyle", views:"7.8M", score:79, image:IMG("photo-1414235077428-338989a2e8c0"), tags:["#nophones","#mindful","#dinner"], desc:"Friends stacking phones at the table — first to reach for theirs pays. The tech-detox dining trend." },
+  {id:15, title:"Tomato Girl Summer", emoji:"🍅", platform:"Instagram", category:"fashion", views:"33.7M", score:94, image:IMG("photo-1592924357228-91a4daadcfea"), tags:["#tomatogirl","#summer","#mediterranean"], desc:"Red gingham, tomato prints, olive oil glow — the Mediterranean summer fantasy in full effect." },
+  {id:16, title:"Silent Walking", emoji:"🚶‍♀️", platform:"TikTok", category:"lifestyle", views:"15.1M", score:87, image:IMG("photo-1502602898657-3e91760cbb34"), tags:["#silentwalking","#mindful","#mentalhealth"], desc:"30-min phone-free, music-free walks — the simplest mental reset trend going viral with productivity creators." },
+  {id:17, title:"Butter Boards", emoji:"🧈", platform:"TikTok", category:"food", views:"11.2M", score:80, image:IMG("photo-1452251889946-8ff5ea7b27ab"), tags:["#butterboard","#charcuterie"], desc:"Soft butter spread on boards with herbs, honey, edible flowers — the appetizer trend that won't quit." },
+  {id:18, title:"Vintage Filter Selfies", emoji:"📸", platform:"Instagram", category:"tech", views:"45.8M", score:95, image:IMG("photo-1495707902641-75cac588d2e9"), tags:["#vintage","#filter","#film"], desc:"Grainy 90s-style film filters and disposable camera vibes overtaking polished iPhone shots." },
+  {id:19, title:"Sleek Bun + Hoops", emoji:"💎", platform:"TikTok", category:"beauty", views:"20.6M", score:89, image:IMG("photo-1522337660859-02fbefca4702"), tags:["#sleekbun","#hoops","#cleanlook"], desc:"Glossy slick-back bun paired with oversized gold hoops — the universally flattering minimalist combo." },
+  {id:20, title:"Demure Trend", emoji:"🎀", platform:"TikTok", category:"memes", views:"73.4M", score:99, image:IMG("photo-1503342217505-b0a15ec3261c"), tags:["#verydemure","#mindful","#trending"], desc:"Creators captioning everyday moments 'very demure, very mindful' — the wholesome catchphrase of the moment." },
+];
+
+// ----- State -----
+let activeCategory = "all";
+let activeQuery = "";
+let pendingImage = null; // {dataUrl, name}
+
+// ----- Render -----
+const grid = document.getElementById("trendGrid");
+const empty = document.getElementById("emptyState");
+const queryDisplay = document.getElementById("queryDisplay");
+
+function render() {
+  const q = activeQuery.toLowerCase().trim();
+  let list = TRENDS.filter(t => {
+    const matchCat = activeCategory === "all" || t.category === activeCategory;
+    const hay = (t.title + " " + t.tags.join(" ") + " " + t.platform + " " + t.desc + " " + t.category).toLowerCase();
+    const matchQ = !q || hay.includes(q);
+    return matchCat && matchQ;
+  });
+  // sort by trending score desc
+  list.sort((a,b) => b.score - a.score);
+
+  grid.innerHTML = "";
+  if (list.length === 0) {
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+
+  list.forEach(t => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="thumb">
+        <img src="${t.image}" alt="${t.title}" loading="lazy" onerror="this.style.display='none'"/>
+        <span class="platform-badge">${t.platform}</span>
+        <span class="trend-score">▲ ${t.score}</span>
+        <span class="thumb-emoji">${t.emoji}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${t.title}</div>
+        <div class="card-meta">
+          <span>👁 ${t.views}</span>
+          <span>· ${t.category}</span>
+        </div>
+        <div class="tags">${t.tags.slice(0,3).map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
+      </div>
+    `;
+    card.addEventListener("click", () => openModal(t));
+    grid.appendChild(card);
+  });
+}
+
+// ----- Filters -----
+document.getElementById("chipFilters").addEventListener("click", e => {
+  if (!e.target.classList.contains("chip")) return;
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  e.target.classList.add("active");
+  activeCategory = e.target.dataset.cat;
+  render();
+});
+
+// ----- Chat input -----
+const queryInput = document.getElementById("queryInput");
+const sendBtn = document.getElementById("sendBtn");
+const uploadBtn = document.getElementById("uploadBtn");
+const fileInput = document.getElementById("fileInput");
+const imgPreview = document.getElementById("imgPreview");
+
+function showQueryBubble(text, imgUrl) {
+  const bubble = document.createElement("div");
+  bubble.className = "query-bubble" + (imgUrl ? " has-img" : "");
+  bubble.innerHTML = `
+    <span>${text || "Find similar trends"}</span>
+    ${imgUrl ? `<img src="${imgUrl}" alt="query"/>` : ""}
+  `;
+  queryDisplay.innerHTML = "";
+  queryDisplay.appendChild(bubble);
+}
+
+function submit() {
+  const text = queryInput.value.trim();
+  if (!text && !pendingImage) return;
+  if (pendingImage) {
+    showQueryBubble(text, pendingImage.dataUrl);
+    // Image-based "search": pick a fashion/beauty bias as a fake visual match
+    activeQuery = text;
+  } else {
+    showQueryBubble(text);
+    activeQuery = text;
+  }
+  queryInput.value = "";
+  pendingImage = null;
+  imgPreview.innerHTML = "";
+  // reset chips to All when free-text search
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  document.querySelector('.chip[data-cat="all"]').classList.add("active");
+  activeCategory = "all";
+  render();
+}
+
+sendBtn.addEventListener("click", submit);
+queryInput.addEventListener("keydown", e => { if (e.key === "Enter") submit(); });
+
+uploadBtn.addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    pendingImage = { dataUrl: ev.target.result, name: file.name };
+    imgPreview.innerHTML = `
+      <div class="img-preview">
+        <img src="${pendingImage.dataUrl}" alt="preview"/>
+        <span>${file.name.length > 14 ? file.name.slice(0,12) + "…" : file.name}</span>
+        <button id="removeImg">×</button>
+      </div>
+    `;
+    document.getElementById("removeImg").addEventListener("click", ev2 => {
+      ev2.stopPropagation();
+      pendingImage = null;
+      imgPreview.innerHTML = "";
+    });
+  };
+  reader.readAsDataURL(file);
+  fileInput.value = "";
+});
+
+// ----- Modal -----
+const modal = document.getElementById("modal");
+function openModal(t) {
+  document.getElementById("modalTitle").textContent = t.title;
+  document.getElementById("modalPlatform").textContent = "📱 " + t.platform;
+  document.getElementById("modalViews").textContent = "👁 " + t.views + " views";
+  document.getElementById("modalScore").textContent = "🔥 Score " + t.score;
+  document.getElementById("modalDesc").textContent = t.desc;
+  document.getElementById("modalEmoji").textContent = t.emoji;
+  const modalImg = document.getElementById("modalImg");
+  modalImg.src = t.image;
+  modalImg.style.display = "";
+  modalImg.alt = t.title;
+  const tagsEl = document.getElementById("modalTags");
+  tagsEl.innerHTML = t.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+  modal.classList.add("open");
+}
+document.getElementById("modalClose").addEventListener("click", () => modal.classList.remove("open"));
+modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
+
+// Initial render
+render();
+</script>
+</body>
+</html>
