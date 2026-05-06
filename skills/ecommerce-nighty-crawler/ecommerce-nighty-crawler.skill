@@ -1,0 +1,123 @@
+{
+  "name": "ecommerce-nighty-crawler",
+  "title": "E-Commerce Nighty Crawler",
+  "description": "Extract comprehensive product data, reviews, and purchaser insights from 10 major Indian e-commerce platforms for women's nighty and tops",
+  "version": "1.0.0",
+  "author": "Trend Scanner Team",
+  "tags": [
+    "web-scraping",
+    "ecommerce",
+    "product-data",
+    "reviews",
+    "demographics",
+    "nightwear",
+    "india"
+  ],
+  "supportedPlatforms": [
+    "amazon.in",
+    "myntra.com",
+    "flipkart.com",
+    "ajio.com",
+    "meesho.com",
+    "nykaafashion.com",
+    "clovia.com",
+    "zivame.com",
+    "tatacliq.com",
+    "shyaway.com"
+  ],
+  "inputs": {
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "amazon",
+          "myntra",
+          "flipkart",
+          "ajio",
+          "meesho",
+          "nykaa",
+          "clovia",
+          "zivame",
+          "tatacliq",
+          "shyaway",
+          "all"
+        ]
+      },
+      "description": "Which e-commerce platforms to crawl",
+      "default": ["all"]
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Search keywords (e.g., 'cotton nighty', 'ladies sleep wear')",
+      "default": [
+        "women nighty",
+        "ladies cotton nighty",
+        "sleep wear women",
+        "nightgown",
+        "pajama sets"
+      ]
+    },
+    "maxProducts": {
+      "type": "number",
+      "description": "Maximum products to extract per platform",
+      "default": 50
+    },
+    "includeImages": {
+      "type": "boolean",
+      "description": "Download and encode product images as base64",
+      "default": true
+    },
+    "includeVideos": {
+      "type": "boolean",
+      "description": "Download and encode product videos",
+      "default": true
+    },
+    "includeReviews": {
+      "type": "boolean",
+      "description": "Extract detailed review data and sentiment",
+      "default": true
+    },
+    "requireAuthentication": {
+      "type": "boolean",
+      "description": "Use saved sessions for authenticated access",
+      "default": false
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "products": {
+        "type": "array",
+        "description": "Extracted product data from all platforms"
+      },
+      "metadata": {
+        "type": "object",
+        "description": "Crawl statistics and metadata"
+      },
+      "errors": {
+        "type": "array",
+        "description": "Any errors encountered during crawling"
+      }
+    }
+  },
+  "capabilities": [
+    "web-scraping",
+    "image-base64-encoding",
+    "video-fetching",
+    "review-sentiment-analysis",
+    "demographic-inference",
+    "multi-platform-crawling",
+    "session-persistence",
+    "data-deduplication"
+  ],
+  "executionMode": "async",
+  "timeout": 600000,
+  "rateLimit": {
+    "requestsPerMinute": 30,
+    "delayBetweenPlatforms": 5000
+  }
+}
