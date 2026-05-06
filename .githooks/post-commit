@@ -1,0 +1,138 @@
+#!/bin/bash
+# Post-commit hook: Run skill evaluations after commit
+# Validates and evaluates skills whenever they change
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+SKILLS_DIR="$SCRIPT_DIR/skills"
+VALIDATE_SCRIPT="$SKILLS_DIR/garment-features/scripts/validate_output.py"
+
+# Color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Check if skills directory exists
+if [ ! -d "$SKILLS_DIR" ]; then
+    exit 0
+fi
+
+# Get the last commit hash
+LAST_COMMIT=$(git rev-parse HEAD)
+LAST_COMMIT_SHORT=$(git rev-parse --short HEAD)
+
+# Check if skills/ changed in the last commit
+SKILL_CHANGES=$(git diff-tree --no-commit-id --name-only -r "$LAST_COMMIT" -- "$SKILLS_DIR" || true)
+
+if [ -z "$SKILL_CHANGES" ]; then
+    # No skill changes, exit silently
+    exit 0
+fi
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "📊 POST-COMMIT EVALUATION: Skills directory changed"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Commit: $LAST_COMMIT_SHORT"
+echo "Running evaluations on modified skill files..."
+echo ""
+
+# Track results
+TOTAL_FILES=0
+VALID_FILES=0
+INVALID_FILES=0
+ERRORS=()
+
+# Find all JSON files that changed in skills/
+for skill_file in $SKILL_CHANGES; do
+    if [[ "$skill_file" == *.json ]]; then
+        full_path="$SCRIPT_DIR/$skill_file"
+
+        if [ -f "$full_path" ]; then
+            TOTAL_FILES=$((TOTAL_FILES + 1))
+            FILE_NAME=$(basename "$skill_file")
+
+            echo -n "  [$TOTAL_FILES] $FILE_NAME ... "
+
+            # Run skill validation
+            if [ -f "$VALIDATE_SCRIPT" ]; then
+                if python3 "$VALIDATE_SCRIPT" "$full_path" > /tmp/skill_validation_output.txt 2>&1; then
+                    echo -e "${GREEN}✓${NC}"
+                    VALID_FILES=$((VALID_FILES + 1))
+                else
+                    echo -e "${RED}✗${NC}"
+                    INVALID_FILES=$((INVALID_FILES + 1))
+                    ERROR_MSG=$(cat /tmp/skill_validation_output.txt)
+                    ERRORS+=("$FILE_NAME: $ERROR_MSG")
+                fi
+            else
+                # Fallback: just check JSON syntax
+                if python3 -m json.tool "$full_path" > /dev/null 2>&1; then
+                    echo -e "${GREEN}✓${NC}"
+                    VALID_FILES=$((VALID_FILES + 1))
+                else
+                    echo -e "${RED}✗${NC}"
+                    INVALID_FILES=$((INVALID_FILES + 1))
+                    ERRORS+=("$FILE_NAME: Invalid JSON syntax")
+                fi
+            fi
+        fi
+    fi
+done
+
+# Check for SKILL.md changes
+MD_CHANGES=$(echo "$SKILL_CHANGES" | grep -E "\.md$" || true)
+if [ ! -z "$MD_CHANGES" ]; then
+    echo ""
+    echo -e "${BLUE}📝 Documentation Files Modified:${NC}"
+    echo "$MD_CHANGES" | while read file; do
+        echo "  • $(basename "$file")"
+    done
+fi
+
+# Summary
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+if [ $TOTAL_FILES -eq 0 ]; then
+    echo "No JSON files to evaluate (only docs changed)"
+else
+    echo "📈 EVALUATION SUMMARY"
+    echo "  Total files:   $TOTAL_FILES"
+    echo -e "  ${GREEN}Valid:${NC}   $VALID_FILES"
+
+    if [ $INVALID_FILES -gt 0 ]; then
+        echo -e "  ${RED}Invalid:${NC} $INVALID_FILES"
+    fi
+fi
+
+# Show any errors
+if [ ${#ERRORS[@]} -gt 0 ]; then
+    echo ""
+    echo -e "${RED}❌ VALIDATION ERRORS:${NC}"
+    for error in "${ERRORS[@]}"; do
+        echo "  • $error"
+    done
+    echo ""
+    echo "⚠️  Commit succeeded but skill files have validation issues."
+    echo "Consider fixing these before pushing to remote."
+fi
+
+# Final status
+echo ""
+if [ $INVALID_FILES -eq 0 ]; then
+    echo -e "${GREEN}✓ All skill evaluations passed!${NC}"
+else
+    echo -e "${YELLOW}⚠ Some skill files failed validation${NC}"
+fi
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+# Cleanup
+rm -f /tmp/skill_validation_output.txt
+
+exit 0

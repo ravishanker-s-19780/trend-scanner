@@ -18,7 +18,12 @@ candidates — no fabricated data.
 cd trend-scanner
 npm install
 # Chromium is installed automatically via postinstall.
+
+# Enable git hooks (one-time setup)
+git config core.hooksPath .githooks
 ```
+
+**What this does:** Enables pre-commit validation and post-commit evaluation hooks automatically whenever you commit or push.
 
 ## Run
 

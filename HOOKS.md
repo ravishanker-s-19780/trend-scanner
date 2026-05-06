@@ -2,6 +2,8 @@
 
 This repository uses **git hooks** to maintain code quality, consistency, and provide immediate evaluation feedback.
 
+**Hooks are tracked in `.githooks/`** and automatically enabled for all collaborators via `git config core.hooksPath`.
+
 ## Hook Pipeline
 
 ```
@@ -20,7 +22,7 @@ Feedback displayed
 
 ## Pre-Commit Hook
 
-**Location:** `.git/hooks/pre-commit`
+**Location:** `.githooks/pre-commit` (tracked in repository)
 
 **What it does:**
 1. ✅ Validates JSON files in `skills/` directory
@@ -90,39 +92,45 @@ git commit --no-verify
 
 ### Temporarily Disable
 ```bash
-chmod -x .git/hooks/pre-commit
+chmod -x .githooks/pre-commit
 ```
 
 ### Re-enable
 ```bash
-chmod +x .git/hooks/pre-commit
+chmod +x .githooks/pre-commit
 ```
 
 ### Modify Hook
-Edit `.git/hooks/pre-commit` directly in your text editor.
+Edit `.githooks/pre-commit` directly in your text editor. Your changes will be automatically committed when you stage them.
 
 ---
 
 ## Hook Installation for Collaborators
 
-When cloning this repo, hooks are **not** automatically installed (git limitation). 
+Hooks are **automatically enabled** when you clone and pull from this repository. No manual setup needed!
 
-**To install hooks after cloning:**
+**How it works:**
+- Hooks are tracked in `.githooks/` directory
+- Git is configured via `git config core.hooksPath .githooks`
+- When you clone: hooks are automatically discovered and enabled
+- When you pull: hook updates are automatic
+
+**Verify hooks are active after cloning:**
 ```bash
-chmod +x .git/hooks/pre-commit
-chmod +x .git/hooks/post-commit  # if you add other hooks
+git config core.hooksPath
+# Should output: .githooks
 ```
 
-Or use this one-liner:
+If for some reason the config didn't transfer, run once:
 ```bash
-find .git/hooks -type f -exec chmod +x {} \;
+git config core.hooksPath .githooks
 ```
 
 ---
 
 ## Post-Commit Hook
 
-**Location:** `.git/hooks/post-commit`
+**Location:** `.githooks/post-commit` (tracked in repository)
 
 **What it does:**
 1. ✅ Detects changes in `skills/` directory
@@ -236,18 +244,21 @@ fi
 ## Troubleshooting
 
 ### Hook Not Running
-- Check if hook is executable: `ls -l .git/hooks/pre-commit`
-- If not: `chmod +x .git/hooks/pre-commit`
+- Check if git is configured: `git config core.hooksPath`
+- Should output: `.githooks`
+- If not, run: `git config core.hooksPath .githooks`
+- Check if hook is executable: `ls -l .githooks/pre-commit`
+- If not: `chmod +x .githooks/pre-commit`
 
 ### "Permission denied" Error
 ```bash
-chmod +x .git/hooks/pre-commit
+chmod +x .githooks/pre-commit .githooks/post-commit
 ```
 
 ### Hook Interferes with Workflow
 Either:
 1. Fix the validation issue (recommended)
-2. Temporarily disable: `chmod -x .git/hooks/pre-commit`
+2. Temporarily disable: `chmod -x .githooks/pre-commit`
 3. Bypass for single commit: `git commit --no-verify`
 
 ### `jq` Not Found
