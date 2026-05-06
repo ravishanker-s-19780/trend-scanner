@@ -81,5 +81,76 @@ evidence/
   _summary.json
 ```
 
-Then tell Copilot: *“Read `evidence/` and produce the Evidence Table + design
+Then tell Copilot: *”Read `evidence/` and produce the Evidence Table + design
 candidates.”*
+
+## Skills
+
+This project includes **Claude Code Skills** to enhance your workflow in Claude Code, Claude.ai, and the Claude API.
+
+### garment-features
+
+Extract structured design features from ladies' nightwear product photos.
+
+**What it does:**
+- Analyzes product images and extracts 8 core design attributes
+- Features: neckline type, design pattern, front treatment, silhouette, colors, sleeves, fabric texture
+- Outputs clean JSON with confidence levels (high/medium/low)
+- Handles low-resolution thumbnails gracefully with appropriate confidence calibration
+
+**Quick Start:**
+
+#### Option 1: One-Click Install (Recommended)
+1. Download: [`garment-features.skill`](skills/garment-features.skill)
+2. Double-click the file → Claude Code auto-installs
+3. Done! Use `/garment-features` in Claude Code
+
+#### Option 2: Install from Local Folder
+1. Clone this repo: `git clone https://github.com/ravishanker-s-19780/trend-scanner.git`
+2. Open Claude Code → Skills
+3. Click “Create from local folder”
+4. Point to: `skills/garment-features/`
+5. Start using: `/garment-features`
+
+#### Option 3: Share with Team
+1. Download [`garment-features.skill`](skills/garment-features.skill)
+2. Share via Slack, email, or your team drive
+3. Collaborators double-click to install
+
+**Usage:**
+
+```
+You: “Extract garment features from this image”
+[provide product image]
+
+Skill outputs:
+{
+  “neck_type”: “round”,
+  “design_pattern”: “floral”,
+  “front_top_treatment”: “print”,
+  “front_bottom_style”: “straight”,
+  “primary_color”: “blue”,
+  “secondary_color”: “white”,
+  “sleeve_length”: “half”,
+  “cloth_texture”: “cotton”,
+  “confidence”: “high”,
+  “notes”: null
+}
+```
+
+**Features:**
+- ✅ 100% JSON compliance
+- ✅ Optimized for low-resolution Amazon thumbnails
+- ✅ Includes validation utility (`scripts/validate_output.py`)
+- ✅ Production-ready with test cases and evaluation results
+
+**Documentation:**
+- Main guide: [`skills/garment-features/SKILL.md`](skills/garment-features/SKILL.md)
+- Detailed reference: [`skills/garment-features/reference.md`](skills/garment-features/reference.md)
+- License: [`skills/garment-features/LICENSE.txt`](skills/garment-features/LICENSE.txt)
+
+**Evaluation Results:**
+- 3 test cases with real Amazon product images
+- Accuracy: 100% on complex images (vs 67% baseline without skill)
+- Performance: Minimal overhead (+7.6% tokens for improved accuracy)
+- See: [`skills/garment-features/evals/`](skills/garment-features/evals/)
