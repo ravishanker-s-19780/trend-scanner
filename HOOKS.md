@@ -1,6 +1,22 @@
 # Git Hooks
 
-This repository uses **git hooks** to maintain code quality and consistency.
+This repository uses **git hooks** to maintain code quality, consistency, and provide immediate evaluation feedback.
+
+## Hook Pipeline
+
+```
+git commit
+    ↓
+[Pre-Commit Hook] ← Validates before committing
+    ↓ (if valid)
+Commit created
+    ↓
+[Post-Commit Hook] ← Runs evaluations after commit
+    ↓
+Feedback displayed
+```
+
+---
 
 ## Pre-Commit Hook
 
@@ -101,6 +117,83 @@ Or use this one-liner:
 ```bash
 find .git/hooks -type f -exec chmod +x {} \;
 ```
+
+---
+
+## Post-Commit Hook
+
+**Location:** `.git/hooks/post-commit`
+
+**What it does:**
+1. ✅ Detects changes in `skills/` directory
+2. ✅ Runs skill evaluation on modified JSON files
+3. ✅ Reports validation results and errors
+4. ✅ Shows documentation changes
+5. ✅ Provides summary of skill health
+
+**When it runs:** After every successful commit (automatically)
+
+**Only runs if:** `skills/` directory changed in the commit
+
+### Evaluation Feedback
+
+**Example output after committing skill changes:**
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 POST-COMMIT EVALUATION: Skills directory changed
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Commit: a4bc4d3
+Running evaluations on modified skill files...
+
+  [1] evals.json ... ✓
+  [2] output.json ... ✓
+
+📝 Documentation Files Modified:
+  • SKILL.md
+  • reference.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📈 EVALUATION SUMMARY
+  Total files:   2
+  Valid:        2
+
+✓ All skill evaluations passed!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Error Detection
+
+If validation fails:
+
+```
+  [1] evals.json ... ✗
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+❌ VALIDATION ERRORS:
+  • evals.json: Invalid value for neck_type: 'invalid'. 
+    Allowed: round, v-neck, square, boat, other
+
+⚠️  Commit succeeded but skill files have validation issues.
+Consider fixing these before pushing to remote.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### What Gets Evaluated
+
+**JSON Files:**
+- Syntax validation
+- Skill-specific field checks
+- Enum value compliance
+- Required field presence
+
+**Markdown Files:**
+- Detected and reported
+- No validation (informational only)
+
+**Scripts:**
+- Detected but not evaluated
+- Mention in summary only
 
 ---
 
