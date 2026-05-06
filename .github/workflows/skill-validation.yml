@@ -1,0 +1,241 @@
+name: Skill Validation & Evaluation
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'skills/**'
+      - '.github/workflows/skill-validation.yml'
+      - 'package.json'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'skills/**'
+      - '.github/workflows/skill-validation.yml'
+
+jobs:
+  validate-skills:
+    name: Validate Skill Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for comparing changes
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Find JSON files in skills/
+        id: find_json
+        run: |
+          JSON_FILES=$(find skills/ -name "*.json" -type f 2>/dev/null || echo "")
+          echo "files=$(echo "$JSON_FILES" | tr '\n' ' ')" >> $GITHUB_OUTPUT
+          if [ -z "$JSON_FILES" ]; then
+            echo "No JSON files found in skills/ directory"
+          else
+            echo "Found JSON files: $JSON_FILES"
+          fi
+
+      - name: Validate JSON syntax
+        run: |
+          JSON_FILES=$(find skills/ -name "*.json" -type f 2>/dev/null || true)
+          if [ -z "$JSON_FILES" ]; then
+            echo "✓ No JSON files to validate"
+            exit 0
+          fi
+
+          FAILED=0
+          for file in $JSON_FILES; do
+            echo "Checking: $file"
+            if jq empty "$file" 2>/dev/null; then
+              echo "  ✓ Valid JSON"
+            else
+              echo "  ✗ Invalid JSON syntax"
+              python3 -m json.tool "$file" 2>&1 || true
+              FAILED=1
+            fi
+          done
+
+          if [ $FAILED -eq 1 ]; then
+            echo "❌ JSON validation failed"
+            exit 1
+          fi
+          echo "✓ All JSON files are valid"
+
+      - name: Run skill-specific validation
+        run: |
+          JSON_FILES=$(find skills/ -name "*.json" -type f 2>/dev/null || true)
+          if [ -z "$JSON_FILES" ]; then
+            echo "✓ No JSON files to validate"
+            exit 0
+          fi
+
+          VALIDATE_SCRIPT="skills/garment-features/scripts/validate_output.py"
+          if [ ! -f "$VALIDATE_SCRIPT" ]; then
+            echo "⚠️  Validation script not found: $VALIDATE_SCRIPT"
+            exit 0
+          fi
+
+          FAILED=0
+          for file in $JSON_FILES; do
+            echo "Validating: $file"
+            if python3 "$VALIDATE_SCRIPT" "$file" > /tmp/validation.txt 2>&1; then
+              echo "  ✓ Skill validation passed"
+            else
+              echo "  ✗ Skill validation failed"
+              cat /tmp/validation.txt
+              FAILED=1
+            fi
+          done
+
+          if [ $FAILED -eq 1 ]; then
+            echo "❌ Skill validation failed"
+            exit 1
+          fi
+          echo "✓ All skill validations passed"
+
+      - name: Check for documentation changes
+        run: |
+          DOC_FILES=$(find skills/ -name "*.md" -type f 2>/dev/null || true)
+          if [ ! -z "$DOC_FILES" ]; then
+            echo "📝 Documentation files in skills/:"
+            echo "$DOC_FILES" | while read file; do
+              echo "  • $file"
+            done
+          else
+            echo "No documentation files found in skills/"
+          fi
+
+      - name: Summary
+        if: success()
+        run: |
+          echo "✅ All skill validation checks passed"
+          echo ""
+          echo "Summary:"
+          echo "  • JSON syntax: valid"
+          echo "  • Skill fields: valid"
+          echo "  • Enum values: valid"
+          echo ""
+          echo "Ready to merge!"
+
+      - name: Validation failed
+        if: failure()
+        run: |
+          echo "❌ Skill validation failed"
+          echo ""
+          echo "Please fix the errors above and try again:"
+          echo "  • Ensure all JSON files are valid"
+          echo "  • Verify enum fields match allowed values"
+          echo "  • Check that all required fields are present"
+          exit 1
+
+  evaluate-skills:
+    name: Evaluate Skill Changes
+    runs-on: ubuntu-latest
+    needs: validate-skills
+    if: success() && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Detect changed skill files
+        id: changes
+        run: |
+          # Compare with main branch to find changes
+          if [ "${{ github.base_ref }}" ]; then
+            # In a PR
+            CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- skills/ || echo "")
+          else
+            # On a push to main
+            CHANGED_FILES=$(git diff --name-only HEAD~1...HEAD -- skills/ || echo "")
+          fi
+
+          echo "changed_files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No skill files changed"
+          else
+            echo "Changed files:"
+            echo "$CHANGED_FILES"
+          fi
+
+      - name: Run evaluations on changed files
+        if: steps.changes.outputs.changed_files != ''
+        run: |
+          CHANGED_FILES="${{ steps.changes.outputs.changed_files }}"
+          VALIDATE_SCRIPT="skills/garment-features/scripts/validate_output.py"
+
+          if [ ! -f "$VALIDATE_SCRIPT" ]; then
+            echo "⚠️  Validation script not found"
+            exit 0
+          fi
+
+          echo "📊 Running evaluations on changed skill files..."
+          echo ""
+
+          TOTAL=0
+          VALID=0
+          for file in $CHANGED_FILES; do
+            if [[ "$file" == *.json ]]; then
+              TOTAL=$((TOTAL + 1))
+              echo -n "  [$TOTAL] $(basename "$file") ... "
+
+              if python3 "$VALIDATE_SCRIPT" "$file" > /tmp/eval_result.txt 2>&1; then
+                echo "✓"
+                VALID=$((VALID + 1))
+              else
+                echo "✗"
+                echo "Error:"
+                cat /tmp/eval_result.txt | sed 's/^/    /'
+              fi
+            fi
+          done
+
+          echo ""
+          echo "📈 Evaluation Summary"
+          echo "  Total files: $TOTAL"
+          echo "  Valid: $VALID"
+
+          if [ $TOTAL -gt 0 ] && [ $VALID -eq $TOTAL ]; then
+            echo ""
+            echo "✅ All skill evaluations passed!"
+          fi
+
+      - name: No skill changes
+        if: steps.changes.outputs.changed_files == ''
+        run: |
+          echo "ℹ️  No skill files changed in this push"
+          echo "Skipping evaluation phase"
+
+  branch-protection:
+    name: Branch Protection Check
+    runs-on: ubuntu-latest
+    needs: [validate-skills]
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Report validation status
+        run: |
+          echo "✅ All validation checks passed"
+          echo ""
+          echo "This PR is ready to merge once reviewed."
+          echo ""
+          echo "Checks performed:"
+          echo "  ✓ JSON syntax validation"
+          echo "  ✓ Skill field validation"
+          echo "  ✓ Enum value compliance"

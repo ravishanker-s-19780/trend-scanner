@@ -128,3 +128,40 @@ Each source file is an array of items with the structure above. `_summary.json` 
 - **Blank/missing products:** A selector may have changed on the site. Use `--headful` to inspect the current HTML and update the selector in the scraper function.
 - **Browser crashes:** Ensure `node_modules/` and Chromium are present; re-run `npm install`.
 - **Session errors in IndiaMART:** The login modal logic may fail if the modal structure changes; check with `--headful` and adjust the selector in `scrapeIndiamart()`.
+
+## Skills
+
+This project includes Claude Code Skills to enhance your workflow. See [README.md](README.md) for the complete skills documentation.
+
+### garment-features
+
+Extracts structured design features from ladies' nightwear product photos. Use `/garment-features` in Claude Code to analyze images and get JSON output with attributes like neck type, design pattern, sleeve length, colors, and more.
+
+**Installation:**
+1. Download [`garment-features.skill`](skills/garment-features.skill) and double-click to install in Claude Code, or
+2. Create from local folder → point to `skills/garment-features/`
+
+**Usage:** `Extract garment features from this image`
+
+## Code Quality & CI
+
+**Local Validation (before committing):**
+```bash
+# Pre-commit hook validates JSON and runs skill validation
+# Post-commit hook evaluates changes after commit
+# No special commands needed; hooks run automatically
+```
+
+See [HOOKS.md](HOOKS.md) for git hook details.
+
+**GitHub CI (after pushing):**
+- GitHub Actions workflow automatically validates all skill changes on push and PR
+- Checks: JSON syntax, skill fields, enum values
+- See [`.github/workflows/README.md`](.github/workflows/README.md) for CI pipeline details
+- Status visible in GitHub PR checks and Actions tab
+
+**Workflow:**
+1. Make changes to `skills/` directory
+2. `git commit` → pre-commit hook validates → post-commit hook evaluates (local feedback)
+3. `git push` → GitHub Actions runs same validation (team visibility)
+4. PR is blocked if validation fails (with branch protection enabled)
