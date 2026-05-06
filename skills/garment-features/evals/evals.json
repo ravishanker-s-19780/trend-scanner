@@ -1,0 +1,39 @@
+{
+  "skill_name": "garment-features",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "high-quality-single-image",
+      "prompt": "I have a product photo of a ladies' cotton nighty from Amazon. It's a blue nighty with white floral print, round neckline, short sleeves, and straight silhouette. The image is clear and high-resolution (720px). Extract the garment features and return JSON with all fields (neck_type, design_pattern, front_top_treatment, front_bottom_style, primary_color, secondary_color, sleeve_length, cloth_texture, confidence, notes).",
+      "expected_output": "A JSON object with all 10 fields populated. Expected: neck_type='round', design_pattern='floral', primary_color='blue', secondary_color='white', sleeve_length='half', confidence='high', notes should be null or empty since image is clear. The JSON must be valid and all enum fields must match allowed values.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "batch-processing-multiple-images",
+      "prompt": "I have 3 product images from our e-commerce catalog and need to extract features from all of them at once. Image 1: dark blue plain nighty, round neck, half sleeves. Image 2: pink nighty with geometric print, v-neck, 3/4 sleeves. Image 3: cream colored nighty with embroidery on the front panel, boat neck, full sleeves. Please extract features from all three and return the results clearly labeled by image number.",
+      "expected_output": "A JSON array or clearly labeled set of objects (one per image) with all features. Must include: (1) clearly labeled image identifiers (e.g., 'image_1', 'image_2', 'image_3'), (2) all 10 fields for each product, (3) each object must be valid JSON with enum values matching the allowed list. Expected confidence levels should be 'high' since these are well-described images.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "low-quality-thumbnail",
+      "prompt": "This is a very small (320px) compressed thumbnail of a ladies' nighty from a marketplace. The image quality is poor—colors look distorted, the pattern is blurry, and it's hard to see fine details like whether the neckline is round or square. Extract the best features you can from this image and be honest about what's uncertain.",
+      "expected_output": "A JSON object with all 10 fields. Confidence should be 'low' or 'medium' (not 'high'). The notes field must contain an explanation of the image quality issues (e.g., 'small thumbnail, colors distorted, pattern blurry, neckline shape uncertain'). Enum values should still be from allowed list, but may use 'other' or 'unsure' more frequently than in high-quality images.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "eval_name": "non-nightwear-image",
+      "prompt": "I accidentally included a t-shirt photo in my product catalog. It's a women's casual t-shirt (not nightwear). Extract whatever features you can, but let me know in the notes that this isn't nightwear and may not match our nighty classification system.",
+      "expected_output": "A JSON object with 10 fields. The confidence should be 'low' because it's not the intended garment type. The notes field must explicitly state something like 'This is a t-shirt, not nightwear; extraction may be inaccurate' or 'Skill optimized for nightwear; this appears to be daywear'. The extraction should still attempt enum values but confidence and notes should reflect the non-nightwear nature.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "eval_name": "monochrome-plain-garment",
+      "prompt": "This is a plain, solid-color nighty with no print, embroidery, or pattern. It's white/cream colored throughout, round neckline, short sleeves, straight silhouette. The image is clear. Extract features for this monochrome garment.",
+      "expected_output": "A JSON object with all 10 fields. Expected: primary_color='white' or 'cream', secondary_color='none' (not an empty string, but the literal string 'none'), design_pattern='plain', front_top_treatment='plain', confidence='high', notes=null. This tests the skill's ability to handle plaincolor garments correctly."
+    }
+  ]
+}

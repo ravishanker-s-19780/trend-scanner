@@ -1,0 +1,29 @@
+ANTHROPIC SKILL LICENSE
+
+Copyright © 2026 Anthropic PBC
+
+This skill is provided as part of the Anthropic Claude skill library and is subject to the following terms:
+
+1. PERMITTED USE
+   - Use this skill in Claude Code, Claude.ai, and other Anthropic products
+   - Integrate with your own applications using the Claude API with valid API credentials
+   - Modify for internal use within your organization
+
+2. RESTRICTIONS
+   - Do not redistribute this skill without proper attribution to Anthropic
+   - Do not reverse-engineer or extract proprietary methodologies from this skill
+   - Do not use this skill to train competing language models
+
+3. LIABILITY
+   This skill is provided "as is" without warranty of any kind, express or implied.
+   Anthropic is not liable for any inaccuracies in feature extraction, misidentified
+   garment attributes, or downstream decisions based on extracted features.
+
+   Feature extraction results should be validated by domain experts for production use,
+   especially in cases where confidence is marked as "medium" or "low".
+
+4. USAGE ATTRIBUTION
+   If you use this skill in a production system or published work, please acknowledge
+   Anthropic as the original developer.
+
+For full terms, refer to Anthropic's API Terms of Service at https://www.anthropic.com/legal
