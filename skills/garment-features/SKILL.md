@@ -170,6 +170,30 @@ When you ask to extract from multiple images at once, the skill returns a **JSON
 
 Or as **individual JSON objects** (one per line) if preferred for processing.
 
+### Enriched Product Mode (with Evidence Integration)
+
+When processing evidence files from scrapers, the skill outputs a **single flat JSON object** (or array) with all original product fields merged with the 10 extracted feature fields at the same level:
+
+```json
+{
+  "source": "amazon",
+  "keyword": "ladies cotton nighty",
+  "title": "...",
+  "url": "...",
+  "price": "...",
+  "rating": "...",
+  "review_count": "...",
+  "image": "...",
+  "neck_type": "...",
+  "design_pattern": "...",
+  ... (all 10 feature fields) ...
+  "confidence": "high",
+  "notes": null
+}
+```
+
+This format is saved to `evidence/image_features/<source>/<keyword-slug>.json` and can be directly loaded as a flat product array.
+
 ---
 
 ## Examples
@@ -288,9 +312,9 @@ Or as **individual JSON objects** (one per line) if preferred for processing.
 4. **Reuse results** — Save intermediate JSON files in case the process is interrupted
 
 ### Output Management:
-- Save results to a **features/** directory with the same structure as your evidence files
-- Name files the same as evidence: `features/amazon/ladies-cotton-nighty.json`
-- Use timestamps or versioning if re-processing: `features/v2/amazon/...`
+- Save results to **evidence/image_features/** with the same sub-structure as your evidence files
+- Name files the same as evidence: `evidence/image_features/amazon/ladies-cotton-nighty.json`
+- Use timestamps or versioning if re-processing: `evidence/image_features/v2/amazon/...`
 
 ---
 
@@ -299,24 +323,34 @@ Or as **individual JSON objects** (one per line) if preferred for processing.
 If you're using this skill with scraped product data:
 
 1. **Evidence files** contain product info + image URLs
-2. **Feature extraction** analyzes each image URL and adds a `features` field to each product record
-3. **Output** is enriched JSON that combines both evidence and extracted features
+2. **Feature extraction** analyzes each image URL and appends all extracted feature fields to each product record
+3. **Output** is enriched JSON that combines both evidence and extracted features at the top level
 
-Example enriched product:
+Example enriched product (all original fields + all 10 feature fields merged flat):
 ```json
 {
   "source": "amazon",
   "keyword": "ladies cotton nighty",
   "title": "Bahumaan Pure Cotton Nighty...",
   "url": "https://www.amazon.in/...",
+  "price": "₹499",
+  "rating": "4.2",
+  "review_count": "1,234",
   "image": "https://m.media-amazon.com/images/I/61nKeRpCaiL._AC_UL320_.jpg",
-  "features": {
-    "neck_type": "round",
-    "design_pattern": "floral",
-    ...
-  }
+  "neck_type": "round",
+  "design_pattern": "floral",
+  "front_top_treatment": "print",
+  "front_bottom_style": "straight",
+  "primary_color": "blue",
+  "secondary_color": "white",
+  "sleeve_length": "half",
+  "cloth_texture": "cotton",
+  "confidence": "high",
+  "notes": null
 }
 ```
+
+Output enriched records are saved to `evidence/image_features/<source>/<keyword-slug>.json`, mirroring the evidence file structure. Feature fields are merged at the top level of each product record — not nested under a `features` key — so the file is a plain array of enriched products.
 
 ---
 
