@@ -1,0 +1,75 @@
+{
+  "skill_name": "ecommerce-nighty-crawler",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "basic-single-platform-crawl",
+      "prompt": "Crawl Amazon.in for women nighty products. Extract cloth type, design name, price, and review count for up to 10 products. Return structured JSON.",
+      "expected_output": "A JSON object with a 'products' array. Each product must have: product_id, platform ('amazon.in'), product_title, product_url, cloth_type (one of: Cotton/Silk/Linen/Polyester/Rayon/Satin/Blend/Bamboo), design_name, price (number), and reviews.count (number). All fields must be present; null is acceptable only if the platform does not expose that field.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "multi-platform-crawl-all-10",
+      "prompt": "Crawl all 10 e-commerce platforms (Amazon, Myntra, Flipkart, Ajio, Meesho, Nykaa Fashion, Clovia, Zivame, Tata CLiQ, Shyaway) for women nighty products. Max 5 products per platform. Return results grouped by platform.",
+      "expected_output": "A JSON object where results are grouped by platform key (e.g. 'amazon', 'myntra', etc.). All 10 platform keys must be present. Each platform contains an array of products. metadata must include platforms_crawled (array of 10), total_products (number), and crawl_date. Errors array may list platforms that were blocked or timed out.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "review-content-with-datetime",
+      "prompt": "Crawl Myntra for ladies cotton nighty and extract detailed review data. For each product I need: review text content, reviewer name, exact review date and time, star rating, and helpful count. Return max 5 products with up to 3 reviews each.",
+      "expected_output": "Each product must have a reviews.details array. Each review object must have: reviewer_name (string), rating (1-5), review_text (non-empty string, not truncated), review_date (ISO 8601 format e.g. '2026-04-15T10:30:00Z'), helpful_count (number). If date has no time component, append 'T00:00:00Z'. Missing review_text or review_date should be null, not omitted.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "eval_name": "purchaser-demographics-location-age",
+      "prompt": "Crawl Meesho for cotton nighty products and extract purchaser demographics — specifically location (city/state), age range, and purchase purpose. I want to know if any purchases are wedding-related.",
+      "expected_output": "Each product must have a purchaser_profile with: primary_location (string, e.g. 'Chennai, Bangalore'), age_range (one of: 18-25/26-35/36-50/50+). purchase_context must include: purpose_of_purchase (array of strings), wedding_relevant (boolean), occasion_tags (array). If wedding keywords appear in reviews or tags, wedding_relevant must be true. Fields inferred from review text are acceptable — note inference in a comment or notes field.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "eval_name": "wedding-relevant-products",
+      "prompt": "Find wedding-relevant nighty products from premium platforms — Nykaa Fashion, Tata CLiQ, and Shyaway. I need bridal or honeymoon nighties with images (base64 encoded) and occasion tags.",
+      "expected_output": "Products returned must have purchase_context.wedding_relevant = true. Each product must have media.images array with at least one entry containing a base64 field (data:image/... format). occasion_tags must include at least one of: wedding/bridal/honeymoon/engagement/bridal-shower. Products without any wedding signal must be excluded from results.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "eval_name": "images-base64-encoding",
+      "prompt": "Crawl Flipkart for women nighty, max 5 products. Download and encode all product images as base64. Also fetch video thumbnails if videos are available.",
+      "expected_output": "Each product must have media.images array. Each image object must have: url (string), base64 (string starting with 'data:image/'), alt_text (string). If videos are present, media.videos must have entries with thumbnail_base64 in the same format. Base64 strings must be valid (decodable). If image download fails, base64 should be null with url still present.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "eval_name": "purchase-metrics-max-purchased",
+      "prompt": "Crawl Amazon for women nighty and extract purchase metrics — max purchased count, recent purchase count (last 30 days), and the raw badge label shown on the product page (e.g. '1000+ bought in past month').",
+      "expected_output": "Each product must have purchase_metrics with: max_purchased (number or null), recent_purchase_count (number or null), recent_purchase_label (raw string from page badge, e.g. '500+ bought in past month', or null if not shown), total_sold (number or null). At least some products should have non-null recent_purchase_label if Amazon is showing purchase activity badges.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "eval_name": "incremental-deduplication",
+      "prompt": "Re-crawl Amazon for women nighty (assume a previous crawl exists). Show me only the new products found in this run and any products where the price has changed since last crawl.",
+      "expected_output": "Response must include two groups: (1) new products with is_new_in_this_run=true and crawl_sequence > 1, (2) price-changed products with price_changed=true, previous_price and current_price both present, and current_price different from previous_price. Products with no changes must NOT appear. metadata must include new_products_added, updated_products, and duplicate_urls_skipped counts.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "eval_name": "cloth-type-and-design-name-extraction",
+      "prompt": "Crawl Ajio and Clovia for women nighty. For every product extract cloth type and design name accurately. Map fabric mentions like '100% cotton' to 'Cotton', 'georgette' to 'Blend', 'satin finish' to 'Satin'.",
+      "expected_output": "Every product must have cloth_type as one of the allowed enum values: Cotton/Silk/Linen/Polyester/Rayon/Satin/Blend/Bamboo. design_name must be one of: Floral Print/Solid/Striped/Checked/Embroidered/Lace/Geometric/Plain. Neither field may be null if the product title or description contains fabric/pattern information. Mapping accuracy — '100% cotton' must become 'Cotton', 'floral printed' must become 'Floral Print'.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "eval_name": "platform-blocked-graceful-skip",
+      "prompt": "Crawl all 10 platforms for women nighty. If any platform shows a CAPTCHA or access-denied page, skip it gracefully and continue with the others. Report which platforms were blocked.",
+      "expected_output": "The response must complete without crashing. errors array must list any blocked platforms with reason (e.g. 'CAPTCHA', '403 Forbidden'). Successfully crawled platforms must have products. metadata.platforms_crawled must list only platforms that returned data. The skill must not halt on a single platform failure — other platforms' results must still be returned.",
+      "files": []
+    }
+  ]
+}

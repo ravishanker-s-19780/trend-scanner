@@ -8,52 +8,46 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Validate skill configuration
+// Validate skill configuration from SKILL.md frontmatter
 function validateSkillConfig() {
   console.log('🔍 Validating skill configuration...\n');
-  
-  const skillFile = path.join(__dirname, 'ecommerce-nighty-crawler.skill');
-  
-  if (!fs.existsSync(skillFile)) {
-    console.error('❌ Skill file not found:', skillFile);
+
+  const skillMd = path.join(__dirname, 'SKILL.md');
+
+  if (!fs.existsSync(skillMd)) {
+    console.error('❌ SKILL.md not found');
     return false;
   }
-  
-  try {
-    const skillConfig = JSON.parse(fs.readFileSync(skillFile, 'utf8'));
-    
-    // Required fields
-    const requiredFields = ['name', 'title', 'description', 'version', 'inputs', 'outputs'];
-    const missingFields = requiredFields.filter(field => !skillConfig[field]);
-    
-    if (missingFields.length > 0) {
-      console.error('❌ Missing required fields:', missingFields);
-      return false;
-    }
-    
-    // Validate inputs structure
-    if (!skillConfig.inputs || typeof skillConfig.inputs !== 'object') {
-      console.error('❌ Invalid inputs structure');
-      return false;
-    }
-    
-    // Validate outputs structure
-    if (!skillConfig.outputs || typeof skillConfig.outputs !== 'object') {
-      console.error('❌ Invalid outputs structure');
-      return false;
-    }
-    
-    console.log('✅ Skill configuration valid');
-    console.log(`  - Name: ${skillConfig.name}`);
-    console.log(`  - Version: ${skillConfig.version}`);
-    console.log(`  - Input parameters: ${Object.keys(skillConfig.inputs).length}`);
-    console.log(`  - Supported platforms: ${skillConfig.supportedPlatforms?.length || 0}\n`);
-    
-    return true;
-  } catch (error) {
-    console.error('❌ Error parsing skill file:', error.message);
+
+  const content = fs.readFileSync(skillMd, 'utf8');
+  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+
+  if (!frontmatterMatch) {
+    console.error('❌ SKILL.md missing frontmatter (--- block)');
     return false;
   }
+
+  const frontmatter = frontmatterMatch[1];
+  const name = (frontmatter.match(/^name:\s*(.+)$/m) || [])[1]?.trim();
+  const description = (frontmatter.match(/^description:\s*(.+)$/m) || [])[1]?.trim();
+  const compatibility = (frontmatter.match(/^compatibility:\s*(.+)$/m) || [])[1]?.trim();
+
+  const missing = [];
+  if (!name) missing.push('name');
+  if (!description) missing.push('description');
+  if (!compatibility) missing.push('compatibility');
+
+  if (missing.length > 0) {
+    console.error('❌ SKILL.md frontmatter missing fields:', missing);
+    return false;
+  }
+
+  console.log('✅ Skill configuration valid');
+  console.log(`  - Name: ${name}`);
+  console.log(`  - Description: ${description.slice(0, 60)}...`);
+  console.log(`  - Compatibility: ${compatibility}\n`);
+
+  return true;
 }
 
 // Validate required files
@@ -64,7 +58,6 @@ function validateFiles() {
     'SKILL.md',
     'README.md',
     'CONFIG.md',
-    'ecommerce-nighty-crawler.skill',
     'scripts/crawler.js',
     'examples.js'
   ];
@@ -143,7 +136,7 @@ function validateDocumentation() {
   console.log('📚 Validating documentation...\n');
   
   const files = {
-    'SKILL.md': ['Overview', 'Supported', 'Data Extraction', 'Installation', 'Usage'],
+    'SKILL.md': ['Platforms to Crawl', 'Required Output Fields', 'Incremental Storage', 'Crawl Execution', 'Error Handling'],
     'README.md': ['Features', 'Configuration', 'Output Format', 'Examples', 'Performance'],
     'CONFIG.md': ['Platform', 'Rate Limit', 'Extraction Rules', 'Error Handling']
   };

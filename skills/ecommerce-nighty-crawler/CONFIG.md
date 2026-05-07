@@ -1,6 +1,172 @@
 # Configuration for E-Commerce Nighty Crawler
 
-This file defines platform-specific configurations and extraction rules for the crawler.
+## Incremental Storage Strategy (Recommended Approach)
+
+This crawler uses **append-only JSONL storage** with automatic deduplication instead of file overwrite.
+
+### Why Incremental Storage?
+
+| Aspect | File Overwrite ❌ | Incremental Append ✅ |
+|--------|---|---|
+| Historical data | Lost on each run | Preserved forever |
+| Price tracking | No | Yes (detect changes) |
+| New products | Can't identify | Clearly flagged |
+| Review growth | No | Full trend history |
+| Duplicate detection | Per-run only | Global across runs |
+| Storage efficiency | Minimal | Slight overhead |
+
+### File Structure
+
+```
+evidence/
+├── amazon/
+│   ├── women-nighty.jsonl           ← Product records (one per line)
+│   ├── women-nighty.meta.json       ← Metadata, crawl history
+│   ├── cotton-nightgown.jsonl
+│   ├── cotton-nightgown.meta.json
+│   └── ...
+├── myntra/
+│   ├── ladies-sleep-wear.jsonl
+│   ├── ladies-sleep-wear.meta.json
+│   └── ...
+├── _dedup_index.json                ← Global product URL index
+├── _crawl_log.json                  ← Timeline of all crawls
+└── _summary.json                    ← Aggregated statistics
+```
+
+### JSONL Format (Newline-Delimited JSON)
+
+Each line is a complete JSON object:
+
+```jsonl
+{"product_id":"amazon-abc123","url":"https://amazon.in/dp/B123","title":"Cotton Nighty","price":399,"is_new_in_this_run":true,"price_changed":false,"times_seen":1,"crawl_sequence":5,"first_seen":"2026-05-01T10:30:00Z","last_updated":"2026-05-08T10:30:00Z"}
+{"product_id":"amazon-def456","url":"https://amazon.in/dp/B456","title":"Silk Nightgown","price":599,"is_new_in_this_run":false,"price_changed":true,"previous_price":649,"current_price":599,"times_seen":3,"crawl_sequence":5,"first_seen":"2026-04-25T14:20:00Z","last_updated":"2026-05-08T10:30:00Z"}
+```
+
+**Advantages of JSONL**:
+- Streaming-friendly (process line by line)
+- Append without rebuilding entire file
+- Compatible with tools like `jq`, `grep`
+- Easy to parse in any language
+
+### Metadata File Structure
+
+```json
+{
+  "platform": "amazon",
+  "keyword": "women cotton nighty",
+  "created_at": "2026-05-01T10:30:00Z",
+  "crawl_history": [
+    "2026-05-01T10:30:00Z",
+    "2026-05-02T10:30:00Z",
+    "2026-05-08T10:30:00Z"
+  ],
+  "total_unique_products": 145,
+  "new_in_last_crawl": ["amazon-xyz789"],
+  "updated_in_last_crawl": ["amazon-abc123", "amazon-def456"],
+  "last_updated": "2026-05-08T10:30:00Z"
+}
+```
+
+### Deduplication Index
+
+```json
+{
+  "amazon-abc123": "amazon/women-nighty",
+  "amazon-def456": "amazon/women-nighty",
+  "myntra-ghi789": "myntra/ladies-sleep-wear",
+  ...
+}
+```
+
+**Key**: Product ID (hash of URL)  
+**Value**: Path where product is stored
+
+### Crawl Log
+
+```json
+[
+  {
+    "crawl_id": "crawl-2026-05-01T10-30-00Z-abc123",
+    "platform": "amazon",
+    "keyword": "women cotton nighty",
+    "timestamp": "2026-05-01T10:30:00Z",
+    "products_fetched": 50,
+    "new_products": 35,
+    "updated_products": 10,
+    "skipped_duplicates": 5
+  },
+  {
+    "crawl_id": "crawl-2026-05-02T10-30-00Z-def456",
+    "platform": "amazon",
+    "keyword": "women cotton nighty",
+    "timestamp": "2026-05-02T10:30:00Z",
+    "products_fetched": 50,
+    "new_products": 8,
+    "updated_products": 15,
+    "skipped_duplicates": 27
+  }
+]
+```
+
+### Deduplication Logic
+
+1. **Product ID Generation**: Hash of normalized URL
+2. **Normalization**: Remove tracking parameters, standardize domain
+3. **Index Lookup**: Check if URL exists in global index
+4. **If New**: Flag as `is_new_in_this_run: true`, append to JSONL
+5. **If Exists**: Compare fields, append only if changed
+6. **Dedup Index**: Updated with all discovered products
+
+### Change Detection
+
+**Fields Monitored for Changes**:
+- `price` → Sets `price_changed: true`, stores `previous_price`
+- `review_count` → Sets `review_count_changed: true`, stores `previous_review_count`
+- `average_rating` → Triggers update if different
+- `title` → Minor field, triggers update
+
+**Example Product with Changes**:
+```json
+{
+  "product_id": "amazon-def456",
+  "url": "https://amazon.in/dp/B456",
+  "title": "Silk Nightgown",
+  "is_new_in_this_run": false,
+  "times_seen": 3,
+  "price_changed": true,
+  "previous_price": 649,
+  "current_price": 599,
+  "review_count_changed": true,
+  "previous_review_count": 120,
+  "current_review_count": 145,
+  "first_seen": "2026-04-25T14:20:00Z",
+  "last_updated": "2026-05-08T10:30:00Z",
+  "crawl_sequence": 5
+}
+```
+
+### Querying Examples
+
+**Get all products**:
+```bash
+cat evidence/amazon/women-nighty.jsonl | jq '.'
+```
+
+**Get only new products**:
+```bash
+cat evidence/amazon/women-nighty.jsonl | jq 'select(.is_new_in_this_run==true)'
+```
+
+**Get price drops**:
+```bash
+cat evidence/amazon/women-nighty.jsonl | jq 'select(.price_changed==true and .current_price < .previous_price)'
+```
+
+**Get trending products** (seen 3+ times with growing reviews):
+```bash
+cat evidence/amazon/women-nighty.jsonl | jq 'select(.times_seen >= 3 and .review_count_changed==true and .current_review_count > .previous_review_count * 1.1)'
+```
 
 ## Platform Configurations
 

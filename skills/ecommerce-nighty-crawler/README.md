@@ -31,6 +31,48 @@ console.log(`Collected ${results.products.length} products`);
 node scripts/crawler.js --platforms=amazon,myntra --keywords="cotton nighty" --max=10
 ```
 
+### Incremental Storage (Recommended)
+
+Use the `IncrementalStorageManager` for append-based storage with automatic deduplication:
+
+```javascript
+import IncrementalStorageManager from './scripts/incremental-storage.js';
+
+const storage = new IncrementalStorageManager();
+
+// During crawl, save each product
+const result = storage.saveProduct('amazon', 'women cotton nighty', {
+  url: 'https://amazon.in/dp/B123',
+  title: 'Cotton Floral Nighty',
+  price: 399,
+  review_count: 150,
+  average_rating: 4.2
+});
+
+console.log(result.isNew ? '✨ New product' : '📝 Updated');
+
+// After crawl, save summary
+storage.saveCrawlSummary('amazon', 'women cotton nighty', {
+  products_fetched: 50,
+  new_products: 12,
+  updated_products: 5,
+  skipped_duplicates: 33
+});
+
+// Query results
+const newProducts = storage.getNewProducts('amazon', 'women cotton nighty');
+const priceChanges = storage.getPriceChanges('amazon', 'women cotton nighty');
+const trending = storage.getTrendingProducts('amazon', 'women cotton nighty');
+```
+
+**Key Advantages**:
+- ✅ Append-only JSONL format (never overwrites data)
+- ✅ Automatic deduplication by URL
+- ✅ Tracks new vs updated products
+- ✅ Preserves historical data for trend analysis
+- ✅ Detects price & review changes
+- ✅ Export as JSON or CSV
+
 ## Features
 
 ### Data Extraction
@@ -86,7 +128,48 @@ node scripts/crawler.js --platforms=amazon,myntra --keywords="cotton nighty" --m
 
 See [CONFIG.md](CONFIG.md) for detailed platform-specific settings, rate limits, and extraction rules.
 
-### Options
+### Storage
+
+Crawled data is automatically saved to the `evidence/` directory:
+
+```
+evidence/
+├── amazon/
+│   └── women-cotton-nighty.json        # Array of products
+├── myntra/
+│   └── ladies-sleep-wear.json
+├── _summary.json                       # Metadata from all runs
+```
+
+**Default storage**: `./evidence/` (configurable via `outputDir` option)
+
+**Each file contains**:
+- Timestamp of crawl
+- Array of products (cloth type, design, reviews, demographics, images, etc.)
+- Metadata (total count, data quality)
+
+### Crawl Quantity
+
+**Default per platform**: 50 products per keyword
+
+Options to adjust:
+```javascript
+{
+  maxProducts: 20,        // Reduce for faster crawls
+  // Total = platforms × keywords × maxProducts
+  // Example: 2 platforms × 2 keywords × 20 = 80 products
+}
+```
+
+### Data Updates
+
+Each run **appends** to existing data using incremental storage:
+- **Incremental**: New products are appended; existing ones are updated only if price/rating changed
+- **Deduplication**: Global across all runs via `_dedup_index.json`
+- **Price tracking**: Historical price changes are preserved
+- **No data loss**: Previous crawl records are never deleted
+
+See [CONFIG.md](CONFIG.md) for full incremental storage details and JSONL querying examples.
 
 ```javascript
 {
@@ -173,7 +256,59 @@ See [CONFIG.md](CONFIG.md) for detailed platform-specific settings, rate limits,
 }
 ```
 
-## Examples
+## How to Use This Skill (Claude Prompts)
+
+Once installed in Claude Code, use natural language. Claude activates the skill automatically — no skill name needed.
+
+### Basic Crawls
+```
+Crawl Amazon and Myntra for women nighty products
+```
+```
+Extract nighty product data from all 10 platforms
+```
+```
+Crawl Meesho and Flipkart for cotton nighty, max 20 products each
+```
+
+### With Specific Fields
+```
+Crawl Amazon for women nighty and get cloth type, design name, review content with dates, and purchaser location
+```
+```
+Extract nighty products from Myntra with base64 images and videos
+```
+```
+Get purchaser age range and purchase purpose (especially wedding) from Nykaa Fashion nighties
+```
+
+### Wedding / Occasion Focus
+```
+Find wedding-relevant nighty products from premium platforms — Nykaa, Tata CLiQ, Shyaway
+```
+```
+Crawl all platforms for bridal nighty and extract purchaser demographics and occasion tags
+```
+
+### Review Analysis
+```
+Crawl Amazon nighty products and extract full review text, reviewer name, date, and helpful count
+```
+```
+Get top 50 Meesho nighties with recent purchase count and purchaser location
+```
+
+### Incremental / Repeat Runs
+```
+Re-crawl Amazon nighty — show me what's new since last run and any price changes
+```
+```
+Update the evidence database for all platforms, skip products already crawled
+```
+
+---
+
+## Code Examples
 
 ### Crawl Multiple Platforms
 ```javascript

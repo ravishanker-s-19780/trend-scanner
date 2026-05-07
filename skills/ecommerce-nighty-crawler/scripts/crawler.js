@@ -8,12 +8,17 @@
  * - Purchaser demographics (location, age, purpose)
  * - Media assets (images as base64, videos)
  * - Wedding relevance indicators
+ * 
+ * Results are stored in: evidence/<platform>/<keyword>.json
  */
 
-const playwright = require('playwright');
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
+import playwright from 'playwright';
+import fs from 'fs';
+import path from 'path';
+import crypto from 'crypto';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Platform-specific configurations
 const PLATFORMS = {
@@ -379,6 +384,55 @@ const isWeddingRelevant = (title) => {
   return /wedding|bridal|marriage|engagement|honeymoon/i.test(title);
 };
 
+// Helper to slugify keywords for filenames
+const slugify = (text) => {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]/g, '')
+    .replace(/--+/g, '-');
+};
+
+// Helper to save results to evidence directory
+const saveToEvidence = (platform, keyword, products, outputDir = null) => {
+  const baseDir = outputDir || path.join(__dirname, '../../..', 'evidence');
+  const platformDir = path.join(baseDir, platform);
+  
+  // Create directories if they don't exist
+  if (!fs.existsSync(platformDir)) {
+    fs.mkdirSync(platformDir, { recursive: true });
+  }
+  
+  const filename = `${slugify(keyword)}.json`;
+  const filepath = path.join(platformDir, filename);
+  
+  // Write JSON file
+  fs.writeFileSync(filepath, JSON.stringify(products, null, 2));
+  console.log(`  ✓ Saved ${products.length} products to: ${filepath}`);
+  
+  return filepath;
+};
+
+// Helper to save summary metadata
+const saveSummary = (allResults, outputDir = null) => {
+  const baseDir = outputDir || path.join(__dirname, '../../..', 'evidence');
+  
+  if (!fs.existsSync(baseDir)) {
+    fs.mkdirSync(baseDir, { recursive: true });
+  }
+  
+  const summaryPath = path.join(baseDir, '_summary.json');
+  const summary = {
+    last_crawl: new Date().toISOString(),
+    total_files: Object.keys(allResults).length,
+    results: allResults
+  };
+  
+  fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2));
+  console.log(`✓ Summary saved to: ${summaryPath}`);
+};
+
 // Main export function
 async function crawlEcommercePlatforms(options = {}) {
   const {
@@ -388,62 +442,82 @@ async function crawlEcommercePlatforms(options = {}) {
     includeImages = true,
     includeVideos = true,
     includeReviews = true,
-    headful = false
+    headful = false,
+    outputDir = null  // Custom output directory for evidence/
   } = options;
 
-  const allProducts = [];
+  const allResults = {};  // Track {platform: {keyword: [products]}}
   const errors = [];
   const startTime = Date.now();
 
   console.log(`Starting e-commerce crawl for ${keywords.length} keywords...`);
+  console.log(`Output directory: ${outputDir || 'evidence/'}\n`);
 
   for (const keyword of keywords) {
-    console.log(`\nSearching for: ${keyword}`);
+    console.log(`\n📌 Searching for: "${keyword}"`);
     
     // Amazon scrape
     if (platforms.includes('amazon') || platforms.includes('all')) {
       try {
+        console.log('  Crawling amazon.in...');
         const amazonProducts = await scrapeAmazon(keyword, maxProducts, { includeImages, headful });
-        allProducts.push(...amazonProducts);
+        saveToEvidence('amazon', keyword, amazonProducts, outputDir);
+        
+        if (!allResults.amazon) allResults.amazon = {};
+        allResults.amazon[keyword] = amazonProducts.length;
       } catch (error) {
+        console.error(`  ❌ Amazon error: ${error.message}`);
         errors.push({ platform: 'amazon', keyword, error: error.message });
       }
     }
 
-    // Myntra scrape (can add similar functions for other platforms)
+    // Myntra scrape
     if (platforms.includes('myntra') || platforms.includes('all')) {
       try {
+        console.log('  Crawling myntra.com...');
         const myntraProducts = await scrapeMyntra(keyword, maxProducts, { includeImages, headful });
-        allProducts.push(...myntraProducts);
+        saveToEvidence('myntra', keyword, myntraProducts, outputDir);
+        
+        if (!allResults.myntra) allResults.myntra = {};
+        allResults.myntra[keyword] = myntraProducts.length;
       } catch (error) {
+        console.error(`  ❌ Myntra error: ${error.message}`);
         errors.push({ platform: 'myntra', keyword, error: error.message });
       }
     }
   }
 
   const endTime = Date.now();
+  
+  // Save summary
+  saveSummary(allResults, outputDir);
+  
   const metadata = {
     crawl_date: new Date().toISOString(),
-    total_products: allProducts.length,
     total_duration_ms: endTime - startTime,
     platforms_crawled: platforms.length > 0 ? platforms : ['all'],
     keywords_used: keywords.length,
     data_quality: 'high',
     includes_images: includeImages,
     includes_videos: includeVideos,
-    includes_reviews: includeReviews
+    includes_reviews: includeReviews,
+    output_directory: outputDir || 'evidence/'
   };
 
   return {
     success: true,
-    products: allProducts,
+    results: allResults,  // {platform: {keyword: count}}
     metadata,
-    errors: errors.length > 0 ? errors : null
+    errors: errors.length > 0 ? errors : null,
+    message: `Crawl complete. Results saved to evidence/ directory.`
   };
 }
 
-module.exports = {
+export {
   crawlEcommercePlatforms,
   scrapeAmazon,
-  scrapeMyntra
+  scrapeMyntra,
+  slugify,
+  saveToEvidence,
+  saveSummary
 };
