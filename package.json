@@ -13,7 +13,10 @@
     "scrape:indiamart": "node scrape.js --sources=indiamart",
     "clean": "node skills/evidence-cleanup/scripts/normalize.js",
     "clean:dry": "node skills/evidence-cleanup/scripts/normalize.js --dry-run",
-    "validate:clean": "python3 skills/evidence-cleanup/scripts/validate_output.py evidence/clean/_merged.json"
+    "validate:clean": "python3 skills/evidence-cleanup/scripts/validate_output.py evidence/clean/_merged.json",
+    "analyze": "node analyze-trends.js",
+    "analyze:top10": "node analyze-trends.js --top=10",
+    "analyze:json": "node analyze-trends.js --json"
   },
   "dependencies": {
     "playwright": "^1.47.0"
