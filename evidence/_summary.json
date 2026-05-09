@@ -1,0 +1,47 @@
+{
+  "startedAt": "2026-05-09T07:08:55.825Z",
+  "platforms": [
+    {
+      "platform": "flipkart",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "amazon",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "myntra",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "ajio",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "meesho",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "clovia",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "shyaway",
+      "count": 100,
+      "blocked": false
+    },
+    {
+      "platform": "tatacliq",
+      "count": 100,
+      "blocked": false
+    }
+  ],
+  "finishedAt": "2026-05-09T07:13:17.287Z",
+  "total": 800
+}

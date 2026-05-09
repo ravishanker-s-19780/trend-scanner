@@ -1,5 +1,4 @@
 node_modules/
-evidence/
 user-data/
 *.log
 .playwright-mcp/
