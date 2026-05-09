@@ -1,6 +1,6 @@
-import { enc, abs, isHomepage } from '../utils.js';
-import { buildRecord }          from '../inference.js';
-import { MAX_ITEMS }            from '../config.js';
+import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
+import { buildRecord }                          from '../inference.js';
+import { MAX_ITEMS }                            from '../config.js';
 
 // Confirmed selectors via HTML inspection 2026-05
 const SEL = {
@@ -11,6 +11,11 @@ const SEL = {
   rating:  'div[class*="rating"], span[class*="rating"]',
   review:  'span[class*="review"], span[class*="count"]',
   image:   'img.Image__actual',
+  // Detail page — confirmed selectors
+  detail: {
+    rating: 'div.ProductDetailsMainCard__reviewElectronics',  // "5"
+    review: 'span.ProductDetailsMainCard__srOnly',            // "5 Rating & 0 Review"
+  },
 };
 
 export async function scrapeTatacliq(page, keyword, collected) {
@@ -48,4 +53,6 @@ export async function scrapeTatacliq(page, keyword, collected) {
     pageNum++;
     await page.waitForTimeout(800);
   }
+
+  await enrichDetails(page, collected, SEL.detail);
 }

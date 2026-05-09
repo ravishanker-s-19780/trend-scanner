@@ -6,8 +6,10 @@ const SEL = {
   card:    'a[href*="/p/"]',
   title:   'p',
   price:   'h5, span[class*="price"]',
-  rating:  'span[class*="Rating"]',
+  rating:  'span[class*="Rating"]:not([class*="RatingCount"])',   // rating value e.g. "4.0"
+  review:  'span[class*="RatingCount"]',                          // "1857 Reviews" — confirmed live
   blocked: 'text=Access Denied',
+  // Detail page — Access Denied; skip enrichment
 };
 
 export async function scrapeMeesho(page, keyword, collected) {
@@ -24,7 +26,7 @@ export async function scrapeMeesho(page, keyword, collected) {
           title:  c.querySelector(s.title)?.textContent?.trim() || '',
           price:  c.querySelector(s.price)?.textContent?.trim() || '',
           rating: c.querySelector(s.rating)?.textContent?.trim() || '',
-          review: c.querySelector('span')?.textContent?.match(/\d+\s*(Reviews|ratings)/i)?.[0] || '',
+          review: c.querySelector(s.review)?.textContent?.trim() || '',  // "1857 Reviews"
           images,
         };
       }), SEL

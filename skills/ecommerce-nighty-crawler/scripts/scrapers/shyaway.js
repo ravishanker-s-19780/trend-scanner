@@ -6,7 +6,8 @@ const SEL = {
   card:    'div.product-item, li[class*="product"]',
   title:   'a[class*="name"], p[class*="name"], h3',
   price:   'span[class*="price"]',
-  rating:  'span[class*="rating"]',
+  // "4.8  <span>(349)</span>" — rating and review in one widget
+  ratingWidget: 'div.custom-rating-result',
 };
 
 export async function scrapeShyaway(page, keyword, collected) {
@@ -17,13 +18,23 @@ export async function scrapeShyaway(page, keyword, collected) {
 
     const rows = await page.evaluate((s) =>
       [...document.querySelectorAll(s.card)].map(c => {
-        const a = c.querySelector('a');
-        const images = [...new Set([...c.querySelectorAll('img')].map(i => i.src || i.getAttribute('data-src')).filter(Boolean))];
+        const a      = c.querySelector('a');
+        const widget = c.querySelector(s.ratingWidget);
+        // rating: first text node before the span, e.g. "4.8"
+        const rating = widget
+          ? [...widget.childNodes].find(n => n.nodeType === 3)?.textContent?.trim() || ''
+          : '';
+        // review: span text inside the widget, e.g. "(349)"
+        const review = widget?.querySelector('span')?.textContent?.trim() || '';
+        const images = [...new Set(
+          [...c.querySelectorAll('img')].map(i => i.src || i.getAttribute('data-src')).filter(Boolean)
+        )];
         return {
           href:   a?.href || '',
           title:  c.querySelector(s.title)?.textContent?.trim() || '',
           price:  c.querySelector(s.price)?.textContent?.trim() || '',
-          rating: c.querySelector(s.rating)?.textContent?.trim() || '',
+          rating,
+          review,
           images,
         };
       }), SEL
@@ -36,7 +47,7 @@ export async function scrapeShyaway(page, keyword, collected) {
       if (!url || isHomepage(url) || !r.title) continue;
       collected.push(buildRecord('shyaway.com', keyword, {
         title: r.title, url, priceText: r.price, ratingText: r.rating,
-        reviewText: '', badgeText: '', imageUrls: r.images,
+        reviewText: r.review, badgeText: '', imageUrls: r.images,
       }));
     }
     pageNum++;

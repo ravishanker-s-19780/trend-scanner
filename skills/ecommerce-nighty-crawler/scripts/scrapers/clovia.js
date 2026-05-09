@@ -1,4 +1,4 @@
-import { enc, abs, isHomepage } from '../utils.js';
+import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
 import { buildRecord }          from '../inference.js';
 import { MAX_ITEMS }            from '../config.js';
 
@@ -10,6 +10,8 @@ const SEL = {
   image:   'img.firstimage',
   price:   '[class*="price"], [class*="Price"]',
   rating:  '[class*="rating"], [class*="Rating"]',
+  // Detail page — use generic scan (class names not stable across products)
+  detail: { rating: null, review: null },
 };
 
 export async function scrapeClovia(page, keyword, collected) {
@@ -48,4 +50,6 @@ export async function scrapeClovia(page, keyword, collected) {
     pageNum++;
     await page.waitForTimeout(600);
   }
+
+  await enrichDetails(page, collected, SEL.detail);
 }

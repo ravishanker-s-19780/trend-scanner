@@ -1,6 +1,6 @@
-import { enc, abs, isHomepage } from '../utils.js';
-import { buildRecord }          from '../inference.js';
-import { MAX_ITEMS }            from '../config.js';
+import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
+import { buildRecord }                          from '../inference.js';
+import { MAX_ITEMS }                            from '../config.js';
 
 const SEL = {
   card:    'div.s-result-item[data-asin]:not([data-asin=""])',
@@ -9,8 +9,13 @@ const SEL = {
   price:   '.a-price .a-offscreen',
   rating:  'span.a-icon-alt',
   review:  'a[href*="customerReviews"] span',   // returns "(1,234)" — parseCount strips parens
-  badge:   'span.a-size-base',                  // filter by "bought" text in evaluate
+  badge:   'span.a-size-base',
   captcha: 'form[action*="validateCaptcha"]',
+  // Detail page — confirmed selectors
+  detail: {
+    rating: 'span[data-hook="rating-out-of-text"]',      // "3.8 out of 5"
+    review: 'span[data-hook="total-review-count"]',      // "469 global ratings"
+  },
 };
 
 export async function scrapeAmazon(page, keyword, collected) {
@@ -52,4 +57,6 @@ export async function scrapeAmazon(page, keyword, collected) {
     pageNum++;
     await page.waitForTimeout(600 + Math.random() * 400);
   }
+
+  await enrichDetails(page, collected, SEL.detail);
 }

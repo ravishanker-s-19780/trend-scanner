@@ -1,6 +1,6 @@
-import { enc, abs, isHomepage } from '../utils.js';
-import { buildRecord }          from '../inference.js';
-import { MAX_ITEMS }            from '../config.js';
+import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
+import { buildRecord }                          from '../inference.js';
+import { MAX_ITEMS }                            from '../config.js';
 
 const SEL = {
   card:    'li.product-base',
@@ -11,6 +11,8 @@ const SEL = {
   rating:  '.product-ratingsContainer span',
   review:  '.product-ratingsCount',
   blocked: 'text=Access Denied',
+  // Detail page — use generic scan (Myntra JS-rendered rating has no stable class)
+  detail: { rating: null, review: null },
 };
 
 export async function scrapeMyntra(page, keyword, collected) {
@@ -50,4 +52,6 @@ export async function scrapeMyntra(page, keyword, collected) {
     pageNum++;
     await page.waitForTimeout(1000);
   }
+
+  await enrichDetails(page, collected, SEL.detail);
 }

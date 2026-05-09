@@ -1,6 +1,6 @@
-import { enc, abs, isHomepage } from '../utils.js';
-import { buildRecord }          from '../inference.js';
-import { MAX_ITEMS }            from '../config.js';
+import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
+import { buildRecord }                          from '../inference.js';
+import { MAX_ITEMS }                            from '../config.js';
 
 const SEL = {
   card:    'div[data-id]',
@@ -11,6 +11,8 @@ const SEL = {
   rating:  'div.XQDdHH',               // may be absent on low-review products
   review:  'span.Wphh3N',              // may be absent on low-review products
   modal:   'button._2KpZ6l._2doB4z, button[class*="close"]',
+  // Detail page — Flipkart rating class changes frequently; generic decimal scan is more stable
+  detail: { rating: null, review: null },
 };
 
 export async function scrapeFlipkart(page, keyword, collected) {
@@ -52,4 +54,6 @@ export async function scrapeFlipkart(page, keyword, collected) {
     pageNum++;
     await page.waitForTimeout(500);
   }
+
+  await enrichDetails(page, collected, SEL.detail);
 }
