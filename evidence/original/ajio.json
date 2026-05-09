@@ -1,2145 +1,568 @@
 [
   {
+    "product_id": "6e271ae565c4",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightie with Lace Details",
+    "product_url": "https://www.ajio.com/ichaa-women-floral-print-nightie-with-lace-details/p/702302063_peach?",
+    "price": 499,
+    "rating": 3.8,
+    "review_count": 276,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/giFf/69ff678814d0c21719ce1978/ichaa_peach_women_floral_print_nightie_with_lace_details.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "700a5a5663b3",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Nightie",
+    "product_url": "https://www.ajio.com/rio-women-printed-nightie/p/443099321_mustard?",
+    "price": 399,
+    "rating": 4.2,
+    "review_count": 15,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/5CYP/69e729d4fcb5bb61d26cfa29/rio_mustard_women_printed_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "c520b7e614c3",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightie with Insert Pocket",
+    "product_url": "https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443082566_ltblue?",
+    "price": 399,
+    "rating": 4,
+    "review_count": 230,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250813/Gxsl/689c6a1b3d468c61ab68f5e6/rio_blue_women_floral_print_nightie_with_insert_pocket.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "dfeaf4513c5f",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightie with Insert Pocket",
+    "product_url": "https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443099322_ltgreen?",
+    "price": 399,
+    "rating": 4.1,
+    "review_count": 114,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260220/2ZZE/6998110ecbfa0d56082396e1/rio_green_women_floral_print_nightie_with_insert_pocket.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "f40b244be926",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/buythattrendz-women-printed-round-neck-nightie/p/701558543_navy?",
+    "price": 350,
+    "rating": 3,
+    "review_count": 6,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250509/chCK/681e32ba55340d4b4f278ffa/buythattrendz_navy_blue_women_printed_round-neck_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "5baf5fb05321",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightgown",
+    "product_url": "https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?",
+    "price": 658,
+    "rating": 4,
+    "review_count": 4,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "8b5850a14a32",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Cotton Nightie",
+    "product_url": "https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443105202_green?",
+    "price": 599,
+    "rating": 4.5,
+    "review_count": 18,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "5190d4d13c84",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women V-Neck Floral Print Nightgown",
+    "product_url": "https://www.ajio.com/for-you-for-me-women-v-neck-floral-print-nightgown/p/701081442_mustard?",
+    "price": 396,
+    "rating": 5,
+    "review_count": 4,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "754d9440a677",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/quira-women-floral-print-round-neck-nightie/p/700653222_wine?",
+    "price": 935,
+    "rating": 3.7,
+    "review_count": 12,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "bc0ccaa8eb40",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Round-Neck Printed Nighties",
+    "product_url": "https://www.ajio.com/v-mart-women-round-neck-printed-nighties/p/703278973_navy?",
+    "price": 382,
+    "rating": 3.4,
+    "review_count": 13,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
     "product_id": "2abed441d4fc",
     "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
+    "keyword": "nighty",
     "product_title": "Women Cotton Nightgown with Insert Pocket",
     "product_url": "https://www.ajio.com/rio-women-cotton-nightgown-with-insert-pocket/p/443097132_darkpink?",
     "price": 365,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
+    "rating": 3.8,
+    "review_count": 244,
     "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250929/Wf7Q/68da590f3d468c61ab343086/rio_pink_women_cotton_nightgown_with_insert_pocket.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
     ]
   },
   {
-    "product_id": "f620f9a99f90",
+    "product_id": "3af0cacc1715",
     "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Printed Nighties",
-    "product_url": "https://www.ajio.com/v-mart-women-cotton-printed-nighties-/p/703278714_blue?",
-    "price": 459,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260403/3KMi/69cf9f945bc52e77e02db930/v-mart_blue_women_cotton_printed_nighties.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "4eddaa43f15b",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-printed-nighty/p/703096700_navy?",
-    "price": 900,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260304/kk2V/69a828ddaf321a7f92f7842d/sephani_navy_women_cotton_printed_nighty.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "7ef1a23295a8",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
+    "keyword": "nighty",
     "product_title": "Women Floral Print Cotton Nightie",
-    "product_url": "https://www.ajio.com/sephani-women-floral-print-cotton-nightie/p/466710721_blue?",
-    "price": 684,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20231015/LFfF/652c1ac9afa4cf41f544fed3/sephani_blue_women_floral_print_cotton_nightie.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "622efbefd5cd",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-printed-nighty/p/703096706_cream?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260304/jRVz/69a828634970ce6a6e16d5e5/sephani_cream_women_cotton_printed_nighty.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "caf940a0493c",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Nighti",
-    "product_url": "https://www.ajio.com/gutthi-women-cotton-nighti/p/700869758_purple?",
-    "price": 750,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20241203/GGq4/674f29960f47f80c87d16a18/gutthi_purple_women_cotton_nighti.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "814b396020e8",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Floral Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-cotton-floral-nighti/p/702648612_red?",
-    "price": 882,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "ba4ae16d13d4",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Cotton Nightie",
-    "product_url": "https://www.ajio.com/biba-women-floral-print-cotton-nightie/p/469610784_pink?",
-    "price": 700,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "32dbc283739d",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Self-design Nightgown",
-    "product_url": "https://www.ajio.com/pr-pink-royal-women-cotton-self-design-nightgown/p/702319388_maroon?",
-    "price": 759,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "3b5b62bfe6d3",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Nightie with Zip Closure",
-    "product_url": "https://www.ajio.com/noty-women-floral-print-nightie-with-zip-closure/p/700075344_brown?",
-    "price": 564,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "64d04c0b51b0",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Self-design Nightgown",
-    "product_url": "https://www.ajio.com/pr-pink-royal-women-cotton-self-design-nightgown/p/702389152_blue?",
-    "price": 759,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "544fac0b49ef",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Printed Cotton Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-printed-cotton-nighti/p/701792801_maroon?",
-    "price": 787,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "d85016f16b3f",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Printed Cotton Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-printed-cotton-nighti/p/701793531_navy?",
-    "price": 787,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "cbd79dde9490",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Round-Neck Printed Nighty",
-    "product_url": "https://www.ajio.com/kryptic-women-round-neck-printed-nighty/p/703261084_navy?",
-    "price": 817,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "d6e8144c0753",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Geometric Print Nightie with Insert-Pocket",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-geometric-print-nightie-with-insert-pocket/p/702643760_rust?",
-    "price": 882,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Geometric",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "baea71fb4fcb",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Cotton Nightie",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-floral-print-cotton-nightie/p/701313344_orange?",
-    "price": 705,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "11ecc9924d3e",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Lace Scoop-Neck Nightie",
-    "product_url": "https://www.ajio.com/blazon-women-lace-scoop-neck-nightie/p/467041662_peach?",
-    "price": 835,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "bc6000e0e2a9",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Nightdress",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-nightdress/p/701296820_blue?",
-    "price": 987,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "ac29947038de",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Printed Cotton Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-printed-cotton-nighti/p/701792757_khaki?",
-    "price": 787,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "bb7787d0fb0c",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Nightie wih Zip Closure",
-    "product_url": "https://www.ajio.com/sephani-women-floral-print-nightie-wih-zip-closure/p/700351126_maroon?",
-    "price": 874,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "0d3eef5691f2",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Round Neck Nighti",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-round-neck-nighti/p/701609921_blue?",
-    "price": 860,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "cd218cd18008",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Printed Cotton Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-printed-cotton-nighti/p/701793521_green?",
-    "price": 787,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "3334b646e7ad",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Sleeveless Cotton Nighties",
-    "product_url": "https://www.ajio.com/oxolloxo-sleeveless-cotton-nighties/p/460981513_blue?",
-    "price": 345,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "f1fc3f538354",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Lace Trim Nightgown",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-lace-trim-nightgown/p/702593110_pink?",
-    "price": 1424,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "c70e3c221382",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Nightie with Insert Pocket",
-    "product_url": "https://www.ajio.com/quira-women-floral-print-nightie-with-insert-pocket/p/700662148_black?",
-    "price": 573,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "e48aab77be19",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Geometric Print V-Neck Nightie",
-    "product_url": "https://www.ajio.com/mamma-s-maternity-women-geometric-print-v-neck-nightie/p/701145874_navy?",
-    "price": 900,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Geometric",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "b11b2f90c4a1",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Cotton Nightie",
-    "product_url": "https://www.ajio.com/biba-women-floral-print-cotton-nightie/p/469610783_navy?",
-    "price": 700,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "3c07895eb562",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Printed Nightie with Insert Pocket",
-    "product_url": "https://www.ajio.com/nightspree-women-printed-nightie-with-insert-pocket/p/700344493_black?",
-    "price": 990,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "658d9f2bd4b7",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Floral Print Nightie with Zip Placket",
-    "product_url": "https://www.ajio.com/secret-wish-floral-print-nightie-with-zip-placket/p/461458745_maroon?",
+    "product_url": "https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443105201_black?",
     "price": 599,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
+    "rating": 4.2,
+    "review_count": 14,
     "images": [
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "8882f363d01f",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Nightgown",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-nightgown/p/702586720_peach?",
-    "price": 1424,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "4937643d6d76",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Nighti",
-    "product_url": "https://www.ajio.com/gutthi-women-cotton-nighti/p/700869758_blue?",
-    "price": 750,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "6f8a1c8bcf27",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Frock Style Nighty",
-    "product_url": "https://www.ajio.com/9shines-label-women-cotton-frock-style-nighty-/p/702123234_white?",
-    "price": 2000,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "767e01c0cb07",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Cotton Nightgown",
-    "product_url": "https://www.ajio.com/nightspree-women-floral-print-cotton-nightgown/p/702500240_pink?",
-    "price": 840,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "7324133746ba",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Round-Neck Nighty with short Sleeves",
-    "product_url": "https://www.ajio.com/secret-wish-women-round-neck-nighty-with-short-sleeves/p/701303855_blue?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "a2548c189ad0",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Geometric Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-cotton-geometric-nighti/p/702648627_pink?",
-    "price": 882,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Geometric",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "9ca147b683ac",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Scoop-Neck Nighty Slip",
-    "product_url": "https://www.ajio.com/blazon-women-scoop-neck-nighty-slip/p/467055776_pink?",
-    "price": 835,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "04d1d39438af",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Cotton Nightie",
-    "product_url": "https://www.ajio.com/sephani-women-floral-print-cotton-nightie/p/466710734_white?",
-    "price": 684,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "0ad7cf98b89b",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Floral Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-cotton-floral-nighti/p/702648632_blue?",
-    "price": 882,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "c503749b2688",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Regular Fit Nighties",
-    "product_url": "https://www.ajio.com/gutthi-women-regular-fit-nighties/p/700885325_green?",
-    "price": 750,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "d36999d1abe2",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Floral Print Nightie wih Zip Closure",
-    "product_url": "https://www.ajio.com/sephani-women-floral-print-nightie-wih-zip-closure/p/700351144_cream?",
-    "price": 874,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "468734ccd4a9",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Checked V-Neck Nightgown",
-    "product_url": "https://www.ajio.com/piu-women-checked-v-neck-nightgown-/p/702136100_brown?",
-    "price": 660,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Checked",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "78854617f2ca",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Floral Nighti",
-    "product_url": "https://www.ajio.com/sweet-dreams-women-cotton-floral-nighti/p/702648608_red?",
-    "price": 882,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "728551d729f3",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Cotton Nighti",
-    "product_url": "https://www.ajio.com/gutthi-women-cotton-nighti/p/700869768_green?",
-    "price": 750,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "155eb2d1c7bf",
-    "platform": "ajio.com",
-    "keyword": "women cotton nighty front zip",
-    "product_title": "Women Embroidered Cotton Nighti",
-    "product_url": "https://www.ajio.com/easy-mom-women-embroidered-cotton-nighti/p/701432386_navy?",
-    "price": 1200,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "53b9f6796add",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty zip model",
-    "product_title": "Women Floral Print Nightie wih Zip Closure",
-    "product_url": "https://www.ajio.com/sephani-women-floral-print-nightie-wih-zip-closure/p/700351150_green?",
-    "price": 874,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20240902/JW2i/66d4c37e6f60443f3145718f/sephani_green_women_floral_print_nightie_wih_zip_closure.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "maternity"
-    ]
-  },
-  {
-    "product_id": "fdfbf3bf947d",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty zip model",
-    "product_title": "Women Floral Print Nightie wih Zip Closure",
-    "product_url": "https://www.ajio.com/sephani-women-floral-print-nightie-wih-zip-closure/p/700351163_pink?",
-    "price": 874,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20240902/Ty5c/66d513496f60443f3146d0b2/sephani_pink_women_floral_print_nightie_wih_zip_closure.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "maternity"
-    ]
-  },
-  {
-    "product_id": "e30b17283dee",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty zip model",
-    "product_title": "Women Floral Print Nightie with Zip Closure",
-    "product_url": "https://www.ajio.com/9shines-label-women-floral-print-nightie-with-zip-closure/p/467156656_multi?",
-    "price": 2350,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250828/pHVl/68b029cd8bfb9009acb64b15/9shines_label_multicoloured_women_floral_print_nightie_with_zip_closure.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "maternity"
-    ]
-  },
-  {
-    "product_id": "1ac4103f9929",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty zip model",
-    "product_title": "Women Floral Embroidered Nightie with Zip Closure",
-    "product_url": "https://www.ajio.com/sand-dune-women-floral-embroidered-nightie-with-zip-closure/p/467337303_blue?",
-    "price": 993,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "maternity"
-    ]
-  },
-  {
-    "product_id": "2639a4ce50c4",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty zip model",
-    "product_title": "Women Embroidered Nightie with Zip Closure",
-    "product_url": "https://www.ajio.com/9shines-label-women-embroidered-nightie-with-zip-closure/p/467156413_red?",
-    "price": 2350,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "maternity"
-    ]
-  },
-  {
-    "product_id": "b93ec08bd59e",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty zip model",
-    "product_title": "Women Floral Embroidered Nightie with Zip Closure",
-    "product_url": "https://www.ajio.com/sand-dune-women-floral-embroidered-nightie-with-zip-closure/p/467338457_purple?",
-    "price": 993,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "maternity"
-    ]
-  },
-  {
-    "product_id": "91e4547f6929",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/700393511_black?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260402/vXFG/69cd7be69e784a25d5b1620e/sanaa_black_women_full_length_elegant_embroidered_nighty_with_pockets.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "53cff8fdbcbf",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Printed Nighties with Insert Pockets",
-    "product_url": "https://www.ajio.com/barbet-women-pack-of-2-printed-nighties-with-insert-pockets/p/703421214_multi?",
-    "price": 2999,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260507/3qPA/69fbca88fcb5bb61d2a8f6ac/barbet_pink_%26_purple_women_pack_of_2_printed_nighties_with_insert_pockets.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "e405cf9c406a",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Printed Round-Neck Nighties",
-    "product_url": "https://www.ajio.com/pr-pink-royal-women-pack-of-2-printed-round-neck-nighties/p/702250810_multi?",
-    "price": 1424,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250913/Os8C/68c479e28bfb9009ac0006d3/pr_pink_royal_multicoloured_women_pack_of_2_printed_round-neck_nighties.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "ed3d02e2d3dd",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/466720811_wine?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260402/APuA/69cd7be05bc52e77e0276f2f/sanaa_wine_women_full_length_elegant_embroidered_nighty_with_pockets.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "ff72cdb2a99a",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/466000898_red?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250418/wLPq/6801745f55340d4b4fe35dc0/sanaa_red_women_full_length_elegant_embroidered_nighty_with_pockets.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "5e1c8432cef9",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Floral Print Round-Neck Nighties",
-    "product_url": "https://www.ajio.com/barbet-women-pack-of-2-floral-print-round-neck-nighties/p/703404946_multi?",
-    "price": 2999,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Floral Print",
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260504/kOWf/69f8996714d0c21719b3f882/barbet_multicoloured_women_pack_of_2_floral_print_round-neck_nighties.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "db9678b28f30",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/466738519_green?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "fb28cc784f71",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/700961810_violet?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "f43b38cf5e54",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/700411941_green?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "b502cc9b26ee",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/700411943_black?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "db4959a5472a",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Pack of 2 Women Lace Babydoll Nighties",
-    "product_url": "https://www.ajio.com/curvex-pack-of-2-women-lace-babydoll-nighties/p/701980677_multi?",
-    "price": 429,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "ddac9fb4a3a5",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Full Length Elegant Embroidered Nighty with Pockets",
-    "product_url": "https://www.ajio.com/sanaa-women-full-length-elegant-embroidered-nighty-with-pockets/p/466738500_maroon?",
-    "price": 1799,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "dd6a1d10df42",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Pack of 6 Women V-Neck Satin Nighties",
-    "product_url": "https://www.ajio.com/reposey-pack-of-6-women-v-neck-satin-nighties/p/700530551_maroon?",
-    "price": 888,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Satin",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "9a90d8d0c85b",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/9shines-label-women-cotton-printed-nighty-/p/702402933_green?",
-    "price": 1520,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "398d839f18e5",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Round-Neck Nighty with short Sleeves",
-    "product_url": "https://www.ajio.com/secret-wish-women-round-neck-nighty-with-short-sleeves/p/701303845_pink?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "f53248ee11b5",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Round-Neck Nighty with short Sleeves",
-    "product_url": "https://www.ajio.com/secret-wish-women-round-neck-nighty-with-short-sleeves/p/701303840_pink?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "e6d927c30c70",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women A-Line Cotton Nighty",
-    "product_url": "https://www.ajio.com/9shines-label--women-a-line-cotton-nighty/p/703346118_teal?",
-    "price": 1410,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "4f3f63d30c50",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Round-Neck Nighty with short Sleeves",
-    "product_url": "https://www.ajio.com/secret-wish-women-round-neck-nighty-with-short-sleeves/p/701303850_black?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "e19eb8b46121",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Embroidery Nighty",
-    "product_url": "https://www.ajio.com/sanaa-women-embroidery-nighty/p/700962302_green?",
-    "price": 1499,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "a5dd4959955b",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Textured Nighty",
-    "product_url": "https://www.ajio.com/nightspree-women-textured-nighty/p/700671567_green?",
-    "price": 1050,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "636fcc4984cf",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Cotton Printed Knee Length Nighty",
-    "product_url": "https://www.ajio.com/duchess-women-cotton-printed-knee-length-nighty/p/701414802_pink?",
-    "price": 640,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "9fccd2cd0e26",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Knee Length Nighty",
-    "product_url": "https://www.ajio.com/romaisa-women-knee-length-nighty/p/701058966_brown?",
-    "price": 630,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "95bebf2b01ac",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Printed V-Neck Nighty",
-    "product_url": "https://www.ajio.com/nightspree-women-printed-v-neck-nighty/p/700118104_green?",
-    "price": 1210,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "2c95de5e4423",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Printed Cotton Short Nighty",
-    "product_url": "https://www.ajio.com/9shines-label-women-printed-cotton-short-nighty/p/702252471_white?",
-    "price": 1080,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "1dffd7f5907a",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 3 Lace Nighties",
-    "product_url": "https://www.ajio.com/curvex-women-pack-of-3-lace-nighties/p/701970169_multi?",
-    "price": 589,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "0b6c35ba4e3e",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Printed Round-Neck Nighties",
-    "product_url": "https://www.ajio.com/secret-wish-women-printed-round-neck-nighties/p/702028145_purple?",
-    "price": 1125,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "7c6814b76e28",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Woman Textured Nighty",
-    "product_url": "https://www.ajio.com/nightspree-woman-textured-nighty/p/700786560_yellow?",
-    "price": 970,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "9af90d89d2a1",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Cotton Self-design Nightgown",
-    "product_url": "https://www.ajio.com/pr-pink-royal-women-cotton-self-design-nightgown/p/702319351_blue?",
-    "price": 1424,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "ab8a0c823143",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Lace Nighties",
-    "product_url": "https://www.ajio.com/curvex-women-pack-of-2-lace-nighties/p/701969748_multi?",
-    "price": 429,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "b804318b0d04",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 3 Lace Scoop-Neck Nighties",
-    "product_url": "https://www.ajio.com/samvar-women-pack-of-3-lace-scoop-neck-nighties/p/702475455_multi?",
-    "price": 589,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "93b1d52d375f",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Lace Nighties",
-    "product_url": "https://www.ajio.com/curvex-women-pack-of-2-lace-nighties/p/701969803_multi?",
-    "price": 429,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "c803d083f661",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 3 Lace Scoop-Neck Nighties",
-    "product_url": "https://www.ajio.com/samvar-women-pack-of-3-lace-scoop-neck-nighties/p/702475488_multi?",
-    "price": 589,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "293ef6946a23",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/9shines-label-women-cotton-printed-nighty/p/702402927_green?",
-    "price": 1520,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "4b3474c9bb89",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Round-Neck Nighty with short Sleeves",
-    "product_url": "https://www.ajio.com/secret-wish-women-round-neck-nighty-with-short-sleeves/p/701303833_pink?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "b916644eb0d7",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 3 Lace Scoop-Neck Nighties",
-    "product_url": "https://www.ajio.com/samvar-women-pack-of-3-lace-scoop-neck-nighties/p/702475479_multi?",
-    "price": 589,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "96f7a2d958a3",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Lace Nighties",
-    "product_url": "https://www.ajio.com/curvex-women-pack-of-2-lace-nighties/p/701970190_multi?",
-    "price": 429,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "4d31a5dab7ce",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Lace Nighties",
-    "product_url": "https://www.ajio.com/curvex-women-pack-of-2-lace-nighties/p/701970174_multi?",
-    "price": 429,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "3a1378f3d491",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 2 Lace Nighties",
-    "product_url": "https://www.ajio.com/curvex-women-pack-of-2-lace-nighties/p/701969819_multi?",
-    "price": 429,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "6feaaa765185",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Pack of 3 Lace Scoop-Neck Nighties",
-    "product_url": "https://www.ajio.com/samvar-women-pack-of-3-lace-scoop-neck-nighties/p/702474908_multi?",
-    "price": 589,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": "Lace",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "d75ba561fd6c",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/9shines-label-women-cotton-printed-nighty/p/702402927_peach?",
-    "price": 1520,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "6931d6c0f576",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women 2-Piece Satin Nighty Set",
-    "product_url": "https://www.ajio.com/avyay-women-2-piece-satin-nighty-set/p/466696902_red?",
-    "price": 1000,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Satin",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "963c2dd8fee2",
-    "platform": "ajio.com",
-    "keyword": "ladies nighty wholesale",
-    "product_title": "Women Round-Neck Nighty with short Sleeves",
-    "product_url": "https://www.ajio.com/secret-wish-women-round-neck-nighty-with-short-sleeves/p/701303837_black?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": null,
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "c0761355d252",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-printed-nighty/p/703096196_purple?",
-    "price": 1250,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260304/vdsb/69a81ed14970ce6a6e158017/sephani_purple_women_cotton_printed_nighty.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "4152da17eaf7",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/sand-dune--women-cotton-printed-nighty-/p/701421698_teal?",
-    "price": 2199,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "70131417a46c",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Printed Pure Cotton A-Line Nighty",
-    "product_url": "https://www.ajio.com/9shines-label-women-printed-pure-cotton-a-line-nighty/p/703346037_rust?",
-    "price": 1410,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "d7fec875d176",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Cotton Embroidery Nighty",
-    "product_url": "https://www.ajio.com/sand-dune-women-cotton-embroidery-nighty/p/701280208_lavender?",
-    "price": 2399,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "1d4ee3e6dd4c",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Cotton Embroidery Nighty",
-    "product_url": "https://www.ajio.com/sand-dune-women-cotton-embroidery-nighty/p/701280165_green?",
-    "price": 1599,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": "Embroidered",
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "51766a6b6f06",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-printed-nighty/p/703096207_green?",
-    "price": 1874,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
-    ]
-  },
-  {
-    "product_id": "cc0e2eb68cc3",
-    "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
-    "product_title": "Women Cotton Printed Nighty",
-    "product_url": "https://www.ajio.com/sephani-women-cotton-printed-nighty/p/703096685_black?",
-    "price": 900,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
     ]
   },
   {
     "product_id": "3c2b6e1d1c4b",
     "platform": "ajio.com",
-    "keyword": "cotton nighty wholesale",
+    "keyword": "nighty",
     "product_title": "Paisley Print Cotton Nighty",
     "product_url": "https://www.ajio.com/rio-paisley-print-cotton-nighty/p/443099324_pink?",
     "price": 399,
-    "rating": null,
-    "review_count": null,
-    "recent_purchase_label": null,
-    "recent_purchase_count": null,
-    "cloth_type": "Cotton",
-    "design_name": null,
+    "rating": 4.1,
+    "review_count": 22,
     "images": [
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ],
-    "wedding_relevant": false,
-    "purpose_of_purchase": [
-      "casual"
+    ]
+  },
+  {
+    "product_id": "81feddf4b401",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Micro-Print Nightgown",
+    "product_url": "https://www.ajio.com/max-women-micro-print-nightgown/p/700906306_black?",
+    "price": 699,
+    "rating": 4.3,
+    "review_count": 127,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "1ec2bcb0ac4b",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Self-design Nightgown",
+    "product_url": "https://www.ajio.com/quira-women-self-design-nightgown/p/700653222_coffee?",
+    "price": 935,
+    "rating": 3.7,
+    "review_count": 12,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "e3b1fae3ccf8",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Disney - Women Mickey Mouse Print Cotton Nightie",
+    "product_url": "https://www.ajio.com/yousta-disney--women-mickey-mouse-print-cotton-nightie/p/443094120_ltpurple?",
+    "price": 250,
+    "rating": 4.1,
+    "review_count": 77,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "10c8828b6346",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightgown",
+    "product_url": "https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259571_green?",
+    "price": 630,
+    "rating": 3.6,
+    "review_count": 5,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "13775840b11a",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Floral Short Sleeves Nighty",
+    "product_url": "https://www.ajio.com/kryptic-floral-short-sleeves-nighty/p/465002050_pink?",
+    "price": 714,
+    "rating": 4,
+    "review_count": 60,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "32001bda636c",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Floral Print Round-Neck Nightgown",
+    "product_url": "https://www.ajio.com/max-floral-print-round-neck-nightgown/p/464295706_navy?",
+    "price": 584,
+    "rating": 3.6,
+    "review_count": 90,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "a06b9ab3de66",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Paisley Print Cotton Nightgown",
+    "product_url": "https://www.ajio.com/rio-women-paisley-print-cotton-nightgown/p/443097685_ltblue?",
+    "price": 485,
+    "rating": 4.2,
+    "review_count": 199,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "65852c8c8077",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/ichaa-women-printed-round-neck-nightie/p/702302040_lime?",
+    "price": 499,
+    "rating": 3.7,
+    "review_count": 108,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "43c72213d338",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Nightie with Lace Details",
+    "product_url": "https://www.ajio.com/ichaa-women-printed-nightie-with-lace-details/p/702302047_navy?",
+    "price": 499,
+    "rating": 3.9,
+    "review_count": 135,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "9c1ee3b8c5e4",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightie with Short Sleeves",
+    "product_url": "https://www.ajio.com/sweet-dreams-women-floral-print-nightie-with-short-sleeves/p/700382697_peach?",
+    "price": 705,
+    "rating": 5,
+    "review_count": 2,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "de47ede7570a",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Square-Neck Nightie",
+    "product_url": "https://www.ajio.com/for-you-for-me-women-floral-print-square-neck-nightie/p/701521985_peach?",
+    "price": 464,
+    "rating": 3,
+    "review_count": 14,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "336ddd10158d",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightie with Patch Pocket",
+    "product_url": "https://www.ajio.com/rio-women-floral-print-nightie-with-patch-pocket/p/443099323_ltpink?",
+    "price": 399,
+    "rating": 3.9,
+    "review_count": 59,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "943f912513fa",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Nightgown with Insert Pockets",
+    "product_url": "https://www.ajio.com/sweet-dreams-women-printed-nightgown-with-insert-pockets/p/700049051_navy?",
+    "price": 857,
+    "rating": 3.3,
+    "review_count": 10,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "4149b0d18adb",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Floral Print Nightie with Front Buttons",
+    "product_url": "https://www.ajio.com/evolove-floral-print-nightie-with-front-buttons/p/464811951_black?",
+    "price": 713,
+    "rating": 4.4,
+    "review_count": 116,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "42941390b04a",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightie with Patch Pocket",
+    "product_url": "https://www.ajio.com/rio-women-floral-print-nightie-with-patch-pocket/p/443099326_pink?",
+    "price": 399,
+    "rating": 4,
+    "review_count": 58,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "cf910228aa15",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/ichaa-women-printed-round-neck-nightie/p/702504662_teal?",
+    "price": 750,
+    "rating": 3.7,
+    "review_count": 22,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "829c132ae6af",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/kryptic-women-printed-round-neck-nightie/p/467343354_maroon?",
+    "price": 612,
+    "rating": 4.4,
+    "review_count": 175,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "bb9ef30a85d1",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Lace Nighties",
+    "product_url": "https://www.ajio.com/curvex-women-lace-nighties/p/701969780_black?",
+    "price": 269,
+    "rating": 2.1,
+    "review_count": 45,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "f8edb1bc1220",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Cotton Nightie",
+    "product_url": "https://www.ajio.com/sweet-dreams-women-floral-print-cotton-nightie/p/701313333_pink?",
+    "price": 705,
+    "rating": 3.7,
+    "review_count": 6,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "4c537eb22627",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women All-Over Floral Print Nightie with Insert Pocket",
+    "product_url": "https://www.ajio.com/rio-women-all-over-floral-print-nightie-with-insert-pocket/p/443105203_peach?",
+    "price": 599,
+    "rating": 4.8,
+    "review_count": 10,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "0fe78a722a56",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Nightgown",
+    "product_url": "https://www.ajio.com/max-women-floral-print-nightgown/p/466974300_black?",
+    "price": 649,
+    "rating": 4.1,
+    "review_count": 186,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "926d5baa0e0b",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Graphic Print Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/yousta-women-graphic-print-round-neck-nightie/p/443094325_ltgreen?",
+    "price": 250,
+    "rating": 4.5,
+    "review_count": 35,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "298c8fb3455a",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Mickey Mouse Print Nightdress",
+    "product_url": "https://www.ajio.com/yousta-women-mickey-mouse-print-nightdress/p/443083370_lightred?",
+    "price": 299,
+    "rating": 4.4,
+    "review_count": 63,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "ea808420ae9d",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Printed Round-Neck Nightie",
+    "product_url": "https://www.ajio.com/ichaa-women-printed-round-neck-nightie/p/702504645_maroon?",
+    "price": 750,
+    "rating": 2.6,
+    "review_count": 16,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "099fa2cf585a",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Printed V-Neck Kaftan Nightie",
+    "product_url": "https://www.ajio.com/noty-printed-v-neck-kaftan-nightie/p/465947832_orange?",
+    "price": 529,
+    "rating": 3.8,
+    "review_count": 54,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "e35c099b50cb",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Embroidered Nightie with Back Tie-Up",
+    "product_url": "https://www.ajio.com/zeyo-embroidered-nightie-with-back-tie-up/p/466130899_blue?",
+    "price": 1075,
+    "rating": 4,
+    "review_count": 131,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "0a8c2afb243e",
+    "platform": "ajio.com",
+    "keyword": "nighty",
+    "product_title": "Women Floral Print Round-Neck Nightie with Insert Pocket",
+    "product_url": "https://www.ajio.com/sephani-women-floral-print-round-neck-nightie-with-insert-pocket/p/702172997_brown?",
+    "price": 874,
+    "rating": 4,
+    "review_count": 2,
+    "images": [
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
     ]
   }
 ]

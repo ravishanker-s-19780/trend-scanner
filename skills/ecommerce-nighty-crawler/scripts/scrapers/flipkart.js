@@ -48,7 +48,7 @@ export async function scrapeFlipkart(page, keyword, collected) {
       if (!url || isHomepage(url) || !r.title) continue;
       collected.push(buildRecord('flipkart.com', keyword, {
         title: r.title, url, priceText: r.price, ratingText: r.rating,
-        reviewText: r.review, badgeText: '', imageUrls: r.images,
+        reviewText: r.review, imageUrls: r.images,
       }));
     }
     pageNum++;

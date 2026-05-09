@@ -1,6 +1,6 @@
-import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
-import { buildRecord }                          from '../inference.js';
-import { MAX_ITEMS }                            from '../config.js';
+import { enc, abs, isHomepage } from '../utils.js';
+import { buildRecord }          from '../inference.js';
+import { MAX_ITEMS }            from '../config.js';
 
 const SEL = {
   card:    'li.product-base',
@@ -8,11 +8,9 @@ const SEL = {
   brand:   'h3.product-brand',
   name:    'h4.product-product',
   price:   '.product-price',
-  rating:  '.product-ratingsContainer span',
-  review:  '.product-ratingsCount',
+  rating:  '.product-ratingsContainer span',  // "4.1"
+  review:  '.product-ratingsCount',           // "(1.2K)"
   blocked: 'text=Access Denied',
-  // Detail page — use generic scan (Myntra JS-rendered rating has no stable class)
-  detail: { rating: null, review: null },
 };
 
 export async function scrapeMyntra(page, keyword, collected) {
@@ -46,12 +44,11 @@ export async function scrapeMyntra(page, keyword, collected) {
       if (!title || !url || isHomepage(url)) continue;
       collected.push(buildRecord('myntra.com', keyword, {
         title, url, priceText: r.price, ratingText: r.rating,
-        reviewText: r.review, badgeText: '', imageUrls: r.images,
+        reviewText: r.review, imageUrls: r.images,
       }));
     }
     pageNum++;
     await page.waitForTimeout(1000);
   }
 
-  await enrichDetails(page, collected, SEL.detail);
 }

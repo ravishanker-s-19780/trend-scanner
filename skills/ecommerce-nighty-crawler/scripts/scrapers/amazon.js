@@ -1,21 +1,16 @@
-import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
-import { buildRecord }                          from '../inference.js';
-import { MAX_ITEMS }                            from '../config.js';
+import { enc, abs, isHomepage } from '../utils.js';
+import { buildRecord }          from '../inference.js';
+import { MAX_ITEMS }            from '../config.js';
 
 const SEL = {
   card:    'div.s-result-item[data-asin]:not([data-asin=""])',
   image:   'img.s-image',
   link:    'a.a-link-normal',
   price:   '.a-price .a-offscreen',
-  rating:  'span.a-icon-alt',
-  review:  'a[href*="customerReviews"] span',   // returns "(1,234)" — parseCount strips parens
+  rating:  'span.a-icon-alt',                  // "3.8 out of 5 stars"
+  review:  'a[href*="customerReviews"] span',  // "(1,234)" — parseCount strips parens
   badge:   'span.a-size-base',
   captcha: 'form[action*="validateCaptcha"]',
-  // Detail page — confirmed selectors
-  detail: {
-    rating: 'span[data-hook="rating-out-of-text"]',      // "3.8 out of 5"
-    review: 'span[data-hook="total-review-count"]',      // "469 global ratings"
-  },
 };
 
 export async function scrapeAmazon(page, keyword, collected) {
@@ -28,9 +23,9 @@ export async function scrapeAmazon(page, keyword, collected) {
 
     const rows = await page.evaluate((s) =>
       [...document.querySelectorAll(s.card)].map(c => {
-        const img   = c.querySelector(s.image);
-        const a     = c.querySelector(s.link);
-        const badge = [...c.querySelectorAll(s.badge)].find(el => el.textContent.includes('bought'));
+        const img    = c.querySelector(s.image);
+        const a      = c.querySelector(s.link);
+        const badge  = [...c.querySelectorAll(s.badge)].find(el => el.textContent.includes('bought'));
         const images = [...new Set([...c.querySelectorAll('img')].map(i => i.src).filter(Boolean))];
         return {
           title:  img?.alt || c.querySelector('h2 span')?.textContent?.trim() || '',
@@ -58,5 +53,4 @@ export async function scrapeAmazon(page, keyword, collected) {
     await page.waitForTimeout(600 + Math.random() * 400);
   }
 
-  await enrichDetails(page, collected, SEL.detail);
 }

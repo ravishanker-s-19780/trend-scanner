@@ -9,9 +9,9 @@ const SEL = {
   link:    'div.pdImg a',
   image:   'img.firstimage',
   price:   '[class*="price"], [class*="Price"]',
-  rating:  '[class*="rating"], [class*="Rating"]',
-  // Detail page — use generic scan (class names not stable across products)
-  detail: { rating: null, review: null },
+  rating:  'ul.ratings strong',   // "4.7" — available on listing
+  // review_count only on detail page — use generic scan
+  detail:  { rating: null, review: null },
 };
 
 export async function scrapeClovia(page, keyword, collected) {
@@ -44,7 +44,7 @@ export async function scrapeClovia(page, keyword, collected) {
       seen.add(url);
       collected.push(buildRecord('clovia.com', keyword, {
         title: r.title, url, priceText: r.price, ratingText: r.rating,
-        reviewText: '', badgeText: '', imageUrls: r.images,
+        reviewText: '', imageUrls: r.images,
       }));
     }
     pageNum++;

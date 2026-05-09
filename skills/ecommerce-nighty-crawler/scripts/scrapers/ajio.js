@@ -49,7 +49,7 @@ export async function scrapeAjio(page, keyword, collected) {
       seen.add(url);
       collected.push(buildRecord('ajio.com', keyword, {
         title: r.title, url, priceText: r.price, ratingText: r.rating,
-        reviewText: r.review, badgeText: '', imageUrls: r.images,
+        reviewText: r.review, imageUrls: r.images,
       }));
     }
     if (collected.length >= MAX_ITEMS) break;
