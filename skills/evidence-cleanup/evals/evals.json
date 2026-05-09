@@ -1,0 +1,299 @@
+[
+  {
+    "name": "amazon-sponsored-url",
+    "description": "Amazon sponsored ad with ephemeral sspa/click redirect URL should be canonicalized to /dp/ASIN",
+    "input": {
+      "source": "amazon",
+      "keyword": "ladies cotton nighty",
+      "title": "Sponsored Ad - Bahumaan Pure Cotton Nighty for Women",
+      "url": "https://www.amazon.in/gp/slredirect/picassoRedirect.html?ie=UTF8&adId=A1234&url=https%3A%2F%2Fwww.amazon.in%2Fdp%2FB0FG16XW7G%2Fref%3Dsr_1_1",
+      "price": "₹499",
+      "rating": "4.2 out of 5 stars",
+      "review_count": "",
+      "image": "https://m.media-amazon.com/images/I/41uDo10bdiL._AC_UL320_.jpg",
+      "neck_type": "round",
+      "design_pattern": "floral",
+      "front_top_treatment": "print",
+      "front_bottom_style": "straight",
+      "primary_color": "pink",
+      "secondary_color": "none",
+      "sleeve_length": "half",
+      "cloth_texture": "cotton",
+      "confidence": "high",
+      "notes": null
+    },
+    "expected": {
+      "url": "https://www.amazon.in/dp/B0FG16XW7G",
+      "title": "Bahumaan Pure Cotton Nighty for Women",
+      "title_truncated": false,
+      "product_id": "not_null",
+      "price_numeric": 499,
+      "price_confidence": "exact"
+    }
+  },
+  {
+    "name": "price-normalization",
+    "description": "Price strings with rupee symbol and commas should be normalized to numeric; IndiaMART approx prices marked with confidence level",
+    "input": [
+      {
+        "source": "amazon",
+        "keyword": "ladies cotton nighty",
+        "title": "Test Product 1",
+        "url": "https://www.amazon.in/dp/B001",
+        "price": "₹1,299",
+        "rating": "3.5 out of 5 stars",
+        "review_count": "234",
+        "image": "",
+        "neck_type": "round",
+        "design_pattern": "plain",
+        "front_top_treatment": "plain",
+        "front_bottom_style": "straight",
+        "primary_color": "white",
+        "secondary_color": "none",
+        "sleeve_length": "half",
+        "cloth_texture": "cotton",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "source": "indiamart",
+        "keyword": "cotton nighty",
+        "title": "Test Product 2",
+        "url": "https://www.indiamart.com/proddetail/test-product-2.html",
+        "price": "₹170 (approx, from listing meta)",
+        "rating": "",
+        "review_count": "",
+        "image": "",
+        "neck_type": "v-neck",
+        "design_pattern": "striped",
+        "front_top_treatment": "plain",
+        "front_bottom_style": "straight",
+        "primary_color": "blue",
+        "secondary_color": "white",
+        "sleeve_length": "full",
+        "cloth_texture": "cotton",
+        "confidence": "medium",
+        "notes": "Low quality image"
+      }
+    ],
+    "expected": [
+      {
+        "price_numeric": 1299,
+        "price_confidence": "exact",
+        "rating_numeric": 3.5,
+        "review_count_numeric": 234
+      },
+      {
+        "price_numeric": 170,
+        "price_confidence": "approx",
+        "rating_numeric": null,
+        "review_count_numeric": null
+      }
+    ]
+  },
+  {
+    "name": "rating-parsing",
+    "description": "Rating strings with prose should be parsed to numeric; empty strings set to null",
+    "input": {
+      "source": "amazon",
+      "keyword": "ladies cotton nighty",
+      "title": "Test Product",
+      "url": "https://www.amazon.in/dp/B999",
+      "price": "₹599",
+      "rating": "4.2 out of 5 stars",
+      "review_count": "",
+      "image": "",
+      "neck_type": "round",
+      "design_pattern": "plain",
+      "front_top_treatment": "plain",
+      "front_bottom_style": "straight",
+      "primary_color": "white",
+      "secondary_color": "none",
+      "sleeve_length": "half",
+      "cloth_texture": "unsure",
+      "confidence": "low",
+      "notes": "Thumbnail too small"
+    },
+    "expected": {
+      "rating_numeric": 4.2,
+      "review_count_numeric": null,
+      "cloth_texture": "unsure",
+      "texture_resolved": false,
+      "features_reliable": false
+    }
+  },
+  {
+    "name": "sponsored-title-strip",
+    "description": "Sponsored Ad prefix should be stripped; truncated titles flagged",
+    "input": [
+      {
+        "source": "amazon",
+        "keyword": "ladies cotton nighty",
+        "title": "Sponsored Ad - Bahumaan Pure Cotton Nighty for Women",
+        "url": "https://www.amazon.in/dp/B002",
+        "price": "₹399",
+        "rating": "4.0 out of 5 stars",
+        "review_count": "",
+        "image": "",
+        "neck_type": "round",
+        "design_pattern": "plain",
+        "front_top_treatment": "plain",
+        "front_bottom_style": "straight",
+        "primary_color": "white",
+        "secondary_color": "none",
+        "sleeve_length": "half",
+        "cloth_texture": "cotton",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "source": "amazon",
+        "keyword": "ladies cotton nighty",
+        "title": "Women Flower Printed Casual Wear Cotton Nighty - Gown-MFNT5014...",
+        "url": "https://www.amazon.in/dp/B003",
+        "price": "₹349",
+        "rating": "",
+        "review_count": "",
+        "image": "",
+        "neck_type": "round",
+        "design_pattern": "floral",
+        "front_top_treatment": "print",
+        "front_bottom_style": "straight",
+        "primary_color": "multicolor",
+        "secondary_color": "none",
+        "sleeve_length": "half",
+        "cloth_texture": "cotton",
+        "confidence": "high",
+        "notes": null
+      }
+    ],
+    "expected": [
+      {
+        "title": "Bahumaan Pure Cotton Nighty for Women",
+        "title_truncated": false
+      },
+      {
+        "title": "Women Flower Printed Casual Wear Cotton Nighty - Gown-MFNT5014...",
+        "title_truncated": true
+      }
+    ]
+  },
+  {
+    "name": "cross-file-dedup",
+    "description": "Same product ID across keyword files should be deduplicated with keyword_matches union",
+    "input": {
+      "file_pairs": [
+        {
+          "filename": "ladies-cotton-nighty.json",
+          "records": [
+            {
+              "source": "amazon",
+              "keyword": "ladies cotton nighty",
+              "title": "Bahumaan Pure Cotton Nighty",
+              "url": "https://www.amazon.in/dp/B0FG16XW7G",
+              "price": "₹499",
+              "rating": "4.2 out of 5 stars",
+              "review_count": "",
+              "image": "",
+              "neck_type": "round",
+              "design_pattern": "floral",
+              "front_top_treatment": "print",
+              "front_bottom_style": "straight",
+              "primary_color": "pink",
+              "secondary_color": "none",
+              "sleeve_length": "half",
+              "cloth_texture": "cotton",
+              "confidence": "high",
+              "notes": null
+            }
+          ]
+        },
+        {
+          "filename": "nighty-wholesale-erode.json",
+          "records": [
+            {
+              "source": "amazon",
+              "keyword": "nighty wholesale erode",
+              "title": "Bahumaan Pure Cotton Nighty",
+              "url": "https://www.amazon.in/dp/B0FG16XW7G",
+              "price": "₹499",
+              "rating": "4.2 out of 5 stars",
+              "review_count": "",
+              "image": "",
+              "neck_type": "round",
+              "design_pattern": "floral",
+              "front_top_treatment": "print",
+              "front_bottom_style": "straight",
+              "primary_color": "pink",
+              "secondary_color": "none",
+              "sleeve_length": "half",
+              "cloth_texture": "cotton",
+              "confidence": "high",
+              "notes": null
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "product_id": "not_null",
+      "keyword_matches": ["ladies cotton nighty", "nighty wholesale erode"],
+      "url": "https://www.amazon.in/dp/B0FG16XW7G",
+      "deduplicated_count": 1
+    }
+  },
+  {
+    "name": "secondary-color-unknown",
+    "description": "secondary_color 'unknown' should be normalized to null; 'none' should remain unchanged",
+    "input": [
+      {
+        "source": "amazon",
+        "keyword": "ladies cotton nighty",
+        "title": "Multicolor Nighty",
+        "url": "https://www.amazon.in/dp/B004",
+        "price": "₹599",
+        "rating": "3.8 out of 5 stars",
+        "review_count": "",
+        "image": "",
+        "neck_type": "round",
+        "design_pattern": "geometric",
+        "front_top_treatment": "print",
+        "front_bottom_style": "straight",
+        "primary_color": "pink",
+        "secondary_color": "unknown",
+        "sleeve_length": "half",
+        "cloth_texture": "cotton",
+        "confidence": "medium",
+        "notes": "Secondary color unclear from image"
+      },
+      {
+        "source": "amazon",
+        "keyword": "ladies cotton nighty",
+        "title": "Plain White Nighty",
+        "url": "https://www.amazon.in/dp/B005",
+        "price": "₹299",
+        "rating": "4.0 out of 5 stars",
+        "review_count": "",
+        "image": "",
+        "neck_type": "round",
+        "design_pattern": "plain",
+        "front_top_treatment": "plain",
+        "front_bottom_style": "straight",
+        "primary_color": "white",
+        "secondary_color": "none",
+        "sleeve_length": "half",
+        "cloth_texture": "cotton",
+        "confidence": "high",
+        "notes": null
+      }
+    ],
+    "expected": [
+      {
+        "secondary_color": null
+      },
+      {
+        "secondary_color": "none"
+      }
+    ]
+  }
+]
