@@ -43,12 +43,12 @@ if (!fs.existsSync(MERGED)) {
 
 let products = JSON.parse(fs.readFileSync(MERGED, 'utf8'));
 
-// Filter
-products = products.filter(p => p.features_reliable === true);
+// Filter: include all products (even without design features they have market signals)
+// Only filter by source if specified
 if (SOURCE) products = products.filter(p => p.source === SOURCE);
 
 if (products.length === 0) {
-  console.error('No reliable products found after filtering.');
+  console.error('No products found after filtering.');
   process.exit(1);
 }
 
@@ -56,6 +56,7 @@ if (products.length === 0) {
 const clusters = new Map();
 
 for (const p of products) {
+  if (!p.design_pattern && !p.neck_type && !p.sleeve_length && !p.front_top_treatment) continue;
   const key = [p.design_pattern, p.neck_type, p.sleeve_length, p.front_top_treatment].join('|');
   if (!clusters.has(key)) {
     clusters.set(key, {
@@ -214,6 +215,10 @@ function scoreCluster(cluster) {
     },
     decision: decision(total),
     sample_product_ids: cluster.products.slice(0, 3).map(p => p.product_id),
+    sample_images: cluster.products
+      .map(p => ({ url: p.image, title: p.title, source: p.source, product_url: p.url }))
+      .filter(p => p.url && !p.url.endsWith('.svg') && !/\/static\//i.test(p.url))
+      .slice(0, 6),
   };
 }
 
@@ -246,12 +251,14 @@ function generateHTML(results, top) {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 4);
 
-    const colorSwatches = topColors
+    const validColors = topColors.filter(([pair]) => !pair.startsWith('null'));
+    const colorSwatches = validColors
       .map(([pair]) => {
         const [primary, secondary] = pair.split('+');
-        return `<div style="display: flex; gap: 4px; margin: 4px 0;">
-          <div style="width: 20px; height: 20px; border-radius: 4px; background: #${primary || 'ccc'}; border: 1px solid #ddd;" title="${primary}"></div>
-          <div style="width: 20px; height: 20px; border-radius: 4px; background: #${secondary || 'ccc'}; border: 1px solid #ddd;" title="${secondary}"></div>
+        return `<div style="display: flex; gap: 4px; margin: 4px 0; align-items: center;">
+          <div style="width: 20px; height: 20px; border-radius: 4px; background: ${primary}; border: 1px solid #ddd;" title="${primary}"></div>
+          ${secondary && secondary !== 'null' && secondary !== 'none' ? `<div style="width: 20px; height: 20px; border-radius: 4px; background: ${secondary}; border: 1px solid #ddd;" title="${secondary}"></div>` : ''}
+          <span style="font-size: 11px; color: #888;">${primary}${secondary && secondary !== 'null' && secondary !== 'none' ? ' + ' + secondary : ''}</span>
         </div>`;
       })
       .join('');
@@ -268,7 +275,12 @@ function generateHTML(results, top) {
       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
         <div>
           <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600;">
-            #${r.rank} — ${r.design_pattern.charAt(0).toUpperCase() + r.design_pattern.slice(1)}, ${r.front_top_treatment}, ${r.neck_type}, ${r.sleeve_length} sleeve
+            #${r.rank} — ${[
+              r.design_pattern ? r.design_pattern.charAt(0).toUpperCase() + r.design_pattern.slice(1) : 'Unknown pattern',
+              r.neck_type === 'v-neck' ? 'V-neck' : r.neck_type ? r.neck_type.charAt(0).toUpperCase() + r.neck_type.slice(1) + ' neck' : null,
+              r.sleeve_length === 'sleeveless' ? 'Sleeveless' : r.sleeve_length ? r.sleeve_length.charAt(0).toUpperCase() + r.sleeve_length.slice(1) + ' sleeve' : null,
+              r.front_top_treatment ? r.front_top_treatment.charAt(0).toUpperCase() + r.front_top_treatment.slice(1) + ' front' : null,
+            ].filter(Boolean).join(' · ')}
           </h3>
           <p style="margin: 0; color: #666; font-size: 14px;">${r.product_count} products across ${r.keyword_count} keyword(s)</p>
         </div>
@@ -300,10 +312,30 @@ function generateHTML(results, top) {
         </div>
       </div>
 
-      <div>
+      ${validColors.length > 0 ? `
+      <div style="margin-bottom: 16px;">
         <h4 style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #444; text-transform: uppercase;">Color Palette</h4>
-        <div>${colorSwatches}</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">${colorSwatches}</div>
+      </div>` : ''}
+
+      ${r.sample_images.length > 0 ? `
+      <div>
+        <h4 style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #444; text-transform: uppercase;">Product Photos</h4>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          ${r.sample_images.map(img => `
+            <div style="text-align: center;" onerror="this.style.display='none'">
+              <a href="${img.product_url || '#'}" target="_blank" rel="noopener" style="display: block; text-decoration: none;">
+                <img src="${img.url}" alt="${(img.title || '').replace(/"/g, '&quot;').slice(0, 60)}"
+                  style="width: 120px; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid #e5e7eb; display: block; transition: opacity 0.15s;"
+                  onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'"
+                  onerror="this.parentElement.parentElement.style.display='none'">
+              </a>
+              <div style="font-size: 10px; color: #999; margin-top: 4px; width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${img.source}</div>
+            </div>
+          `).join('')}
+        </div>
       </div>
+      ` : ''}
     </div>
     `;
   }).join('');
@@ -349,7 +381,7 @@ function generateHTML(results, top) {
   <div class="container">
     <h1>B2B Trend Analysis</h1>
     <div class="summary">
-      <p>Analyzed ${results.length} design clusters across ${products.length} products. Showing top ${Math.min(TOP_N, results.length)} trends.</p>
+      <p>Analyzed ${results.length} design clusters across ${[...clusters.values()].reduce((s,c)=>s+c.products.length,0)} classifiable products (${products.length} total). Showing top ${Math.min(TOP_N, results.length)} trends.</p>
       <p><strong>Generated:</strong> ${new Date().toLocaleString()}</p>
     </div>
     ${trendCards}
@@ -379,12 +411,15 @@ if (!JSON_ONLY) {
   console.log(`\nTrend analysis — ${products.length} products, ${results.length} design clusters\n`);
 
   for (const r of top) {
+    const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : null;
+    const fmtNeck = s => s === 'v-neck' ? 'V-neck' : s ? cap(s) + ' neck' : null;
+    const fmtSleeve = s => s === 'sleeveless' ? 'Sleeveless' : s ? cap(s) + ' sleeve' : null;
     const label = [
-      r.design_pattern.charAt(0).toUpperCase() + r.design_pattern.slice(1),
-      r.front_top_treatment,
-      r.neck_type,
-      r.sleeve_length + ' sleeve',
-    ].join(', ');
+      cap(r.design_pattern) || 'Unknown pattern',
+      fmtNeck(r.neck_type),
+      fmtSleeve(r.sleeve_length),
+      r.front_top_treatment ? cap(r.front_top_treatment) + ' front' : null,
+    ].filter(Boolean).join(' · ');
 
     // Deduplicate color pairs for display
     const colorMap = new Map();
@@ -408,8 +443,8 @@ if (!JSON_ONLY) {
     console.log(`Score: ${r.score.total}/25 | Decision: ${r.decision}${r.score.capped ? ' [score capped — evidence too weak]' : ''}`);
     console.log(line);
     console.log(`Design Attributes:`);
-    console.log(`  Pattern:    ${r.design_pattern.padEnd(14)} Treatment: ${r.front_top_treatment}`);
-    console.log(`  Neck:       ${r.neck_type.padEnd(14)} Sleeve:    ${r.sleeve_length}`);
+    console.log(`  Pattern:    ${(r.design_pattern || 'n/a').padEnd(14)} Treatment: ${r.front_top_treatment || 'n/a'}`);
+    console.log(`  Neck:       ${(r.neck_type || 'n/a').padEnd(14)} Sleeve:    ${r.sleeve_length || 'n/a'}`);
     console.log(`  Texture:    cotton`);
     console.log(`\nMarket Signal:`);
     console.log(`  Products:   ${r.product_count} items across ${r.keyword_count} keyword(s)`);
