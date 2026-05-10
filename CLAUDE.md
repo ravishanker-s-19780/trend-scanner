@@ -143,6 +143,22 @@ Extracts structured design features from ladies' nightwear product photos. Use `
 
 **Usage:** `Extract garment features from this image`
 
+### b2b-trend-scorer
+
+Scores and ranks ladies' nighty design clusters on a 25-point B2B framework. Reads cleaned product data, groups products into design archetypes (pattern, neckline, sleeve, front treatment), and scores each cluster across Evidence Strength, Trend Signal, TN B2B Fit, Production Simplicity, and Margin Possibility.
+
+**Installation:**
+1. Create from local folder → point to `skills/b2b-trend-scorer/`, or
+2. Use `Skill` tool to invoke: `/b2b-trend-scorer`
+
+**Usage:** 
+- "Analyze the top 5 design trends and show which ones have B2B fit for wholesale"
+- "Score these nighty designs — which clusters should we send to the TN wholesaler?"
+- "Show top 10 trends from Amazon only" (use `--source=amazon` flag)
+- "Only show designs with at least 5 products in the data" (use `--min-count=5` flag)
+
+**Output:** Generates `evidence/output/trends.json` (full data), `trends.html` (styled report), and console cards with score breakdown.
+
 ## Code Quality & CI
 
 **Local Validation (before committing):**

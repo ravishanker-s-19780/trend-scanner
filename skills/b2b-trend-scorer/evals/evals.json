@@ -1,0 +1,23 @@
+{
+  "skill_name": "b2b-trend-scorer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze the top 5 design trends across all our scraped product data. I want to see which nighty designs have the strongest B2B fit and market signal.",
+      "expected_output": "JSON output to trends.json with top 5 clusters ranked by 25-point B2B score, including design attributes, market signal (products, sources, ratings, prices), and decision recommendations (Send Now / Send as Backup / etc.)",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Show me the top 10 trends from Amazon only. I want to see which designs are performing best on that platform specifically.",
+      "expected_output": "JSON output filtered to Amazon source only, showing top 10 ranked clusters with B2B scores, separated source metrics (Amazon product count), and design recommendations",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Find design clusters with solid evidence — only show me designs that have at least 5 products in the data. Top 5 please.",
+      "expected_output": "JSON output filtered to clusters with product_count >= 5, ranked by total score, showing only designs with minimum evidence threshold",
+      "files": []
+    }
+  ]
+}
