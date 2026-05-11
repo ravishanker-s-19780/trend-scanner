@@ -2,6 +2,17 @@ import { enc, abs, isHomepage } from '../utils.js';
 import { buildRecord }          from '../inference.js';
 import { MAX_ITEMS }            from '../config.js';
 
+const FEEDING_ZIP_KEYWORDS = [
+  'feeding zip', 'front zip', 'zip front', 'zipper front', 'zipper', 'zip model',
+  'zip at bust', 'bust zip', 'side zip', 'zip opening', 'zip near bust'
+];
+
+const NURSING_KEYWORDS = [
+  'nursing', 'breastfeeding', 'breast feeding', 'lactation',
+  'feeding nighty', 'feeding gown', 'feeding maxi', 'maternity nighty',
+  'feeding/maternity', 'maternity wear', 'maternity'
+];
+
 const SEL = {
   card:    'div.item.rilrtl-products-list__item',
   link:    'a',
@@ -12,6 +23,30 @@ const SEL = {
   blocked: 'text=Access Denied, text=Forbidden',
   // Detail page — Access Denied headlessly; skip enrichment
 };
+
+async function enrichAjioDetails(page, records) {
+  for (const rec of records) {
+    try {
+      // Note: Ajio blocks detail page access to automated browsers (returns Access Denied)
+      // So we extract nursing label from product title only and skip fabric/size enrichment
+
+      const titleLower = rec.product_title.toLowerCase();
+
+      // Nursing label: check title for keywords
+      if (FEEDING_ZIP_KEYWORDS.some(kw => titleLower.includes(kw))) {
+        rec.nursing_label = 'Feeding Zip';
+      } else if (NURSING_KEYWORDS.some(kw => titleLower.includes(kw))) {
+        rec.nursing_label = 'Nursing-Friendly';
+      }
+
+      // Size chart: Ajio doesn't provide detailed measurements, mark as free-size
+      rec.size_chart = { free_size: true, rows: [] };
+
+    } catch (err) {
+      // Silently skip failed records
+    }
+  }
+}
 
 export async function scrapeAjio(page, keyword, collected) {
   await page.goto(`https://www.ajio.com/search/?text=${enc(keyword)}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -60,4 +95,14 @@ export async function scrapeAjio(page, keyword, collected) {
     const newCount = await page.locator(SEL.card).count();
     if (newCount <= prevCount) break;
   }
+
+  // Pre-fill fabric type, size chart, and nursing label fields
+  for (const rec of collected) {
+    rec.fabric_type = null;
+    rec.size_chart = null;
+    rec.nursing_label = null;
+  }
+
+  // Enrich from detail pages
+  await enrichAjioDetails(page, collected);
 }

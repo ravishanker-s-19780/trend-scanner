@@ -1,12 +1,12 @@
 {
-  "startedAt": "2026-05-11T17:38:03.485Z",
+  "startedAt": "2026-05-11T18:17:07.262Z",
   "platforms": [
     {
-      "platform": "amazon",
-      "count": 100,
+      "platform": "ajio",
+      "count": 5,
       "blocked": false
     }
   ],
-  "finishedAt": "2026-05-11T17:44:19.217Z",
-  "total": 100
+  "finishedAt": "2026-05-11T18:17:12.047Z",
+  "total": 5
 }

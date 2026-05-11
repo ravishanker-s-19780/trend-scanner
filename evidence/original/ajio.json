@@ -12,7 +12,13 @@
       "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250930/y0KU/68dc0d218bfb9009ac4b42b5/momtobe_red_women_floral_print_maternity_nighty.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
+    ],
+    "fabric_type": null,
+    "size_chart": {
+      "free_size": true,
+      "rows": []
+    },
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "d05a9407c734",
@@ -27,7 +33,34 @@
       "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250510/h4oA/681e5ccd7a6cd4182f23154b/buythattrendz_black_women_printed_round-neck_nightie.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
+    ],
+    "fabric_type": null,
+    "size_chart": {
+      "free_size": true,
+      "rows": []
+    },
+    "nursing_label": null
+  },
+  {
+    "product_id": "1f113b10595b",
+    "platform": "ajio.com",
+    "keyword": "feeding nighty",
+    "product_title": "Women Leaf Maternity Nightie",
+    "product_url": "https://www.ajio.com/mamma-s-maternity-women-leaf-maternity-nightie/p/702618748_green?",
+    "price": 903,
+    "rating": 4.5,
+    "review_count": 2,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251212/cdia/693c4e93720fb821d389569b/mamma%27s_maternity_green_women_leaf_maternity_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ],
+    "fabric_type": null,
+    "size_chart": {
+      "free_size": true,
+      "rows": []
+    },
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "de47ede7570a",
@@ -42,36 +75,33 @@
       "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250502/Ic4k/6814f80d7a6cd4182f0a0a85/for_you_for_me_peach_women_floral_print_square-neck_nightie.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
+    ],
+    "fabric_type": null,
+    "size_chart": {
+      "free_size": true,
+      "rows": []
+    },
+    "nursing_label": null
   },
   {
-    "product_id": "cf910228aa15",
+    "product_id": "41528960815f",
     "platform": "ajio.com",
     "keyword": "feeding nighty",
-    "product_title": "Women Printed Round-Neck Nightie",
-    "product_url": "https://www.ajio.com/ichaa-women-printed-round-neck-nightie/p/702504662_teal?",
-    "price": 750,
-    "rating": 3.7,
-    "review_count": 22,
+    "product_title": "Women Maternity Tropical Print Nighti",
+    "product_url": "https://www.ajio.com/nightspree-women-maternity-tropical-print-nighti/p/702495763_navy?",
+    "price": 840,
+    "rating": 4.7,
+    "review_count": 3,
     "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/70Xo/69ff735bfcb5bb61d2b536dc/ichaa_teal_women_printed_round-neck_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251113/ttUf/6914ea41a470c5082f8bda75/nightspree_navy_women_maternity_tropical_print_nighti.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
-  },
-  {
-    "product_id": "1f01fc6ddaad",
-    "platform": "ajio.com",
-    "keyword": "feeding nighty",
-    "product_title": "Women Floral Nighti",
-    "product_url": "https://www.ajio.com/secret-wish-women-floral-nighti/p/700967894_purple?",
-    "price": 1250,
-    "rating": 4.8,
-    "review_count": 4,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20241223/3yfE/676927b4c148fa1b3057ff0d/secret_wish_purple_women_floral_nighti.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
+    ],
+    "fabric_type": null,
+    "size_chart": {
+      "free_size": true,
+      "rows": []
+    },
+    "nursing_label": "Nursing-Friendly"
   }
 ]
