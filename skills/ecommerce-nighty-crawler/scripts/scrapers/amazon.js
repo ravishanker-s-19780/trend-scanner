@@ -9,11 +9,14 @@ const FABRIC_KEYWORDS = [
 ];
 
 const FEEDING_ZIP_KEYWORDS = [
-  'feeding zip', 'front zip', 'zip front', 'zipper front', 'zipper', 'zip model'
+  'feeding zip', 'front zip', 'zip front', 'zipper front', 'zipper', 'zip model',
+  'zip at bust', 'bust zip', 'side zip', 'zip opening', 'zip near bust'
 ];
 
 const NURSING_KEYWORDS = [
-  'nursing', 'breastfeeding', 'breast feeding', 'lactation', 'feeding nighty'
+  'nursing', 'breastfeeding', 'breast feeding', 'lactation',
+  'feeding nighty', 'feeding gown', 'feeding maxi', 'maternity nighty',
+  'feeding/maternity', 'maternity wear'
 ];
 
 const SEL = {
@@ -35,16 +38,6 @@ function extractFabricFromTitle(title) {
   return null;
 }
 
-function extractNursingLabel(text) {
-  const t = text.toLowerCase();
-  for (const kw of FEEDING_ZIP_KEYWORDS) {
-    if (t.includes(kw)) return 'Feeding Zip';
-  }
-  for (const kw of NURSING_KEYWORDS) {
-    if (t.includes(kw)) return 'Nursing-Friendly';
-  }
-  return null;
-}
 
 async function enrichAmazonDetails(page, records) {
   for (const rec of records) {
@@ -52,150 +45,125 @@ async function enrichAmazonDetails(page, records) {
       await page.goto(rec.product_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await page.waitForTimeout(500);
 
-      // Try to find and click the "Size Chart" link
-      let sizeChartFound = false;
-      try {
-        const sizeChartLink = page.locator('a:has-text("Size Chart"), button:has-text("Size Chart")');
-        const count = await sizeChartLink.count();
-        if (count > 0) {
-          sizeChartFound = true;
-          try {
-            await sizeChartLink.first().click();
-            // Wait for the modal table to appear
-            try {
-              await page.locator('[id^="a-popover-"] table').first().waitFor({ timeout: 3000 });
-            } catch (waitErr) {
-              // Table didn't appear, but button click was registered
-            }
-            await page.waitForTimeout(800);
-          } catch (e) {
-            // Click might fail but link exists
-          }
-        }
-      } catch (e) {
-        // Selector issue
-      }
-
-      const details = await page.evaluate((hasChartBtn) => {
-        const fabricType = (() => {
-          // Try material table first
-          const tables = document.querySelectorAll('#productDetails_techSpec_section_1 tr');
-          for (const row of tables) {
-            const th = row.querySelector('th');
-            const td = row.querySelector('td');
-            if (th?.textContent.toLowerCase().includes('material') && td) {
+      const details = await page.evaluate(() => {
+        // Helper: scan all prodDetTable rows for a specific header
+        const prodDetVal = (header) => {
+          for (const tr of document.querySelectorAll('table.prodDetTable tr')) {
+            const th = tr.querySelector('th');
+            const td = tr.querySelector('td');
+            if (th && td && th.textContent.trim().toLowerCase() === header.toLowerCase()) {
               return td.textContent.trim();
             }
           }
-          // Try feature bullets
-          const bullets = document.querySelectorAll('#feature-bullets li span.a-list-item');
-          for (const bullet of bullets) {
-            const text = bullet.textContent.trim();
-            if (text.toLowerCase().includes('material:') || text.toLowerCase().includes('fabric:')) {
-              return text.replace(/^(material|fabric):\s*/i, '').trim();
+          return null;
+        };
+
+        // Helper: get .product-facts-detail value by label
+        const factVal = (label) => {
+          for (const row of document.querySelectorAll('.product-facts-detail')) {
+            const cols = row.querySelectorAll('.a-fixed-left-grid-col');
+            if (cols[0]?.textContent.trim().toLowerCase() === label.toLowerCase()) {
+              return cols[1]?.textContent.trim() || null;
             }
           }
           return null;
-        })();
+        };
 
+        // 1. FABRIC TYPE — priority: Fabric Type field > Material composition > Material type
+        const fabricType =
+          prodDetVal('Fabric Type') ||
+          factVal('Material composition') ||
+          prodDetVal('Material type') ||
+          factVal('Material type') ||
+          null;
+
+        // 2. CLOSURE TYPE — for feeding zip detection
+        const closureType =
+          prodDetVal('Closure Type') ||
+          factVal('Closure type') ||
+          '';
+
+        // 3. SPECIFIC USES — for nursing detection
+        const specificUses = prodDetVal('Specific Uses For Product') || '';
+        const lifestyle = prodDetVal('Lifestyle') || '';
+
+        // 4. ABOUT THIS ITEM bullets — for zip/nursing keyword scan
+        const bulletText = document.querySelector('#productFactsDesktopExpander')
+          ? [...document.querySelectorAll('#productFactsDesktopExpander .a-list-item')]
+              .map(el => el.textContent.trim()).join('\n')
+          : '';
+
+        // 5. Description text — last resort
+        const descText = document.querySelector('#productDescription')?.textContent || '';
+
+        // 6. SIZE CHART — no clicking needed; table lives in DOM even when popover is hidden
         const sizeChart = (() => {
-          // Look for Amazon's dynamically-generated popover modals (a-popover-N)
-          let modal = null;
-
-          // Strategy 1: Find visible popovers with table/size info
-          const popovers = [...document.querySelectorAll('[id^="a-popover-"]')];
-          for (const popover of popovers) {
-            const style = window.getComputedStyle(popover);
-            // Check if visible
-            if (style.display === 'none' || style.visibility === 'hidden' || popover.offsetHeight === 0) continue;
-
-            // Check if it has a table (most reliable indicator)
-            if (popover.querySelector('table')) {
-              modal = popover;
-              break;
-            }
-
-            // Otherwise check for size-related text
-            const text = popover.textContent.toLowerCase();
-            if (text.includes('size') && text.includes('chart')) {
-              modal = popover;
-              break;
-            }
-          }
-
-          if (!modal) return null;
-
-          // Extract measurement table from the modal
-          const table = modal.querySelector('table');
-          if (!table) return null;
-
-          const rows = [];
-          const headerRow = [...table.querySelectorAll('tr')][0];
-          const headerCells = headerRow ? [...headerRow.querySelectorAll('th, td')].map(c => c.textContent.trim()) : [];
-
-          // Parse data rows
-          const dataRows = [...table.querySelectorAll('tr')].slice(1);
-          for (const tr of dataRows) {
-            const cells = [...tr.querySelectorAll('td, th')];
-            if (cells.length < 2) continue;
-
-            const row = {};
-
-            // First column is usually the size
-            row.size = cells[0]?.textContent.trim();
-
-            // Parse remaining columns based on headers
-            for (let i = 1; i < cells.length; i++) {
-              const header = (headerCells[i] || '').toLowerCase();
-              const value = cells[i]?.textContent.trim();
-
-              if (!value) continue;
-
-              if (header.includes('chest') || header.includes('bust')) {
-                if (header.includes('(in)') || header.includes('in')) row.chest_in = value;
-                else if (header.includes('(cm)') || header.includes('cm')) row.chest_cm = value;
-              } else if (header.includes('waist')) {
-                if (header.includes('(in)')) row.waist_in = value;
-                else if (header.includes('(cm)')) row.waist_cm = value;
-              } else if (header.includes('length')) {
-                if (header.includes('(in)')) row.length_in = value;
-                else if (header.includes('(cm)')) row.length_cm = value;
-              } else if (header.includes('hip')) {
-                if (header.includes('(in)')) row.hip_in = value;
-                else if (header.includes('(cm)')) row.hip_cm = value;
+          const table = document.querySelector('table[id^="fit-sizechartv2"]');
+          if (!table) {
+            // Capture free-size info from prodDetTable
+            for (const tr of document.querySelectorAll('table.prodDetTable tr')) {
+              const th = tr.querySelector('th');
+              const td = tr.querySelector('td');
+              if (th?.textContent.trim().toLowerCase() === 'size' && td) {
+                const sizeVal = td.textContent.trim();
+                if (sizeVal.toLowerCase().includes('free')) return { free_size: true, rows: [] };
+                return null;
               }
             }
-
-            if (Object.keys(row).length > 1) rows.push(row);
+            return null;
           }
-
-          // Try to find image in modal
-          const img = modal.querySelector('img');
-          const imageUrl = img?.src || null;
-
-          return rows.length > 0 ? { image_url: imageUrl, rows } : null;
+          // Parse header row
+          const headerCells = [...table.querySelectorAll('tr:first-child th, tr:first-child td')]
+            .map(c => c.textContent.trim());
+          // Parse data rows
+          const rows = [...table.querySelectorAll('tr')].slice(1).map(tr => {
+            const cells = [...tr.querySelectorAll('td, th')].map(c => c.textContent.trim());
+            const row = { size: cells[0] };
+            headerCells.slice(1).forEach((h, i) => {
+              const hLow = h.toLowerCase();
+              const val = cells[i + 1];
+              if (!val) return;
+              if (hLow.includes('bust') || hLow.includes('chest')) {
+                if (hLow.includes('cm')) row.chest_cm = val; else row.chest_in = val;
+              } else if (hLow.includes('waist')) {
+                if (hLow.includes('cm')) row.waist_cm = val; else row.waist_in = val;
+              } else if (hLow.includes('hip')) {
+                if (hLow.includes('cm')) row.hip_cm = val; else row.hip_in = val;
+              } else if (hLow.includes('length')) {
+                if (hLow.includes('cm')) row.length_cm = val; else row.length_in = val;
+              } else {
+                row[h.replace(/\s+/g, '_').toLowerCase()] = val;
+              }
+            });
+            return row;
+          }).filter(r => Object.keys(r).length > 1);
+          return rows.length > 0 ? { rows } : null;
         })();
 
-        const bulletText = [...document.querySelectorAll('#feature-bullets li span.a-list-item')].map(b => b.textContent).join('\n');
-        const descText = document.querySelector('#productDescription')?.textContent || '';
-        const fullText = bulletText + '\n' + descText;
+        return { fabricType, closureType, specificUses, lifestyle, bulletText, descText, sizeChart };
+      });
 
-        return { fabricType, sizeChart, hasChartButton: hasChartBtn, nursingText: fullText };
-      }, sizeChartFound);
+      // Fabric type: use structured value if richer than title-extracted
+      if (details.fabricType) rec.fabric_type = details.fabricType;
 
-      if (!rec.fabric_type && details.fabricType) {
-        rec.fabric_type = details.fabricType;
+      // Nursing label: structured fields first, then text scan
+      const closureLower = details.closureType.toLowerCase();
+      const usesLower = details.specificUses.toLowerCase();
+      const lifestyleLower = details.lifestyle.toLowerCase();
+      const allText = (rec.product_title + '\n' + details.bulletText + '\n' + details.descText).toLowerCase();
+
+      if (closureLower.includes('zipper') || closureLower.includes('zip')) {
+        rec.nursing_label = 'Feeding Zip';
+      } else if (FEEDING_ZIP_KEYWORDS.some(kw => allText.includes(kw))) {
+        rec.nursing_label = 'Feeding Zip';
+      } else if (usesLower.includes('nursing') || lifestyleLower.includes('nursing')) {
+        rec.nursing_label = 'Nursing-Friendly';
+      } else if (NURSING_KEYWORDS.some(kw => allText.includes(kw))) {
+        rec.nursing_label = 'Nursing-Friendly';
       }
 
-      // Size chart: prefer extracted data, fallback to button presence indicator
-      if (details.sizeChart && details.sizeChart.image_url) {
-        rec.size_chart = details.sizeChart;
-      } else if (details.hasChartButton) {
-        // Button exists but we couldn't extract the image - still indicate availability
-        rec.size_chart = { image_url: null, rows: [], available: true };
-      }
-
-      rec.nursing_label = extractNursingLabel(rec.product_title + '\n' + details.nursingText);
+      // Size chart
+      if (details.sizeChart) rec.size_chart = details.sizeChart;
 
     } catch (err) {
       // Silently skip failed records
