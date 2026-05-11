@@ -1,58 +1,44 @@
 [
   {
-    "product_id": "15de2a1d7a36",
+    "product_id": "e35098477de1",
     "platform": "tatacliq.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Wunderlove Wunderlove by Westside Light Blue Printed Cotton Pyjamas Set In A Bag",
-    "product_url": "https://www.tatacliq.com/wunderlove-by-westside-light-blue-printed-cotton-pyjamas-set-in-a-bag/p-mp000000029803281",
-    "price": 999,
-    "rating": 4.2,
-    "review_count": 6,
+    "keyword": "ladies nighty combo",
+    "product_title": "Ichaa Ichaa Off White Regular Fit Floral Print Nighties",
+    "product_url": "https://www.tatacliq.com/ichaa-off-white-regular-fit-floral-print-nighties/p-mp000000028599739",
+    "price": 499,
+    "rating": 4,
+    "review_count": 7,
     "images": [
-      "https://img.tatacliq.com/images/i29/437Wx649H/MP000000029803281_437Wx649H_202601201554461.jpeg",
+      "https://img.tatacliq.com/images/i27//437Wx649H/MP000000028599558_437Wx649H_202510021457101.jpeg",
       "https://www.tatacliq.com/src/general/components/img/green-filled-star.svg"
     ]
   },
   {
-    "product_id": "d49ef5b7ed2c",
+    "product_id": "cb1932086c95",
     "platform": "tatacliq.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Superstar Superstar by Westside Brown Detailed High-Rise Cotton-Blend Pants",
-    "product_url": "https://www.tatacliq.com/superstar-by-westside-brown-detailed-highrise-cottonblend-pants/p-mp000000029518533",
-    "price": 799,
-    "rating": 4.5,
+    "keyword": "ladies nighty combo",
+    "product_title": "Sweet Dreams Sweet Dreams Maroon Cotton Printed Nighty",
+    "product_url": "https://www.tatacliq.com/sweet-dreams-maroon-cotton-printed-nighty/p-mp000000022500730",
+    "price": 840,
+    "rating": 3,
     "review_count": 2,
     "images": [
-      "https://img.tatacliq.com/images/i29/437Wx649H/MP000000029518485_437Wx649H_202512121456131.jpeg",
+      "https://img.tatacliq.com/images/i18//437Wx649H/MP000000022500721_437Wx649H_202406060221281.jpeg",
       "https://www.tatacliq.com/src/general/components/img/green-filled-star.svg"
     ]
   },
   {
-    "product_id": "d070a97670d0",
+    "product_id": "c4151c345ca6",
     "platform": "tatacliq.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Wunderlove Wunderlove by Westside Brown Gingham Printed High-Rise Cotton Pants",
-    "product_url": "https://www.tatacliq.com/wunderlove-by-westside-brown-gingham-printed-highrise-cotton-pants/p-mp000000029860659",
-    "price": 999,
-    "rating": 4.8,
-    "review_count": 4,
+    "keyword": "ladies nighty combo",
+    "product_title": "Ichaa Ichaa Peach Regular Fit Floral Print Nighties",
+    "product_url": "https://www.tatacliq.com/ichaa-peach-regular-fit-floral-print-nighties/p-mp000000028599637",
+    "price": 499,
+    "rating": 3.8,
+    "review_count": 5,
     "images": [
-      "https://img.tatacliq.com/images/i29/437Wx649H/MP000000029860655_437Wx649H_202601250315431.jpeg",
+      "https://img.tatacliq.com/images/i27//437Wx649H/MP000000028599618_437Wx649H_202510021500111.jpeg",
       "https://www.tatacliq.com/src/general/components/img/green-filled-star.svg"
-    ]
-  },
-  {
-    "product_id": "50cebbab6df5",
-    "platform": "tatacliq.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Superstar Superstar by Westside Pink Striped Cotton-Blend Shirt",
-    "product_url": "https://www.tatacliq.com/superstar-by-westside-pink-striped-cottonblend-shirt/p-mp000000029837823",
-    "price": 599,
-    "rating": null,
-    "review_count": 3,
-    "images": [
-      "https://img.tatacliq.com/images/i29/437Wx649H/MP000000029837815_437Wx649H_202601221859351.jpeg",
-      "https://www.tatacliq.com/src/general/components/img/orange-filled-star.svg"
     ]
   }
 ]

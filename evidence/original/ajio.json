@@ -1,59 +1,45 @@
 [
   {
-    "product_id": "1f113b10595b",
+    "product_id": "e792f30694f3",
     "platform": "ajio.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Women Leaf Maternity Nightie",
-    "product_url": "https://www.ajio.com/mamma-s-maternity-women-leaf-maternity-nightie/p/702618748_green?",
-    "price": 903,
-    "rating": 4.5,
-    "review_count": 2,
+    "keyword": "ladies nighty combo",
+    "product_title": "Women Printed Nightwear Set",
+    "product_url": "https://www.ajio.com/jade--julie-women-printed-nightwear-set/p/702505110_white?",
+    "price": 420,
+    "rating": 2.7,
+    "review_count": 168,
     "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251212/cdia/693c4e93720fb821d389569b/mamma%27s_maternity_green_women_leaf_maternity_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/0dRg/69ff6b56fcb5bb61d2b449d5/jade_%26_julie_white_women_printed_nightwear_set.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
     ]
   },
   {
-    "product_id": "de47ede7570a",
+    "product_id": "60abf5049564",
     "platform": "ajio.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Women Floral Print Square-Neck Nightie",
-    "product_url": "https://www.ajio.com/for-you-for-me-women-floral-print-square-neck-nightie/p/701521985_peach?",
-    "price": 464,
-    "rating": 3,
-    "review_count": 14,
+    "keyword": "ladies nighty combo",
+    "product_title": "Women Floral Nightshirt",
+    "product_url": "https://www.ajio.com/duchess-women-floral-nightshirt/p/703292577_cream?",
+    "price": 640,
+    "rating": null,
+    "review_count": null,
     "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250502/Ic4k/6814f80d7a6cd4182f0a0a85/for_you_for_me_peach_women_floral_print_square-neck_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260406/4Fgm/69d3bddb5bc52e77e036d65e/duchess_cream_women_floral_nightshirt.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "800564bc1a75",
+    "platform": "ajio.com",
+    "keyword": "ladies nighty combo",
+    "product_title": "Women Chevron Print Regular Fit Pyjamas",
+    "product_url": "https://www.ajio.com/rio-women-chevron-print-regular-fit-pyjamas/p/443095965_beige?",
+    "price": 283,
+    "rating": 4,
+    "review_count": 128,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251110/SeUT/6911ae47a470c5082f7ddd59/rio_beige_women_chevron_print_regular_fit_pyjamas.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
-  },
-  {
-    "product_id": "092b0a624d16",
-    "platform": "ajio.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Women Printed Square-Neck Nighti",
-    "product_url": "https://www.ajio.com/mamma-s-maternity-women-printed-square-neck-nighti/p/702622361_maroon?",
-    "price": 903,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251215/Eb3z/693ffd5c720fb821d38d4e52/mamma%27s_maternity_maroon_women_printed_square-neck_nighti.jpg",
-      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
-    ]
-  },
-  {
-    "product_id": "5741482e831d",
-    "platform": "ajio.com",
-    "keyword": "nursing nightgown",
-    "product_title": "Women Geometric Print Nightie with Lace Detailed",
-    "product_url": "https://www.ajio.com/mamma-s-maternity-women-geometric-print-nightie-with-lace-detailed/p/701145905_brown?",
-    "price": 900,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250202/KmtJ/679f8a02bc78b543a912fd50/mamma%27s_maternity_brown_women_geometric_print_nightie_with_lace_detailed.jpg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
     ]
   }

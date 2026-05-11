@@ -52,32 +52,28 @@ async function enrichAmazonDetails(page, records) {
       await page.goto(rec.product_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await page.waitForTimeout(500);
 
-      // Try to detect and click size chart button
+      // Try to find and click the "Size Chart" link
       let sizeChartFound = false;
-      const sizeChartSelectors = [
-        '#size-chart-button',
-        '[data-a-modal*="size"]',
-        'button[aria-label*="size" i]',
-        'a[href*="sizeguide"]'
-      ];
-
-      for (const selector of sizeChartSelectors) {
-        try {
-          const btns = page.locator(selector);
-          const count = await btns.count();
-          if (count > 0) {
-            sizeChartFound = true;
+      try {
+        const sizeChartLink = page.locator('a:has-text("Size Chart"), button:has-text("Size Chart")');
+        const count = await sizeChartLink.count();
+        if (count > 0) {
+          sizeChartFound = true;
+          try {
+            await sizeChartLink.first().click();
+            // Wait for the modal table to appear
             try {
-              await btns.first().click();
-              await page.waitForTimeout(1000);
-            } catch (e) {
-              // Click failed, but button exists
+              await page.locator('[id^="a-popover-"] table').first().waitFor({ timeout: 3000 });
+            } catch (waitErr) {
+              // Table didn't appear, but button click was registered
             }
-            break;
+            await page.waitForTimeout(800);
+          } catch (e) {
+            // Click might fail but link exists
           }
-        } catch (e) {
-          // Selector doesn't exist
         }
+      } catch (e) {
+        // Selector issue
       }
 
       const details = await page.evaluate((hasChartBtn) => {
@@ -103,73 +99,81 @@ async function enrichAmazonDetails(page, records) {
         })();
 
         const sizeChart = (() => {
-          // Look for any visible modal/dialog
+          // Look for Amazon's dynamically-generated popover modals (a-popover-N)
           let modal = null;
-          const allDialogs = [...document.querySelectorAll('[role="dialog"], [class*="popover"], [class*="modal"]')];
 
-          // Find the one that's actually visible and might contain size chart
-          for (const dialog of allDialogs) {
-            const style = window.getComputedStyle(dialog);
-            if (style.display !== 'none' && style.visibility !== 'hidden') {
-              const text = dialog.textContent.toLowerCase();
-              if (text.includes('size') || text.includes('measurement')) {
-                modal = dialog;
-                break;
-              }
+          // Strategy 1: Find visible popovers with table/size info
+          const popovers = [...document.querySelectorAll('[id^="a-popover-"]')];
+          for (const popover of popovers) {
+            const style = window.getComputedStyle(popover);
+            // Check if visible
+            if (style.display === 'none' || style.visibility === 'hidden' || popover.offsetHeight === 0) continue;
+
+            // Check if it has a table (most reliable indicator)
+            if (popover.querySelector('table')) {
+              modal = popover;
+              break;
             }
-          }
 
-          // If no modal found, try specific selectors
-          if (!modal) {
-            modal = document.querySelector('#a-popover-content-1') ||
-                   document.querySelector('[id*="size"][role="dialog"]') ||
-                   document.querySelector('#sizeChartDiv') ||
-                   document.querySelector('[class*="size-chart"]');
+            // Otherwise check for size-related text
+            const text = popover.textContent.toLowerCase();
+            if (text.includes('size') && text.includes('chart')) {
+              modal = popover;
+              break;
+            }
           }
 
           if (!modal) return null;
 
-          // Try to find image in modal
-          const allImages = [...modal.querySelectorAll('img')];
-          let modalImage = allImages.find(img => {
-            const src = img.src.toLowerCase();
-            const alt = img.alt.toLowerCase();
-            return src.includes('size') || src.includes('chart') || alt.includes('size') || alt.includes('chart');
-          }) || allImages[0];
-
-          if (!modalImage || !modalImage.src) return null;
-
-          const imageUrl = modalImage.src;
-          const rows = [];
-
-          // Try to extract table data from the modal
+          // Extract measurement table from the modal
           const table = modal.querySelector('table');
-          if (table) {
-            const headerRow = table.querySelector('tr');
-            const headerCells = headerRow ? [...headerRow.querySelectorAll('th, td')].map(c => c.textContent.trim().toLowerCase()) : [];
-            const dataRows = [...table.querySelectorAll('tr')].slice(1);
+          if (!table) return null;
 
-            for (const tr of dataRows) {
-              const cells = [...tr.querySelectorAll('td, th')];
-              if (cells.length >= 2) {
-                const row = { size: cells[0]?.textContent.trim() };
-                for (let i = 1; i < cells.length; i++) {
-                  const header = headerCells[i] || '';
-                  const value = cells[i]?.textContent.trim();
-                  if (header.includes('bust') || header.includes('chest')) {
-                    if (header.includes('in')) row.chest_in = value;
-                    else if (header.includes('cm')) row.chest_cm = value;
-                  } else if (header.includes('length')) {
-                    if (header.includes('in')) row.length_in = value;
-                    else if (header.includes('cm')) row.length_cm = value;
-                  }
-                }
-                if (Object.keys(row).length > 1) rows.push(row);
+          const rows = [];
+          const headerRow = [...table.querySelectorAll('tr')][0];
+          const headerCells = headerRow ? [...headerRow.querySelectorAll('th, td')].map(c => c.textContent.trim()) : [];
+
+          // Parse data rows
+          const dataRows = [...table.querySelectorAll('tr')].slice(1);
+          for (const tr of dataRows) {
+            const cells = [...tr.querySelectorAll('td, th')];
+            if (cells.length < 2) continue;
+
+            const row = {};
+
+            // First column is usually the size
+            row.size = cells[0]?.textContent.trim();
+
+            // Parse remaining columns based on headers
+            for (let i = 1; i < cells.length; i++) {
+              const header = (headerCells[i] || '').toLowerCase();
+              const value = cells[i]?.textContent.trim();
+
+              if (!value) continue;
+
+              if (header.includes('chest') || header.includes('bust')) {
+                if (header.includes('(in)') || header.includes('in')) row.chest_in = value;
+                else if (header.includes('(cm)') || header.includes('cm')) row.chest_cm = value;
+              } else if (header.includes('waist')) {
+                if (header.includes('(in)')) row.waist_in = value;
+                else if (header.includes('(cm)')) row.waist_cm = value;
+              } else if (header.includes('length')) {
+                if (header.includes('(in)')) row.length_in = value;
+                else if (header.includes('(cm)')) row.length_cm = value;
+              } else if (header.includes('hip')) {
+                if (header.includes('(in)')) row.hip_in = value;
+                else if (header.includes('(cm)')) row.hip_cm = value;
               }
             }
+
+            if (Object.keys(row).length > 1) rows.push(row);
           }
 
-          return imageUrl ? { image_url: imageUrl, rows } : null;
+          // Try to find image in modal
+          const img = modal.querySelector('img');
+          const imageUrl = img?.src || null;
+
+          return rows.length > 0 ? { image_url: imageUrl, rows } : null;
         })();
 
         const bulletText = [...document.querySelectorAll('#feature-bullets li span.a-list-item')].map(b => b.textContent).join('\n');
