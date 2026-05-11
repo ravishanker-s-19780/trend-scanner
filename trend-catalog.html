@@ -1,677 +1,1543 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Trend Catalog — Discover Viral Social Media Trends</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Trend Catalog — B2B Ladies Nighty Trends</title>
 <style>
-  :root {
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --border: #ececec;
-    --text: #0f0f12;
-    --text-muted: #6b6b76;
-    --accent: #ff2e63;
-    --accent-2: #7d5fff;
-    --accent-grad: linear-gradient(135deg, #ff2e63 0%, #7d5fff 100%);
-    --shadow-sm: 0 1px 2px rgba(15,15,18,.06);
-    --shadow-md: 0 6px 24px rgba(15,15,18,.08);
-    --radius: 14px;
-    --radius-lg: 20px;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  /* Header */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(255,255,255,.85);
-    backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid var(--border);
-  }
-  .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: -.01em;
-  }
-  .brand-logo {
-    width: 32px; height: 32px;
-    border-radius: 9px;
-    background: var(--accent-grad);
-    display: grid; place-items: center;
-    color: white; font-weight: 800;
-  }
-  .nav-pills { display: flex; gap: 8px; }
-  .nav-pills button {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text-muted);
-    padding: 7px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all .15s ease;
-  }
-  .nav-pills button:hover { color: var(--text); border-color: #d0d0d6; }
-  .nav-pills button.active {
-    background: var(--text);
-    color: white;
-    border-color: var(--text);
-  }
+/* ── Variables ──────────────────────────────────── */
+:root {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --border: #e8e8e8;
+  --text: #111111;
+  --text-muted: #666666;
+  --text-light: #999999;
+  --accent: #e91e63;
+  --accent-dark: #c2185b;
+  --accent-light: #fce4ec;
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.16);
+  --header-h: 56px;
+  --filter-h: 48px;
+  --bottom-nav-h: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 
-  /* Main */
+  /* Decision colors */
+  --send-now: #16a34a;
+  --send-now-bg: #dcfce7;
+  --backup: #2563eb;
+  --backup-bg: #dbeafe;
+  --needs-evidence: #d97706;
+  --needs-evidence-bg: #fef3c7;
+  --do-not-send: #dc2626;
+  --do-not-send-bg: #fee2e2;
+}
+
+/* ── Reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Loading screen ─────────────────────────────── */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--surface);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px; z-index: 9999;
+}
+.loader-ring {
+  width: 48px; height: 48px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-text { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+#loader.hidden { display: none; }
+
+/* ── Header ─────────────────────────────────────── */
+header {
+  position: sticky;
+  top: 0; z-index: 100;
+  height: var(--header-h);
+  background: rgba(255,255,255,.92);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  height: 100%;
+  padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.brand {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 16px; letter-spacing: -.02em; flex-shrink: 0;
+}
+.brand-icon {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), #9c27b0);
+  display: grid; place-items: center;
+  font-size: 15px;
+}
+.header-tabs {
+  display: flex; gap: 4px;
+  background: var(--bg);
+  border-radius: 999px;
+  padding: 3px;
+}
+.tab-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text-muted);
+  transition: all .15s ease;
+  position: relative;
+  white-space: nowrap;
+}
+.tab-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.wishlist-badge {
+  display: none;
+  position: absolute; top: -2px; right: -2px;
+  background: var(--accent);
+  color: white;
+  font-size: 9px; font-weight: 700;
+  min-width: 16px; height: 16px;
+  border-radius: 999px; padding: 0 4px;
+  align-items: center; justify-content: center;
+  border: 2px solid var(--surface);
+}
+.wishlist-badge.visible { display: flex; }
+.header-count {
+  font-size: 12px; color: var(--text-muted); font-weight: 500; flex-shrink: 0;
+}
+
+/* ── Filter Bar ─────────────────────────────────── */
+.filter-bar {
+  position: sticky;
+  top: var(--header-h); z-index: 90;
+  background: rgba(245,245,245,.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  height: var(--filter-h);
+}
+.filter-scroll {
+  max-width: 1200px; margin: 0 auto;
+  height: 100%;
+  display: flex; align-items: center; gap: 6px;
+  padding: 0 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.filter-scroll::-webkit-scrollbar { display: none; }
+.filter-chip {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 12px; font-weight: 600;
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+.filter-chip:hover { border-color: var(--text-muted); color: var(--text); }
+.filter-chip.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: white;
+}
+.filter-chip.active.send-now { background: var(--send-now); border-color: var(--send-now); }
+.filter-chip.active.backup { background: var(--backup); border-color: var(--backup); }
+.filter-divider {
+  flex-shrink: 0;
+  width: 1px; height: 20px;
+  background: var(--border);
+  margin: 0 2px;
+}
+
+/* ── Main / Grid ────────────────────────────────── */
+main {
+  max-width: 1200px; margin: 0 auto;
+  padding: 12px 10px calc(var(--bottom-nav-h) + var(--safe-bottom) + 20px);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 480px) {
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+@media (min-width: 768px) {
+  main { padding: 16px 16px 80px; }
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+}
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+}
+
+/* ── Trend Card ─────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.card:active { transform: scale(0.97); }
+.card.disliked { opacity: 0.45; }
+@media (hover: hover) {
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+}
+
+/* Hero image */
+.collage {
+  position: relative;
+  overflow: hidden;
+  background: #f0f0f0;
+  aspect-ratio: 2/3;
+}
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  transition: transform .5s ease;
+  display: block;
+  background: #f9f6f2;
+}
+.card:hover .hero-img { transform: scale(1.04); }
+.hero-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, #f5f0ff, #fce4ec);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+}
+
+/* Photos badge (desktop grid) */
+.photos-badge {
+  position: absolute; bottom: 36px; right: 8px; z-index: 5;
+  background: rgba(0,0,0,.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: white; font-size: 9px; font-weight: 700;
+  padding: 2px 7px; border-radius: 999px;
+}
+@media (max-width: 767px) { .photos-badge { display: none; } }
+
+/* Image dots indicator */
+.img-dots {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 4px; z-index: 5;
+}
+.img-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  transition: background .2s;
+}
+.img-dot.active { background: white; }
+
+/* Overlays on collage */
+.rank-badge {
+  position: absolute; top: 8px; left: 8px; z-index: 5;
+  background: rgba(0,0,0,.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 7px; border-radius: 999px;
+  letter-spacing: .02em;
+}
+.decision-badge {
+  position: absolute; top: 8px; right: 8px; z-index: 5;
+  font-size: 9px; font-weight: 800;
+  padding: 3px 7px; border-radius: 999px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.decision-badge.send-now { background: var(--send-now-bg); color: var(--send-now); }
+.decision-badge.backup { background: var(--backup-bg); color: var(--backup); }
+.decision-badge.needs-evidence { background: var(--needs-evidence-bg); color: var(--needs-evidence); }
+.decision-badge.do-not-send { background: var(--do-not-send-bg); color: var(--do-not-send); }
+
+/* Color DNA strip */
+.color-strip {
+  display: flex; height: 4px;
+  overflow: hidden;
+}
+.color-strip span { flex: 1; }
+
+/* Card body */
+.card-body {
+  padding: 10px 10px 8px;
+  display: flex; flex-direction: column; gap: 5px;
+  flex: 1;
+}
+.card-title {
+  font-size: 12px; font-weight: 700;
+  line-height: 1.35; letter-spacing: -.01em;
+  color: var(--text);
+}
+@media (min-width: 480px) { .card-title { font-size: 13px; } }
+
+.card-meta {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap;
+}
+.card-rating {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600; color: #f59e0b;
+}
+.card-price {
+  font-size: 11px; font-weight: 600; color: var(--text);
+}
+.card-count {
+  font-size: 10px; color: var(--text-muted); margin-left: auto;
+}
+
+/* Platform dots */
+.platform-dots {
+  display: flex; gap: 3px; flex-wrap: wrap; align-items: center;
+}
+.platform-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+  title: attr(data-platform);
+}
+
+/* Fire score */
+.fire-row {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.fire-score { font-size: 12px; letter-spacing: .02em; }
+.score-num {
+  font-size: 10px; color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Action row */
+.action-row {
+  display: flex; align-items: center;
+  gap: 4px;
+  padding: 6px 10px 8px;
+  border-top: 1px solid var(--border);
+}
+.action-btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  padding: 7px 4px;
+  border-radius: var(--radius-sm);
+  font-size: 11px; font-weight: 600;
+  color: var(--text-muted);
+  transition: all .15s ease;
+  min-height: 34px;
+}
+.action-btn:hover, .action-btn:active { background: var(--bg); }
+.action-btn.liked { color: var(--accent); }
+.action-btn.wishlisted { color: #7c3aed; }
+.action-btn.disliked-state { color: var(--text-muted); }
+.action-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.action-btn.liked svg.heart-icon { fill: var(--accent); stroke: var(--accent); }
+.action-btn.wishlisted svg.bookmark-icon { fill: #7c3aed; stroke: #7c3aed; }
+
+/* Like animation */
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.5); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.heart-pop { animation: heartPop .35s ease forwards; }
+
+/* ── Empty state ────────────────────────────────── */
+.empty-state {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-muted); display: none;
+}
+.empty-state.visible { display: block; }
+.empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-title { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.empty-sub { font-size: 14px; }
+
+/* ── Bottom Nav (mobile) ────────────────────────── */
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: calc(var(--bottom-nav-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: rgba(255,255,255,.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  z-index: 80;
+}
+@media (min-width: 768px) { .bottom-nav { display: none; } }
+.bottom-nav-item {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px;
+  font-size: 10px; font-weight: 600; color: var(--text-muted);
+  transition: color .15s ease;
+  position: relative;
+}
+.bottom-nav-item.active { color: var(--accent); }
+.bottom-nav-item svg { width: 22px; height: 22px; }
+.bottom-nav-badge {
+  display: none;
+  position: absolute; top: 6px; right: calc(50% - 18px);
+  background: var(--accent); color: white;
+  font-size: 9px; font-weight: 800;
+  min-width: 16px; height: 16px;
+  border-radius: 999px; padding: 0 3px;
+  align-items: center; justify-content: center;
+  border: 2px solid var(--surface);
+}
+.bottom-nav-badge.visible { display: flex; }
+
+/* ── Scroll to top ──────────────────────────────── */
+#scrollTop {
+  position: fixed; right: 16px;
+  bottom: calc(var(--bottom-nav-h) + var(--safe-bottom) + 12px);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--text);
+  color: white;
+  display: none; place-items: center;
+  box-shadow: var(--shadow-md);
+  z-index: 75; transition: opacity .2s ease;
+}
+#scrollTop.visible { display: grid; }
+@media (min-width: 768px) {
+  #scrollTop { bottom: 24px; }
+}
+
+/* ── Modal ──────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none; align-items: flex-end; justify-content: center;
+  padding: 0;
+}
+.modal-overlay.open { display: flex; }
+@media (min-width: 600px) {
+  .modal-overlay { align-items: center; padding: 20px; }
+}
+.modal {
+  background: var(--surface);
+  width: 100%; max-width: 520px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  max-height: 92vh; overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: slideUp .25s ease;
+}
+@media (min-width: 600px) {
+  .modal { border-radius: var(--radius-lg); max-height: 88vh; }
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Modal drag handle */
+.modal-handle {
+  display: flex; justify-content: center; padding: 10px 0 6px;
+}
+.modal-handle span {
+  width: 36px; height: 4px;
+  background: var(--border); border-radius: 999px;
+}
+@media (min-width: 600px) { .modal-handle { display: none; } }
+
+/* Modal images */
+.modal-images {
+  display: flex; gap: 6px;
+  padding: 0 14px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.modal-images::-webkit-scrollbar { display: none; }
+.modal-img-wrap {
+  flex-shrink: 0;
+  width: 120px; height: 160px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #f0f0f0;
+  position: relative;
+}
+.modal-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.modal-img-wrap .placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; color: #ccc;
+}
+
+/* Modal body */
+.modal-body { padding: 0 16px 24px; }
+.modal-decision-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.modal-decision-badge {
+  font-size: 11px; font-weight: 800;
+  padding: 4px 10px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.modal-title {
+  font-size: 20px; font-weight: 800;
+  letter-spacing: -.02em; margin-bottom: 6px;
+  line-height: 1.2;
+}
+.modal-subtitle {
+  font-size: 13px; color: var(--text-muted); margin-bottom: 16px;
+}
+
+/* Score breakdown */
+.score-section { margin-bottom: 16px; }
+.score-section-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.score-total-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.score-total-num {
+  font-size: 28px; font-weight: 800; letter-spacing: -.03em;
+}
+.score-total-denom { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+.score-bars { display: flex; flex-direction: column; gap: 6px; }
+.score-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.score-label { font-size: 11px; font-weight: 600; color: var(--text-muted); width: 140px; flex-shrink: 0; }
+.score-bar-track {
+  flex: 1; height: 6px;
+  background: var(--bg); border-radius: 999px; overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), #9c27b0);
+  transition: width .5s ease;
+}
+.score-val { font-size: 11px; font-weight: 700; width: 20px; text-align: right; flex-shrink: 0; }
+
+/* Stats grid */
+.stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; margin-bottom: 16px;
+}
+.stat-card {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.stat-label { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+.stat-value { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+.stat-sub { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+
+/* Platform list */
+.platform-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.platform-pill {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 999px;
+  background: var(--bg);
+  font-size: 11px; font-weight: 700; color: var(--text);
+}
+.platform-pill-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* Color palette */
+.color-palette { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.color-swatch {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  position: relative;
+}
+.color-swatch::after {
+  content: attr(data-name);
+  position: absolute; top: 34px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; color: var(--text-muted); white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Modal action row */
+.modal-actions {
+  display: flex; gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.modal-action-btn {
+  flex: 1; padding: 12px 8px;
+  border-radius: var(--radius);
+  font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: all .15s ease;
+  min-height: 44px;
+}
+.modal-action-btn.like-btn { background: var(--accent-light); color: var(--accent); }
+.modal-action-btn.like-btn:hover { background: var(--accent); color: white; }
+.modal-action-btn.like-btn.active { background: var(--accent); color: white; }
+.modal-action-btn.wishlist-btn { background: #ede9fe; color: #7c3aed; }
+.modal-action-btn.wishlist-btn:hover { background: #7c3aed; color: white; }
+.modal-action-btn.wishlist-btn.active { background: #7c3aed; color: white; }
+.modal-action-btn.skip-btn { background: var(--bg); color: var(--text-muted); }
+.modal-action-btn.skip-btn.active { background: #f1f5f9; color: #64748b; }
+.modal-action-btn svg { width: 18px; height: 18px; }
+
+/* Modal close */
+.modal-close-row {
+  display: flex; justify-content: flex-end; padding: 12px 14px 0;
+}
+.modal-close-btn {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--bg); display: grid; place-items: center;
+  color: var(--text-muted);
+  font-size: 18px; line-height: 1;
+  display: none;
+}
+@media (min-width: 600px) { .modal-close-btn { display: grid; } }
+
+/* ════════════════════════════════════════════════
+   MOBILE: Full-screen vertical snap-scroll feed
+   ════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Lock body scroll — only the feed scrolls */
+  body { overflow: hidden; height: 100dvh; }
+
+  /* Feed container: fixed, fills between header+filter and bottom nav */
   main {
-    flex: 1;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 28px 22px 180px;
-  }
-  .hero {
-    text-align: center;
-    padding: 14px 0 28px;
-  }
-  .hero h1 {
-    margin: 0 0 8px;
-    font-size: clamp(28px, 4vw, 42px);
-    letter-spacing: -.02em;
-    background: var(--accent-grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .hero p {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 15px;
+    position: fixed;
+    top: calc(var(--header-h) + var(--filter-h));
+    left: 0; right: 0;
+    bottom: calc(var(--bottom-nav-h) + var(--safe-bottom));
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior-y: none;
   }
 
-  /* Chip filters */
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 22px 0 18px;
-  }
-  .chip {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text-muted);
-    padding: 7px 13px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all .15s ease;
-  }
-  .chip:hover { border-color: #d0d0d6; }
-  .chip.active {
-    background: var(--accent-grad);
-    color: white;
-    border-color: transparent;
-  }
-
-  /* Catalog grid */
   .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 18px;
+    display: block;
+    gap: 0;
   }
+
+  /* Each card = one full screen */
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: transform .18s ease, box-shadow .18s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-  }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-  }
-  .thumb {
-    aspect-ratio: 4 / 5;
-    background: var(--accent-grad) center/cover no-repeat;
-    display: grid;
-    place-items: end center;
-    color: white;
+    scroll-snap-align: start;
+    height: calc(100dvh - var(--header-h) - var(--filter-h) - var(--bottom-nav-h) - var(--safe-bottom));
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
     position: relative;
     overflow: hidden;
+    transform: none !important;
   }
-  .thumb img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform .4s ease;
+  .card:active { transform: none !important; }
+
+  /* Image fills entire card */
+  .collage {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: unset;
+    z-index: 0;
   }
-  .card:hover .thumb img { transform: scale(1.05); }
-  .thumb::after {
-    content: "";
+
+  /* Bottom gradient for readability */
+  .collage::after {
+    content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 45%);
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,.80) 0%,
+      rgba(0,0,0,.40) 35%,
+      rgba(0,0,0,.10) 60%,
+      transparent 80%
+    );
+    z-index: 2;
     pointer-events: none;
   }
-  .thumb-emoji {
-    position: absolute;
-    bottom: 12px; left: 14px;
-    font-size: 22px;
-    z-index: 1;
-    text-shadow: 0 2px 8px rgba(0,0,0,.4);
+
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
-  .platform-badge {
+
+  /* Rank badge: stay top-left */
+  .rank-badge { z-index: 5; }
+
+  /* Decision badge: stay top-right */
+  .decision-badge { z-index: 5; }
+
+  /* Dots: above gradient */
+  .img-dots { z-index: 5; bottom: 12px; }
+
+  /* Color DNA strip: pinned at very bottom */
+  .color-strip {
     position: absolute;
-    top: 12px; left: 12px;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(6px);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .02em;
-    z-index: 1;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    z-index: 6;
   }
-  .trend-score {
-    position: absolute;
-    top: 12px; right: 12px;
-    background: rgba(255,255,255,.95);
-    color: var(--accent);
-    padding: 4px 9px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    z-index: 1;
-    display: flex; align-items: center; gap: 3px;
-  }
+
+  /* Info panel: bottom-left overlay on image */
   .card-body {
-    padding: 14px 16px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    position: absolute;
+    bottom: 5px; left: 0;
+    right: 72px; /* leave space for right FABs */
+    z-index: 5;
+    padding: 14px 16px 20px;
+    gap: 6px;
+    background: none;
+    flex: unset;
   }
+
   .card-title {
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -.01em;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    text-shadow: 0 1px 4px rgba(0,0,0,.5);
+    line-height: 1.25;
   }
-  .card-meta {
-    display: flex;
+
+  .card-meta { gap: 8px; }
+  .card-rating { color: #fbbf24; font-size: 13px; font-weight: 700; }
+  .card-price { color: white; font-size: 13px; font-weight: 700; }
+  .card-count { color: rgba(255,255,255,.7); font-size: 11px; margin-left: 0; }
+
+  .fire-row { margin-top: 2px; }
+  .fire-score { font-size: 16px; }
+
+  .platform-dots .platform-dot {
+    width: 10px; height: 10px;
+    border: 1.5px solid rgba(255,255,255,.5);
+  }
+
+  /* Right-side action FABs: TikTok/Reels style */
+  .action-row {
+    position: absolute;
+    right: 12px;
+    bottom: 40px;
+    flex-direction: column;
     align-items: center;
     gap: 12px;
-    color: var(--text-muted);
-    font-size: 12px;
-  }
-  .card-meta span { display: inline-flex; align-items: center; gap: 4px; }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 4px;
-  }
-  .tag {
-    background: #f3f3f6;
-    color: var(--text-muted);
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 500;
+    border: none;
+    padding: 0;
+    z-index: 5;
+    background: none;
   }
 
-  /* Empty state */
-  .empty {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--text-muted);
+  .action-btn {
+    flex: unset;
+    flex-direction: column;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.35);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    gap: 3px;
+    padding: 0;
+    border: 1.5px solid rgba(255,255,255,.2);
+    min-height: unset;
+    justify-content: center;
   }
-  .empty svg { opacity: .4; margin-bottom: 12px; }
+  .action-btn svg { width: 20px; height: 20px; }
+  .action-btn:hover, .action-btn:active {
+    background: rgba(0,0,0,.55);
+  }
+  .action-btn.liked {
+    background: rgba(233,30,99,.55);
+    border-color: var(--accent);
+    color: white;
+  }
+  .action-btn.liked svg.heart-icon { fill: white; stroke: white; }
+  .action-btn.wishlisted {
+    background: rgba(124,58,237,.55);
+    border-color: #7c3aed;
+    color: white;
+  }
+  .action-btn.wishlisted svg.bookmark-icon { fill: white; stroke: white; }
 
-  /* Chat input bar */
-  .chat-bar {
-    position: fixed;
-    bottom: 22px;
-    left: 50%;
+  /* Swipe hint on first card */
+  .swipe-hint {
+    position: absolute;
+    bottom: 24px; left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 44px);
-    max-width: 760px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 10px 40px rgba(15,15,18,.12);
-    padding: 12px 12px 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 40;
-  }
-  .chat-bar input[type="text"] {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 15px;
-    color: var(--text);
-    font-family: inherit;
-    padding: 8px 0;
-  }
-  .chat-bar input[type="text"]::placeholder { color: #9c9ca6; }
-  .icon-btn {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    border: none;
-    background: #f3f3f6;
-    cursor: pointer;
-    display: grid; place-items: center;
-    transition: background .15s ease;
-  }
-  .icon-btn:hover { background: #e7e7ec; }
-  .send-btn {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: var(--accent-grad);
-    cursor: pointer;
-    display: grid; place-items: center;
-    color: white;
-    transition: transform .12s ease, opacity .15s ease;
-  }
-  .send-btn:hover { transform: scale(1.05); }
-  .send-btn:disabled { opacity: .5; cursor: not-allowed; }
-
-  /* User query bubble */
-  .query-bubble {
-    align-self: flex-end;
-    background: var(--accent-grad);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 18px 18px 4px 18px;
-    font-size: 14px;
-    max-width: 70%;
-    margin: 8px 0 18px auto;
-    box-shadow: var(--shadow-sm);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .query-bubble.has-img { padding: 6px 6px 6px 14px; }
-  .query-bubble img {
-    max-width: 80px;
-    border-radius: 12px;
-    margin-left: 8px;
-  }
-
-  /* Image preview chip in chat bar */
-  .img-preview {
-    display: flex; align-items: center; gap: 6px;
-    background: #f3f3f6;
-    border-radius: 10px;
-    padding: 4px 8px 4px 4px;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-  .img-preview img {
-    width: 28px; height: 28px;
-    border-radius: 6px;
-    object-fit: cover;
-  }
-  .img-preview button {
-    border: none; background: transparent;
-    cursor: pointer; color: var(--text-muted);
-    padding: 0 2px;
-  }
-
-  /* Modal */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(15,15,18,.55);
-    backdrop-filter: blur(4px);
-    display: none;
-    align-items: center; justify-content: center;
-    z-index: 100;
-    padding: 22px;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    max-width: 520px;
-    width: 100%;
-    overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,.3);
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  .modal-thumb {
-    aspect-ratio: 16/9;
-    background: var(--accent-grad) center/cover no-repeat;
-    display: grid; place-items: end center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  .modal-thumb img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .modal-thumb::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.55), transparent 50%);
+    z-index: 5;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: rgba(255,255,255,.7);
+    font-size: 11px; font-weight: 600;
+    animation: swipeBounce 1.5s ease-in-out infinite;
     pointer-events: none;
   }
-  .modal-thumb .thumb-emoji {
-    position: absolute;
-    bottom: 14px; left: 18px;
-    font-size: 32px;
-    z-index: 1;
-    text-shadow: 0 2px 12px rgba(0,0,0,.5);
-  }
-  .modal-body { padding: 22px; }
-  .modal h2 { margin: 0 0 8px; letter-spacing: -.01em; font-size: 22px; }
-  .modal-meta {
-    display: flex; gap: 14px; flex-wrap: wrap;
-    color: var(--text-muted); font-size: 13px;
-    margin-bottom: 14px;
-  }
-  .modal p { color: #38383f; font-size: 14px; line-height: 1.55; margin: 0 0 16px; }
-  .modal-close {
-    position: absolute; top: 10px; right: 10px;
-    background: rgba(0,0,0,.5);
-    border: none;
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    display: grid; place-items: center;
-    z-index: 2;
-    font-size: 18px;
+  .swipe-hint svg { width: 20px; height: 20px; }
+  @keyframes swipeBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: .7; }
+    50% { transform: translateX(-50%) translateY(-6px); opacity: 1; }
   }
 
-  @media (max-width: 600px) {
-    main { padding: 18px 14px 200px; }
-    .header-inner { padding: 12px 14px; }
-    .nav-pills { display: none; }
-    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-    .card-title { font-size: 14px; }
-    .thumb { font-size: 42px; }
-  }
+  /* Hide scroll-to-top on mobile (feed handles navigation) */
+  #scrollTop { display: none !important; }
+}
 </style>
 </head>
 <body>
 
+<!-- Loading -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">Loading trend data…</div>
+</div>
+
+<!-- Header -->
 <header>
   <div class="header-inner">
     <div class="brand">
-      <div class="brand-logo">T</div>
-      <span>Trend Catalog</span>
+      <div class="brand-icon">👗</div>
+      <span>TrendBoard</span>
     </div>
-    <div class="nav-pills">
-      <button class="active">Discover</button>
-      <button>Saved</button>
-      <button>Insights</button>
+    <div class="header-tabs">
+      <button class="tab-btn active" data-tab="discover" onclick="switchTab('discover')">Discover</button>
+      <button class="tab-btn" data-tab="wishlist" onclick="switchTab('wishlist')">
+        Saved
+        <span class="wishlist-badge" id="headerWishlistBadge"></span>
+      </button>
     </div>
+    <div class="header-count" id="headerCount"></div>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <h1>What's trending right now</h1>
-    <p>Ask anything. Drop an image. Discover viral social media trends instantly.</p>
-  </section>
-
-  <div id="queryDisplay"></div>
-
-  <div class="chips" id="chipFilters">
-    <div class="chip active" data-cat="all">All</div>
-    <div class="chip" data-cat="fashion">Fashion</div>
-    <div class="chip" data-cat="beauty">Beauty</div>
-    <div class="chip" data-cat="dance">Dance</div>
-    <div class="chip" data-cat="food">Food</div>
-    <div class="chip" data-cat="tech">Tech</div>
-    <div class="chip" data-cat="memes">Memes</div>
-    <div class="chip" data-cat="lifestyle">Lifestyle</div>
+<!-- Filter bar -->
+<div class="filter-bar">
+  <div class="filter-scroll" id="filterBar">
+    <button class="filter-chip active" data-filter="decision" data-val="all" onclick="setFilter('decision','all',this)">All Trends</button>
+    <button class="filter-chip send-now" data-filter="decision" data-val="Send Now" onclick="setFilter('decision','Send Now',this)">🔥 High Demand</button>
+    <button class="filter-chip backup" data-filter="decision" data-val="Send as Backup" onclick="setFilter('decision','Send as Backup',this)">📈 Rising</button>
+    <button class="filter-chip" data-filter="decision" data-val="Needs More Evidence" onclick="setFilter('decision','Needs More Evidence',this)">👀 Emerging</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="pattern" data-val="all" onclick="setFilter('pattern','all',this)">All Patterns</button>
+    <button class="filter-chip" data-filter="pattern" data-val="plain" onclick="setFilter('pattern','plain',this)">Plain</button>
+    <button class="filter-chip" data-filter="pattern" data-val="floral" onclick="setFilter('pattern','floral',this)">Floral</button>
+    <button class="filter-chip" data-filter="pattern" data-val="print" onclick="setFilter('pattern','print',this)">Print</button>
+    <button class="filter-chip" data-filter="pattern" data-val="striped" onclick="setFilter('pattern','striped',this)">Striped</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="sleeve" data-val="all" onclick="setFilter('sleeve','all',this)">All Sleeves</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="half" onclick="setFilter('sleeve','half',this)">Half</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="sleeveless" onclick="setFilter('sleeve','sleeveless',this)">Sleeveless</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="three-quarter" onclick="setFilter('sleeve','three-quarter',this)">¾ Sleeve</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="full" onclick="setFilter('sleeve','full',this)">Full Sleeve</button>
   </div>
+</div>
 
+<!-- Main grid -->
+<main>
   <div class="grid" id="trendGrid"></div>
-  <div class="empty" id="emptyState" style="display:none;">
-    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-    <div style="font-weight:600; color:var(--text); margin-bottom:4px;">No trends found</div>
-    <div>Try a different keyword or category</div>
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon">🔍</div>
+    <div class="empty-title">No trends found</div>
+    <div class="empty-sub">Try a different filter combination</div>
   </div>
 </main>
 
-<!-- Chat input bar -->
-<div class="chat-bar">
-  <div id="imgPreview"></div>
-  <button class="icon-btn" id="uploadBtn" title="Upload image">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+<!-- Bottom nav (mobile) -->
+<nav class="bottom-nav">
+  <button class="bottom-nav-item active" data-tab="discover" onclick="switchTab('discover')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    Discover
   </button>
-  <input type="file" id="fileInput" accept="image/*" hidden />
-  <input type="text" id="queryInput" placeholder="Search trends, e.g. 'cottagecore aesthetic' or 'viral dance'..." />
-  <button class="send-btn" id="sendBtn" title="Search">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
+  <button class="bottom-nav-item" data-tab="wishlist" onclick="switchTab('wishlist')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    Saved
+    <span class="bottom-nav-badge" id="bottomWishlistBadge"></span>
   </button>
-</div>
+  <button class="bottom-nav-item" onclick="exportWishlist()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Export
+  </button>
+</nav>
+
+<!-- Scroll to top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <div class="modal-thumb" id="modalThumb">
-      <img id="modalImg" src="" alt="" onerror="this.style.display='none'"/>
-      <button class="modal-close" id="modalClose">×</button>
-      <span class="thumb-emoji" id="modalEmoji">🔥</span>
+<div class="modal-overlay" id="modal" onclick="handleModalOverlayClick(event)">
+  <div class="modal" id="modalContent">
+    <div class="modal-handle"><span></span></div>
+    <div class="modal-close-row">
+      <button class="modal-close-btn" onclick="closeModal()">×</button>
     </div>
+    <div class="modal-images" id="modalImages"></div>
     <div class="modal-body">
-      <h2 id="modalTitle"></h2>
-      <div class="modal-meta">
-        <span id="modalPlatform"></span>
-        <span id="modalViews"></span>
-        <span id="modalScore"></span>
+      <div class="modal-decision-row">
+        <span class="modal-decision-badge" id="modalDecisionBadge"></span>
+        <span class="score-num" id="modalRank"></span>
       </div>
-      <p id="modalDesc"></p>
-      <div class="tags" id="modalTags"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-subtitle" id="modalSubtitle"></div>
+
+      <div class="score-section">
+        <div class="score-section-title">Why this trend? 🔍</div>
+        <div class="score-total-row">
+          <div>
+            <span class="score-total-num" id="modalScoreTotal"></span>
+            <span class="score-total-denom"> / 25</span>
+          </div>
+          <div id="modalFireScore" style="font-size:22px;"></div>
+        </div>
+        <div class="score-bars" id="modalScoreBars"></div>
+      </div>
+
+      <div class="stats-grid" id="modalStats"></div>
+
+      <div class="score-section-title" style="margin-bottom:8px;">Popular Colours 🎨</div>
+      <div class="color-palette" id="modalColors"></div>
+
+      <div class="score-section-title" style="margin-bottom:8px;">Where to Buy 🛒</div>
+      <div class="platform-list" id="modalPlatforms"></div>
+
+      <div class="modal-actions" id="modalActions"></div>
     </div>
   </div>
 </div>
 
 <script>
-// ----- Sample trend dataset -----
-const IMG = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=600&q=70`;
-const TRENDS = [
-  { id:1, title:"Mob Wife Aesthetic", emoji:"🧥", platform:"TikTok", category:"fashion", views:"24.6M", score:98, image:IMG("photo-1539109136881-3be0616acf4b"), tags:["#mobwife","#aesthetic","#fur","#glam"], desc:"Bold fur coats, oversized sunglasses, slick-back buns — the maximalist anti-clean-girl look dominating fashion FYPs." },
-  { id:2, title:"Latte Makeup", emoji:"☕", platform:"Instagram", category:"beauty", views:"18.2M", score:94, image:IMG("photo-1512496015851-a90fb38ba796"), tags:["#lattemakeup","#bronze","#warmtones"], desc:"Warm, monochromatic brown tones across eyes, cheeks and lips — a creamy, cozy take on everyday glam." },
-  { id:3, title:"Of Course Trend", emoji:"💁‍♀️", platform:"TikTok", category:"memes", views:"42.1M", score:97, image:IMG("photo-1531746020798-e6953c6e8e04"), tags:["#ofcourse","#meme","#viral"], desc:"Creators stating relatable obvious truths in deadpan deliveries — peak self-aware comedy energy." },
-  { id:4, title:"Girl Dinner", emoji:"🧀", platform:"TikTok", category:"food", views:"31.5M", score:92, image:IMG("photo-1544025162-d76694265947"), tags:["#girldinner","#snackplate","#aesthetic"], desc:"Charcuterie-style snack plates as full meals — pickles, cheese, bread, olives — the chaos-snack era." },
-  { id:5, title:"Cottagecore Revival", emoji:"🌿", platform:"Pinterest", category:"lifestyle", views:"12.8M", score:88, image:IMG("photo-1490750967868-88aa4486c946"), tags:["#cottagecore","#slowliving","#nature"], desc:"Linen dresses, sourdough baking, wildflower bouquets — the romanticized rural aesthetic returning for spring." },
-  { id:6, title:"AI Avatars", emoji:"🤖", platform:"Instagram", category:"tech", views:"56.3M", score:99, image:IMG("photo-1620712943543-bcc4688e7485"), tags:["#aiart","#avatar","#midjourney"], desc:"Hyper-stylized AI-generated portraits flooding feeds — surreal, glossy, and instantly recognizable." },
-  { id:7, title:"Espresso Martini Era", emoji:"🍸", platform:"TikTok", category:"food", views:"19.7M", score:90, image:IMG("photo-1551024709-8f23befc6f87"), tags:["#espressomartini","#cocktail","#bar"], desc:"The caffeinated cocktail comeback — every café and bar reel is mixing one. Foam ratio is everything." },
-  { id:8, title:"Y2K Tops", emoji:"💗", platform:"Instagram", category:"fashion", views:"38.4M", score:96, image:IMG("photo-1483985988355-763728e1935b"), tags:["#y2k","#tops","#nostalgia"], desc:"Halter necks, butterfly motifs, baby tees — early 2000s tops returning with a Gen Z twist." },
-  { id:9, title:"Boom Boom Dance", emoji:"💃", platform:"TikTok", category:"dance", views:"61.2M", score:99, image:IMG("photo-1547153760-18fc86324498"), tags:["#boomboom","#dance","#challenge"], desc:"The latest viral choreo — quick footwork plus a signature shoulder pop. Replicated across every duet." },
-  {id:10, title:"Glazed Donut Skin", emoji:"🍩", platform:"Instagram", category:"beauty", views:"27.9M", score:93, image:IMG("photo-1487412947147-5cebf100ffc2"), tags:["#glazedskin","#dewy","#skincare"], desc:"Hyper-hydrated, luminous skin finish — pioneered by Hailey Bieber and now everywhere on beauty TikTok." },
-  {id:11, title:"Coastal Grandmother", emoji:"👒", platform:"Pinterest", category:"fashion", views:"14.6M", score:85, image:IMG("photo-1469334031218-e382a71b716b"), tags:["#coastalgranny","#linen","#hamptons"], desc:"Linen sets, straw hats, neutral palettes — Nancy Meyers movie energy translated to a wardrobe." },
-  {id:12, title:"Loud Budgeting", emoji:"💰", platform:"TikTok", category:"lifestyle", views:"22.3M", score:91, image:IMG("photo-1554224155-6726b3ff858f"), tags:["#loudbudgeting","#money","#financialfreedom"], desc:"Openly saying 'no' to expensive plans — the anti-quiet-luxury trend reshaping money conversations online." },
-  {id:13, title:"Wide-Leg Pajamas", emoji:"🌙", platform:"Instagram", category:"fashion", views:"9.4M", score:82, image:IMG("photo-1571513722275-4b41940f54b8"), tags:["#sleepwear","#pajamas","#loungewear"], desc:"Silky wide-leg PJ sets crossing over from bed to brunch — the loungewear-as-outerwear continues." },
-  {id:14, title:"Phone Stack Dinners", emoji:"📵", platform:"TikTok", category:"lifestyle", views:"7.8M", score:79, image:IMG("photo-1414235077428-338989a2e8c0"), tags:["#nophones","#mindful","#dinner"], desc:"Friends stacking phones at the table — first to reach for theirs pays. The tech-detox dining trend." },
-  {id:15, title:"Tomato Girl Summer", emoji:"🍅", platform:"Instagram", category:"fashion", views:"33.7M", score:94, image:IMG("photo-1592924357228-91a4daadcfea"), tags:["#tomatogirl","#summer","#mediterranean"], desc:"Red gingham, tomato prints, olive oil glow — the Mediterranean summer fantasy in full effect." },
-  {id:16, title:"Silent Walking", emoji:"🚶‍♀️", platform:"TikTok", category:"lifestyle", views:"15.1M", score:87, image:IMG("photo-1502602898657-3e91760cbb34"), tags:["#silentwalking","#mindful","#mentalhealth"], desc:"30-min phone-free, music-free walks — the simplest mental reset trend going viral with productivity creators." },
-  {id:17, title:"Butter Boards", emoji:"🧈", platform:"TikTok", category:"food", views:"11.2M", score:80, image:IMG("photo-1452251889946-8ff5ea7b27ab"), tags:["#butterboard","#charcuterie"], desc:"Soft butter spread on boards with herbs, honey, edible flowers — the appetizer trend that won't quit." },
-  {id:18, title:"Vintage Filter Selfies", emoji:"📸", platform:"Instagram", category:"tech", views:"45.8M", score:95, image:IMG("photo-1495707902641-75cac588d2e9"), tags:["#vintage","#filter","#film"], desc:"Grainy 90s-style film filters and disposable camera vibes overtaking polished iPhone shots." },
-  {id:19, title:"Sleek Bun + Hoops", emoji:"💎", platform:"TikTok", category:"beauty", views:"20.6M", score:89, image:IMG("photo-1522337660859-02fbefca4702"), tags:["#sleekbun","#hoops","#cleanlook"], desc:"Glossy slick-back bun paired with oversized gold hoops — the universally flattering minimalist combo." },
-  {id:20, title:"Demure Trend", emoji:"🎀", platform:"TikTok", category:"memes", views:"73.4M", score:99, image:IMG("photo-1503342217505-b0a15ec3261c"), tags:["#verydemure","#mindful","#trending"], desc:"Creators captioning everyday moments 'very demure, very mindful' — the wholesome catchphrase of the moment." },
+// ── Constants ──────────────────────────────────────────────────
+const PLATFORM_COLORS = {
+  amazon:   '#FF9900',
+  myntra:   '#FF3F6C',
+  meesho:   '#9B2335',
+  flipkart: '#2874F0',
+  ajio:     '#F28A2E',
+  clovia:   '#E91E7A',
+  shyaway:  '#8B0000',
+  tatacliq: '#942F82',
+};
+
+const DECISION_CLASS = {
+  'Send Now':           'send-now',
+  'Send as Backup':     'backup',
+  'Needs More Evidence':'needs-evidence',
+  'Do Not Send':        'do-not-send',
+};
+
+// Consumer-friendly labels mapped from internal B2B decision keys
+const DECISION_LABEL = {
+  'Send Now':            '🔥 High Demand',
+  'Send as Backup':      '📈 Rising',
+  'Needs More Evidence': '👀 Emerging',
+  'Do Not Send':         '❌ Low Demand',
+};
+
+const DECISION_COLOR = {
+  'Send Now':            'var(--send-now)',
+  'Send as Backup':      'var(--backup)',
+  'Needs More Evidence': 'var(--needs-evidence)',
+  'Do Not Send':         'var(--do-not-send)',
+};
+
+const COLOR_MAP = {
+  white: '#ffffff', cream: '#FFFDD0', peach: '#FFCBA4',
+  pink: '#FFB6C1', 'light pink': '#FFB6C1', 'hot pink': '#FF69B4',
+  red: '#e53935', 'dark red': '#b71c1c', maroon: '#800000',
+  blue: '#1565c0', 'light blue': '#64b5f6', 'navy blue': '#001f5b', navy: '#001f5b',
+  green: '#2e7d32', 'light green': '#81c784', 'dark green': '#1b5e20',
+  yellow: '#f9a825', 'mustard yellow': '#e6a817', mustard: '#e6a817',
+  orange: '#ef6c00', purple: '#7b1fa2', lavender: '#9575cd',
+  grey: '#9e9e9e', gray: '#9e9e9e', black: '#212121',
+  'sky blue': '#87ceeb', teal: '#009688', aqua: '#00bcd4',
+  multicolor: 'linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff)',
+};
+
+const SCORE_LABELS = [
+  ['A', 'Evidence Strength', 'evidence_strength'],
+  ['B', 'Trend Signal',       'trend_signal'],
+  ['C', 'TN B2B Fit',         'tn_b2b_fit'],
+  ['D', 'Production',         'production_simplicity'],
+  ['E', 'Margin',             'margin_possibility'],
 ];
 
-// ----- State -----
-let activeCategory = "all";
-let activeQuery = "";
-let pendingImage = null; // {dataUrl, name}
+// ── State ──────────────────────────────────────────────────────
+let allTrends = [];
+let activeTab = 'discover';
+let activeFilters = { decision: 'all', pattern: 'all', sleeve: 'all' };
+let currentModalKey = null;
 
-// ----- Render -----
-const grid = document.getElementById("trendGrid");
-const empty = document.getElementById("emptyState");
-const queryDisplay = document.getElementById("queryDisplay");
+function getState() {
+  return {
+    reactions: JSON.parse(localStorage.getItem('trend_reactions') || '{}'),
+    wishlist:  JSON.parse(localStorage.getItem('trend_wishlist')  || '[]'),
+  };
+}
+function saveState(s) {
+  localStorage.setItem('trend_reactions', JSON.stringify(s.reactions));
+  localStorage.setItem('trend_wishlist',  JSON.stringify(s.wishlist));
+}
 
-function render() {
-  const q = activeQuery.toLowerCase().trim();
-  let list = TRENDS.filter(t => {
-    const matchCat = activeCategory === "all" || t.category === activeCategory;
-    const hay = (t.title + " " + t.tags.join(" ") + " " + t.platform + " " + t.desc + " " + t.category).toLowerCase();
-    const matchQ = !q || hay.includes(q);
-    return matchCat && matchQ;
+// ── Helpers ────────────────────────────────────────────────────
+function fireMeter(score) {
+  const n = score >= 20 ? 5 : score >= 15 ? 4 : score >= 10 ? 3 : score >= 5 ? 2 : 1;
+  return '🔥'.repeat(n);
+}
+
+function topColors(colors, limit = 6) {
+  const freq = {};
+  colors.forEach(c => {
+    const k = (c.primary || '').toLowerCase().trim();
+    if (k && k !== 'unknown' && k !== 'none') freq[k] = (freq[k] || 0) + 1;
   });
-  // sort by trending score desc
-  list.sort((a,b) => b.score - a.score);
+  return Object.entries(freq)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([name]) => name);
+}
 
-  grid.innerHTML = "";
+function colorCss(name) {
+  if (!name) return '#e0e0e0';
+  const k = name.toLowerCase().trim();
+  return COLOR_MAP[k] || '#e0e0e0';
+}
+
+function capitalize(s) {
+  if (!s) return '';
+  return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, ' ');
+}
+
+function formatTitle(t) {
+  return [
+    capitalize(t.design_pattern),
+    capitalize(t.neck_type) + ' Neck',
+    capitalize(t.sleeve_length) + ' Sleeve',
+  ].join(' · ');
+}
+
+function formatSubtitle(t) {
+  const parts = [];
+  if (t.front_top_treatment && t.front_top_treatment !== 'plain') {
+    parts.push(capitalize(t.front_top_treatment) + ' treatment');
+  }
+  if (t.keyword_count > 1) parts.push(`${t.keyword_count} keyword matches`);
+  return parts.join(' · ') || 'Design cluster';
+}
+
+// ── Data loading ───────────────────────────────────────────────
+async function loadData() {
+  const [trends, products] = await Promise.all([
+    fetch('evidence/output/trends.json').then(r => r.json()),
+    fetch('evidence/clean/_merged.json').then(r => r.json()),
+  ]);
+  const byId = Object.fromEntries(products.map(p => [p.product_id, p]));
+  trends.forEach(t => {
+    t.images = t.sample_product_ids.map(id => byId[id]?.image).filter(Boolean);
+    t.sampleProducts = t.sample_product_ids.map(id => byId[id]).filter(Boolean);
+  });
+  return trends;
+}
+
+// ── Render ─────────────────────────────────────────────────────
+function heroImageHTML(images) {
+  if (images.length === 0) {
+    return `<div class="hero-placeholder">👗</div>`;
+  }
+  const dots = images.length > 1
+    ? `<div class="img-dots">${images.map((_, i) =>
+        `<span class="img-dot${i === 0 ? ' active' : ''}"></span>`
+      ).join('')}</div>`
+    : '';
+  return `<img class="hero-img" src="${images[0]}" alt="Product" loading="lazy"
+    onerror="this.outerHTML='<div class=\\'hero-placeholder\\'>👗</div>'"/>
+    ${dots}`;
+}
+
+// Track current image index per card for swipe navigation
+const cardImgIndex = {};
+
+function renderCard(t, state) {
+  const dc = DECISION_CLASS[t.decision] || 'do-not-send';
+  const liked      = state.reactions[t.cluster_key] === 'like';
+  const disliked   = state.reactions[t.cluster_key] === 'dislike';
+  const wishlisted = state.wishlist.includes(t.cluster_key);
+
+  const colors = topColors(t.colors, 5);
+  const colorStrip = colors.map(c => {
+    const css = colorCss(c);
+    const bg = css.startsWith('linear') ? `background:${css}` : `background-color:${css}`;
+    return `<span style="${bg}"></span>`;
+  }).join('');
+
+  const platformDots = Object.entries(t.sources).map(([p]) => {
+    const col = PLATFORM_COLORS[p] || '#999';
+    return `<span class="platform-dot" style="background:${col}" title="${p}"></span>`;
+  }).join('');
+
+  const ratingStr     = t.avg_rating ? t.avg_rating.toFixed(1) : '';
+  const priceStr      = t.min_price  ? `₹${Math.round(t.min_price)}–₹${Math.round(t.max_price)}` : '';
+  const decisionLabel = DECISION_LABEL[t.decision] || t.decision;
+
+  // "N photos" badge on image (desktop only; mobile uses dots)
+  const swipeHint = t.images.length > 1
+    ? `<span class="photos-badge">${t.images.length} photos</span>`
+    : '';
+
+  // Swipe-up hint on very first card (mobile)
+  const swipeUpHint = t.rank === 1
+    ? `<div class="swipe-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+        Swipe up
+       </div>`
+    : '';
+
+  return `
+  <div class="card${disliked ? ' disliked' : ''}"
+    data-key="${t.cluster_key}"
+    data-imgidx="0"
+    onclick="handleCardClick(event,'${t.cluster_key}')">
+    <div class="collage">
+      ${heroImageHTML(t.images)}
+      ${swipeHint}
+      ${swipeUpHint}
+      <span class="rank-badge">#${t.rank}</span>
+      <span class="decision-badge ${dc}">${decisionLabel}</span>
+    </div>
+    <div class="color-strip">${colorStrip}</div>
+    <div class="card-body">
+      <div class="card-title">${formatTitle(t)}</div>
+      <div class="card-meta">
+        ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
+        ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
+        <span class="card-count">${t.product_count} styles</span>
+      </div>
+      <div class="fire-row">
+        <div class="fire-score">${fireMeter(t.score.total)}</div>
+        <div class="platform-dots">${platformDots}</div>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="action-btn${liked ? ' liked' : ''}"
+        onclick="toggleLike(event,'${t.cluster_key}')" title="Like">
+        <svg class="heart-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        Like
+      </button>
+      <button class="action-btn${disliked ? ' disliked-state' : ''}"
+        onclick="toggleDislike(event,'${t.cluster_key}')" title="Skip">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        Skip
+      </button>
+      <button class="action-btn${wishlisted ? ' wishlisted' : ''}"
+        onclick="toggleWishlist(event,'${t.cluster_key}')" title="Save">
+        <svg class="bookmark-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        Save
+      </button>
+    </div>
+  </div>`;
+}
+
+function getFilteredList() {
+  const state = getState();
+  let list = [...allTrends];
+
+  if (activeTab === 'wishlist') {
+    list = list.filter(t => state.wishlist.includes(t.cluster_key));
+  } else {
+    if (activeFilters.decision !== 'all') {
+      list = list.filter(t => t.decision === activeFilters.decision);
+    }
+    if (activeFilters.pattern !== 'all') {
+      list = list.filter(t => t.design_pattern === activeFilters.pattern);
+    }
+    if (activeFilters.sleeve !== 'all') {
+      list = list.filter(t => t.sleeve_length === activeFilters.sleeve);
+    }
+  }
+  return list;
+}
+
+function renderGrid() {
+  const state = getState();
+  const list = getFilteredList();
+  const grid = document.getElementById('trendGrid');
+  const empty = document.getElementById('emptyState');
+  const count = document.getElementById('headerCount');
+
   if (list.length === 0) {
-    empty.style.display = "block";
+    grid.innerHTML = '';
+    empty.classList.add('visible');
+    count.textContent = '';
+  } else {
+    empty.classList.remove('visible');
+    grid.innerHTML = list.map(t => renderCard(t, state)).join('');
+    count.textContent = `${list.length} trends`;
+  }
+
+  updateBadges();
+}
+
+// ── Filters & tabs ─────────────────────────────────────────────
+function setFilter(type, val, btn) {
+  // Update active chip in same group
+  document.querySelectorAll(`[data-filter="${type}"]`).forEach(c => {
+    c.classList.remove('active');
+    // re-apply send-now/backup class for styling
+  });
+  btn.classList.add('active');
+  activeFilters[type] = val;
+  renderGrid();
+}
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+  document.querySelectorAll('.bottom-nav-item').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+  renderGrid();
+}
+
+function updateBadges() {
+  const { wishlist } = getState();
+  const n = wishlist.length;
+  const headerBadge = document.getElementById('headerWishlistBadge');
+  const bottomBadge = document.getElementById('bottomWishlistBadge');
+  if (n > 0) {
+    headerBadge.textContent = n; headerBadge.classList.add('visible');
+    bottomBadge.textContent = n; bottomBadge.classList.add('visible');
+  } else {
+    headerBadge.classList.remove('visible');
+    bottomBadge.classList.remove('visible');
+  }
+}
+
+// ── Card interactions ──────────────────────────────────────────
+function handleCardClick(e, key) {
+  if (e.target.closest('.action-btn')) return;
+  const t = allTrends.find(x => x.cluster_key === key);
+  if (!t) return;
+
+  // Tap on image area cycles through photos; tap on card body opens modal
+  if (e.target.closest('.collage') && t.images.length > 1) {
+    const card = e.currentTarget;
+    let idx = parseInt(card.dataset.imgidx || '0');
+    idx = (idx + 1) % t.images.length;
+    card.dataset.imgidx = idx;
+    const heroImg = card.querySelector('.hero-img');
+    if (heroImg) {
+      heroImg.style.opacity = '0';
+      heroImg.style.transition = 'opacity .15s';
+      setTimeout(() => {
+        heroImg.src = t.images[idx];
+        heroImg.style.opacity = '1';
+      }, 150);
+    }
+    // Update dots
+    card.querySelectorAll('.img-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
     return;
   }
-  empty.style.display = "none";
 
-  list.forEach(t => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <div class="thumb">
-        <img src="${t.image}" alt="${t.title}" loading="lazy" onerror="this.style.display='none'"/>
-        <span class="platform-badge">${t.platform}</span>
-        <span class="trend-score">▲ ${t.score}</span>
-        <span class="thumb-emoji">${t.emoji}</span>
-      </div>
-      <div class="card-body">
-        <div class="card-title">${t.title}</div>
-        <div class="card-meta">
-          <span>👁 ${t.views}</span>
-          <span>· ${t.category}</span>
-        </div>
-        <div class="tags">${t.tags.slice(0,3).map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
-      </div>
-    `;
-    card.addEventListener("click", () => openModal(t));
-    grid.appendChild(card);
-  });
+  openModal(t);
 }
 
-// ----- Filters -----
-document.getElementById("chipFilters").addEventListener("click", e => {
-  if (!e.target.classList.contains("chip")) return;
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  e.target.classList.add("active");
-  activeCategory = e.target.dataset.cat;
-  render();
-});
-
-// ----- Chat input -----
-const queryInput = document.getElementById("queryInput");
-const sendBtn = document.getElementById("sendBtn");
-const uploadBtn = document.getElementById("uploadBtn");
-const fileInput = document.getElementById("fileInput");
-const imgPreview = document.getElementById("imgPreview");
-
-function showQueryBubble(text, imgUrl) {
-  const bubble = document.createElement("div");
-  bubble.className = "query-bubble" + (imgUrl ? " has-img" : "");
-  bubble.innerHTML = `
-    <span>${text || "Find similar trends"}</span>
-    ${imgUrl ? `<img src="${imgUrl}" alt="query"/>` : ""}
-  `;
-  queryDisplay.innerHTML = "";
-  queryDisplay.appendChild(bubble);
-}
-
-function submit() {
-  const text = queryInput.value.trim();
-  if (!text && !pendingImage) return;
-  if (pendingImage) {
-    showQueryBubble(text, pendingImage.dataUrl);
-    // Image-based "search": pick a fashion/beauty bias as a fake visual match
-    activeQuery = text;
+function toggleLike(e, key) {
+  e.stopPropagation();
+  const s = getState();
+  if (s.reactions[key] === 'like') {
+    delete s.reactions[key];
   } else {
-    showQueryBubble(text);
-    activeQuery = text;
+    s.reactions[key] = 'like';
   }
-  queryInput.value = "";
-  pendingImage = null;
-  imgPreview.innerHTML = "";
-  // reset chips to All when free-text search
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  document.querySelector('.chip[data-cat="all"]').classList.add("active");
-  activeCategory = "all";
-  render();
+  saveState(s);
+
+  // Animate
+  const card = document.querySelector(`[data-key="${key}"]`);
+  if (card) {
+    const heartBtn = card.querySelector('.action-btn:first-child');
+    const heartSvg = heartBtn?.querySelector('.heart-icon');
+    heartSvg?.classList.add('heart-pop');
+    setTimeout(() => heartSvg?.classList.remove('heart-pop'), 400);
+  }
+
+  refreshCard(key);
+  if (currentModalKey === key) refreshModalActions(key);
 }
 
-sendBtn.addEventListener("click", submit);
-queryInput.addEventListener("keydown", e => { if (e.key === "Enter") submit(); });
+function toggleDislike(e, key) {
+  e.stopPropagation();
+  const s = getState();
+  if (s.reactions[key] === 'dislike') {
+    delete s.reactions[key];
+  } else {
+    s.reactions[key] = 'dislike';
+  }
+  saveState(s);
+  refreshCard(key);
+  if (currentModalKey === key) refreshModalActions(key);
+}
 
-uploadBtn.addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("change", e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    pendingImage = { dataUrl: ev.target.result, name: file.name };
-    imgPreview.innerHTML = `
-      <div class="img-preview">
-        <img src="${pendingImage.dataUrl}" alt="preview"/>
-        <span>${file.name.length > 14 ? file.name.slice(0,12) + "…" : file.name}</span>
-        <button id="removeImg">×</button>
-      </div>
-    `;
-    document.getElementById("removeImg").addEventListener("click", ev2 => {
-      ev2.stopPropagation();
-      pendingImage = null;
-      imgPreview.innerHTML = "";
-    });
-  };
-  reader.readAsDataURL(file);
-  fileInput.value = "";
+function toggleWishlist(e, key) {
+  if (e) e.stopPropagation();
+  const s = getState();
+  const idx = s.wishlist.indexOf(key);
+  if (idx >= 0) {
+    s.wishlist.splice(idx, 1);
+  } else {
+    s.wishlist.push(key);
+  }
+  saveState(s);
+  refreshCard(key);
+  updateBadges();
+  if (currentModalKey === key) refreshModalActions(key);
+  // If on wishlist tab and we just removed, re-render
+  if (activeTab === 'wishlist') renderGrid();
+}
+
+function refreshCard(key) {
+  const el = document.querySelector(`[data-key="${key}"]`);
+  if (!el) return;
+  const t = allTrends.find(x => x.cluster_key === key);
+  if (!t) return;
+  const state = getState();
+  const newCard = document.createElement('div');
+  newCard.innerHTML = renderCard(t, state).trim();
+  const cardEl = newCard.firstChild;
+  el.replaceWith(cardEl);
+}
+
+// ── Modal ──────────────────────────────────────────────────────
+function openModal(t) {
+  currentModalKey = t.cluster_key;
+  const state = getState();
+
+  // Images
+  const imagesEl = document.getElementById('modalImages');
+  if (t.images.length > 0) {
+    imagesEl.innerHTML = t.images.map(src =>
+      `<div class="modal-img-wrap">
+        <img src="${src}" alt="Product" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>👗</div>'"/>
+      </div>`
+    ).join('');
+  } else {
+    imagesEl.innerHTML = `<div class="modal-img-wrap"><div class="placeholder">👗</div></div>`;
+  }
+
+  // Decision badge — use friendly label
+  const dc = DECISION_CLASS[t.decision] || 'do-not-send';
+  const badge = document.getElementById('modalDecisionBadge');
+  badge.className = `modal-decision-badge ${dc}`;
+  badge.textContent = DECISION_LABEL[t.decision] || t.decision;
+
+  document.getElementById('modalRank').textContent = `Trend #${t.rank}`;
+  document.getElementById('modalTitle').textContent = formatTitle(t);
+  document.getElementById('modalSubtitle').textContent = `${t.product_count} styles found across ${Object.keys(t.sources).length} platforms`;
+
+  // Score — label as "Why this trend?"
+  document.getElementById('modalScoreTotal').textContent = t.score.total;
+  document.getElementById('modalFireScore').textContent = fireMeter(t.score.total);
+  const barsEl = document.getElementById('modalScoreBars');
+  const friendlyLabels = [
+    ['Market Coverage',   'evidence_strength', 'How widely available across platforms'],
+    ['Buyer Demand',      'trend_signal',       'Based on ratings and keyword popularity'],
+    ['Price Fit',         'tn_b2b_fit',         'Fits wholesale price range (under ₹600)'],
+    ['Easy to Source',    'production_simplicity', 'Simple design — faster delivery'],
+    ['Profit Potential',  'margin_possibility', 'Room for margin at retail price'],
+  ];
+  barsEl.innerHTML = friendlyLabels.map(([label, key, hint]) => {
+    const val = t.score[key] || 0;
+    const pct = (val / 5) * 100;
+    return `<div class="score-row" title="${hint}">
+      <div class="score-label">${label}</div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:${pct}%"></div></div>
+      <div class="score-val">${val}/5</div>
+    </div>`;
+  }).join('');
+
+  // Stats
+  const statsEl = document.getElementById('modalStats');
+  const avgPrice = t.avg_price ? `₹${Math.round(t.avg_price)}` : '—';
+  const priceRange = t.min_price ? `₹${Math.round(t.min_price)}–${Math.round(t.max_price)}` : '—';
+  const rating = t.avg_rating ? t.avg_rating.toFixed(1) : '—';
+  statsEl.innerHTML = [
+    ['Styles Found', t.product_count, `across ${Object.keys(t.sources).length} platforms`],
+    ['Buyer Rating', `★ ${rating}`, 'average out of 5.0'],
+    ['Price Range',  priceRange, `avg ${avgPrice}`],
+    ['Trend Score',  `${fireMeter(t.score.total)}`, `${t.score.total} / 25`],
+  ].map(([label, val, sub]) =>
+    `<div class="stat-card">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${val}</div>
+      <div class="stat-sub">${sub}</div>
+    </div>`
+  ).join('');
+
+  // Colors
+  const colorsEl = document.getElementById('modalColors');
+  const palette = topColors(t.colors, 8);
+  colorsEl.innerHTML = palette.map(name => {
+    const css = colorCss(name);
+    const bg = css.startsWith('linear') ? `background:${css}` : `background-color:${css}`;
+    const border = name === 'white' ? 'border:1.5px solid #e0e0e0' : '';
+    return `<div class="color-swatch" style="${bg};${border}" data-name="${name}" title="${name}"></div>`;
+  }).join('');
+
+  // Platforms
+  const plEl = document.getElementById('modalPlatforms');
+  plEl.innerHTML = Object.entries(t.sources).map(([p, count]) => {
+    const col = PLATFORM_COLORS[p] || '#999';
+    return `<div class="platform-pill">
+      <span class="platform-pill-dot" style="background:${col}"></span>
+      ${capitalize(p)} <span style="color:var(--text-muted);font-weight:500">(${count})</span>
+    </div>`;
+  }).join('');
+
+  refreshModalActions(t.cluster_key);
+
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function refreshModalActions(key) {
+  const s = getState();
+  const liked     = s.reactions[key] === 'like';
+  const disliked  = s.reactions[key] === 'dislike';
+  const wishlisted = s.wishlist.includes(key);
+
+  document.getElementById('modalActions').innerHTML = `
+    <button class="modal-action-btn like-btn ${liked ? 'active' : ''}"
+      onclick="toggleLike(event,'${key}')">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${liked ? 'currentColor' : 'none'}" stroke-linecap="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      ${liked ? 'Liked!' : 'Like'}
+    </button>
+    <button class="modal-action-btn wishlist-btn ${wishlisted ? 'active' : ''}"
+      onclick="toggleWishlist(event,'${key}')">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${wishlisted ? 'currentColor' : 'none'}" stroke-linecap="round">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+      ${wishlisted ? 'Saved!' : 'Save'}
+    </button>
+    <button class="modal-action-btn skip-btn ${disliked ? 'active' : ''}"
+      onclick="toggleDislike(event,'${key}')">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+      </svg>
+      ${disliked ? 'Skipped' : 'Skip'}
+    </button>
+  `;
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  currentModalKey = null;
+}
+
+function handleModalOverlayClick(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+
+// ── Export ─────────────────────────────────────────────────────
+function exportWishlist() {
+  const { wishlist, reactions } = getState();
+  const items = allTrends.filter(t => wishlist.includes(t.cluster_key)).map(t => ({
+    rank: t.rank,
+    cluster: t.cluster_key,
+    title: formatTitle(t),
+    decision: t.decision,
+    score: t.score.total,
+    avg_price: t.avg_price,
+    min_price: t.min_price,
+    max_price: t.max_price,
+    avg_rating: t.avg_rating,
+    product_count: t.product_count,
+    sources: t.sources,
+    reaction: reactions[t.cluster_key] || null,
+  }));
+  if (items.length === 0) {
+    alert('No saved trends yet. Tap 🔖 on cards to save trends.');
+    return;
+  }
+  const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'saved-trends.json';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+// ── Scroll to top button ───────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+}, { passive: true });
+
+// ── Keyboard ───────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
 });
 
-// ----- Modal -----
-const modal = document.getElementById("modal");
-function openModal(t) {
-  document.getElementById("modalTitle").textContent = t.title;
-  document.getElementById("modalPlatform").textContent = "📱 " + t.platform;
-  document.getElementById("modalViews").textContent = "👁 " + t.views + " views";
-  document.getElementById("modalScore").textContent = "🔥 Score " + t.score;
-  document.getElementById("modalDesc").textContent = t.desc;
-  document.getElementById("modalEmoji").textContent = t.emoji;
-  const modalImg = document.getElementById("modalImg");
-  modalImg.src = t.image;
-  modalImg.style.display = "";
-  modalImg.alt = t.title;
-  const tagsEl = document.getElementById("modalTags");
-  tagsEl.innerHTML = t.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
-  modal.classList.add("open");
-}
-document.getElementById("modalClose").addEventListener("click", () => modal.classList.remove("open"));
-modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
-
-// Initial render
-render();
+// ── Init ───────────────────────────────────────────────────────
+(async () => {
+  try {
+    allTrends = await loadData();
+    renderGrid();
+    document.getElementById('loader').classList.add('hidden');
+  } catch (err) {
+    console.error('Failed to load trend data:', err);
+    document.getElementById('loader').innerHTML = `
+      <div style="text-align:center;padding:40px 20px;color:#666">
+        <div style="font-size:40px;margin-bottom:12px">⚠️</div>
+        <div style="font-weight:700;color:#111;margin-bottom:8px">Could not load trend data</div>
+        <div style="font-size:13px;margin-bottom:16px">Open this file via a local server, not file://</div>
+        <code style="background:#f5f5f5;padding:8px 14px;border-radius:8px;font-size:12px">npx serve .</code>
+      </div>`;
+  }
+})();
 </script>
 </body>
 </html>
