@@ -1,28 +1,54 @@
 [
   {
-    "product_id": "e47226f69400",
+    "product_id": "9633140f9373",
     "platform": "myntra.com",
-    "keyword": "ladies nighty",
-    "product_title": "Bride Special - Women Solid Nightdress",
-    "product_url": "https://www.myntra.com/nightdress/bride+special/bride-special-women-solid-nighty-maxi-nightdress/36674867/buy",
-    "price": 740,
-    "rating": null,
-    "review_count": null,
+    "keyword": "nursing nightgown",
+    "product_title": "max - Floral Printed Nightgown",
+    "product_url": "https://www.myntra.com/nightdress/max/max-women-floral-printed-nightgown/30448679/buy",
+    "price": 749,
+    "rating": 4.5,
+    "review_count": 519,
     "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/AUGUST/29/tjVjserL_f2ca11fae3a14bf8b2162bb9e51a0e7b.jpg"
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2024/AUGUST/2/58MUFUCY_16962072754a49b0ad907151643513ba.jpg"
     ]
   },
   {
-    "product_id": "217efd97fcc1",
+    "product_id": "15defd1098ae",
     "platform": "myntra.com",
-    "keyword": "ladies nighty",
-    "product_title": "TRUNDZ - Printed Nighty",
-    "product_url": "https://www.myntra.com/nightdress/trundz/trundz-women-printed-nighty/35928057/buy",
-    "price": 499,
-    "rating": 4.1,
-    "review_count": 52,
+    "keyword": "nursing nightgown",
+    "product_title": "max - Printed Cotton Nightdress",
+    "product_url": "https://www.myntra.com/nightdress/max/max-women-floral-printed-nightgown/30448683/buy",
+    "price": 749,
+    "rating": 4.5,
+    "review_count": 371,
     "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/JULY/23/QSG5WDM8_de3185faa57548abb734982aae8715e6.jpg"
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2024/AUGUST/2/vpxGZbgU_2edf2cca080a4a1180673d5c5f4fca2a.jpg"
+    ]
+  },
+  {
+    "product_id": "cc0de636a02e",
+    "platform": "myntra.com",
+    "keyword": "nursing nightgown",
+    "product_title": "THE MAMA KLUB - Women Maternity Nightdress",
+    "product_url": "https://www.myntra.com/nightdress/the+mama+klub/the-mama-klub-women-maternity--nursing-nightdress/34240942/buy",
+    "price": 1297,
+    "rating": 4.4,
+    "review_count": 53,
+    "images": [
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MAY/19/5aL4ha0F_d0f381cc83e74d64aff06b58f1c93b04.jpg"
+    ]
+  },
+  {
+    "product_id": "8f0e23a47b08",
+    "platform": "myntra.com",
+    "keyword": "nursing nightgown",
+    "product_title": "max - Printed Nightdress",
+    "product_url": "https://www.myntra.com/nightdress/max/max-women-heart-printed-nightgown/30140949/buy",
+    "price": 749,
+    "rating": 4.5,
+    "review_count": 139,
+    "images": [
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/30140949/2024/7/6/6c365703-0ec4-42c4-b852-5574eb224a001720253946397maxPrintedMaxiNightdress1.jpg"
     ]
   }
 ]

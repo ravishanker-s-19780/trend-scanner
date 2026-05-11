@@ -1,31 +1,59 @@
 [
   {
-    "product_id": "28b47ae6bf8c",
+    "product_id": "1f113b10595b",
     "platform": "ajio.com",
-    "keyword": "ladies nighty",
-    "product_title": "Women Floral Print Nightie with Lace Details",
-    "product_url": "https://www.ajio.com/ichaa-women-floral-print-nightie-with-lace-details/p/702302059_cream?",
-    "price": 499,
-    "rating": 3.6,
-    "review_count": 419,
+    "keyword": "nursing nightgown",
+    "product_title": "Women Leaf Maternity Nightie",
+    "product_url": "https://www.ajio.com/mamma-s-maternity-women-leaf-maternity-nightie/p/702618748_green?",
+    "price": 903,
+    "rating": 4.5,
+    "review_count": 2,
     "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250924/vOu5/68d3d9b43d468c61ab1de560/ichaa_cream_women_floral_print_nightie_with_lace_details.jpg",
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251212/cdia/693c4e93720fb821d389569b/mamma%27s_maternity_green_women_leaf_maternity_nightie.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
     ]
   },
   {
-    "product_id": "cf910228aa15",
+    "product_id": "de47ede7570a",
     "platform": "ajio.com",
-    "keyword": "ladies nighty",
-    "product_title": "Women Printed Round-Neck Nightie",
-    "product_url": "https://www.ajio.com/ichaa-women-printed-round-neck-nightie/p/702504662_teal?",
-    "price": 750,
-    "rating": 3.7,
-    "review_count": 22,
+    "keyword": "nursing nightgown",
+    "product_title": "Women Floral Print Square-Neck Nightie",
+    "product_url": "https://www.ajio.com/for-you-for-me-women-floral-print-square-neck-nightie/p/701521985_peach?",
+    "price": 464,
+    "rating": 3,
+    "review_count": 14,
     "images": [
-      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/70Xo/69ff735bfcb5bb61d2b536dc/ichaa_teal_women_printed_round-neck_nightie.jpg",
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250502/Ic4k/6814f80d7a6cd4182f0a0a85/for_you_for_me_peach_women_floral_print_square-neck_nightie.jpg",
       "https://assets-jiocdn.ajio.com/static/img/white-star-display.svg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "092b0a624d16",
+    "platform": "ajio.com",
+    "keyword": "nursing nightgown",
+    "product_title": "Women Printed Square-Neck Nighti",
+    "product_url": "https://www.ajio.com/mamma-s-maternity-women-printed-square-neck-nighti/p/702622361_maroon?",
+    "price": 903,
+    "rating": null,
+    "review_count": null,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251215/Eb3z/693ffd5c720fb821d38d4e52/mamma%27s_maternity_maroon_women_printed_square-neck_nighti.jpg",
+      "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
+    ]
+  },
+  {
+    "product_id": "5741482e831d",
+    "platform": "ajio.com",
+    "keyword": "nursing nightgown",
+    "product_title": "Women Geometric Print Nightie with Lace Detailed",
+    "product_url": "https://www.ajio.com/mamma-s-maternity-women-geometric-print-nightie-with-lace-detailed/p/701145905_brown?",
+    "price": 900,
+    "rating": null,
+    "review_count": null,
+    "images": [
+      "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250202/KmtJ/679f8a02bc78b543a912fd50/mamma%27s_maternity_brown_women_geometric_print_nightie_with_lace_detailed.jpg",
       "https://assets-jiocdn.ajio.com/static/img/percentageForDesktop.svg"
     ]
   }

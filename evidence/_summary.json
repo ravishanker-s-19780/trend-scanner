@@ -1,47 +1,47 @@
 {
-  "startedAt": "2026-05-11T15:49:03.764Z",
+  "startedAt": "2026-05-11T16:31:20.142Z",
   "platforms": [
     {
-      "platform": "ajio",
-      "count": 2,
+      "platform": "myntra",
+      "count": 4,
       "blocked": false
     },
     {
-      "platform": "myntra",
-      "count": 2,
+      "platform": "ajio",
+      "count": 4,
       "blocked": false
     },
     {
       "platform": "flipkart",
-      "count": 2,
+      "count": 4,
       "blocked": false
     },
     {
       "platform": "amazon",
-      "count": 2,
+      "count": 4,
       "blocked": false
     },
     {
       "platform": "shyaway",
-      "count": 2,
-      "blocked": false
-    },
-    {
-      "platform": "tatacliq",
-      "count": 2,
+      "count": 4,
       "blocked": false
     },
     {
       "platform": "meesho",
-      "count": 2,
+      "count": 4,
+      "blocked": false
+    },
+    {
+      "platform": "tatacliq",
+      "count": 4,
       "blocked": false
     },
     {
       "platform": "clovia",
-      "count": 2,
+      "count": 4,
       "blocked": false
     }
   ],
-  "finishedAt": "2026-05-11T15:49:31.886Z",
-  "total": 16
+  "finishedAt": "2026-05-11T16:32:12.781Z",
+  "total": 32
 }

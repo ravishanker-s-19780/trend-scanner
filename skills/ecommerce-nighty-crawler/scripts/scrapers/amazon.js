@@ -50,20 +50,37 @@ async function enrichAmazonDetails(page, records) {
   for (const rec of records) {
     try {
       await page.goto(rec.product_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-      await page.waitForTimeout(300);
+      await page.waitForTimeout(500);
 
-      // Try to click size chart button to reveal modal
-      try {
-        const sizeChartBtn = page.locator('#size-chart-button, [data-a-modal*="size"]');
-        if (await sizeChartBtn.count()) {
-          await sizeChartBtn.first().click();
-          await page.waitForTimeout(500);
+      // Try to detect and click size chart button
+      let sizeChartFound = false;
+      const sizeChartSelectors = [
+        '#size-chart-button',
+        '[data-a-modal*="size"]',
+        'button[aria-label*="size" i]',
+        'a[href*="sizeguide"]'
+      ];
+
+      for (const selector of sizeChartSelectors) {
+        try {
+          const btns = page.locator(selector);
+          const count = await btns.count();
+          if (count > 0) {
+            sizeChartFound = true;
+            try {
+              await btns.first().click();
+              await page.waitForTimeout(1000);
+            } catch (e) {
+              // Click failed, but button exists
+            }
+            break;
+          }
+        } catch (e) {
+          // Selector doesn't exist
         }
-      } catch (e) {
-        // Modal might already be visible or button not found
       }
 
-      const details = await page.evaluate(() => {
+      const details = await page.evaluate((hasChartBtn) => {
         const fabricType = (() => {
           // Try material table first
           const tables = document.querySelectorAll('#productDetails_techSpec_section_1 tr');
@@ -86,14 +103,41 @@ async function enrichAmazonDetails(page, records) {
         })();
 
         const sizeChart = (() => {
-          // Try various modal selectors
-          let modal = document.querySelector('#a-popover-content-1');
-          if (!modal) modal = document.querySelector('[role="dialog"][class*="size"]');
-          if (!modal) modal = document.querySelector('[class*="a-popover"]');
+          // Look for any visible modal/dialog
+          let modal = null;
+          const allDialogs = [...document.querySelectorAll('[role="dialog"], [class*="popover"], [class*="modal"]')];
+
+          // Find the one that's actually visible and might contain size chart
+          for (const dialog of allDialogs) {
+            const style = window.getComputedStyle(dialog);
+            if (style.display !== 'none' && style.visibility !== 'hidden') {
+              const text = dialog.textContent.toLowerCase();
+              if (text.includes('size') || text.includes('measurement')) {
+                modal = dialog;
+                break;
+              }
+            }
+          }
+
+          // If no modal found, try specific selectors
+          if (!modal) {
+            modal = document.querySelector('#a-popover-content-1') ||
+                   document.querySelector('[id*="size"][role="dialog"]') ||
+                   document.querySelector('#sizeChartDiv') ||
+                   document.querySelector('[class*="size-chart"]');
+          }
+
           if (!modal) return null;
 
-          const modalImage = modal.querySelector('img');
-          if (!modalImage) return null;
+          // Try to find image in modal
+          const allImages = [...modal.querySelectorAll('img')];
+          let modalImage = allImages.find(img => {
+            const src = img.src.toLowerCase();
+            const alt = img.alt.toLowerCase();
+            return src.includes('size') || src.includes('chart') || alt.includes('size') || alt.includes('chart');
+          }) || allImages[0];
+
+          if (!modalImage || !modalImage.src) return null;
 
           const imageUrl = modalImage.src;
           const rows = [];
@@ -104,39 +148,49 @@ async function enrichAmazonDetails(page, records) {
             const headerRow = table.querySelector('tr');
             const headerCells = headerRow ? [...headerRow.querySelectorAll('th, td')].map(c => c.textContent.trim().toLowerCase()) : [];
             const dataRows = [...table.querySelectorAll('tr')].slice(1);
+
             for (const tr of dataRows) {
               const cells = [...tr.querySelectorAll('td, th')];
               if (cells.length >= 2) {
                 const row = { size: cells[0]?.textContent.trim() };
-                // Try to match columns to measurements
                 for (let i = 1; i < cells.length; i++) {
                   const header = headerCells[i] || '';
                   const value = cells[i]?.textContent.trim();
-                  if (header.includes('chest') && header.includes('in')) row.chest_in = value;
-                  else if (header.includes('chest') && header.includes('cm')) row.chest_cm = value;
-                  else if (header.includes('length') && header.includes('in')) row.length_in = value;
-                  else if (header.includes('length') && header.includes('cm')) row.length_cm = value;
+                  if (header.includes('bust') || header.includes('chest')) {
+                    if (header.includes('in')) row.chest_in = value;
+                    else if (header.includes('cm')) row.chest_cm = value;
+                  } else if (header.includes('length')) {
+                    if (header.includes('in')) row.length_in = value;
+                    else if (header.includes('cm')) row.length_cm = value;
+                  }
                 }
                 if (Object.keys(row).length > 1) rows.push(row);
               }
             }
           }
-          return { image_url: imageUrl, rows };
+
+          return imageUrl ? { image_url: imageUrl, rows } : null;
         })();
 
         const bulletText = [...document.querySelectorAll('#feature-bullets li span.a-list-item')].map(b => b.textContent).join('\n');
         const descText = document.querySelector('#productDescription')?.textContent || '';
         const fullText = bulletText + '\n' + descText;
 
-        return { fabricType, sizeChart, nursingText: fullText };
-      });
+        return { fabricType, sizeChart, hasChartButton: hasChartBtn, nursingText: fullText };
+      }, sizeChartFound);
 
       if (!rec.fabric_type && details.fabricType) {
         rec.fabric_type = details.fabricType;
       }
-      if (details.sizeChart) {
+
+      // Size chart: prefer extracted data, fallback to button presence indicator
+      if (details.sizeChart && details.sizeChart.image_url) {
         rec.size_chart = details.sizeChart;
+      } else if (details.hasChartButton) {
+        // Button exists but we couldn't extract the image - still indicate availability
+        rec.size_chart = { image_url: null, rows: [], available: true };
       }
+
       rec.nursing_label = extractNursingLabel(rec.product_title + '\n' + details.nursingText);
 
     } catch (err) {
