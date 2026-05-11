@@ -2,3 +2,7 @@ node_modules/
 user-data/
 *.log
 .playwright-mcp/
+batch_results/
+batches/
+batch_metadata.json
+settings.json

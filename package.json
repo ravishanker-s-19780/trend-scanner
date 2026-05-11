@@ -18,7 +18,9 @@
     "normalize": "node skills/evidence-cleanup/scripts/normalize.js",
     "analyze": "node skills/b2b-trend-scorer/scripts/analyze-trends.js",
     "analyze:top10": "node skills/b2b-trend-scorer/scripts/analyze-trends.js --top=10",
-    "pipeline": "npm run normalize && npm run analyze"
+    "pipeline": "npm run normalize && npm run analyze",
+    "report": "node generate-report.js",
+    "catalog": "node generate-catalog.js"
   },
   "dependencies": {
     "playwright": "^1.47.0"
