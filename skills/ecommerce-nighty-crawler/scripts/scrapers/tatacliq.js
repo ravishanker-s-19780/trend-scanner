@@ -51,6 +51,12 @@ async function enrichTatacliqDetails(page, records) {
       await page.goto(rec.product_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await page.waitForTimeout(500);
 
+      // Wait for React SPA to hydrate product content (up to 8s)
+      await page.waitForSelector(
+        '.ProductDescriptionPage__headerDetailsPDP, .ProductGalleryDesktopUpdated__productAttributeObject',
+        { timeout: 8000 }
+      ).catch(() => {}); // silently skip if page has no product content (delisted/unavailable)
+
       const details = await page.evaluate(() => {
         // --- Fabric Type ---
         // Primary: headerDetailsPDP label/value pairs
