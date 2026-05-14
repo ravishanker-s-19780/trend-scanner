@@ -1161,6 +1161,20 @@ function fabricBadgeClass(fabric) {
   return 'fabric-generic';
 }
 
+function getFabricFromPersonaTags(personaTags) {
+  // Extract fabric info from persona tags array
+  if (!personaTags || !Array.isArray(personaTags)) return null;
+  for (const tag of personaTags) {
+    if (Array.isArray(tag) && tag.length >= 2) {
+      const label = tag[1];
+      if (label.includes('Cotton') || label.includes('Fabric')) {
+        return label;
+      }
+    }
+  }
+  return null;
+}
+
 // ── Data loading ───────────────────────────────────────────────
 async function loadData() {
   const [data, products] = await Promise.all([
@@ -1274,7 +1288,7 @@ function renderCard(t, state) {
         <span class="card-count">${t.product_count} styles</span>
       </div>
       <div class="card-attrs">
-        ${dominantFabric(t.sampleProducts) ? `<span class="attr-pill ${fabricBadgeClass(dominantFabric(t.sampleProducts))}">🧵 ${dominantFabric(t.sampleProducts)}</span>` : ''}
+        ${getFabricFromPersonaTags(t.persona_tags) ? `<span class="attr-pill ${fabricBadgeClass(getFabricFromPersonaTags(t.persona_tags))}">🧵 ${getFabricFromPersonaTags(t.persona_tags)}</span>` : (dominantFabric(t.sampleProducts) ? `<span class="attr-pill ${fabricBadgeClass(dominantFabric(t.sampleProducts))}">🧵 ${dominantFabric(t.sampleProducts)}</span>` : '')}
         ${hasNursing(t.sampleProducts) ? `<span class="attr-pill nursing">Nursing-Friendly ✓</span>` : ''}
         ${hasPlusSizes(t.sampleProducts) ? `<span class="attr-pill plus">📏 Plus</span>` : ''}
       </div>
