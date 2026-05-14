@@ -1085,13 +1085,33 @@ function capitalize(s) {
 }
 
 function formatTitle(t) {
-  const parts = [capitalize(t.design_pattern)];
-  if (t.front_top_treatment && t.front_top_treatment !== 'plain') {
-    parts.push(capitalize(t.front_top_treatment));
+  // Format: Material Half-Sleeve Round Neck - Plain Design Nighty
+  const material = dominantFabric(t.sampleProducts) || 'Cotton';
+
+  const sleeveName = {
+    'half': 'Half-Sleeve',
+    'sleeveless': 'Sleeveless',
+    'three-quarter': '3/4-Sleeve',
+    '3/4': '3/4-Sleeve',
+    'full': 'Full-Sleeve'
+  };
+
+  const neckName = {
+    'round': 'Round Neck',
+    'v-neck': 'V-Neck',
+    'square': 'Square Neck',
+    'sweetheart': 'Sweetheart Neck'
+  };
+
+  const sleeve = sleeveName[t.sleeve_length?.toLowerCase()] || capitalize(t.sleeve_length) + '-Sleeve';
+  const neck = neckName[t.neck_type?.toLowerCase()] || capitalize(t.neck_type) + ' Neck';
+
+  let design = 'Plain';
+  if (t.front_top_treatment && t.front_top_treatment.toLowerCase() !== 'plain') {
+    design = capitalize(t.front_top_treatment);
   }
-  parts.push(capitalize(t.neck_type) + ' Neck');
-  parts.push(capitalize(t.sleeve_length) + ' Sleeve');
-  return parts.join(' · ');
+
+  return `${material} ${sleeve} ${neck} - ${design} Design Nighty`;
 }
 
 function formatSubtitle(t) {
