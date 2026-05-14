@@ -207,7 +207,20 @@ def get_persona_tags(cluster, avg_price):
                     break
         if fabric_counts:
             top_fabric = max(fabric_counts, key=fabric_counts.get)
-            if top_fabric == 'cotton':
+            total = len(fabrics)
+            top_pct = (fabric_counts[top_fabric] / total * 100)
+
+            # Check for premium fabrics (satin/silk)
+            has_premium = fabric_counts.get('satin', 0) + fabric_counts.get('silk', 0)
+
+            if has_premium > 0:
+                # Show mix if premium fabrics present
+                if top_fabric == 'cotton':
+                    premium_pct = (has_premium / total * 100)
+                    tags.append(("✨", f"Cotton + Premium Fabrics ({premium_pct:.0f}% Satin/Silk)", "premium_mix"))
+                else:
+                    tags.append(("💎", f"Premium Fabrics (Satin/Silk)", "premium_fabric"))
+            elif top_fabric == 'cotton':
                 tags.append(("🧵", "100% Cotton", "cotton"))
             elif top_fabric in ['rayon', 'modal']:
                 tags.append(("✨", "Premium Fabric", "premium_fabric"))

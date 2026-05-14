@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Trends - B2B Decision Guide</title>
+    <title>Ladies Nighty B2B Design Trends</title>
     <style>
         * {
             margin: 0;
@@ -12,1822 +12,1893 @@
         }
 
         :root {
-            --send-now: #10b981;
-            --backup: #2563eb;
-            --evidence: #f59e0b;
-            --do-not: #dc2626;
-            --bg: #f3f4f6;
-            --card: #ffffff;
-            --text: #1f2937;
-            --text-light: #6b7280;
+            --color-send-now: #10b981;
+            --color-backup: #2563eb;
+            --color-evidence: #f59e0b;
+            --color-do-not: #dc2626;
+            --color-bg: #f9fafb;
+            --color-card: #ffffff;
+            --color-text: #1f2937;
+            --color-text-light: #6b7280;
+            --color-border: #e5e7eb;
+            --color-mass: #6366f1;
+            --color-mid: #8b5cf6;
+            --color-premium: #ec4899;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
             padding: 20px;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* HEADER */
+        /* ─── HEADER ─── */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 40px;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .header p {
-            font-size: 16px;
-            opacity: 0.95;
-            margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 16px;
         }
 
         .header-stats {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        .stat {
-            background: rgba(255,255,255,0.15);
-            padding: 12px 20px;
-            border-radius: 12px;
+        .stat-chip {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: 600;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
         }
 
-        /* LEGEND */
+        .platform-badges {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .platform-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* ─── DECISION LEGEND ─── */
         .legend {
+            background: var(--color-card);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--color-text);
+        }
+
+        .legend h2 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .legend-items {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 16px;
-            margin-bottom: 30px;
         }
 
         .legend-item {
-            background: var(--card);
-            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .legend-badge {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        /* ─── CARDS ─── */
+        .trend-card {
+            background: var(--color-card);
             border-radius: 12px;
-            border-left: 4px solid;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .legend-item.send-now { border-left-color: var(--send-now); }
-        .legend-item.backup { border-left-color: var(--backup); }
-        .legend-item.evidence { border-left-color: var(--evidence); }
-        .legend-item.do-not { border-left-color: var(--do-not); }
-
-        .legend-item strong {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .legend-item span {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        /* GRID */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-
-        /* CARD */
-        .card {
-            background: var(--card);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             border-top: 4px solid;
-            cursor: pointer;
+            page-break-inside: avoid;
         }
 
-        .card.send-now { border-top-color: var(--send-now); }
-        .card.backup { border-top-color: var(--backup); }
-        .card.evidence { border-top-color: var(--evidence); }
-        .card.do-not { border-top-color: var(--do-not); }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
+        .trend-card.send-now { border-top-color: var(--color-send-now); }
+        .trend-card.backup { border-top-color: var(--color-backup); }
+        .trend-card.evidence { border-top-color: var(--color-evidence); }
+        .trend-card.do-not { border-top-color: var(--color-do-not); }
 
         .card-header {
-            padding: 16px;
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-            border-bottom: 1px solid #e5e7eb;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 16px;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
         }
 
         .card-rank {
             font-size: 12px;
-            font-weight: 700;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            color: var(--color-text-light);
+            margin-bottom: 4px;
         }
 
-        .card-decision {
+        .decision-badge {
             display: inline-block;
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
             color: white;
-            margin-bottom: 12px;
         }
 
-        .card-decision.send-now { background: var(--send-now); }
-        .card-decision.backup { background: var(--backup); }
-        .card-decision.evidence { background: var(--evidence); color: #fff; }
-        .card-decision.do-not { background: var(--do-not); }
+        .score-display {
+            text-align: center;
+        }
 
-        .card-design {
-            font-size: 15px;
+        .score-number {
+            font-size: 32px;
             font-weight: 700;
-            line-height: 1.4;
-            color: var(--text);
+            line-height: 1;
         }
 
+        .score-max {
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        /* ─── CARD GRID ─── */
         .card-body {
-            padding: 16px;
-        }
-
-        .card-metrics {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .card-score {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--text);
-        }
-
-        .card-score-max {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: -4px;
-        }
-
-        .card-rating {
-            text-align: right;
-        }
-
-        .card-rating-stars {
-            font-size: 14px;
-            color: #fbbf24;
-        }
-
-        .card-rating-num {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .card-signal {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-bottom: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .card-tags {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            font-size: 18px;
-        }
-
-        .card-expand {
-            background: var(--bg);
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.2s;
-            width: 100%;
-        }
-
-        .card-expand:hover {
-            background: #e5e7eb;
-        }
-
-        .card-details {
-            display: none;
-            padding: 16px;
-            border-top: 1px solid #e5e7eb;
-            background: #fafbfc;
-        }
-
-        .card-details.open {
-            display: block;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 12px;
-        }
-
-        .detail-label {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .detail-value {
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .score-bar {
-            margin: 8px 0;
-            font-size: 11px;
-        }
-
-        .score-bar-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-
-        .score-bar-fill {
-            height: 6px;
-            background: #e5e7eb;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .score-bar-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        /* PRODUCT GALLERY */
-        .product-gallery {
-            margin: 12px 0;
-            padding-top: 12px;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .gallery-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .gallery-images {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-            gap: 8px;
+            grid-template-columns: 150px 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 16px;
         }
 
-        .gallery-item {
-            display: block;
-            overflow: hidden;
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+            gap: 6px;
+        }
+
+        .photo-thumb {
+            width: 100%;
+            aspect-ratio: 3/4;
             border-radius: 6px;
-            border: 1px solid #e5e7eb;
-            aspect-ratio: 1;
-            transition: all 0.2s ease;
+            overflow: hidden;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
         }
 
-        .gallery-item:hover {
-            border-color: #667eea;
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.15);
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
+        .photo-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* FOOTER */
+        .photo-thumb a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ─── SIGNAL SECTION ─── */
+        .market-signal {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .signal-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .signal-label {
+            color: var(--color-text-light);
+            font-weight: 600;
+        }
+
+        .signal-value {
+            font-weight: 700;
+        }
+
+        /* ─── SCORE BARS ─── */
+        .score-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .score-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .score-label {
+            width: 80px;
+            color: var(--color-text-light);
+            font-weight: 600;
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--color-border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+        }
+
+        .score-number-small {
+            width: 35px;
+            text-align: right;
+            font-weight: 700;
+        }
+
+        /* ─── TAGS ─── */
+        .persona-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: var(--color-bg);
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid var(--color-border);
+        }
+
+        .tag.mass { background: #eef2ff; border-color: var(--color-mass); color: var(--color-mass); }
+        .tag.mid { background: #faf5ff; border-color: var(--color-mid); color: var(--color-mid); }
+        .tag.premium { background: #fce7f3; border-color: var(--color-premium); color: var(--color-premium); }
+        .tag.trousseau { background: #fdf2f8; border-color: #d946ef; color: #d946ef; }
+        .tag.nursing { background: #f0fdf4; border-color: #22c55e; color: #22c55e; }
+        .tag.sleeve34 { background: #f5f3ff; border-color: #a78bfa; color: #a78bfa; }
+
+        .warning-banner {
+            background: #fef3c7;
+            border-left: 4px solid var(--color-evidence);
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        /* ─── FOOTER ─── */
         .footer {
             text-align: center;
             padding: 24px;
-            color: var(--text-light);
+            color: var(--color-text-light);
             font-size: 12px;
-            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+            border-top: 1px solid var(--color-border);
         }
 
-        /* RESPONSIVE */
+        .print-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--color-send-now);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .print-button:hover {
+            opacity: 0.9;
+        }
+
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            .card-body {
+                grid-template-columns: 1fr;
             }
+
+            .card-header {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 12px;
+            }
+
             .header {
                 padding: 24px;
             }
+
             .header h1 {
-                font-size: 24px;
+                font-size: 20px;
+            }
+
+            .trend-card {
+                padding: 16px;
             }
         }
 
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        /* ─── PRINT ─── */
         @media print {
             body {
-                background: white;
                 padding: 0;
+                background: white;
             }
-            .card {
+
+            .print-button {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .trend-card {
                 page-break-inside: avoid;
+                margin-bottom: 12px;
             }
-            .card-details {
-                display: block !important;
+
+            .header {
+                background: white;
+                color: var(--color-text);
+                border: 2px solid var(--color-border);
+                padding: 20px;
+            }
+
+            .header h1 {
+                color: var(--color-text);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <button class="print-button" onclick="window.print()">🖨️ Print Report</button>
+
         <!-- HEADER -->
         <div class="header">
-            <h1>🎨 Design Trends Guide</h1>
-            <p>B2B Wholesale Recommendations for Tamil Nadu Retailers</p>
+            <h1>Ladies Nighty Design Trends — B2B Wholesale Report</h1>
+            <p>Tamil Nadu Market Analysis · 2026-05-14T23:48:42.015340</p>
             <div class="header-stats">
-                <div class="stat">✨ 13 Clusters Analyzed</div>
-                <div class="stat">🟢 0 Send Now</div>
-                <div class="stat">📦 479 Products</div>
-                <div class="stat">📅 May 14, 2026</div>
+                <span class="stat-chip">📊 13 clusters analyzed</span>
+                <span class="stat-chip">✨ 0 Send Now</span>
+                <span class="stat-chip">📦 6 Send as Backup</span>
+                <span class="stat-chip">🔍 479 products</span>
+            </div>
+            <div class="platform-badges">
+                <span style="font-size:11px; color:#fff; opacity:0.8; margin-top:8px">Platforms: </span>
+                <span class="platform-badge">Amazon</span>
+                <span class="platform-badge">Myntra</span>
+                <span class="platform-badge">Flipkart</span>
+                <span class="platform-badge">Ajio</span>
+                <span class="platform-badge">Meesho</span>
+                <span class="platform-badge">Clovia</span>
+                <span class="platform-badge">Tata CLiQ</span>
+                <span class="platform-badge">Shyaway</span>
             </div>
         </div>
 
         <!-- LEGEND -->
         <div class="legend">
-            <div class="legend-item send-now">
-                <strong>🟢 Send Now (≥20)</strong>
-                <span>Strong evidence, proven demand, recommended order</span>
-            </div>
-            <div class="legend-item backup">
-                <strong>🔵 Send as Backup (15-19)</strong>
-                <span>Good market signals, solid secondary choice</span>
-            </div>
-            <div class="legend-item evidence">
-                <strong>🟡 Needs Evidence (10-14)</strong>
-                <span>Promising but needs more data before full order</span>
-            </div>
-            <div class="legend-item do-not">
-                <strong>🔴 Do Not Send (&lt;10)</strong>
-                <span>Poor fit for this market, skip this design</span>
+            <h2>How to Read This Report</h2>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-badge" style="background: var(--color-send-now)"></div>
+                    <span><strong>Send Now (≥20):</strong> Strong evidence, proven demand</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-badge" style="background: var(--color-backup)"></div>
+                    <span><strong>Send as Backup (≥15):</strong> Good fit, acceptable signals</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-badge" style="background: var(--color-evidence)"></div>
+                    <span><strong>Needs Evidence (10–14):</strong> Promising but risky</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-badge" style="background: var(--color-do-not)"></div>
+                    <span><strong>Do Not Send (&lt;10):</strong> Poor fit or weak signals</span>
+                </div>
             </div>
         </div>
 
-        <!-- GRID -->
-        <div class="grid">
+        <!-- TRENDS -->
 
-            <div class="card backup">
-                <div class="card-header">
+        <div class="trend-card backup">
+            
+
+            <div class="card-header">
+                <div>
                     <div class="card-rank">#1</div>
-                    <div class="card-decision backup">Send as Backup</div>
-                    <div class="card-design">plain · round · half</div>
+                    <div class="card-title">Plain · Round Neck · Half Sleeve · Plain Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #2563eb">Send as Backup</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #2563eb">17</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="DIAMO Pure Cotton Embroidery Nighty for Women, Night Gown fo" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="CIERGE Women's Cotton Lace Solid Color Nighty (Pack of 2)" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="WiWi Women's Cotton Printed Nighty Night Gown Maxi Free Size" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
                 </div>
 
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">17</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.91</div>
-                        </div>
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">80</span>
                     </div>
-
-                    <div class="card-signal">
-                        80 products · 7 platforms
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.91</span>
                     </div>
-
-                    <div class="card-tags">
-                        🧵 👶
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
                     </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">7 platforms</span>
+                    </div>
+                </div>
 
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(16), myntra(8), flipkart(13), meesho(20), clovia(20), tatacliq(1), shyaway(2)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/DIAMO-Embroidery-Nightdress-Sleepwear-Adjustable/dp/B0F5JWTC3M/ref=sr_1_36?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-36" target="_blank" class="gallery-item" title="DIAMO Pure Cotton Embroidery N"><img src="https://m.media-amazon.com/images/I/81xcYmfqRYL._AC_UL320_.jpg" alt="DIAMO Pure Cotton Embroidery N" loading="lazy"></a><a href="https://www.amazon.in/CIERGE-Womens-Cotton-Nighty-NIGHTY_Multicolored_Free/dp/B08JWS2KLB/ref=sr_1_56?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-56" target="_blank" class="gallery-item" title="CIERGE Women's Cotton Lace Sol"><img src="https://m.media-amazon.com/images/I/714tVphy80L._AC_UL320_.jpg" alt="CIERGE Women's Cotton Lace Sol" loading="lazy"></a><a href="https://www.amazon.in/WiWi-Keyocean-Womens-Cotton-Printed/dp/B0GLQCQ9V2/ref=sr_1_16?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-16" target="_blank" class="gallery-item" title="WiWi Women's Cotton Printed Ni"><img src="https://m.media-amazon.com/images/I/615++VM-0SL._AC_UL320_.jpg" alt="WiWi Women's Cotton Printed Ni" loading="lazy"></a><a href="https://www.amazon.in/Bahumaan-Cotton-Nighty-Loungewear-M-Bust-42/dp/B0GLHP86X7/ref=sr_1_26?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-26" target="_blank" class="gallery-item" title="Bahumaan Pure Cotton Nighty fo"><img src="https://m.media-amazon.com/images/I/61fXD4pJ0QL._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Nighty fo" loading="lazy"></a>
-                            </div>
-                        </div>
-
+                <div>
+                    <div class="score-bars">
                         
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
                 <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
                 </div>
-
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
                 <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
                 </div>
-
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
                 <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
                 </div>
-
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
                 <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
                 </div>
-
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
                 <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
                 </div>
-
+                <span class="score-number-small">1/5</span>
+            </div>
+            
                     </div>
                 </div>
             </div>
 
-            <div class="card backup">
-                <div class="card-header">
-                    <div class="card-rank">#2</div>
-                    <div class="card-decision backup">Send as Backup</div>
-                    <div class="card-design">floral · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">17</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐⭐</div>
-                            <div class="card-rating-num">4.03</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        88 products · 7 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 👶
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(20), flipkart(19), ajio(2), meesho(20), clovia(20), tatacliq(5), shyaway(2)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/Bahumaan-Cotton-Stylish-Magenta-XXL-Bust-48/dp/B0FNR99LWS/ref=sr_1_35?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-35" target="_blank" class="gallery-item" title="Bahumaan Pure Cotton Nighty fo"><img src="https://m.media-amazon.com/images/I/71lbTjZqW6L._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Nighty fo" loading="lazy"></a><a href="https://www.amazon.in/AV2-Womens-Satin-Nighty-Maroon/dp/B07GZP46RM/ref=sr_1_30?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-30" target="_blank" class="gallery-item" title="AV2 Women Satin Short Nighty w"><img src="https://m.media-amazon.com/images/I/61ouTgLjxvL._AC_UL320_.jpg" alt="AV2 Women Satin Short Nighty w" loading="lazy"></a><a href="https://www.amazon.in/PrathaVastra-Flower-Printed-Casual-Cotton/dp/B0FJ5KMPSX/ref=sr_1_10?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-10" target="_blank" class="gallery-item" title="Women Flower Printed Casual We"><img src="https://m.media-amazon.com/images/I/41uDo10bdiL._AC_UL320_.jpg" alt="Women Flower Printed Casual We" loading="lazy"></a><a href="https://www.amazon.in/BAILEY-SELLS-Embroidered-Nightgown-Size_BAILEY2392/dp/B0DY68BBWY/ref=sr_1_20?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-20" target="_blank" class="gallery-item" title="BAILEY SELLS Women's Cotton Em"><img src="https://m.media-amazon.com/images/I/81Pte6RYs+L._AC_UL320_.jpg" alt="BAILEY SELLS Women's Cotton Em" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (12% Satin/Silk)</span><span class="tag nursing">👶 Nursing-Friendly (2)</span>
             </div>
-
-            <div class="card backup">
-                <div class="card-header">
-                    <div class="card-rank">#3</div>
-                    <div class="card-decision backup">Send as Backup</div>
-                    <div class="card-design">geometric · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">17</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.92</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        71 products · 8 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 👶
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(16), myntra(1), flipkart(9), ajio(2), meesho(20), clovia(20), tatacliq(1), shyaway(2)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/UPPER-COLLECTION-Womens-Printed-Stylish/dp/B0FZBP5687/ref=sr_1_27?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-27" target="_blank" class="gallery-item" title="UPPER COLLECTION Women’s Cotto"><img src="https://m.media-amazon.com/images/I/81IVSgYRCGL._AC_UL320_.jpg" alt="UPPER COLLECTION Women’s Cotto" loading="lazy"></a><a href="https://www.amazon.in/Keyocean-Womens-Cotton-Printed-Length/dp/B0GL8ZNYK7/ref=sr_1_37?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-37" target="_blank" class="gallery-item" title="Keyocean Women's Cotton Printe"><img src="https://m.media-amazon.com/images/I/61HxjYzcd2L._AC_UL320_.jpg" alt="Keyocean Women's Cotton Printe" loading="lazy"></a><a href="https://www.amazon.in/Soulemo-Cotton-Length-Nighty-1633AM/dp/B0CHMRP6CW/ref=sr_1_40?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-40" target="_blank" class="gallery-item" title="Soulemo Women Cotton Floor Len"><img src="https://m.media-amazon.com/images/I/81NPjzozBaL._AC_UL320_.jpg" alt="Soulemo Women Cotton Floor Len" loading="lazy"></a><a href="https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7" target="_blank" class="gallery-item" title="Vlazom Women’s Cotton Maxi Nig"><img src="https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg" alt="Vlazom Women’s Cotton Maxi Nig" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card backup">
-                <div class="card-header">
-                    <div class="card-rank">#4</div>
-                    <div class="card-decision backup">Send as Backup</div>
-                    <div class="card-design">striped · v-neck · three-quarter</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">16</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐⭐</div>
-                            <div class="card-rating-num">4.01</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        66 products · 5 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 👶
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(9), flipkart(15), meesho(20), clovia(20), shyaway(2)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/G4Girl-Womens-Geometric-Nighty-gown_White_Free/dp/B0B4N8MRKB/ref=sr_1_51?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="G4Girl Women Satin Maxi Nighty"><img src="https://m.media-amazon.com/images/I/61utJ0iCwxL._AC_UL320_.jpg" alt="G4Girl Women Satin Maxi Nighty" loading="lazy"></a><a href="https://www.amazon.in/Anvesha-Sleeveless-Lightweight-Comfortable-Sleepwear/dp/B0GHDY6CG1/ref=sr_1_48?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-48" target="_blank" class="gallery-item" title="Anvesha Beauty Silk Satin Nigh"><img src="https://m.media-amazon.com/images/I/61k+Um-fLKL._AC_UL320_.jpg" alt="Anvesha Beauty Silk Satin Nigh" loading="lazy"></a><a href="https://www.amazon.in/Soulemo-Womens-Cotton-Length-Nighty/dp/B0CZ8RLZWV/ref=sr_1_56?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="Soulemo Women's Pure Cotton Fl"><img src="https://m.media-amazon.com/images/I/81OmX00Gt2L._AC_UL320_.jpg" alt="Soulemo Women's Pure Cotton Fl" loading="lazy"></a><a href="https://www.amazon.in/SOXI-MOXI-Comfortable-Sleepwear-Nightwear/dp/B0GVRXKQHW/ref=sr_1_81?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="SOXI MOXI Women Hosiery Cotton"><img src="https://m.media-amazon.com/images/I/61wp6QpKA2L._AC_UL320_.jpg" alt="SOXI MOXI Women Hosiery Cotton" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card backup">
-                <div class="card-header">
-                    <div class="card-rank">#5</div>
-                    <div class="card-decision backup">Send as Backup</div>
-                    <div class="card-design">floral · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">15</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.99</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        73 products · 7 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 💍 👶
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(9), myntra(1), flipkart(20), ajio(1), meesho(20), clovia(20), shyaway(2)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/G4Girl-Nighty-Womens-Long-Green/dp/B0F3JRG5FV/ref=sr_1_82?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="G4Girl Nighty for Women's with"><img src="https://m.media-amazon.com/images/I/81b8bc-RtXL._AC_UL320_.jpg" alt="G4Girl Nighty for Women's with" loading="lazy"></a><a href="https://www.amazon.in/Bahumaan-Cotton-Kaftan-Nighty-Stylish/dp/B0FXH8T229/ref=sr_1_67?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="Bahumaan Pure Cotton Kaftan Ni"><img src="https://m.media-amazon.com/images/I/71xyGfaNXpL._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Kaftan Ni" loading="lazy"></a><a href="https://www.amazon.in/G4Girl-Womens-Geometric-Kaftan-Nighty/dp/B097RS8ND1/ref=sr_1_49?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-49" target="_blank" class="gallery-item" title="G4Girl Women's Silk Geometric "><img src="https://m.media-amazon.com/images/I/71JhmX8oXZL._AC_UL320_.jpg" alt="G4Girl Women's Silk Geometric " loading="lazy"></a><a href="https://www.amazon.in/TRUNDZ-Womens-Printed-Cotton-Embroidered/dp/B08BTFVTG9/ref=sr_1_57?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="TRUNDZ Women's Cotton Embroide"><img src="https://m.media-amazon.com/images/I/81Wjcnf4GAL._AC_UL320_.jpg" alt="TRUNDZ Women's Cotton Embroide" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card backup">
-                <div class="card-header">
-                    <div class="card-rank">#6</div>
-                    <div class="card-decision backup">Send as Backup</div>
-                    <div class="card-design">abstract · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">15</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐⭐</div>
-                            <div class="card-rating-num">4.08</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        8 products · 2 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">myntra(3), tatacliq(5)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.myntra.com/nightdress/bindass+female+collection/bindass-female-collection-women-nighty-cotton-maxi-plus-size-maxi-5xl-to-8xl/33066744/buy" target="_blank" class="gallery-item" title="Bindass Female Collection - Pr"><img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MARCH/5/tpkitBL9_8d3813964c2c4215b6867a7a2824184f.jpg" alt="Bindass Female Collection - Pr" loading="lazy"></a><a href="https://www.myntra.com/nightdress/bindass+female+collection/bindass-female-collection-women-nighty-cotton-maxi-plus-size-maxi-5xl-to-8xl/33066747/buy" target="_blank" class="gallery-item" title="Bindass Female Collection - Pr"><img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MARCH/5/1ed16Rot_900b1f035c744f969506425172ae7bb2.jpg" alt="Bindass Female Collection - Pr" loading="lazy"></a><a href="https://www.myntra.com/nightdress/russhies/russhies-conversational-printed-nightdress/41318079/buy" target="_blank" class="gallery-item" title="Russhies - Printed Nightdress"><img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/APRIL/11/9mSUYNUO_f0f2edcec6284d4da8ce6c48044bd82d.jpg" alt="Russhies - Printed Nightdress" loading="lazy"></a><a href="https://www.tatacliq.com/sweet-dreams-blue-cotton-printed-nighty/p-mp000000018451673" target="_blank" class="gallery-item" title="Sweet Dreams Sweet Dreams Blue"><img src="https://img.tatacliq.com/images/i12/437Wx649H/MP000000018451673_437Wx649H_202307260207571.jpeg" alt="Sweet Dreams Sweet Dreams Blue" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card evidence">
-                <div class="card-header">
-                    <div class="card-rank">#7</div>
-                    <div class="card-decision evidence">Needs More Evidence</div>
-                    <div class="card-design">striped · round · three-quarter</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">13</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐⭐</div>
-                            <div class="card-rating-num">4.08</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        6 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(6)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/G4Girl-Womens-Geometric-Length-Nightgown_Maroon-Blue_Free/dp/B099JKJKRF/ref=sr_1_14?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-14" target="_blank" class="gallery-item" title="G4Girl Women's Silk Geometric "><img src="https://m.media-amazon.com/images/I/81UJFddad3S._AC_UL320_.jpg" alt="G4Girl Women's Silk Geometric " loading="lazy"></a><a href="https://www.amazon.in/Bahumaan-Nighty-Nighties-Stylish-Sleepwear/dp/B0FYWWPJJY/ref=sr_1_19?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-19" target="_blank" class="gallery-item" title="Bahumaan Nighty for Women Cott"><img src="https://m.media-amazon.com/images/I/71DRVa-PtgL._AC_UL320_.jpg" alt="Bahumaan Nighty for Women Cott" loading="lazy"></a><a href="https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_9?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-9" target="_blank" class="gallery-item" title="MYRELOOK Women Cotton Nighty C"><img src="https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg" alt="MYRELOOK Women Cotton Nighty C" loading="lazy"></a><a href="https://www.amazon.in/PNAEONG-Stylish-Printed-Comfortable-Sleepwear/dp/B0GC786YPY/ref=sr_1_29?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-29" target="_blank" class="gallery-item" title="PNAEONG Stylish Cotton Nighty "><img src="https://m.media-amazon.com/images/I/61STR8WU-eL._AC_UL320_.jpg" alt="PNAEONG Stylish Cotton Nighty " loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card evidence">
-                <div class="card-header">
-                    <div class="card-rank">#8</div>
-                    <div class="card-decision evidence">Needs More Evidence</div>
-                    <div class="card-design">floral · v-neck · sleeveless</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">11</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.98</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        6 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 💍
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(6)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/come4try-Nighty-Nightwear-V-Neck-Length/dp/B0GHN7ZCJQ/ref=sr_1_38?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-38" target="_blank" class="gallery-item" title="come4try Women Nighty with Rob"><img src="https://m.media-amazon.com/images/I/51brOkAhBTL._AC_UL320_.jpg" alt="come4try Women Nighty with Rob" loading="lazy"></a><a href="https://www.amazon.in/Womens-Printed-Stylish-Dresses-Blue_XL/dp/B0F6KHZ118/ref=sr_1_33?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-33" target="_blank" class="gallery-item" title="Women's Cotton Printed Stylish"><img src="https://m.media-amazon.com/images/I/41AhGnekqdL._AC_UL320_.jpg" alt="Women's Cotton Printed Stylish" loading="lazy"></a><a href="https://www.amazon.in/G4Girl-Regular-Rajasthani-Jaipuri-Turkish/dp/B0DNF6C2JF/ref=sr_1_18?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-18" target="_blank" class="gallery-item" title="G4Girl Women's Pure Cotton Reg"><img src="https://m.media-amazon.com/images/I/91KaN7oG1yL._AC_UL320_.jpg" alt="G4Girl Women's Pure Cotton Reg" loading="lazy"></a><a href="https://www.amazon.in/G4Girl-Cotton-Regular-Rajasthani-Jaipuri/dp/B0DT4QNXWV/ref=sr_1_13?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-13" target="_blank" class="gallery-item" title="G4Girl Women's Regular Nighty "><img src="https://m.media-amazon.com/images/I/91a7EFouw3L._AC_UL320_.jpg" alt="G4Girl Women's Regular Nighty " loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card evidence">
-                <div class="card-header">
-                    <div class="card-rank">#9</div>
-                    <div class="card-decision evidence">Needs More Evidence</div>
-                    <div class="card-design">plain · round · sleeveless</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">11</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.9</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        1 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(1)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Turkish/dp/B0C1K4LR4W/ref=sr_1_42?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-42" target="_blank" class="gallery-item" title="G4Girl Pure Cotton Embroidery "><img src="https://m.media-amazon.com/images/I/81ELDkNuvCL._AC_UL320_.jpg" alt="G4Girl Pure Cotton Embroidery " loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card evidence">
-                <div class="card-header">
-                    <div class="card-rank">#10</div>
-                    <div class="card-decision evidence">Needs More Evidence</div>
-                    <div class="card-design">striped · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">11</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.2</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        1 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">amazon(1)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.amazon.in/FlyNery-Satin-Nighty-Women-Comfortable/dp/B0FTVJWC93/ref=sr_1_44?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-44" target="_blank" class="gallery-item" title="FlyNery Nighty for Women Styli"><img src="https://m.media-amazon.com/images/I/41fdOlu5TpL._AC_UL320_.jpg" alt="FlyNery Nighty for Women Styli" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>0/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 0.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>5/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 100.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card evidence">
-                <div class="card-header">
-                    <div class="card-rank">#11</div>
-                    <div class="card-decision evidence">Needs More Evidence</div>
-                    <div class="card-design">floral · round · three-quarter</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">10</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐⭐</div>
-                            <div class="card-rating-num">4.0</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        1 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">ajio(1)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?" target="_blank" class="gallery-item" title="Women Floral Print Nightgown"><img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg" alt="Women Floral Print Nightgown" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card do-not">
-                <div class="card-header">
-                    <div class="card-rank">#12</div>
-                    <div class="card-decision do-not">Do Not Send</div>
-                    <div class="card-design">plain · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">9</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐⭐⭐</div>
-                            <div class="card-rating-num">5.0</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        1 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 💍
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">tatacliq(1)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.tatacliq.com/koi-sleepwear-black-embroidered-nighty/p-mp000000011263146" target="_blank" class="gallery-item" title="KOI SLEEPWEAR KOI SLEEPWEAR Bl"><img src="https://www.tatacliq.com/src/general/components/img/green-filled-star.svg" alt="KOI SLEEPWEAR KOI SLEEPWEAR Bl" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card do-not">
-                <div class="card-header">
-                    <div class="card-rank">#13</div>
-                    <div class="card-decision do-not">Do Not Send</div>
-                    <div class="card-design">plain · round · half</div>
-                </div>
-
-                <div class="card-body">
-                    <div class="card-metrics">
-                        <div>
-                            <div class="card-score">9</div>
-                            <div class="card-score-max">/ 25</div>
-                        </div>
-                        <div class="card-rating">
-                            <div class="card-rating-stars">⭐⭐⭐</div>
-                            <div class="card-rating-num">3.0</div>
-                        </div>
-                    </div>
-
-                    <div class="card-signal">
-                        1 products · 1 platforms
-                    </div>
-
-                    <div class="card-tags">
-                        🧵 💍
-                    </div>
-
-                    <button class="card-expand">
-                        ▼ View Details
-                    </button>
-
-                    <div class="card-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Price Range:</span>
-                            <span class="detail-value">N/A</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Avg Price:</span>
-                            <span class="detail-value">₹0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Sources:</span>
-                            <span class="detail-value">tatacliq(1)</span>
-                        </div>
-
-                        <div class="product-gallery">
-                            <div class="gallery-label">Sample Products:</div>
-                            <div class="gallery-images">
-                                <a href="https://www.tatacliq.com/mslingies-blue-lace-work-nighty/p-mp000000018715402" target="_blank" class="gallery-item" title="Ms.Lingies Ms.Lingies Blue Lac"><img src="https://www.tatacliq.com/src/general/components/img/green-filled-star.svg" alt="Ms.Lingies Ms.Lingies Blue Lac" loading="lazy"></a>
-                            </div>
-                        </div>
-
-                        
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Evidence</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Trend</span>
-                        <span>0/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 0.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>TN Fit</span>
-                        <span>3/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 60.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Simplicity</span>
-                        <span>4/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 80.0%"></div>
-                    </div>
-                </div>
-
-                <div class="score-bar">
-                    <div class="score-bar-label">
-                        <span>Margin</span>
-                        <span>1/5</span>
-                    </div>
-                    <div class="score-bar-fill">
-                        <div class="score-bar-progress" style="width: 20.0%"></div>
-                    </div>
-                </div>
-
-                    </div>
-                </div>
-            </div>
-
         </div>
+        
+        <div class="trend-card backup">
+            
 
-        <!-- FOOTER -->
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#2</div>
+                    <div class="card-title">Floral · Round Neck · Half Sleeve · Print Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #2563eb">Send as Backup</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #2563eb">17</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Wome" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="AV2 Women Satin Short Nighty with Lace & Robe 1306" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Women Flower Printed Casual Wear Cotton Nighty - Gown-MFNT50" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">88</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐⭐ 4.03</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">7 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (9% Satin/Silk)</span><span class="tag nursing">👶 Nursing-Friendly (1)</span>
+            </div>
+        </div>
+        
+        <div class="trend-card backup">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#3</div>
+                    <div class="card-title">Geometric · Round Neck · Half Sleeve · Print Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #2563eb">Send as Backup</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #2563eb">17</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="UPPER COLLECTION Women’s Cotton Printed Nighty | Long Gown M" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Keyocean Women's Cotton Printed Gown Ankle Length Nighty Fre" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Soulemo Women Cotton Floor Length Nighty 1633" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">71</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.92</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">8 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (15% Satin/Silk)</span><span class="tag nursing">👶 Nursing-Friendly (4)</span>
+            </div>
+        </div>
+        
+        <div class="trend-card backup">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#4</div>
+                    <div class="card-title">Striped · V-Neck Neck · Three-Quarter Sleeve · Plain Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #2563eb">Send as Backup</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #2563eb">16</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="G4Girl Women Satin Maxi Nighty Gown" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Anvesha Beauty Silk Satin Night Dress for Women with Lace Tr" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Soulemo Women's Pure Cotton Floor Length Nighty 1661" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">66</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐⭐ 4.01</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">5 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (9% Satin/Silk)</span><span class="tag nursing">👶 Nursing-Friendly (3)</span><span class="tag sleeve34">👕 Three-Quarter Sleeves</span>
+            </div>
+        </div>
+        
+        <div class="trend-card backup">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#5</div>
+                    <div class="card-title">Floral · Round Neck · Half Sleeve · Lace Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #2563eb">Send as Backup</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #2563eb">15</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="G4Girl Nighty for Women's with Long Zip" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Bahumaan Pure Cotton Kaftan Nighty for Women | Kaftan Maxi f" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="G4Girl Women's Silk Geometric Print Maxi Nightgown" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">73</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.99</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">7 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (11% Satin/Silk)</span><span class="tag trousseau">💍 Wedding / Trousseau Niche</span><span class="tag nursing">👶 Nursing-Friendly (2)</span>
+            </div>
+        </div>
+        
+        <div class="trend-card backup">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#6</div>
+                    <div class="card-title">Abstract · Round Neck · Half Sleeve · Print Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #2563eb">Send as Backup</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #2563eb">15</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Bindass Female Collection - Printed Nightdress" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Bindass Female Collection - Printed Nightdress" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Russhies - Printed Nightdress" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">8</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐⭐ 4.08</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">2 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag cotton">🧵 100% Cotton</span>
+            </div>
+        </div>
+        
+        <div class="trend-card evidence">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#7</div>
+                    <div class="card-title">Striped · Round Neck · Three-Quarter Sleeve · Plain Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #f59e0b">Needs More Evidence</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #f59e0b">12</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="G4Girl Women's Silk Geometric Print Maxi Kaftan Night Gown (" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Bahumaan Nighty for Women Cotton Combo Pack of 2 | Free Size" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi N" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">6</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐⭐ 4.08</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (33% Satin/Silk)</span><span class="tag sleeve34">👕 Three-Quarter Sleeves</span>
+            </div>
+        </div>
+        
+        <div class="trend-card evidence">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#8</div>
+                    <div class="card-title">Floral · V-Neck Neck · Sleeveless Sleeve · Lace Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #f59e0b">Needs More Evidence</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #f59e0b">11</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="come4try Women Nighty with Robe,Satin Nightwear Set, V-Neck " onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Women's Cotton Printed Stylish Night Dresses | Pure Cotton N" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="G4Girl Women's Pure Cotton Regular Nighty Rajasthani Nighty " onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">6</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.98</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_mix">✨ Cotton + Premium Fabrics (17% Satin/Silk)</span><span class="tag trousseau">💍 Wedding / Trousseau Niche</span>
+            </div>
+        </div>
+        
+        <div class="trend-card evidence">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#9</div>
+                    <div class="card-title">Plain · Round Neck · Sleeveless Sleeve · Plain Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #f59e0b">Needs More Evidence</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #f59e0b">11</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gow" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">1</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.9</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag cotton">🧵 100% Cotton</span>
+            </div>
+        </div>
+        
+        <div class="trend-card evidence">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#10</div>
+                    <div class="card-title">Floral · Round Neck · Three-Quarter Sleeve · Print Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #f59e0b">Needs More Evidence</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #f59e0b">10</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Women Floral Print Nightgown" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">1</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐⭐ 4.0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag cotton">🧵 100% Cotton</span><span class="tag sleeve34">👕 Three-Quarter Sleeves</span>
+            </div>
+        </div>
+        
+        <div class="trend-card do-not">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#11</div>
+                    <div class="card-title">Striped · Round Neck · Half Sleeve · Plain Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #dc2626">Do Not Send</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #dc2626">9</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="FlyNery Nighty for Women Stylish - Ladies Night Dress Robe, " onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">1</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.2</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 0.0%"></div>
+                </div>
+                <span class="score-number-small">0/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 40.0%"></div>
+                </div>
+                <span class="score-number-small">2/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="score-number-small">5/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag premium_fabric">💎 Premium Fabrics (Satin/Silk)</span>
+            </div>
+        </div>
+        
+        <div class="trend-card do-not">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#12</div>
+                    <div class="card-title">Plain · Round Neck · Half Sleeve · Embroidery Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #dc2626">Do Not Send</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #dc2626">9</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="KOI SLEEPWEAR KOI SLEEPWEAR Black Embroidered Nighty" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">1</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐⭐⭐ 5.0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag cotton">🧵 100% Cotton</span><span class="tag trousseau">💍 Wedding / Trousseau Niche</span>
+            </div>
+        </div>
+        
+        <div class="trend-card do-not">
+            
+
+            <div class="card-header">
+                <div>
+                    <div class="card-rank">#13</div>
+                    <div class="card-title">Plain · Round Neck · Half Sleeve · Lace Front</div>
+                </div>
+                <div style="text-align: right;">
+                    <span class="decision-badge" style="background: #dc2626">Do Not Send</span>
+                </div>
+                <div class="score-display">
+                    <div class="score-number" style="color: #dc2626">9</div>
+                    <div class="score-max">/ 25</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="photos">
+                    
+                <div class="photo-thumb">
+                    <a href="#" target="_blank" rel="noopener">
+                        <img src="" alt="Ms.Lingies Ms.Lingies Blue Lace Work Nighty" onerror="this.parentElement.style.display='none'">
+                    </a>
+                </div>
+                
+                </div>
+
+                <div class="market-signal">
+                    <div class="signal-row">
+                        <span class="signal-label">Products:</span>
+                        <span class="signal-value">1</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Rating:</span>
+                        <span class="signal-value">⭐⭐⭐ 3.0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Price Range:</span>
+                        <span class="signal-value">N/A</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Avg Price:</span>
+                        <span class="signal-value">₹0</span>
+                    </div>
+                    <div class="signal-row">
+                        <span class="signal-label">Sources:</span>
+                        <span class="signal-value">1 platforms</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="score-bars">
+                        
+            <div class="score-bar-row">
+                <span class="score-label">A. Evidence</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">B. Trend Signal</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 0.0%"></div>
+                </div>
+                <span class="score-number-small">0/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">C. TN B2B Fit</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 60.0%"></div>
+                </div>
+                <span class="score-number-small">3/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">D. Simplicity</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 80.0%"></div>
+                </div>
+                <span class="score-number-small">4/5</span>
+            </div>
+            
+            <div class="score-bar-row">
+                <span class="score-label">E. Margin</span>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: 20.0%"></div>
+                </div>
+                <span class="score-number-small">1/5</span>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-tags">
+                <span class="tag mass">💰 Mass Market (₹250–600)</span><span class="tag cotton">🧵 100% Cotton</span><span class="tag trousseau">💍 Wedding / Trousseau Niche</span>
+            </div>
+        </div>
+        
         <div class="footer">
-            <p>This guide is based on 479 products from 8 e-commerce platforms across Tamil Nadu.<br>
-            Scores reflect market evidence, customer ratings, production feasibility, and wholesale viability.<br>
-            <strong>Print this page</strong> for offline sharing with your production team.</p>
+            <p>This report is generated from 479 products across 8 e-commerce platforms.<br>
+            Scores are based on market evidence, customer sentiment, production feasibility, and TN wholesale market fit.<br>
+            <strong>Last updated:</strong> 2026-05-14 23:48:42</p>
         </div>
     </div>
-
-    <script>
-        // Mobile-friendly: close other cards when opening one
-        document.querySelectorAll('.card-expand').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const details = this.parentElement.parentElement.querySelector('.card-details');
-                const isOpen = details.classList.toggle('open');
-                this.textContent = isOpen ? '▲ Hide Details' : '▼ View Details';
-            });
-        });
-    </script>
 </body>
 </html>

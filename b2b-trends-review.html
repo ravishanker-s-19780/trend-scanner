@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Wholesalers Review - Trends Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        main {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            background: #f3f4f6;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #1f2937;
+        }
+
+        .intro-section h2 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .intro-section p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .persona-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .persona-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: #1f2937;
+            transform: translateY(-5px);
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .persona-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .persona-info h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .persona-details {
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .persona-details span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        .section-label {
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05em;
+        }
+
+        .section-label.liked {
+            color: #059669;
+        }
+
+        .section-label.disliked {
+            color: #dc2626;
+        }
+
+        .section-label.quote {
+            color: #7c3aed;
+        }
+
+        .points-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .points-list li {
+            padding: 10px 0 10px 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .points-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .disliked .points-list li:before {
+            content: "✗";
+            color: #dc2626;
+        }
+
+        .quote-section {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #7c3aed;
+            font-style: italic;
+            color: #555;
+            margin-top: 15px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .quote-section strong {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-style: normal;
+        }
+
+        .summary-section {
+            background: #fafafa;
+            padding: 40px 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .summary-section h2 {
+            color: #1f2937;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .issue-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .issue-table thead {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+        }
+
+        .issue-table th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .issue-table td {
+            padding: 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .issue-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .issue-table tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .issue-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .priority-critical {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .priority-high {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .priority-medium {
+            background: #dbeafe;
+            color: #0c2340;
+        }
+
+        .recommendations {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #059669;
+        }
+
+        .recommendations h3 {
+            color: #059669;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .recommendations ul {
+            list-style: none;
+        }
+
+        .recommendations li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .recommendations li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #f0f0f0;
+            padding: 25px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .personas-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            main, .summary-section {
+                padding: 20px;
+            }
+
+            .issue-table {
+                font-size: 0.9em;
+            }
+
+            .issue-table th, .issue-table td {
+                padding: 12px;
+            }
+        }
+
+        .print-button {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .print-button button {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .print-button button:hover {
+            transform: scale(1.05);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .persona-card {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
+
+        .trend-preview {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #6b7280;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .trend-preview strong {
+            color: #1f2937;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .data-point {
+            display: inline-block;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin: 2px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏪 B2B Wholesalers Review</h1>
+            <p>Ladies Nighty Trends Report Feedback</p>
+            <p class="subtitle">Tamil Nadu Wholesale & Retail Buyers Evaluate the Design Trends Analysis</p>
+        </header>
+
+        <main>
+            <div class="intro-section">
+                <h2>About This Review</h2>
+                <p>This document presents feedback from <strong>6 B2B wholesalers and retail buyers from Tamil Nadu</strong> who reviewed a comprehensive design trends report for ladies nighties.</p>
+                <p>These are professionals managing buying operations for wholesale distributors, retail chains, e-commerce platforms, and boutique sellers. Their feedback addresses the report's usefulness for decision-making, data quality, and actionability for their specific business models.</p>
+            </div>
+
+            <div class="personas-grid">
+                <!-- Persona 1 -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">R</div>
+                        <div class="persona-info">
+                            <h3>Rajesh Kumar</h3>
+                            <div class="persona-details">
+                                <span><strong>Role:</strong> Wholesale Distributor</span>
+                                <span><strong>Business:</strong> Regional distributor supplying 50+ retail shops across TN</span>
+                                <span><strong>Annual Orders:</strong> ₹50 lakhs+ | <strong>Order Frequency:</strong> Monthly</span>
+                                <span><strong>Tech Level:</strong> Medium | <strong>Language:</strong> Tamil + English</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-label liked">✅ What I Liked (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Clear decision labels</strong> — "Send as Backup," "Needs More Evidence" — tells me exactly what to order and what to skip. No guesswork</li>
+                        <li><strong>Nursing-friendly tags</strong> — I can filter for nursing nighties (2, 4 products tagged) and push them specifically to maternity-focused retailers</li>
+                        <li><strong>Multi-platform sourcing</strong> — Shows data from 7-8 platforms, not just one. Gives me confidence this isn't biased toward one seller</li>
+                        <li><strong>Price transparency would be great</strong> — Wait, no price info! At least ratings shown. That's something</li>
+                    </ul>
+
+                    <div class="section-label disliked">❌ What Needs Improvement (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>NO PRICE DATA</strong> — Shows "₹0 avg price" for all trends. I need to know wholesale costs, competitor pricing, margin potential. How can I bid without this?</li>
+                        <li><strong>Product count too low for some trends</strong> — Trend #9 has only 1 product. How is that a reliable trend? I need at least 10-20 SKUs to commit</li>
+                        <li><strong>No supplier/vendor information</strong> — Which factories can produce these designs? Are they mass-producible or boutique-only? No sourcing guidance</li>
+                        <li><strong>Margin score is consistently low (1/5)</strong> — All trends show 1/5 margin potential. If every design has poor margins, how do I make money?</li>
+                    </ul>
+
+                    <div class="trend-preview">
+                        <strong>Observation:</strong> Report says "Send as Backup" for top 6 trends. But no "Send Now" — should I be concerned that NO trends are recommended as primary orders?
+                    </div>
+
+                    <div class="quote-section">
+                        <strong>💬 His Voice:</strong>
+                        "Report bagundhu nalla irukku, but price data illai na yenna pannuven? Ennai valkai order pannalum margin kitaikum nu enapothum confidence illai!"
+                        <br/><em>(Report is good, but without price data how will I order? I have no confidence about making margins!)</em>
+                    </div>
+                </div>
+
+                <!-- Persona 2 -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">P</div>
+                        <div class="persona-info">
+                            <h3>Preethi Iyer</h3>
+                            <div class="persona-details">
+                                <span><strong>Role:</strong> Retail Chain Buyer</span>
+                                <span><strong>Business:</strong> Fashion retail chain with 15 stores across Chennai & suburbs</span>
+                                <span><strong>Annual Orders:</strong> ₹1+ crore | <strong>Order Frequency:</strong> Bi-weekly</span>
+                                <span><strong>Tech Level:</strong> High | <strong>Language:</strong> English-fluent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-label liked">✅ What I Liked (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Score breakdown is transparent</strong> — 5 dimensions (Evidence, Trend Signal, B2B Fit, Simplicity, Margin) let me see what's strong and what's weak</li>
+                        <li><strong>Persona tagging (Mass Market / Trousseau / Nursing)</strong> — Perfect! I can allocate inventory by store type. Maternity stores get "Nursing-Friendly" SKUs</li>
+                        <li><strong>Visual score bars</strong> — Easy to scan which trends are "Evidence-strong" (5/5) vs. "Signal-weak" (1/5)</li>
+                        <li><strong>13 clusters is manageable</strong> — Not overwhelming like 100 options; focused selection helps our team decide quickly</li>
+                    </ul>
+
+                    <div class="section-label disliked">❌ What Needs Improvement (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No regional breakdown</strong> — Is "Floral · Round Neck" trending in Chennai vs. Trichy differently? Data is lumped together. I sell in rural and urban areas</li>
+                        <li><strong>No seasonal analysis</strong> — Should I stock more nursing nighties before June (maternity season)? No seasonality notes in the report</li>
+                        <li><strong>Margin potential unexplained</strong> — All trends score 1/5 for margin. Why? Are fabrics too expensive? Competition too high? No explanation</li>
+                        <li><strong>No competitor intel</strong> — Which other retailers are stocking these designs? How fast will they sell through in the market?</li>
+                    </ul>
+
+                    <div class="trend-preview">
+                        <strong>Data Gap:</strong> Report has ratings (3.91–4.08 stars) but not review count. 5,000 reviews vs. 50 reviews = very different confidence levels!
+                    </div>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Great taxonomy, but I need region-wise breakdown. My Chennai store doesn't need the same stock mix as my Trichy store — they shop differently, prefer different designs!"
+                    </div>
+                </div>
+
+                <!-- Persona 3 -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">A</div>
+                        <div class="persona-info">
+                            <h3>Anand Pillai</h3>
+                            <div class="persona-details">
+                                <span><strong>Role:</strong> E-Commerce Marketplace Manager</span>
+                                <span><strong>Business:</strong> Third-party seller on Flipkart/Amazon managing 500+ SKUs</span>
+                                <span><strong>Monthly Sales:</strong> ₹5-10 lakhs | <strong>Inventory Model:</strong> Just-in-time</span>
+                                <span><strong>Tech Level:</strong> Very High | <strong>Language:</strong> English-comfortable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-label liked">✅ What I Liked (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Multi-platform data (Amazon, Myntra, Flipkart, Ajio, etc.)</strong> — Perfect for e-commerce. I can see which designs sell across channels, not just one platform</li>
+                        <li><strong>Rating data included</strong> — Avg rating 3.9–4.1 stars is meaningful. Shows customer satisfaction, helps me decide what to stock</li>
+                        <li><strong>Cluster approach (not individual SKUs)</strong> — Instead of 479 products to analyze, I focus on 13 design archetypes. Scalable for my business model</li>
+                        <li><strong>Decision recommendations clear</strong> — "Send as Backup" gives me a fast buying signal. I don't have to overthink</li>
+                    </ul>
+
+                    <div class="section-label disliked">❌ What Needs Improvement (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No velocity data (sell-through rate)</strong> — How fast does a "Send as Backup" trend actually sell? Days to stock-out? No turnover info</li>
+                        <li><strong>No size-wise analysis</strong> — Do M/L/XL sell equally? Plus-size demand? No breakdown. Critical for e-commerce where size availability = stock outs = lost sales</li>
+                        <li><strong>Missing supplier cost & lead time</strong> — If I order today, when can I get stock? What's the MOQ (minimum order quantity)? Are there customs delays from certain suppliers?</li>
+                        <li><strong>No A/B testing recommendations</strong> — Which design should I feature in my homepage carousel? Which should be "Buy More & Save"? Strategy guidance missing</li>
+                    </ul>
+
+                    <div class="trend-preview">
+                        <strong>Business Problem:</strong> Report says "Floral · Round Neck" has 88 products. But on Flipkart, maybe only 15 sellers list it. Exact seller count not provided.
+                    </div>
+
+                    <div class="quote-section">
+                        <strong>💬 His Voice:</strong>
+                        "Data looks solid, but you're missing velocity. In e-commerce, a trend that sells in 5 days vs. 30 days = VERY different strategy. I need turnover data to optimize my catalog!"
+                    </div>
+                </div>
+
+                <!-- Persona 4 -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">M</div>
+                        <div class="persona-info">
+                            <h3>Meena Shankar</h3>
+                            <div class="persona-details">
+                                <span><strong>Role:</strong> Boutique Owner</span>
+                                <span><strong>Business:</strong> Specialty nighty boutique in Salem; curated collection of 100 SKUs</span>
+                                <span><strong>Annual Orders:</strong> ₹10 lakhs | <strong>Order Frequency:</strong> Quarterly</span>
+                                <span><strong>Tech Level:</strong> Low-Medium | <strong>Language:</strong> Tamil-only</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-label liked">✅ What I Liked (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Cotton & nursing tags</strong> — My customers specifically ask for "pure cotton" and "nursing-friendly." The tags help me identify which designs match my customers</li>
+                        <li><strong>Star ratings 3.9+</strong> — Good quality indicator. My boutique reputation depends on quality, so high-rated designs protect my brand</li>
+                        <li><strong>Portfolio diversity</strong> — Report shows floral, geometric, striped, plain options. This variety helps me offer choice to different customer preferences</li>
+                        <li><strong>Backup vs. Primary guidance</strong> — "Send as Backup" signals are practical. I can confidently order small quantities (5-10 pcs) without bulk risk</li>
+                    </ul>
+
+                    <div class="section-label disliked">❌ What Needs Improvement (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>Tamil language support — CRITICAL for me</strong> — Report is entirely in English. I don't read English well. My son has to help me understand it every quarter</li>
+                        <li><strong>No local trend data</strong> — Salem customers have different tastes than Bangalore customers. Report is "Tamil Nadu" but not region-specific. Doesn't help me locally</li>
+                        <li><strong>Product count ambiguous</strong> — "88 products" could mean 88 SKUs or 88 from all sources combined. Confusing. I need clarity: "Available in 15 brands"</li>
+                        <li><strong>No bulk order discounts or MOQ info</strong> — If I order 50 pcs of one design, what's the discount? No sourcing terms mentioned. I'd have to call suppliers separately</li>
+                    </ul>
+
+                    <div class="trend-preview">
+                        <strong>Local Issue:</strong> My customers love traditional Jaipuri prints and embroidery. Report talks about "Floral · Round Neck" but doesn't specify if it's Jaipuri-style or modern. Ambiguous!
+                    </div>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "English-la irundhuchcha yaar pudippen? Ennai Tamil-la guide panalam. Plus Salem-la customer preference ku separate analysis vendum na?"
+                        <br/><em>(Why is it all in English? I can't understand it properly. I need Tamil translation, and Salem-specific customer preferences!)</em>
+                    </div>
+                </div>
+
+                <!-- Persona 5 -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">V</div>
+                        <div class="persona-info">
+                            <h3>Vikram Gupta</h3>
+                            <div class="persona-details">
+                                <span><strong>Role:</strong> Manufacturing & Quality Manager</span>
+                                <span><strong>Business:</strong> Contract manufacturer producing nighties for 3 major wholesalers</span>
+                                <span><strong>Production Capacity:</strong> 5000 units/month | <strong>Lead Time:</strong> 30 days</span>
+                                <span><strong>Tech Level:</strong> Medium | <strong>Language:</strong> Hindi + English</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-label liked">✅ What I Liked (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>"Simplicity" score is useful</strong> — 4/5 simplicity means the design is easy to manufacture (fewer steps, less waste). Helps me estimate production cost</li>
+                        <li><strong>Multi-platform evidence shows market validation</strong> — If a design is in 7 platforms, it's proven. Not a one-off trend. Reduces production risk</li>
+                        <li><strong>Top 6 "Send as Backup" designs give me a stable pipeline</strong> — I can plan 3-month production runs for these, instead of chasing every trend weekly</li>
+                        <li><strong>Nursing & Cotton tags = process clarity</strong> — "Nursing-friendly (2)" means 2 SKUs with feeding zips. I know exactly what special stitching is needed</li>
+                    </ul>
+
+                    <div class="section-label disliked">❌ What Needs Improvement (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No fabric spec details</strong> — Report says "100% Cotton" tag but no quality level. Combed cotton? Single-ply? Double-ply? GSM (weight)? Affects my supply chain</li>
+                        <li><strong>No color breakdown</strong> — Design is "Floral · Round Neck" but comes in 5 colors. Does market prefer peach or navy? No color-specific velocity data. Blindfolded dyeing choices</li>
+                        <li><strong>Margin reason unexplained (all 1/5)</strong> — If margins are consistently low, should I even bother? What's causing it — fabric cost spike? Oversupply? No root cause analysis</li>
+                        <li><strong>No supply chain recommendations</strong> — Which countries supply the fabrics used in these designs? Are there tariff/shortage risks? Zero supply chain intelligence</li>
+                    </ul>
+
+                    <div class="trend-preview">
+                        <strong>Manufacturing Concern:</strong> "Floral · Round Neck · Half Sleeve · Lace Front" — lace adds 15% to my production cost & 5 days to delivery. But report doesn't flag the complexity cost impact.
+                    </div>
+
+                    <div class="quote-section">
+                        <strong>💬 His Voice:</strong>
+                        "Design complexity clear hai, but fabric spec nahi. Agar cotton 100% hai par cotton type (combed/carded) batao, to mera supply chain decision badal jaata!"
+                        <br/><em>(Design complexity is clear, but no fabric specs. If you tell me the cotton type, my whole supply chain strategy changes!)</em>
+                    </div>
+                </div>
+
+                <!-- Persona 6 -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">S</div>
+                        <div class="persona-info">
+                            <h3>Shalini Iyer</h3>
+                            <div class="persona-details">
+                                <span><strong>Role:</strong> E-Commerce Data Analyst</span>
+                                <span><strong>Company:</strong> Large fashion e-commerce platform (Myntra-scale)</span>
+                                <span><strong>Responsibility:</strong> Catalog curation; decides which 500 nighty SKUs to feature</span>
+                                <span><strong>Tech Level:</strong> Very High | <strong>Language:</strong> English-fluent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-label liked">✅ What I Liked (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Framework is methodical</strong> — 5-point scoring system (Evidence, Trend Signal, B2B Fit, Simplicity, Margin) beats gut-feel guessing. Reproducible & auditable</li>
+                        <li><strong>Multi-dimensional scoring prevents single-metric bias</strong> — Just looking at ratings ⭐ would miss designs that are unprofitable. Margin dimension is critical</li>
+                        <li><strong>Clear decision thresholds (≥15 = Backup)</strong> — Removes ambiguity. Data-driven, not opinions. I can defend these choices to my leadership</li>
+                        <li><strong>13 clusters is perfect for catalog size optimization</strong> — Too few options feels boring; too many confuses customers. This sweet spot is ideal</li>
+                    </ul>
+
+                    <div class="section-label disliked">❌ What Needs Improvement (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No statistical confidence intervals</strong> — "88 products, 4.03 stars" — but is this 88 products with 50k reviews or 88 with just 500 reviews? Confidence is radically different. Missing standard deviation/sample size</li>
+                        <li><strong>Trend Signal methodology unclear</strong> — How is "Trend Signal" calculated? Review growth rate? Search volume increase? Social media mentions? Black box algorithm = hard to trust or replicate</li>
+                        <li><strong>No control for seasonality</strong> — Data collected May 2026. Winter designs might score low now but peak in Oct–Nov. No temporal adjustment. Misleading for forward planning</li>
+                        <li><strong>Platform weights ambiguous</strong> — Data from 7 platforms but are they equally weighted? Amazon ≠ Meesho in demand profile. Platform-specific insights missing</li>
+                    </ul>
+
+                    <div class="trend-preview">
+                        <strong>Analytics Gap:</strong> Report shows aggregate scores but no percentile rank. Is a 17/25 score "top 20% of all designs" or "bottom 30%"? Context missing!
+                    </div>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Solid framework, but methodology is opaque. When I pitch these recommendations to executives, they ask: 'How confident are you?' I can't answer without statistical confidence intervals and effect sizes!"
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="summary-section">
+            <h2>📊 Consolidated Summary: Top 5 Report Improvements for B2B Users</h2>
+
+            <table class="issue-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Critical Gap</th>
+                        <th>Business Impact</th>
+                        <th>Affects Whom</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class="issue-name">Missing Price & Cost Data</div>
+                            <span style="font-size: 0.9em; color: #666;">Wholesale pricing, retail margins, MOQ terms, supplier costs</span>
+                        </td>
+                        <td>Wholesalers can't calculate margins; retailers can't set prices; manufacturers can't bid competitively. "₹0 avg price" is useless for buying decisions</td>
+                        <td>Rajesh (Distributor), Preethi (Retailer), Vikram (Manufacturer) <strong>(3/6)</strong></td>
+                        <td><span class="priority-badge priority-critical">CRITICAL</span> Blocks financial planning</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <div class="issue-name">No Regional Breakdown</div>
+                            <span style="font-size: 0.9em; color: #666;">Chennai vs. Trichy vs. rural preference analysis</span>
+                        </td>
+                        <td>Retailers stock same designs everywhere, wasting capital on unpopular SKUs. Rural boutiques need different recommendations than urban chains. One-size-fits-none</td>
+                        <td>Preethi (Multi-store chain), Meena (Boutique) <strong>(2/6)</strong></td>
+                        <td><span class="priority-badge priority-high">HIGH</span> Impairs localization</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <div class="issue-name">Margin Explanation Required</div>
+                            <span style="font-size: 0.9em; color: #666;">Why all designs score 1/5 on margin potential; root cause analysis</span>
+                        </td>
+                        <td>Wholesalers see low margins (1/5) across board and lose faith in the report. Are fabric costs high? Competition too? Unclear root cause = no way to solve it</td>
+                        <td>Rajesh (Distributor), Preethi (Retailer), Vikram (Manufacturer) <strong>(3/6)</strong></td>
+                        <td><span class="priority-badge priority-high">HIGH</span> Affects profitability</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <div class="issue-name">Tamil Language Translation</div>
+                            <span style="font-size: 0.9em; color: #666;">Full report in Tamil for non-English speaking decision makers</span>
+                        </td>
+                        <td>Boutique owners, rural wholesalers excluded from analysis. Entire sub-segment of small B2B buyers can't use the report without help. Market intel lost</td>
+                        <td>Meena (Boutique) <strong>(1/6, but represents 30%+ of TN retail)</strong></td>
+                        <td><span class="priority-badge priority-medium">MEDIUM</span> Expands TAM; equity issue</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <div class="issue-name">Velocity & Turnover Data</div>
+                            <span style="font-size: 0.9em; color: #666;">Days to stock-out, sell-through rate, inventory turnover by design</span>
+                        </td>
+                        <td>E-commerce managers blindly stock "Send as Backup" designs without knowing if they sell in 5 days or 50 days. Wrong inventory strategy. Cash tied up in slow-movers</td>
+                        <td>Anand (E-commerce), Shalini (Platform Analyst) <strong>(2/6)</strong></td>
+                        <td><span class="priority-badge priority-high">HIGH</span> Impacts cash flow</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="recommendations">
+                <h3>🎯 Actionable Next Steps for Report Enhancement</h3>
+                <ul>
+                    <li><strong>Add wholesale cost benchmark:</strong> Show ₹X–₹Y per unit cost range for each design cluster (from supplier quotes, manufacturing estimates). Enables margin calculation</li>
+                    <li><strong>Regional edition:</strong> Create separate trend reports for Chennai Metro, Tier-2 cities (Salem, Trichy, Coimbatore), and rural segments. Different demand profiles</li>
+                    <li><strong>Explain margin gap:</strong> Add a note: "Margin potential 1/5 due to: [fabric cost surge 35% YoY] / [oversupply from 5 competitors] / [customer price resistance]." Actionable diagnosis</li>
+                    <li><strong>Bilingual version:</strong> Provide Tamil translation alongside English. Subtitle, tags, and key metrics in Tamil for accessibility</li>
+                    <li><strong>Add velocity scoring:</strong> Include estimated sell-through rate for each trend ("Expected turnover: 15–21 days @ 2,000 units/month volume"). Helps inventory planning</li>
+                    <li><strong>Supply chain scorecard:</strong> Show fabric sourcing, lead time, MOQ, quality grade (combed/carded cotton, GSM) for manufacturing decisions</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>This B2B review reveals a critical gap: <strong>the trends report is optimized for data analysts, but not for business operators</strong> who need pricing, regional nuance, and operational details.</p>
+            <p style="margin-top: 15px;">To maximize adoption across the wholesale supply chain (distributors, retailers, e-commerce, manufacturers), the report needs <strong>cost transparency, regional customization, and localization</strong>.</p>
+        </footer>
+
+        <div class="print-button">
+            <button onclick="window.print()">🖨️ Print This Review</button>
+        </div>
+    </div>
+</body>
+</html>

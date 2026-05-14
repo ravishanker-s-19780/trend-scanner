@@ -1,10 +1,9 @@
 {
-  "timestamp": "2026-05-14T22:13:37.844042",
+  "timestamp": "2026-05-14T23:48:42.015340",
   "total_products": 479,
   "total_clusters": 13,
   "top_trends": [
     {
-      "rank": 1,
       "design_pattern": "plain",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -21,8 +20,8 @@
         "shyaway": 2
       },
       "avg_rating": 3.91,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 17,
         "evidence_strength": 5,
@@ -34,38 +33,39 @@
       },
       "decision": "Send as Backup",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc76"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (12% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc76",
+          "Nursing-Friendly (2)",
+          "nursing"
+        ]
       ],
+      "archetype": "Plain \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Plain Front",
       "sample_products": [
         {
           "product_id": "f054d6996407",
-          "title": "DIAMO Pure Cotton Embroidery Nighty for Women, Nig",
-          "image": "https://m.media-amazon.com/images/I/81xcYmfqRYL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/DIAMO-Embroidery-Nightdress-Sleepwear-Adjustable/dp/B0F5JWTC3M/ref=sr_1_36?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-36"
+          "title": "DIAMO Pure Cotton Embroidery Nighty for Women, Night Gown fo"
         },
         {
           "product_id": "9b46f79377b1",
-          "title": "CIERGE Women's Cotton Lace Solid Color Nighty (Pac",
-          "image": "https://m.media-amazon.com/images/I/714tVphy80L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/CIERGE-Womens-Cotton-Nighty-NIGHTY_Multicolored_Free/dp/B08JWS2KLB/ref=sr_1_56?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-56"
+          "title": "CIERGE Women's Cotton Lace Solid Color Nighty (Pack of 2)"
         },
         {
           "product_id": "53408f3d03c1",
-          "title": "WiWi Women's Cotton Printed Nighty Night Gown Maxi",
-          "image": "https://m.media-amazon.com/images/I/615++VM-0SL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/WiWi-Keyocean-Womens-Cotton-Printed/dp/B0GLQCQ9V2/ref=sr_1_16?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-16"
-        },
-        {
-          "product_id": "4d1274f76d94",
-          "title": "Bahumaan Pure Cotton Nighty for Woman | Maxi Night",
-          "image": "https://m.media-amazon.com/images/I/61fXD4pJ0QL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Bahumaan-Cotton-Nighty-Loungewear-M-Bust-42/dp/B0GLHP86X7/ref=sr_1_26?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-26"
+          "title": "WiWi Women's Cotton Printed Nighty Night Gown Maxi Free Size"
         }
       ]
     },
     {
-      "rank": 2,
       "design_pattern": "floral",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -82,8 +82,8 @@
         "shyaway": 2
       },
       "avg_rating": 4.03,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 17,
         "evidence_strength": 5,
@@ -95,38 +95,39 @@
       },
       "decision": "Send as Backup",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc76"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (9% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc76",
+          "Nursing-Friendly (1)",
+          "nursing"
+        ]
       ],
+      "archetype": "Floral \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Print Front",
       "sample_products": [
         {
           "product_id": "3d0f21e48618",
-          "title": "Bahumaan Pure Cotton Nighty for Woman | Floral Gow",
-          "image": "https://m.media-amazon.com/images/I/71lbTjZqW6L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Bahumaan-Cotton-Stylish-Magenta-XXL-Bust-48/dp/B0FNR99LWS/ref=sr_1_35?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-35"
+          "title": "Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Wome"
         },
         {
           "product_id": "9ff0c3227efd",
-          "title": "AV2 Women Satin Short Nighty with Lace & Robe 1306",
-          "image": "https://m.media-amazon.com/images/I/61ouTgLjxvL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/AV2-Womens-Satin-Nighty-Maroon/dp/B07GZP46RM/ref=sr_1_30?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-30"
+          "title": "AV2 Women Satin Short Nighty with Lace & Robe 1306"
         },
         {
           "product_id": "46699bbb1590",
-          "title": "Women Flower Printed Casual Wear Cotton Nighty - G",
-          "image": "https://m.media-amazon.com/images/I/41uDo10bdiL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/PrathaVastra-Flower-Printed-Casual-Cotton/dp/B0FJ5KMPSX/ref=sr_1_10?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-10"
-        },
-        {
-          "product_id": "b7afcd25f785",
-          "title": "BAILEY SELLS Women's Cotton Embroidered Printed Ma",
-          "image": "https://m.media-amazon.com/images/I/81Pte6RYs+L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/BAILEY-SELLS-Embroidered-Nightgown-Size_BAILEY2392/dp/B0DY68BBWY/ref=sr_1_20?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-20"
+          "title": "Women Flower Printed Casual Wear Cotton Nighty - Gown-MFNT50"
         }
       ]
     },
     {
-      "rank": 3,
       "design_pattern": "geometric",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -144,8 +145,8 @@
         "shyaway": 2
       },
       "avg_rating": 3.92,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 17,
         "evidence_strength": 5,
@@ -157,38 +158,39 @@
       },
       "decision": "Send as Backup",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc76"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (15% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc76",
+          "Nursing-Friendly (4)",
+          "nursing"
+        ]
       ],
+      "archetype": "Geometric \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Print Front",
       "sample_products": [
         {
           "product_id": "22a25ea0be1b",
-          "title": "UPPER COLLECTION Women\u2019s Cotton Printed Nighty | L",
-          "image": "https://m.media-amazon.com/images/I/81IVSgYRCGL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/UPPER-COLLECTION-Womens-Printed-Stylish/dp/B0FZBP5687/ref=sr_1_27?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-27"
+          "title": "UPPER COLLECTION Women\u2019s Cotton Printed Nighty | Long Gown M"
         },
         {
           "product_id": "4417b68f66f3",
-          "title": "Keyocean Women's Cotton Printed Gown Ankle Length ",
-          "image": "https://m.media-amazon.com/images/I/61HxjYzcd2L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Keyocean-Womens-Cotton-Printed-Length/dp/B0GL8ZNYK7/ref=sr_1_37?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-37"
+          "title": "Keyocean Women's Cotton Printed Gown Ankle Length Nighty Fre"
         },
         {
           "product_id": "537f8f8d71f0",
-          "title": "Soulemo Women Cotton Floor Length Nighty 1633",
-          "image": "https://m.media-amazon.com/images/I/81NPjzozBaL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Soulemo-Cotton-Length-Nighty-1633AM/dp/B0CHMRP6CW/ref=sr_1_40?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-40"
-        },
-        {
-          "product_id": "8ba169dcf680",
-          "title": "Vlazom Women\u2019s Cotton Maxi Nighty \u2013 Pack of 2 Prin",
-          "image": "https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7"
+          "title": "Soulemo Women Cotton Floor Length Nighty 1633"
         }
       ]
     },
     {
-      "rank": 4,
       "design_pattern": "striped",
       "neck_type": "v-neck",
       "sleeve_length": "three-quarter",
@@ -203,8 +205,8 @@
         "shyaway": 2
       },
       "avg_rating": 4.01,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 16,
         "evidence_strength": 5,
@@ -216,38 +218,44 @@
       },
       "decision": "Send as Backup",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc76"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (9% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc76",
+          "Nursing-Friendly (3)",
+          "nursing"
+        ],
+        [
+          "\ud83d\udc55",
+          "Three-Quarter Sleeves",
+          "sleeve34"
+        ]
       ],
+      "archetype": "Striped \u00b7 V-Neck Neck \u00b7 Three-Quarter Sleeve \u00b7 Plain Front",
       "sample_products": [
         {
           "product_id": "d37f0d185742",
-          "title": "G4Girl Women Satin Maxi Nighty Gown",
-          "image": "https://m.media-amazon.com/images/I/61utJ0iCwxL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Womens-Geometric-Nighty-gown_White_Free/dp/B0B4N8MRKB/ref=sr_1_51?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel"
+          "title": "G4Girl Women Satin Maxi Nighty Gown"
         },
         {
           "product_id": "f8d1bf7dd54c",
-          "title": "Anvesha Beauty Silk Satin Night Dress for Women wi",
-          "image": "https://m.media-amazon.com/images/I/61k+Um-fLKL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Anvesha-Sleeveless-Lightweight-Comfortable-Sleepwear/dp/B0GHDY6CG1/ref=sr_1_48?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-48"
+          "title": "Anvesha Beauty Silk Satin Night Dress for Women with Lace Tr"
         },
         {
           "product_id": "e42ece2265ef",
-          "title": "Soulemo Women's Pure Cotton Floor Length Nighty 16",
-          "image": "https://m.media-amazon.com/images/I/81OmX00Gt2L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Soulemo-Womens-Cotton-Length-Nighty/dp/B0CZ8RLZWV/ref=sr_1_56?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel"
-        },
-        {
-          "product_id": "ded6fddb62aa",
-          "title": "SOXI MOXI Women Hosiery Cotton Nighty Long Night D",
-          "image": "https://m.media-amazon.com/images/I/61wp6QpKA2L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/SOXI-MOXI-Comfortable-Sleepwear-Nightwear/dp/B0GVRXKQHW/ref=sr_1_81?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel"
+          "title": "Soulemo Women's Pure Cotton Floor Length Nighty 1661"
         }
       ]
     },
     {
-      "rank": 5,
       "design_pattern": "floral",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -264,8 +272,8 @@
         "shyaway": 2
       },
       "avg_rating": 3.99,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 15,
         "evidence_strength": 5,
@@ -277,39 +285,44 @@
       },
       "decision": "Send as Backup",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc8d",
-        "\ud83d\udc76"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (11% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc8d",
+          "Wedding / Trousseau Niche",
+          "trousseau"
+        ],
+        [
+          "\ud83d\udc76",
+          "Nursing-Friendly (2)",
+          "nursing"
+        ]
       ],
+      "archetype": "Floral \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Lace Front",
       "sample_products": [
         {
           "product_id": "67a3faa423ff",
-          "title": "G4Girl Nighty for Women's with Long Zip",
-          "image": "https://m.media-amazon.com/images/I/81b8bc-RtXL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Nighty-Womens-Long-Green/dp/B0F3JRG5FV/ref=sr_1_82?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel"
+          "title": "G4Girl Nighty for Women's with Long Zip"
         },
         {
           "product_id": "551498d62c44",
-          "title": "Bahumaan Pure Cotton Kaftan Nighty for Women | Kaf",
-          "image": "https://m.media-amazon.com/images/I/71xyGfaNXpL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Bahumaan-Cotton-Kaftan-Nighty-Stylish/dp/B0FXH8T229/ref=sr_1_67?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel"
+          "title": "Bahumaan Pure Cotton Kaftan Nighty for Women | Kaftan Maxi f"
         },
         {
           "product_id": "edf2030e8c50",
-          "title": "G4Girl Women's Silk Geometric Print Maxi Nightgown",
-          "image": "https://m.media-amazon.com/images/I/71JhmX8oXZL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Womens-Geometric-Kaftan-Nighty/dp/B097RS8ND1/ref=sr_1_49?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-49"
-        },
-        {
-          "product_id": "f2688b4ff93f",
-          "title": "TRUNDZ Women's Cotton Embroidered Maxi Nighty (NTY",
-          "image": "https://m.media-amazon.com/images/I/81Wjcnf4GAL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/TRUNDZ-Womens-Printed-Cotton-Embroidered/dp/B08BTFVTG9/ref=sr_1_57?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel"
+          "title": "G4Girl Women's Silk Geometric Print Maxi Nightgown"
         }
       ]
     },
     {
-      "rank": 6,
       "design_pattern": "abstract",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -321,8 +334,8 @@
         "tatacliq": 5
       },
       "avg_rating": 4.08,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 15,
         "evidence_strength": 5,
@@ -334,37 +347,34 @@
       },
       "decision": "Send as Backup",
       "persona_tags": [
-        "\ud83e\uddf5"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\ud83e\uddf5",
+          "100% Cotton",
+          "cotton"
+        ]
       ],
+      "archetype": "Abstract \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Print Front",
       "sample_products": [
         {
           "product_id": "05e202bddd7d",
-          "title": "Bindass Female Collection - Printed Nightdress",
-          "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MARCH/5/tpkitBL9_8d3813964c2c4215b6867a7a2824184f.jpg",
-          "url": "https://www.myntra.com/nightdress/bindass+female+collection/bindass-female-collection-women-nighty-cotton-maxi-plus-size-maxi-5xl-to-8xl/33066744/buy"
+          "title": "Bindass Female Collection - Printed Nightdress"
         },
         {
           "product_id": "29a053be29da",
-          "title": "Bindass Female Collection - Printed Nightdress",
-          "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MARCH/5/1ed16Rot_900b1f035c744f969506425172ae7bb2.jpg",
-          "url": "https://www.myntra.com/nightdress/bindass+female+collection/bindass-female-collection-women-nighty-cotton-maxi-plus-size-maxi-5xl-to-8xl/33066747/buy"
+          "title": "Bindass Female Collection - Printed Nightdress"
         },
         {
           "product_id": "21b7a030b0ba",
-          "title": "Russhies - Printed Nightdress",
-          "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/APRIL/11/9mSUYNUO_f0f2edcec6284d4da8ce6c48044bd82d.jpg",
-          "url": "https://www.myntra.com/nightdress/russhies/russhies-conversational-printed-nightdress/41318079/buy"
-        },
-        {
-          "product_id": "5495140ee45d",
-          "title": "Sweet Dreams Sweet Dreams Blue Cotton Printed Nigh",
-          "image": "https://img.tatacliq.com/images/i12/437Wx649H/MP000000018451673_437Wx649H_202307260207571.jpeg",
-          "url": "https://www.tatacliq.com/sweet-dreams-blue-cotton-printed-nighty/p-mp000000018451673"
+          "title": "Russhies - Printed Nightdress"
         }
       ]
     },
     {
-      "rank": 7,
       "design_pattern": "striped",
       "neck_type": "round",
       "sleeve_length": "three-quarter",
@@ -375,50 +385,52 @@
         "amazon": 6
       },
       "avg_rating": 4.08,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
-        "total": 13,
+        "total": 12,
         "evidence_strength": 3,
         "trend_signal": 1,
-        "tn_b2b_fit": 4,
+        "tn_b2b_fit": 3,
         "production_simplicity": 4,
         "margin_possibility": 1,
         "capped": false
       },
       "decision": "Needs More Evidence",
       "persona_tags": [
-        "\ud83e\uddf5"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (33% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc55",
+          "Three-Quarter Sleeves",
+          "sleeve34"
+        ]
       ],
+      "archetype": "Striped \u00b7 Round Neck \u00b7 Three-Quarter Sleeve \u00b7 Plain Front",
       "sample_products": [
         {
           "product_id": "781085e21caa",
-          "title": "G4Girl Women's Silk Geometric Print Maxi Kaftan Ni",
-          "image": "https://m.media-amazon.com/images/I/81UJFddad3S._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Womens-Geometric-Length-Nightgown_Maroon-Blue_Free/dp/B099JKJKRF/ref=sr_1_14?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-14"
+          "title": "G4Girl Women's Silk Geometric Print Maxi Kaftan Night Gown ("
         },
         {
           "product_id": "7ec8ad44f6e8",
-          "title": "Bahumaan Nighty for Women Cotton Combo Pack of 2 |",
-          "image": "https://m.media-amazon.com/images/I/71DRVa-PtgL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Bahumaan-Nighty-Nighties-Stylish-Sleepwear/dp/B0FYWWPJJY/ref=sr_1_19?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-19"
+          "title": "Bahumaan Nighty for Women Cotton Combo Pack of 2 | Free Size"
         },
         {
           "product_id": "bf5483a93a7c",
-          "title": "MYRELOOK Women Cotton Nighty Combo Pack of 2, Prin",
-          "image": "https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_9?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-9"
-        },
-        {
-          "product_id": "00fbbbe529b9",
-          "title": "PNAEONG Stylish Cotton Nighty for Women Printed Ni",
-          "image": "https://m.media-amazon.com/images/I/61STR8WU-eL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/PNAEONG-Stylish-Printed-Comfortable-Sleepwear/dp/B0GC786YPY/ref=sr_1_29?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-29"
+          "title": "MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi N"
         }
       ]
     },
     {
-      "rank": 8,
       "design_pattern": "floral",
       "neck_type": "v-neck",
       "sleeve_length": "sleeveless",
@@ -429,8 +441,8 @@
         "amazon": 6
       },
       "avg_rating": 3.98,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 11,
         "evidence_strength": 3,
@@ -442,38 +454,39 @@
       },
       "decision": "Needs More Evidence",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc8d"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\u2728",
+          "Cotton + Premium Fabrics (17% Satin/Silk)",
+          "premium_mix"
+        ],
+        [
+          "\ud83d\udc8d",
+          "Wedding / Trousseau Niche",
+          "trousseau"
+        ]
       ],
+      "archetype": "Floral \u00b7 V-Neck Neck \u00b7 Sleeveless Sleeve \u00b7 Lace Front",
       "sample_products": [
         {
           "product_id": "33479e6cf6b3",
-          "title": "come4try Women Nighty with Robe,Satin Nightwear Se",
-          "image": "https://m.media-amazon.com/images/I/51brOkAhBTL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/come4try-Nighty-Nightwear-V-Neck-Length/dp/B0GHN7ZCJQ/ref=sr_1_38?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-38"
+          "title": "come4try Women Nighty with Robe,Satin Nightwear Set, V-Neck "
         },
         {
           "product_id": "7b5d5f01ebd5",
-          "title": "Women's Cotton Printed Stylish Night Dresses | Pur",
-          "image": "https://m.media-amazon.com/images/I/41AhGnekqdL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/Womens-Printed-Stylish-Dresses-Blue_XL/dp/B0F6KHZ118/ref=sr_1_33?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-33"
+          "title": "Women's Cotton Printed Stylish Night Dresses | Pure Cotton N"
         },
         {
           "product_id": "c7fb3fee6864",
-          "title": "G4Girl Women's Pure Cotton Regular Nighty Rajastha",
-          "image": "https://m.media-amazon.com/images/I/91KaN7oG1yL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Regular-Rajasthani-Jaipuri-Turkish/dp/B0DNF6C2JF/ref=sr_1_18?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-18"
-        },
-        {
-          "product_id": "c5abd361f917",
-          "title": "G4Girl Women's Regular Nighty Rajasthani Nighty Ra",
-          "image": "https://m.media-amazon.com/images/I/91a7EFouw3L._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Cotton-Regular-Rajasthani-Jaipuri/dp/B0DT4QNXWV/ref=sr_1_13?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-13"
+          "title": "G4Girl Women's Pure Cotton Regular Nighty Rajasthani Nighty "
         }
       ]
     },
     {
-      "rank": 9,
       "design_pattern": "plain",
       "neck_type": "round",
       "sleeve_length": "sleeveless",
@@ -484,8 +497,8 @@
         "amazon": 1
       },
       "avg_rating": 3.9,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 11,
         "evidence_strength": 1,
@@ -497,55 +510,26 @@
       },
       "decision": "Needs More Evidence",
       "persona_tags": [
-        "\ud83e\uddf5"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\ud83e\uddf5",
+          "100% Cotton",
+          "cotton"
+        ]
       ],
+      "archetype": "Plain \u00b7 Round Neck \u00b7 Sleeveless Sleeve \u00b7 Plain Front",
       "sample_products": [
         {
           "product_id": "8838b18db178",
-          "title": "G4Girl Pure Cotton Embroidery Nighty for Women's |",
-          "image": "https://m.media-amazon.com/images/I/81ELDkNuvCL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Turkish/dp/B0C1K4LR4W/ref=sr_1_42?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-42"
+          "title": "G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gow"
         }
       ]
     },
     {
-      "rank": 10,
-      "design_pattern": "striped",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "plain",
-      "product_count": 1,
-      "keyword_count": 1,
-      "sources": {
-        "amazon": 1
-      },
-      "avg_rating": 3.2,
-      "avg_price": 0,
-      "price_range": "N/A",
-      "score": {
-        "total": 11,
-        "evidence_strength": 1,
-        "trend_signal": 0,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 5,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Needs More Evidence",
-      "persona_tags": [
-        "\ud83e\uddf5"
-      ],
-      "sample_products": [
-        {
-          "product_id": "5d4f6e95bbbd",
-          "title": "FlyNery Nighty for Women Stylish - Ladies Night Dr",
-          "image": "https://m.media-amazon.com/images/I/41fdOlu5TpL._AC_UL320_.jpg",
-          "url": "https://www.amazon.in/FlyNery-Satin-Nighty-Women-Comfortable/dp/B0FTVJWC93/ref=sr_1_44?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-44"
-        }
-      ]
-    },
-    {
-      "rank": 11,
       "design_pattern": "floral",
       "neck_type": "round",
       "sleeve_length": "three-quarter",
@@ -556,8 +540,8 @@
         "ajio": 1
       },
       "avg_rating": 4.0,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 10,
         "evidence_strength": 1,
@@ -569,19 +553,74 @@
       },
       "decision": "Needs More Evidence",
       "persona_tags": [
-        "\ud83e\uddf5"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\ud83e\uddf5",
+          "100% Cotton",
+          "cotton"
+        ],
+        [
+          "\ud83d\udc55",
+          "Three-Quarter Sleeves",
+          "sleeve34"
+        ]
       ],
+      "archetype": "Floral \u00b7 Round Neck \u00b7 Three-Quarter Sleeve \u00b7 Print Front",
       "sample_products": [
         {
           "product_id": "5baf5fb05321",
-          "title": "Women Floral Print Nightgown",
-          "image": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg",
-          "url": "https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?"
+          "title": "Women Floral Print Nightgown"
         }
       ]
     },
     {
-      "rank": 12,
+      "design_pattern": "striped",
+      "neck_type": "round",
+      "sleeve_length": "half",
+      "front_top_treatment": "plain",
+      "product_count": 1,
+      "keyword_count": 1,
+      "sources": {
+        "amazon": 1
+      },
+      "avg_rating": 3.2,
+      "price_range": "N/A",
+      "avg_price": 0,
+      "score": {
+        "total": 9,
+        "evidence_strength": 1,
+        "trend_signal": 0,
+        "tn_b2b_fit": 2,
+        "production_simplicity": 5,
+        "margin_possibility": 1,
+        "capped": false
+      },
+      "decision": "Do Not Send",
+      "persona_tags": [
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\ud83d\udc8e",
+          "Premium Fabrics (Satin/Silk)",
+          "premium_fabric"
+        ]
+      ],
+      "archetype": "Striped \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Plain Front",
+      "sample_products": [
+        {
+          "product_id": "5d4f6e95bbbd",
+          "title": "FlyNery Nighty for Women Stylish - Ladies Night Dress Robe, "
+        }
+      ]
+    },
+    {
       "design_pattern": "plain",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -592,8 +631,8 @@
         "tatacliq": 1
       },
       "avg_rating": 5.0,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 9,
         "evidence_strength": 1,
@@ -605,20 +644,31 @@
       },
       "decision": "Do Not Send",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc8d"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\ud83e\uddf5",
+          "100% Cotton",
+          "cotton"
+        ],
+        [
+          "\ud83d\udc8d",
+          "Wedding / Trousseau Niche",
+          "trousseau"
+        ]
       ],
+      "archetype": "Plain \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Embroidery Front",
       "sample_products": [
         {
           "product_id": "4b1402dcd609",
-          "title": "KOI SLEEPWEAR KOI SLEEPWEAR Black Embroidered Nigh",
-          "image": "https://www.tatacliq.com/src/general/components/img/green-filled-star.svg",
-          "url": "https://www.tatacliq.com/koi-sleepwear-black-embroidered-nighty/p-mp000000011263146"
+          "title": "KOI SLEEPWEAR KOI SLEEPWEAR Black Embroidered Nighty"
         }
       ]
     },
     {
-      "rank": 13,
       "design_pattern": "plain",
       "neck_type": "round",
       "sleeve_length": "half",
@@ -629,8 +679,8 @@
         "tatacliq": 1
       },
       "avg_rating": 3.0,
-      "avg_price": 0,
       "price_range": "N/A",
+      "avg_price": 0,
       "score": {
         "total": 9,
         "evidence_strength": 1,
@@ -642,15 +692,27 @@
       },
       "decision": "Do Not Send",
       "persona_tags": [
-        "\ud83e\uddf5",
-        "\ud83d\udc8d"
+        [
+          "\ud83d\udcb0",
+          "Mass Market (\u20b9250\u2013600)",
+          "mass"
+        ],
+        [
+          "\ud83e\uddf5",
+          "100% Cotton",
+          "cotton"
+        ],
+        [
+          "\ud83d\udc8d",
+          "Wedding / Trousseau Niche",
+          "trousseau"
+        ]
       ],
+      "archetype": "Plain \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Lace Front",
       "sample_products": [
         {
           "product_id": "3e408b06b517",
-          "title": "Ms.Lingies Ms.Lingies Blue Lace Work Nighty",
-          "image": "https://www.tatacliq.com/src/general/components/img/green-filled-star.svg",
-          "url": "https://www.tatacliq.com/mslingies-blue-lace-work-nighty/p-mp000000018715402"
+          "title": "Ms.Lingies Ms.Lingies Blue Lace Work Nighty"
         }
       ]
     }

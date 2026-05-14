@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diverse Women Review - B2B Trends Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        main {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            background: #eef2ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .intro-section p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .persona-card {
+            background: white;
+            border: 2px solid #ddd5e8;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .persona-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .persona-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .persona-info h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .persona-details {
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .persona-details span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        .understanding {
+            background: #fef3c7;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 4px solid #f59e0b;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .understanding strong {
+            color: #d97706;
+        }
+
+        .section-label {
+            font-weight: 700;
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05em;
+        }
+
+        .section-label.disliked {
+            color: #d32f2f;
+        }
+
+        .section-label.quote {
+            color: #9c27b0;
+        }
+
+        .points-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .points-list li {
+            padding: 10px 0 10px 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .points-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .disliked .points-list li:before {
+            content: "✗";
+            color: #d32f2f;
+        }
+
+        .quote-section {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+            font-style: italic;
+            color: #555;
+            margin-top: 15px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .quote-section strong {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-style: normal;
+        }
+
+        .summary-section {
+            background: #fafafa;
+            padding: 40px 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .summary-section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .insight-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .insight-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .insight-box p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #f0f0f0;
+            padding: 25px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .personas-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            main, .summary-section {
+                padding: 20px;
+            }
+        }
+
+        .print-button {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .print-button button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .print-button button:hover {
+            transform: scale(1.05);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .persona-card {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Diverse Women Review B2B Trends Report</h1>
+            <p>"Is This For Me?" — Consumer Women Meet the Wholesale Report</p>
+            <p class="subtitle">What Happens When Regular Women Encounter a Data-Heavy B2B Analysis</p>
+        </header>
+
+        <main>
+            <div class="intro-section">
+                <h2>About This Review</h2>
+                <p>The trends report is designed for <strong>wholesale buyers, manufacturers, and retailers</strong> — B2B professionals making bulk purchase decisions.</p>
+                <p>But what if <strong>consumer women</strong> (the actual end-users) stumbled upon this report? Would they understand it? Would it help them? Would they feel included?</p>
+                <p>This review captures how the same 8 diverse women personas react to a data-heavy wholesale trends report — and reveals the growing gap between data intelligence and consumer empowerment.</p>
+            </div>
+
+            <div class="personas-grid">
+                <!-- Persona 1: College Student -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👩‍🎓</div>
+                        <div class="persona-info">
+                            <h3>Ananya (College)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 20 | <strong>Context:</strong> Browsing casually</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> There's a report about nighty trends. Some colors have checkmarks, some have X's. Something about "scores"?
+                    </div>
+
+                    <div class="section-label">✓ What Made Sense (1 point)</div>
+                    <ul class="points-list">
+                        <li><strong>Star ratings visible</strong> — 4.03 ⭐ means good quality. That's universal language she understands</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Was Confusing (6 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>"Send as Backup" — WHAT?</strong> — I'm a college student, not a wholesale buyer. This isn't a recommendation for me to buy; it's for someone ordering bulk</li>
+                        <li><strong>What's "Evidence Strength" and "TN B2B Fit"?</strong> — Completely lost. These terms mean nothing to someone just wanting to buy a cute nighty</li>
+                        <li><strong>Score out of 25?</strong> — Why 25 points instead of 100? Why these 5 criteria? No explanation for a consumer like me</li>
+                        <li><strong>No actual shop links</strong> — I see "86 products, avg rating 4.01" but can't click to buy them. It's all data, no action</li>
+                        <li><strong>What about price and availability?</strong> — Says "Price Range: N/A" but I need to know if I can afford it! Is it ₹300 or ₹3000?</li>
+                        <li><strong>This isn't for me</strong> — Feels like reading a corporate earnings report. I'll stick to Instagram for shopping inspo</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "This looks like a report for shop owners, not for me. I don't care about 'B2B Fit' or 'production simplicity.' I just want cute designs, good price, and fast delivery. This doesn't help me shop at all."
+                    </div>
+                </div>
+
+                <!-- Persona 2: Young Professional -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👩‍💼</div>
+                        <div class="persona-info">
+                            <h3>Priya (IT Professional)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 27 | <strong>Context:</strong> Data-savvy, curious</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> OK, this is a B2B trends report using a 25-point scoring system. Data-driven, methodical. Interesting approach.
+                    </div>
+
+                    <div class="section-label">✓ What I Appreciated (4 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Methodology is transparent</strong> — 5 dimensions (Evidence, Signal, Fit, Simplicity, Margin) shown as bar charts. Reproducible & auditable</li>
+                        <li><strong>Multi-platform sourcing</strong> — Data from 7-8 platforms, not one echo chamber. Good data hygiene</li>
+                        <li><strong>Clear decision thresholds</strong> — ≥15 = Send as Backup; 10-14 = Needs Evidence. No ambiguity</li>
+                        <li><strong>Could be valuable for wholesale buyers</strong> — As someone who reads quarterly reports, I respect the rigor</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What's Missing (5 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>This is B2B-only content locked away from consumers</strong> — Why isn't this intelligence shared with end-customers? We'd make smarter purchases</li>
+                        <li><strong>No consumer-friendly insights extracted</strong> — Report should highlight: "Floral designs are trending (88 products, 4.03 rating) and supply is strong." Not "TN B2B Fit: 4/5"</li>
+                        <li><strong>Missing the margin crisis story</strong> — Every single design scores 1/5 on margin. As a consumer, I should know: "Why are margins collapsing? Are sellers cutting quality to maintain profit?"</li>
+                        <li><strong>No forward guidance</strong> — Should tell end-customers: "Expect these designs in supply for next 3 months. Prices stable or rising?"</li>
+                        <li><strong>Gatekeeping knowledge from the customer</strong> — This data should empower women to shop smarter, not just help wholesalers. Missed opportunity</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "This is solid B2B research, but it's completely gatekept. Women like me should see consumer-friendly summaries: 'Top trends this month: Floral (trending up), Nursing-friendly (high demand, stable pricing).' Instead, we're locked out of this intelligence."
+                    </div>
+                </div>
+
+                <!-- Persona 3: New Mother -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👩‍🍼</div>
+                        <div class="persona-info">
+                            <h3>Divya (New Mom)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 31 | <strong>Context:</strong> Searching for nursing nighties</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> Something called "Nursing-Friendly (2)" and "Nursing-Friendly (4)" — but what do the numbers mean? Are these recommendations for me to buy?
+                    </div>
+
+                    <div class="section-label">✓ What Helped (2 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Nursing-Friendly tag exists</strong> — Good! Someone knows this is important. At least data people care about nursing mothers</li>
+                        <li><strong>Can see which designs come in how many nursing options</strong> — "Floral Round Neck has 2 nursing-friendly variants" is useful metadata</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (6 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>This report isn't meant to help me shop</strong> — It's for wholesalers to decide what to order. I'm an end-customer being ignored</li>
+                        <li><strong>Numbers without explanation</strong> — "Nursing-Friendly (2)" — does this mean 2 SKUs with nursing access? 2 colors? No clarity</li>
+                        <li><strong>Should highlight nursing-friendly designs for me</strong> — Report should say: "TOP RECOMMENDATION FOR NURSING MOTHERS: Floral Round Neck (88 products available, 4.03★, nursing-friendly variants in stock)"</li>
+                        <li><strong>No price guidance for my segment</strong> — "Mass Market (₹250–600)" label exists but report doesn't help me find which designs fit my budget + nursing needs</li>
+                        <li><strong>I'm being researched but not served</strong> — Data science team studied nursing mothers' preferences, built this dataset, but then locked it behind a B2B report. I'm left blindfolded</li>
+                        <li><strong>Should be a consumer tool, not a wholesale tool</strong> — This insight could empower nursing mothers to shop smarter. Instead it's only for retailers</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "So there's data about what nursing mothers need, and it's captured in this report. But I can't access it as a nursing mother! It's only for shop owners. That feels wrong. I should see: 'Best nursing-friendly designs available now: [ranked by rating, price, availability]'"
+                    </div>
+                </div>
+
+                <!-- Persona 4: Senior Woman -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👵</div>
+                        <div class="persona-info">
+                            <h3>Saraswati (Retired)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 62 | <strong>Context:</strong> Daughter shows her the report</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> There are some nighties with checkmarks (good?) and X marks (bad?). Lots of numbers. Purple colors. Daughter is reading it to her.
+                    </div>
+
+                    <div class="section-label">✓ What Made Sense (0 points)</div>
+                    <ul class="points-list">
+                        <li>Honestly? Nothing. This is completely outside her frame of reference</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Confused Me (7 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>What am I even looking at?</strong> — "Send Now," "Send as Backup" — am I supposed to send these to someone? Buying or sending?</li>
+                        <li><strong>Who is the audience?</strong> — My daughter has to explain it's for "wholesale people," not for me. So why are we looking at it?</li>
+                        <li><strong>Confusing color coding</strong> — Green cards, blue cards, orange cards. What does each color mean? No legend in Tamil or simple English</li>
+                        <li><strong>What's a "persona tag"?</strong> — Daughter explains "Mass Market (₹250–600)" and "Trousseau" tags. I understand these words, but why are they here?</li>
+                        <li><strong>No brands or shop names</strong> — I can't tell who makes these. Are they Bahumaan? G4Girl? Unknown brands? No quality signal</li>
+                        <li><strong>This doesn't help me buy</strong> — I want to see "Where can I buy? What's the price? Is this good quality?" This report shows none of that</li>
+                        <li><strong>Why isn't this in Tamil?</strong> — Daughter's having to translate every section. Should be available in my language if you want my business</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Ennai yaar solli pandradhu enna puriyale. Wholesale report nu enakku theriyumam, but I'm a customer, not a wholesale person. Why are you showing me this? Can't you just tell me which nighty is best quality and affordable?"
+                    </div>
+                </div>
+
+                <!-- Persona 5: Plus-Size Woman -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👗</div>
+                        <div class="persona-info">
+                            <h3>Isha (Plus-Size)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 35 | <strong>Context:</strong> Looking for trends that fit her</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> A wholesale trends analysis. Not shopping, analysis. About 13 design clusters. No size information.
+                    </div>
+
+                    <div class="section-label">✓ What I Noticed (1 point)</div>
+                    <ul class="points-list">
+                        <li><strong>At least designs exist</strong> — Report proves these 13 designs are trending. So they should be available somewhere in various sizes</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Confirmed My Fears (7 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>ZERO size inclusivity discussion</strong> — Are these available in XXL? Report doesn't care. Only talks about "Product count" (88, 73, etc) — no size breakdown</li>
+                        <li><strong>Report treats all designs as equal</strong> — Doesn't acknowledge: some sizes have more demand, some have inventory gaps. My size (XXXL) is completely invisible</li>
+                        <li><strong>This data belongs to retailers, not to me</strong> — If retailers use this report to order inventory, they'll stock Floral Round Neck in M, L sizes, not XL, XXL. This report incentivizes size bias</li>
+                        <li><strong>Should include size-specific trends</strong> — "For XXL+ customers, Geometric designs are trending (underserved market, high demand signal)" — but nope, erased from analysis</li>
+                        <li><strong>Plus-size consumers aren't even mentioned</strong> — Report talks about "Nursing Mothers," "Trousseau Brides," but no "Plus-Size" persona. We don't exist in data</li>
+                        <li><strong>Perpetuates the gap</strong> — This report will help retailers stock mainstream sizes better, leaving plus-size women even more invisible</li>
+                        <li><strong>Ironic: research-backed but exclusionary</strong> — Data science found "Nursing-Friendly (4)" is trending, tagged it, made it visible. Same could be done for plus-size! But wasn't. Intentional erasure</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Interesting that they researched and tagged 'Nursing-Friendly' as a persona, but not 'Plus-Size' or 'Size-Inclusive.' That tells me everything about whose needs are prioritized. This data won't help retailers stock my size better — it'll help them stock everyone else's size better while ignoring me."
+                    </div>
+                </div>
+
+                <!-- Persona 6: Bride-to-Be -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👰</div>
+                        <div class="persona-info">
+                            <h3>Meera (Bride)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 26 | <strong>Context:</strong> Planning trousseau</span>
+                            </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> This is wholesale trend analysis. There are designs tagged "Trousseau" — interesting! But again, this isn't a shopping tool.
+                    </div>
+
+                    <div class="section-label">✓ What's Encouraging (2 points)</div>
+                    <ul class="points-list">
+                        <li><strong>"Trousseau / Wedding Niche" tag exists</strong> — At least researchers recognize wedding nights are a distinct segment</li>
+                        <li><strong>Can see which designs have trousseau appeal</strong> — "Floral Round Neck · Half Sleeve · Lace Front" is tagged "Trousseau," confirming it's suitable for weddings</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Disappointed Me (5 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>This report is for wholesalers, not brides</strong> — I'm the actual customer, but this intelligence is gatekept to B2B professionals. I'm locked out</li>
+                        <li><strong>Should have wedding-specific recommendations for me</strong> — "TOP TROUSSEAU PICKS THIS MONTH: Floral Lace (high rating, wedding-appropriate, 15+ options in stock, price range ₹600–1200)" — but nothing like this</li>
+                        <li><strong>No guidance on premium vs. budget options</strong> — "Margin 1/5" tells retailers margins are low. Should tell brides: "Quality is good, but retailers are squeezing margins. Prices stable, unlikely to drop"</li>
+                        <li><strong>Missing storytelling</strong> — Could say: "Floral designs trending sharply (88 products, 4.03★ rating). Meaning: High demand = strong availability = better prices due to competition." Empowers bridal shoppers</li>
+                        <li><strong>Excludes me from decision-making</strong> — This data should inform my choices, but instead it's only informing retailers' inventory decisions</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "I'm planning the most special night of my life, and there's intelligence about what's trending, what's well-reviewed, what's available. But I can't access it! It's only for shop owners. I have to guess, while they use data to decide what to stock. That's backwards."
+                    </div>
+                </div>
+
+                <!-- Persona 7: Working Mom -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">💼</div>
+                        <div class="persona-info">
+                            <h3>Lakshmi (Working Mom)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 42 | <strong>Context:</strong> Stumbled upon it, left immediately</span>
+                            </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> Nothing. Looked at it for 5 seconds, decided it's not relevant to her, closed the tab.
+                    </div>
+
+                    <div class="section-label">✓ What Caught Her Eye (0 points)</div>
+                    <ul class="points-list">
+                        <li>Honestly nothing — it's immediately clear this isn't for her</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ Why She Left (3 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No shopping action available</strong> — I want to buy. This report doesn't let me buy. I left within 5 seconds</li>
+                        <li><strong>No consumer-friendly language</strong> — All B2B jargon (TN B2B Fit, Send as Backup). I don't speak wholesale. Bounced immediately</li>
+                        <li><strong>Would have stayed if it said</strong> — "This month's best nighties: Plain Round Neck (top-rated, affordable), Floral designs (trending), Nursing-friendly options (in stock)." But that's not what this is</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Saw score cards, thought 'This looks like data nerd stuff, not shopping.' Left. If it told me 'Top 5 affordable, well-reviewed nighties for working moms THIS MONTH,' I'd have stayed and bought."
+                    </div>
+                </div>
+
+                <!-- Persona 8: Eco-Conscious Young Woman -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">🌿</div>
+                        <div class="persona-info">
+                            <h3>Neha (Eco-Conscious)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 28 | <strong>Context:</strong> Looking for impact data</span>
+                            </div>
+                    </div>
+
+                    <div class="understanding">
+                        <strong>What she understood:</strong> Data-driven wholesale trends report. Interesting methodology, but zero sustainability insights.
+                    </div>
+
+                    <div class="section-label">✓ What I Appreciated (1 point)</div>
+                    <ul class="points-list">
+                        <li><strong>Rigorous data collection</strong> — Multi-platform sourcing, clear methodology. Shows commitment to evidence-based decisions</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What's Missing (6 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>Zero sustainability metrics</strong> — Report could include: Organic cotton % in each design, carbon footprint per unit, fair-wage certifications. None of that</li>
+                        <li><strong>Should guide sustainable choice</strong> — "Floral Cotton designs (88 products): Sustainability score unknown. [Gap: need textile origin & manufacturing audit]" — would be honest</li>
+                        <li><strong>This data infrastructure could serve sustainability</strong> — If report tracks "Evidence, Signal, Fit, Simplicity, Margin," why not add "Sustainability" as 6th dimension? Easy to add</li>
+                        <li><strong>Missed opportunity to drive sustainable fashion</strong> — Report could highlight designs using organic cotton, fair-wage factories, or recycled materials. Would reward ethical producers</li>
+                        <li><strong>Data without values becomes status quo</strong> — Report says "Margin 1/5" across all designs. Should ask: "Are corners being cut on sustainability to maintain low prices?" But doesn't</li>
+                        <li><strong>As a consumer, I can't shop by values</strong> — I'd pay more for sustainable options if I could identify them. But wholesaler report doesn't surface this. I'm blind</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "You built a data infrastructure to track trends, but ignored sustainability. This could empower consumers to shop by values — 'Organic Cotton 💚 Trending Strong' — but instead it's only for retail margin optimization. Data serving profit, not purpose."
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="summary-section">
+            <h2>🔍 The Core Insight: Data for Retailers, Not for Customers</h2>
+
+            <div class="insight-box">
+                <h3>The Gap Between Data Intelligence & Consumer Empowerment</h3>
+                <p><strong>What the report does:</strong> Provides wholesale buyers, retailers, and manufacturers with evidence-based insights to make smarter inventory decisions.</p>
+                <p><strong>What it could do:</strong> Empower end-customers (women like these 8 personas) to shop smarter by sharing consumer-friendly versions of the same insights.</p>
+                <p><strong>The problem:</strong> These women ARE the market. They have needs (nursing-friendly, plus-size, sustainable, affordable). The data exists to serve them. But it's gatekept to B2B professionals only.</p>
+            </div>
+
+            <div class="insight-box">
+                <h3>Real Consumer Needs This Report Could Address</h3>
+                <p><strong>For College Students:</strong> "Trending Designs Under ₹500" with actual buy links and reviews</p>
+                <p><strong>For IT Professionals:</strong> "Top-Rated by Quality + Comfort" ranked by verified reviews, not just star count</p>
+                <p><strong>For Nursing Mothers:</strong> "Best Nursing-Friendly Designs This Month (High Stock, Good Ratings, ₹400–700)"</p>
+                <p><strong>For Seniors:</strong> Tamil-language consumer guide: "यार कौन-सा डिज़ाइन ठीक है? क्वालिटी अच्छी है?"</p>
+                <p><strong>For Plus-Size Women:</strong> "Available in Your Size (XL–XXXL): Trending Options This Month"</p>
+                <p><strong>For Brides:</strong> "Wedding Night Favorites (Top-Rated, Premium, In Stock)"</p>
+                <p><strong>For Working Moms:</strong> "Practical, Durable, Easy-Care Nighties (Machine Wash, ⭐⭐⭐⭐+)"</p>
+                <p><strong>For Eco-Conscious Buyers:</strong> "Sustainable Cotton 🌿 Options (Organic, Fair-Trade, Trending)"</p>
+            </div>
+
+            <div class="insight-box">
+                <h3>Why This Matters</h3>
+                <p>The report represents excellent data science. But it's incomplete product strategy. You've built the intelligence layer. Now you need to build the <strong>consumer layer</strong> that translates this B2B insight into consumer empowerment.</p>
+                <p>Right now: <em>Retailers use this data to decide what to stock → Consumers are left guessing → Gap in power</em></p>
+                <p>What could be: <em>Retailers + Consumers both use this data to make informed choices → Win-win → Everyone shops smarter</em></p>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>The Verdict:</strong> The B2B Trends Report is excellent for its intended audience (wholesale professionals). But it reveals a larger gap: <strong>consumer women have no access to the same intelligence</strong> that drives retailer decisions.</p>
+            <p style="margin-top: 15px;">These women deserve smarter shopping tools built on the same data rigor. The data exists. The opportunity exists. The question is: will you build for retailers only, or empower consumers too?</p>
+        </footer>
+
+        <div class="print-button">
+            <button onclick="window.print()">🖨️ Print This Review</button>
+        </div>
+    </div>
+</body>
+</html>

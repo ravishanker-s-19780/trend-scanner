@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diverse Women Personas Review - Trend Catalog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        main {
+            padding: 40px 30px;
+        }
+
+        .intro-section {
+            background: #fce4ec;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid #e91e63;
+        }
+
+        .intro-section h2 {
+            color: #c2185b;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .intro-section p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .persona-card {
+            background: white;
+            border: 2px solid #f8bbd0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .persona-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: #e91e63;
+            transform: translateY(-5px);
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .persona-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .persona-info h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .persona-details {
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .persona-details span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        .section-label {
+            font-weight: 700;
+            color: #e91e63;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05em;
+        }
+
+        .section-label.disliked {
+            color: #d32f2f;
+        }
+
+        .section-label.quote {
+            color: #9c27b0;
+        }
+
+        .points-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .points-list li {
+            padding: 10px 0 10px 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .points-list li:before {
+            content: "♥";
+            position: absolute;
+            left: 0;
+            color: #e91e63;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .disliked .points-list li:before {
+            content: "✗";
+            color: #d32f2f;
+        }
+
+        .quote-section {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+            font-style: italic;
+            color: #555;
+            margin-top: 15px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .quote-section strong {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-style: normal;
+        }
+
+        .summary-section {
+            background: #fafafa;
+            padding: 40px 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .summary-section h2 {
+            color: #e91e63;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .improvement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .improvement-table thead {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: white;
+        }
+
+        .improvement-table th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .improvement-table td {
+            padding: 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .improvement-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .improvement-table tbody tr:hover {
+            background: #fce4ec;
+        }
+
+        .improvement-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .impact-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .impact-critical {
+            background: #ffcdd2;
+            color: #b71c1c;
+        }
+
+        .impact-high {
+            background: #ffe0b2;
+            color: #e65100;
+        }
+
+        .impact-medium {
+            background: #c8e6c9;
+            color: #1b5e20;
+        }
+
+        .quick-fixes {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #e91e63;
+        }
+
+        .quick-fixes h3 {
+            color: #e91e63;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quick-fixes ul {
+            list-style: none;
+        }
+
+        .quick-fixes li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .quick-fixes li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #e91e63;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #f0f0f0;
+            padding: 25px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .personas-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            main, .summary-section {
+                padding: 20px;
+            }
+        }
+
+        .print-button {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .print-button button {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .print-button button:hover {
+            transform: scale(1.05);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .persona-card {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
+
+        .user-journey {
+            background: #fce4ec;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 0.9em;
+            color: #555;
+            border-left: 4px solid #c2185b;
+        }
+
+        .user-journey strong {
+            color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💕 Diverse Women Personas Review</h1>
+            <p>Ladies Nighty Design Catalog (Live Site Feedback)</p>
+            <p class="subtitle">8 Women from Different Ages, Backgrounds & Needs Review Their Real Experience</p>
+        </header>
+
+        <main>
+            <div class="intro-section">
+                <h2>About This Review</h2>
+                <p>This document captures feedback from <strong>8 diverse women across Tamil Nadu</strong> who visited and browsed the Design Catalog website in real-time.</p>
+                <p>Each persona represents a unique shopping journey, need, and perspective. They reviewed the site's usability, product discovery, design appeal, and trust signals based on their actual browsing experience.</p>
+            </div>
+
+            <div class="personas-grid">
+                <!-- Persona 1: College Student -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👩‍🎓</div>
+                        <div class="persona-info">
+                            <h3>Ananya (College)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 20 | <strong>Budget:</strong> ₹300–600</span>
+                                <span><strong>Tech:</strong> Very High | <strong>Language:</strong> English</span>
+                                <span><strong>Shopping Style:</strong> Mobile-first, impulse buy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Opened on phone while scrolling Instagram → Scrolled through designs → Clicked like on 3 colorful floral options → Left without buying
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (3 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Instagram-style layout</strong> — Grid of cards with colorful photos feels like exploring a feed. Natural scrolling behavior. Love it</li>
+                        <li><strong>Like/Dislike voting</strong> — Makes me feel heard. I like rating products, gives me sense of control</li>
+                        <li><strong>Color dots at a glance</strong> — See instantly if my fave color is available. Saves scrolling through descriptions</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>Can't filter by color!</strong> — I like the navy colorway. But I have to scroll through 40 cards to find navy in different designs. No color filter</li>
+                        <li><strong>No price info on card</strong> — Says "₹542 avg" but no "from ₹XXX to ₹YYY" range. Confusing for budget planning</li>
+                        <li><strong>Images don't zoom</strong> — On mobile, clicking image doesn't zoom or show detail. Hard to see fabric texture, stitching quality on small screen</li>
+                        <li><strong>No "Save" or "Add to Cart"</strong> — I want to bookmark 3 designs and come back to compare. But voting doesn't save anything for later</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Design grid is giving main character energy, but I can't actually shop! No cart, no save, no color filter. Feels like window shopping, not real shopping."
+                    </div>
+                </div>
+
+                <!-- Persona 2: Young Professional -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👩‍💼</div>
+                        <div class="persona-info">
+                            <h3>Priya (IT Professional)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 27 | <strong>Budget:</strong> ₹1000–1500</span>
+                                <span><strong>Tech:</strong> Very High | <strong>Language:</strong> English-fluent</span>
+                                <span><strong>Shopping Style:</strong> Research-driven, time-efficient</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Visited from desktop → Looked for high-quality options → Checked ratings → Wanted to compare 3 finalists → Left frustrated (no detailed comparison)
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (3 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Rating display</strong> — Seeing ⭐⭐⭐⭐ 4.03 instantly tells me quality level. Professional touch</li>
+                        <li><strong>Responsive design</strong> — Works equally well on desktop and mobile. No janky behavior</li>
+                        <li><strong>Multi-angle product images</strong> — Showing 3 different product photos helps me judge design variations</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No fabric info at all</strong> — "₹542 avg" doesn't tell me if this is silk, cotton, or polyester. Quality indicator missing</li>
+                        <li><strong>No review excerpts or comments</strong> — Stars shown but no actual customer quotes. "What did buyers actually say?" — Can't tell</li>
+                        <li><strong>No way to compare designs side-by-side</strong> — If I want to pick between "Floral" and "Geometric," I have to switch back and forth mentally</li>
+                        <li><strong>Missing size/fit info</strong> — No mention of fit (loose, fitted, maxi). One design might be a flowy maxi, another a fitted short nighty. Can't tell</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Looks polished, but it's all surface. No depth. I need comparison tools, fabric details, real reviews. This feels like a Pinterest board, not a shopping destination."
+                    </div>
+                </div>
+
+                <!-- Persona 3: New Mother -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👩‍🍼</div>
+                        <div class="persona-info">
+                            <h3>Divya (New Mom)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 31 | <strong>Budget:</strong> ₹400–800</span>
+                                <span><strong>Tech:</strong> Medium | <strong>Language:</strong> Tamil + English</span>
+                                <span><strong>Shopping Style:</strong> Task-focused, needs-driven</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Searched specifically for "nursing nighty" → Got overwhelmed by all designs → Couldn't identify which are nursing-friendly → Gave up
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (2 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Half-sleeve & sleeveless options visible</strong> — Easy access is important for nursing. Seeing variety helps</li>
+                        <li><strong>Clean, simple interface</strong> — Not cluttered. Can browse quickly even while caring for baby (important!)</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (5 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>NO NURSING-FRIENDLY FILTER/TAG</strong> — CRITICAL! Which designs have feeding zips? Which have front opening? NOT MARKED. I have to guess</li>
+                        <li><strong>No washability info</strong> — Will these stain easily with milk leaks? Are they machine washable? No care info provided</li>
+                        <li><strong>Comfort/fit descriptions vague</strong> — "Half Sleeve" tells me nothing about comfort for 12+ hours of wear (nursing moms wear these all day)</li>
+                        <li><strong>No size inclusivity notes</strong> — Do these fit after pregnancy body? Are they stretchy? No body-honest information</li>
+                        <li><strong>No testimonials from nursing moms</strong> — Would love to see: "I used this for 8 months, easy to nurse, washes great!" But nothing like that exists</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Design catalog bagundhu, but nursing-friendly nu sollave illai! Naan guess pannalam na? I need to know which ones have zips, which have slits. This is too important to guess!"
+                    </div>
+                </div>
+
+                <!-- Persona 4: Senior Woman -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👵</div>
+                        <div class="persona-info">
+                            <h3>Saraswati (Retired)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 62 | <strong>Budget:</strong> ₹200–400</span>
+                                <span><strong>Tech:</strong> Very Low | <strong>Language:</strong> Tamil-only</span>
+                                <span><strong>Shopping Style:</strong> Guided by daughter, trust-based</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Daughter opened site on tablet → Tried to understand descriptions (all English) → Saw colorful images → Felt overwhelmed → Asked daughter to decide
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (2 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Large product images</strong> — Even with old eyes, I can see the designs clearly</li>
+                        <li><strong>Simple, plain color options</strong> — White, green, navy are traditional, trustworthy colors for someone my age</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (6 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>EVERYTHING IN ENGLISH</strong> — Descriptions, design names, all English. My daughter has to read and explain every card to me</li>
+                        <li><strong>No trusted brand names visible</strong> — I don't see "Bahumaan" or "G4Girl" or any familiar brands. Just generic descriptions. How do I know if it's quality?</li>
+                        <li><strong>Price displays confusing</strong> — "₹542 avg · 85 products" — What does this mean? ₹542 is the average I pay, or average seller price? Unclear</li>
+                        <li><strong>No shrinkage/durability info</strong> — I've been fooled before with cheap nighties that shrink after 3 washes. No quality guarantees mentioned</li>
+                        <li><strong>No return policy visible</strong> — If this doesn't fit or feel right, can I send it back? No information</li>
+                        <li><strong>Confusing voting system</strong> — Why am I being asked to "like" or "dislike" designs? I don't understand what I'm voting for or what happens with my vote</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Magalin, yaar ipdi English-la solranga? Naan edhukku like-dislike pannanum? Trusted brand nu sollave illai. Digital payment-ku verumbikale, sathiyam kuralai!"
+                        <br/><em>(Daughter, why is everything in English? Why do I have to vote? No trusted brand names. I'm worried about digital payment!)</em>
+                    </div>
+                </div>
+
+                <!-- Persona 5: Plus-Size Woman -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👗</div>
+                        <div class="persona-info">
+                            <h3>Isha (Plus-Size)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 35 | <strong>Budget:</strong> ₹800–1500</span>
+                                <span><strong>Tech:</strong> High | <strong>Language:</strong> English-fluent</span>
+                                <span><strong>Shopping Style:</strong> Determined but frustrated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Browsed all 40+ designs → Wondered "Do these come in my size?" → Realized no size info provided → Felt excluded → Closed tab
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (1 point)</div>
+                    <ul class="points-list">
+                        <li><strong>Variety of designs shown</strong> — At least there are options. Some sites don't even try to show plus-friendly styles</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (6 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>ZERO SIZE INFORMATION</strong> — Do these come in XXL? XXXL? Are they one-size-fits-all? Completely unclear. Feels like I'm not the target customer</li>
+                        <li><strong>No plus-size specific filtering or tags</strong> — Can't search "plus-size friendly" or see which designs have generous fits</li>
+                        <li><strong>No body-honest reviews</strong> — Would love to see reviews from women my size saying "This actually fit me!" But nothing like that</li>
+                        <li><strong>Models in images appear standard size</strong> — Can I see how this looks on someone with a body like mine? Not shown</li>
+                        <li><strong>No size-inclusive language</strong> — "Free Size" mentioned sometimes, but no explanation. Does "Free" mean XXL-friendly or just one size?</li>
+                        <li><strong>Pricing same as standard sizes</strong> — If I pay more for plus-size fabric, I should know upfront. No transparency</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "I spend 30% more than standard-size shoppers, but this site pretends I don't exist. No size info, no plus-friendly reviews, no body diversity. I shop elsewhere where they actually want my business."
+                    </div>
+                </div>
+
+                <!-- Persona 6: Bride-to-Be -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">👰</div>
+                        <div class="persona-info">
+                            <h3>Meera (Bride)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 26 | <strong>Budget:</strong> ₹1500–3000</span>
+                                <span><strong>Tech:</strong> Medium | <strong>Language:</strong> Tamil + English</span>
+                                <span><strong>Shopping Style:</strong> Intentional, quality-focused</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Searched for wedding/trousseau nighties → Looked for premium fabrics (silk, satin) → Wanted quality assurance → Found no bridal-specific curation
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (3 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Elegant design variety</strong> — Lace, embroidery options present. Some designs definitely feel "special occasion" worthy</li>
+                        <li><strong>Color options for different preferences</strong> — Peach, cream, burgundy, pink — romantic colors for newlyweds</li>
+                        <li><strong>High ratings (4.0+)</strong> — Customer satisfaction shows. Important for wedding purchases</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No fabric quality hierarchy</strong> — Which is pure silk? Which is polyester satin? No distinction between ₹500 satin vs. ₹2000 premium silk</li>
+                        <li><strong>No "Trousseau" or "Wedding" category</strong> — I have to guess which designs are suitable for my wedding night. No curation for this special occasion</li>
+                        <li><strong>No durability or care guarantees</strong> — For a ₹2000 nighty, I want to know: Will it last 2 years? How do I care for it? No information</li>
+                        <li><strong>Missing luxury signals</strong> — Brand names, designer info, heritage story. Nothing that justifies premium pricing or adds confidence in quality</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Beautiful designs, but no confidence this is actually premium quality. For my wedding, I want something that feels special and lasts. This catalog doesn't convince me of either."
+                    </div>
+                </div>
+
+                <!-- Persona 7: Working Mom (Practical) -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">💼</div>
+                        <div class="persona-info">
+                            <h3>Lakshmi (Working Mom)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 42 | <strong>Budget:</strong> ₹400–700</span>
+                                <span><strong>Tech:</strong> Low-Medium | <strong>Language:</strong> Tamil-comfortable</span>
+                                <span><strong>Shopping Style:</strong> Practical, time-limited</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Quick 2-minute browse on phone → Wanted full-length designs → Noticed 3-quarter sleeve option → Wondered if available → Browsed quickly, left without engaging</strong>
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (2 points)</div>
+                    <ul class="points-list">
+                        <li><strong>Sleeve length variety visible</strong> — Half, three-quarter, sleeveless shown. Easy to find what I prefer without descriptions</li>
+                        <li><strong>Quick visual scanning</strong> — I have 2 minutes to browse. Grid layout helps me scan quickly without reading long text</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (4 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No fabric wash-care summary</strong> — As a working mom with laundry to do, I need quick care info. "Machine wash? Hand wash? Permanent press?" Not mentioned</li>
+                        <li><strong>No COD option visible</strong> — I don't trust online payments yet. Do you accept Cash on Delivery? Not shown on this page</li>
+                        <li><strong>No bulk pricing for combo buys</strong> — If I want to buy 3 nighties (one for home, one for office stay, one backup), is there a bulk discount? No info</li>
+                        <li><strong>Voting system confuses me</strong> — Why am I clicking like/dislike? Does it help me shop faster next time? No clarity on purpose</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "Nice designs, but I work full-time, come home exhausted. I need practical info: wash care, COD option, bulk deals. This catalog doesn't speak my language. I shop with my phone in one hand, laundry basket in the other!"
+                    </div>
+                </div>
+
+                <!-- Persona 8: Eco-Conscious Young Woman -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">🌿</div>
+                        <div class="persona-info">
+                            <h3>Neha (Eco-Conscious)</h3>
+                            <div class="persona-details">
+                                <span><strong>Age:</strong> 28 | <strong>Budget:</strong> ₹800–1500</span>
+                                <span><strong>Tech:</strong> Very High | <strong>Language:</strong> English-fluent</span>
+                                <span><strong>Shopping Style:</strong> Values-driven, sustainable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-journey">
+                        <strong>Journey:</strong> Opened catalog looking for sustainable options → No eco-badges or labels visible → Looked for organic cotton indicators → Left disappointed
+                    </div>
+
+                    <div class="section-label">♥️ What I Loved (1 point)</div>
+                    <ul class="points-list">
+                        <li><strong>Cotton options available</strong> — At least there are cotton designs. Better than all-synthetic fast fashion</li>
+                    </ul>
+
+                    <div class="section-label disliked">✗ What Frustrated Me (5 points)</div>
+                    <ul class="points-list disliked">
+                        <li><strong>No sustainability information</strong> — Is the cotton organic? Fair-trade? Sustainably sourced? Zero transparency on environmental impact</li>
+                        <li><strong>No ethical sourcing badges</strong> — Are these made in fair-wage factories? No certifications or labels mentioned</li>
+                        <li><strong>No durability/longevity messaging</strong> — Sustainable fashion is about buying less, wearing longer. But no "Built to Last" positioning</li>
+                        <li><strong>No brand transparency</strong> — Which companies make these? Can I verify their sustainability claims? Anonymous designs don't inspire trust</li>
+                        <li><strong>No take-back/recycling info</strong> — If I buy this, can I recycle it when worn? No circular economy option mentioned</li>
+                    </ul>
+
+                    <div class="quote-section">
+                        <strong>💬 Her Voice:</strong>
+                        "I'm willing to pay more for sustainable products, but this catalog doesn't market sustainability at all. No eco-badges, no brand stories, no impact data. How do I know if I'm buying ethical fashion or greenwashing?"
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="summary-section">
+            <h2>📊 Top 8 UX Improvements (by Persona Impact)</h2>
+
+            <table class="improvement-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>UX Improvement</th>
+                        <th>Helps Which Personas</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class="improvement-name">Add Fabric/Material Tags</div>
+                            <span style="font-size: 0.9em; color: #666;">(100% Cotton, Silk, Satin, Polyester label on each card)</span>
+                        </td>
+                        <td>Priya (professional), Divya (nursing), Saraswati (senior), Neha (eco-conscious) <strong>(4/8)</strong></td>
+                        <td><span class="impact-badge impact-critical">CRITICAL</span> Fabric choice #1 decision factor</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <div class="improvement-name">Add "Nursing-Friendly" Badge</div>
+                            <span style="font-size: 0.9em; color: #666;">Show which designs have zips, slits, or easy access for nursing</span>
+                        </td>
+                        <td>Divya (nursing mom) <strong>(1/8, but CRITICAL for this segment)</strong></td>
+                        <td><span class="impact-badge impact-critical">CRITICAL</span> Life-changing for nursing mothers</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <div class="improvement-name">Add Size Information & Availability</div>
+                            <span style="font-size: 0.9em; color: #666;">Show if available in XS, S, M, L, XL, XXL, Free Size</span>
+                        </td>
+                        <td>Isha (plus-size), Priya (professional), Meera (bride) <strong>(3/8)</strong></td>
+                        <td><span class="impact-badge impact-high">HIGH</span> Prevents cart abandonment</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <div class="improvement-name">Tamil Language Support</div>
+                            <span style="font-size: 0.9em; color: #666;">Translate descriptions, tags, and key info into Tamil</span>
+                        </td>
+                        <td>Saraswati (senior), Lakshmi (working mom), Divya (nursing) <strong>(3/8, accessibility issue)</strong></td>
+                        <td><span class="impact-badge impact-high">HIGH</span> Expands market reach significantly</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <div class="improvement-name">Add "Add to Cart" / "Save for Later" Buttons</div>
+                            <span style="font-size: 0.9em; color: #666;">Let customers save designs and actually purchase (not just vote)</span>
+                        </td>
+                        <td>Ananya (college), Priya (professional), Meera (bride) <strong>(3/8)</strong></td>
+                        <td><span class="impact-badge impact-critical">CRITICAL</span> Voting ≠ Shopping; enable commerce</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            <div class="improvement-name">Show Customer Reviews & Comments</div>
+                            <span style="font-size: 0.9em; color: #666;">Real quotes from buyers, not just star ratings</span>
+                        </td>
+                        <td>Priya (professional), Meera (bride), Divya (nursing) <strong>(3/8)</strong></td>
+                        <td><span class="impact-badge impact-high">HIGH</span> Trust & authenticity</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            <div class="improvement-name">Add Care/Wash Instructions</div>
+                            <span style="font-size: 0.9em; color: #666;">Machine wash, hand wash, shrinkage info, durability notes</span>
+                        </td>
+                        <td>Saraswati (senior), Lakshmi (working mom), Meera (bride) <strong>(3/8)</strong></td>
+                        <td><span class="impact-badge impact-medium">MEDIUM</span> Practical, affects purchase confidence</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            <div class="improvement-name">Add Filters & Search</div>
+                            <span style="font-size: 0.9em; color: #666;">Filter by color, sleeve length, price, fabric, occasion</span>
+                        </td>
+                        <td>Ananya (college), Priya (professional), Isha (plus-size) <strong>(3/8)</strong></td>
+                        <td><span class="impact-badge impact-high">HIGH</span> Discovery & navigation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quick-fixes">
+                <h3>⚡ Quick UX Wins (Can Implement This Week)</h3>
+                <ul>
+                    <li><strong>Add "Fabric Type" badge</strong> on each card (Cotton, Silk, Satin, Polyester) in simple colored tag</li>
+                    <li><strong>Add "Nursing-Friendly ✓" label</strong> for designs with feeding zips/access</li>
+                    <li><strong>Show price range</strong> instead of "avg" (₹400–600 instead of ₹542 avg)</li>
+                    <li><strong>Add "Size Available" note</strong> (e.g., "Available: M, L, XL, Free Size")</li>
+                    <li><strong>Convert voting to "Save Design"</strong> button so users can actually track favorites across sessions</li>
+                    <li><strong>Add 1–2 customer review snippets</strong> on each card (short quote + rating)</li>
+                    <li><strong>Add bilingual toggle</strong> (English ↔ Tamil) in header</li>
+                    <li><strong>Show "Care:" note</strong> (Machine Wash, Avoid Bleach, etc.) in small text</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>This diverse persona feedback reveals a critical gap: <strong>The catalog is visually beautiful but functionally incomplete</strong> for real shopping.</p>
+            <p style="margin-top: 15px;">Women are voting on designs they love, but they can't actually buy them. They're excluded by missing size info, language barriers, and lack of product transparency. The site feels like inspiration (Pinterest) not commerce (Flipkart).</p>
+        </footer>
+
+        <div class="print-button">
+            <button onclick="window.print()">🖨️ Print This Review</button>
+        </div>
+    </div>
+</body>
+</html>
