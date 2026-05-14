@@ -59,20 +59,25 @@ async function enrichCloviaDetails(page, records) {
         }
 
         // --- Size Chart ---
-        // Clovia shows available sizes but not a detailed chart with measurements
-        const sizeLink = [...document.querySelectorAll('a')].find(a => a.innerText?.toLowerCase().includes('size chart'));
+        // Clovia shows available sizes (S, M, L, XL, etc) in .sizesAvail container
         let sizeChart = null;
-        if (sizeLink) {
-          const sizesDiv = document.querySelector('.sizesAvail');
-          if (sizesDiv) {
-            const availableSizes = [...sizesDiv.querySelectorAll('[class*="size_li"], li')].map(li => {
-              const text = li.innerText?.trim() || li.textContent?.trim();
-              return text && text.match(/^[A-Z0-9]+$/) ? text : null;
-            }).filter(Boolean);
-
-            if (availableSizes.length > 0) {
-              sizeChart = { available_sizes: availableSizes };
+        const sizesDiv = document.querySelector('.sizesAvail');
+        if (sizesDiv) {
+          const availableSizes = [];
+          const sizeElements = [...sizesDiv.querySelectorAll('*')];
+          sizeElements.forEach(el => {
+            const text = (el.textContent?.trim() || '').toUpperCase();
+            // Match single letter (S, M, L) or multi-letter (XL, XXL, 3XL, Free)
+            if (text && text.length <= 5 && text.match(/^[A-Z0-9]+$/) && !availableSizes.includes(text)) {
+              availableSizes.push(text);
             }
+          });
+
+          // If we found some, deduplicate and sort them in a logical order
+          if (availableSizes.length > 0) {
+            const sizeOrder = { 'S': 1, 'M': 2, 'L': 3, 'XL': 4, 'XXL': 5, '3XL': 6, 'FREE': 7 };
+            const sorted = availableSizes.sort((a, b) => (sizeOrder[a] || 99) - (sizeOrder[b] || 99));
+            sizeChart = { available_sizes: sorted };
           }
         }
 
