@@ -295,6 +295,49 @@
             transition: width 0.3s ease;
         }
 
+        /* PRODUCT GALLERY */
+        .product-gallery {
+            margin: 12px 0;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .gallery-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gallery-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 8px;
+        }
+
+        .gallery-item {
+            display: block;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            aspect-ratio: 1;
+            transition: all 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.15);
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* FOOTER */
         .footer {
             text-align: center;
@@ -418,6 +461,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(16), myntra(8), flipkart(13), meesho(20), clovia(20), tatacliq(1), shyaway(2)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/DIAMO-Embroidery-Nightdress-Sleepwear-Adjustable/dp/B0F5JWTC3M/ref=sr_1_36?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-36" target="_blank" class="gallery-item" title="DIAMO Pure Cotton Embroidery N"><img src="https://m.media-amazon.com/images/I/81xcYmfqRYL._AC_UL320_.jpg" alt="DIAMO Pure Cotton Embroidery N" loading="lazy"></a><a href="https://www.amazon.in/CIERGE-Womens-Cotton-Nighty-NIGHTY_Multicolored_Free/dp/B08JWS2KLB/ref=sr_1_56?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-56" target="_blank" class="gallery-item" title="CIERGE Women's Cotton Lace Sol"><img src="https://m.media-amazon.com/images/I/714tVphy80L._AC_UL320_.jpg" alt="CIERGE Women's Cotton Lace Sol" loading="lazy"></a><a href="https://www.amazon.in/WiWi-Keyocean-Womens-Cotton-Printed/dp/B0GLQCQ9V2/ref=sr_1_16?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-16" target="_blank" class="gallery-item" title="WiWi Women's Cotton Printed Ni"><img src="https://m.media-amazon.com/images/I/615++VM-0SL._AC_UL320_.jpg" alt="WiWi Women's Cotton Printed Ni" loading="lazy"></a><a href="https://www.amazon.in/Bahumaan-Cotton-Nighty-Loungewear-M-Bust-42/dp/B0GLHP86X7/ref=sr_1_26?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-26" target="_blank" class="gallery-item" title="Bahumaan Pure Cotton Nighty fo"><img src="https://m.media-amazon.com/images/I/61fXD4pJ0QL._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Nighty fo" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -517,6 +568,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(20), flipkart(19), ajio(2), meesho(20), clovia(20), tatacliq(5), shyaway(2)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/Bahumaan-Cotton-Stylish-Magenta-XXL-Bust-48/dp/B0FNR99LWS/ref=sr_1_35?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-35" target="_blank" class="gallery-item" title="Bahumaan Pure Cotton Nighty fo"><img src="https://m.media-amazon.com/images/I/71lbTjZqW6L._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Nighty fo" loading="lazy"></a><a href="https://www.amazon.in/AV2-Womens-Satin-Nighty-Maroon/dp/B07GZP46RM/ref=sr_1_30?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-30" target="_blank" class="gallery-item" title="AV2 Women Satin Short Nighty w"><img src="https://m.media-amazon.com/images/I/61ouTgLjxvL._AC_UL320_.jpg" alt="AV2 Women Satin Short Nighty w" loading="lazy"></a><a href="https://www.amazon.in/PrathaVastra-Flower-Printed-Casual-Cotton/dp/B0FJ5KMPSX/ref=sr_1_10?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-10" target="_blank" class="gallery-item" title="Women Flower Printed Casual We"><img src="https://m.media-amazon.com/images/I/41uDo10bdiL._AC_UL320_.jpg" alt="Women Flower Printed Casual We" loading="lazy"></a><a href="https://www.amazon.in/BAILEY-SELLS-Embroidered-Nightgown-Size_BAILEY2392/dp/B0DY68BBWY/ref=sr_1_20?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-20" target="_blank" class="gallery-item" title="BAILEY SELLS Women's Cotton Em"><img src="https://m.media-amazon.com/images/I/81Pte6RYs+L._AC_UL320_.jpg" alt="BAILEY SELLS Women's Cotton Em" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -616,6 +675,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(16), myntra(1), flipkart(9), ajio(2), meesho(20), clovia(20), tatacliq(1), shyaway(2)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/UPPER-COLLECTION-Womens-Printed-Stylish/dp/B0FZBP5687/ref=sr_1_27?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-27" target="_blank" class="gallery-item" title="UPPER COLLECTION Women’s Cotto"><img src="https://m.media-amazon.com/images/I/81IVSgYRCGL._AC_UL320_.jpg" alt="UPPER COLLECTION Women’s Cotto" loading="lazy"></a><a href="https://www.amazon.in/Keyocean-Womens-Cotton-Printed-Length/dp/B0GL8ZNYK7/ref=sr_1_37?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-37" target="_blank" class="gallery-item" title="Keyocean Women's Cotton Printe"><img src="https://m.media-amazon.com/images/I/61HxjYzcd2L._AC_UL320_.jpg" alt="Keyocean Women's Cotton Printe" loading="lazy"></a><a href="https://www.amazon.in/Soulemo-Cotton-Length-Nighty-1633AM/dp/B0CHMRP6CW/ref=sr_1_40?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-40" target="_blank" class="gallery-item" title="Soulemo Women Cotton Floor Len"><img src="https://m.media-amazon.com/images/I/81NPjzozBaL._AC_UL320_.jpg" alt="Soulemo Women Cotton Floor Len" loading="lazy"></a><a href="https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7" target="_blank" class="gallery-item" title="Vlazom Women’s Cotton Maxi Nig"><img src="https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg" alt="Vlazom Women’s Cotton Maxi Nig" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -715,6 +782,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(9), flipkart(15), meesho(20), clovia(20), shyaway(2)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/G4Girl-Womens-Geometric-Nighty-gown_White_Free/dp/B0B4N8MRKB/ref=sr_1_51?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="G4Girl Women Satin Maxi Nighty"><img src="https://m.media-amazon.com/images/I/61utJ0iCwxL._AC_UL320_.jpg" alt="G4Girl Women Satin Maxi Nighty" loading="lazy"></a><a href="https://www.amazon.in/Anvesha-Sleeveless-Lightweight-Comfortable-Sleepwear/dp/B0GHDY6CG1/ref=sr_1_48?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-48" target="_blank" class="gallery-item" title="Anvesha Beauty Silk Satin Nigh"><img src="https://m.media-amazon.com/images/I/61k+Um-fLKL._AC_UL320_.jpg" alt="Anvesha Beauty Silk Satin Nigh" loading="lazy"></a><a href="https://www.amazon.in/Soulemo-Womens-Cotton-Length-Nighty/dp/B0CZ8RLZWV/ref=sr_1_56?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="Soulemo Women's Pure Cotton Fl"><img src="https://m.media-amazon.com/images/I/81OmX00Gt2L._AC_UL320_.jpg" alt="Soulemo Women's Pure Cotton Fl" loading="lazy"></a><a href="https://www.amazon.in/SOXI-MOXI-Comfortable-Sleepwear-Nightwear/dp/B0GVRXKQHW/ref=sr_1_81?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="SOXI MOXI Women Hosiery Cotton"><img src="https://m.media-amazon.com/images/I/61wp6QpKA2L._AC_UL320_.jpg" alt="SOXI MOXI Women Hosiery Cotton" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -814,6 +889,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(9), myntra(1), flipkart(20), ajio(1), meesho(20), clovia(20), shyaway(2)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/G4Girl-Nighty-Womens-Long-Green/dp/B0F3JRG5FV/ref=sr_1_82?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="G4Girl Nighty for Women's with"><img src="https://m.media-amazon.com/images/I/81b8bc-RtXL._AC_UL320_.jpg" alt="G4Girl Nighty for Women's with" loading="lazy"></a><a href="https://www.amazon.in/Bahumaan-Cotton-Kaftan-Nighty-Stylish/dp/B0FXH8T229/ref=sr_1_67?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="Bahumaan Pure Cotton Kaftan Ni"><img src="https://m.media-amazon.com/images/I/71xyGfaNXpL._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Kaftan Ni" loading="lazy"></a><a href="https://www.amazon.in/G4Girl-Womens-Geometric-Kaftan-Nighty/dp/B097RS8ND1/ref=sr_1_49?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-49" target="_blank" class="gallery-item" title="G4Girl Women's Silk Geometric "><img src="https://m.media-amazon.com/images/I/71JhmX8oXZL._AC_UL320_.jpg" alt="G4Girl Women's Silk Geometric " loading="lazy"></a><a href="https://www.amazon.in/TRUNDZ-Womens-Printed-Cotton-Embroidered/dp/B08BTFVTG9/ref=sr_1_57?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" class="gallery-item" title="TRUNDZ Women's Cotton Embroide"><img src="https://m.media-amazon.com/images/I/81Wjcnf4GAL._AC_UL320_.jpg" alt="TRUNDZ Women's Cotton Embroide" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -913,6 +996,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">myntra(3), tatacliq(5)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.myntra.com/nightdress/bindass+female+collection/bindass-female-collection-women-nighty-cotton-maxi-plus-size-maxi-5xl-to-8xl/33066744/buy" target="_blank" class="gallery-item" title="Bindass Female Collection - Pr"><img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MARCH/5/tpkitBL9_8d3813964c2c4215b6867a7a2824184f.jpg" alt="Bindass Female Collection - Pr" loading="lazy"></a><a href="https://www.myntra.com/nightdress/bindass+female+collection/bindass-female-collection-women-nighty-cotton-maxi-plus-size-maxi-5xl-to-8xl/33066747/buy" target="_blank" class="gallery-item" title="Bindass Female Collection - Pr"><img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MARCH/5/1ed16Rot_900b1f035c744f969506425172ae7bb2.jpg" alt="Bindass Female Collection - Pr" loading="lazy"></a><a href="https://www.myntra.com/nightdress/russhies/russhies-conversational-printed-nightdress/41318079/buy" target="_blank" class="gallery-item" title="Russhies - Printed Nightdress"><img src="https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/APRIL/11/9mSUYNUO_f0f2edcec6284d4da8ce6c48044bd82d.jpg" alt="Russhies - Printed Nightdress" loading="lazy"></a><a href="https://www.tatacliq.com/sweet-dreams-blue-cotton-printed-nighty/p-mp000000018451673" target="_blank" class="gallery-item" title="Sweet Dreams Sweet Dreams Blue"><img src="https://img.tatacliq.com/images/i12/437Wx649H/MP000000018451673_437Wx649H_202307260207571.jpeg" alt="Sweet Dreams Sweet Dreams Blue" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1012,6 +1103,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(6)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/G4Girl-Womens-Geometric-Length-Nightgown_Maroon-Blue_Free/dp/B099JKJKRF/ref=sr_1_14?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-14" target="_blank" class="gallery-item" title="G4Girl Women's Silk Geometric "><img src="https://m.media-amazon.com/images/I/81UJFddad3S._AC_UL320_.jpg" alt="G4Girl Women's Silk Geometric " loading="lazy"></a><a href="https://www.amazon.in/Bahumaan-Nighty-Nighties-Stylish-Sleepwear/dp/B0FYWWPJJY/ref=sr_1_19?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-19" target="_blank" class="gallery-item" title="Bahumaan Nighty for Women Cott"><img src="https://m.media-amazon.com/images/I/71DRVa-PtgL._AC_UL320_.jpg" alt="Bahumaan Nighty for Women Cott" loading="lazy"></a><a href="https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_9?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-9" target="_blank" class="gallery-item" title="MYRELOOK Women Cotton Nighty C"><img src="https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg" alt="MYRELOOK Women Cotton Nighty C" loading="lazy"></a><a href="https://www.amazon.in/PNAEONG-Stylish-Printed-Comfortable-Sleepwear/dp/B0GC786YPY/ref=sr_1_29?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-29" target="_blank" class="gallery-item" title="PNAEONG Stylish Cotton Nighty "><img src="https://m.media-amazon.com/images/I/61STR8WU-eL._AC_UL320_.jpg" alt="PNAEONG Stylish Cotton Nighty " loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1111,6 +1210,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(6)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/come4try-Nighty-Nightwear-V-Neck-Length/dp/B0GHN7ZCJQ/ref=sr_1_38?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-38" target="_blank" class="gallery-item" title="come4try Women Nighty with Rob"><img src="https://m.media-amazon.com/images/I/51brOkAhBTL._AC_UL320_.jpg" alt="come4try Women Nighty with Rob" loading="lazy"></a><a href="https://www.amazon.in/Womens-Printed-Stylish-Dresses-Blue_XL/dp/B0F6KHZ118/ref=sr_1_33?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-33" target="_blank" class="gallery-item" title="Women's Cotton Printed Stylish"><img src="https://m.media-amazon.com/images/I/41AhGnekqdL._AC_UL320_.jpg" alt="Women's Cotton Printed Stylish" loading="lazy"></a><a href="https://www.amazon.in/G4Girl-Regular-Rajasthani-Jaipuri-Turkish/dp/B0DNF6C2JF/ref=sr_1_18?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-18" target="_blank" class="gallery-item" title="G4Girl Women's Pure Cotton Reg"><img src="https://m.media-amazon.com/images/I/91KaN7oG1yL._AC_UL320_.jpg" alt="G4Girl Women's Pure Cotton Reg" loading="lazy"></a><a href="https://www.amazon.in/G4Girl-Cotton-Regular-Rajasthani-Jaipuri/dp/B0DT4QNXWV/ref=sr_1_13?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-13" target="_blank" class="gallery-item" title="G4Girl Women's Regular Nighty "><img src="https://m.media-amazon.com/images/I/91a7EFouw3L._AC_UL320_.jpg" alt="G4Girl Women's Regular Nighty " loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1210,6 +1317,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(1)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Turkish/dp/B0C1K4LR4W/ref=sr_1_42?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-42" target="_blank" class="gallery-item" title="G4Girl Pure Cotton Embroidery "><img src="https://m.media-amazon.com/images/I/81ELDkNuvCL._AC_UL320_.jpg" alt="G4Girl Pure Cotton Embroidery " loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1309,6 +1424,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">amazon(1)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.amazon.in/FlyNery-Satin-Nighty-Women-Comfortable/dp/B0FTVJWC93/ref=sr_1_44?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-44" target="_blank" class="gallery-item" title="FlyNery Nighty for Women Styli"><img src="https://m.media-amazon.com/images/I/41fdOlu5TpL._AC_UL320_.jpg" alt="FlyNery Nighty for Women Styli" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1408,6 +1531,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">ajio(1)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?" target="_blank" class="gallery-item" title="Women Floral Print Nightgown"><img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg" alt="Women Floral Print Nightgown" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1507,6 +1638,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">tatacliq(1)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.tatacliq.com/koi-sleepwear-black-embroidered-nighty/p-mp000000011263146" target="_blank" class="gallery-item" title="KOI SLEEPWEAR KOI SLEEPWEAR Bl"><img src="https://www.tatacliq.com/src/general/components/img/green-filled-star.svg" alt="KOI SLEEPWEAR KOI SLEEPWEAR Bl" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
@@ -1606,6 +1745,14 @@
                             <span class="detail-label">Sources:</span>
                             <span class="detail-value">tatacliq(1)</span>
                         </div>
+
+                        <div class="product-gallery">
+                            <div class="gallery-label">Sample Products:</div>
+                            <div class="gallery-images">
+                                <a href="https://www.tatacliq.com/mslingies-blue-lace-work-nighty/p-mp000000018715402" target="_blank" class="gallery-item" title="Ms.Lingies Ms.Lingies Blue Lac"><img src="https://www.tatacliq.com/src/general/components/img/green-filled-star.svg" alt="Ms.Lingies Ms.Lingies Blue Lac" loading="lazy"></a>
+                            </div>
+                        </div>
+
                         
                 <div class="score-bar">
                     <div class="score-bar-label">
