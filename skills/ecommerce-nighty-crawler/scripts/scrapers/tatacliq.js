@@ -16,7 +16,7 @@ const FEEDING_ZIP_KEYWORDS = [
 const NURSING_KEYWORDS = [
   'nursing', 'breastfeeding', 'breast feeding', 'lactation',
   'feeding nighty', 'feeding gown', 'maternity nighty', 'maternity wear',
-  'maternity night', 'maternity & nursing', 'nursing dress'
+  'maternity night', 'maternity & nursing', 'nursing dress', 'maternity'
 ];
 
 // Confirmed selectors via HTML inspection 2026-05

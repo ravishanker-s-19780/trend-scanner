@@ -1,12 +1,12 @@
 {
-  "startedAt": "2026-05-14T00:50:29.082Z",
+  "startedAt": "2026-05-14T01:22:03.913Z",
   "platforms": [
     {
-      "platform": "meesho",
+      "platform": "flipkart",
       "count": 10,
       "blocked": false
     }
   ],
-  "finishedAt": "2026-05-14T00:50:34.172Z",
+  "finishedAt": "2026-05-14T01:22:42.704Z",
   "total": 10
 }

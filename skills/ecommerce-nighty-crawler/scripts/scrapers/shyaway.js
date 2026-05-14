@@ -15,7 +15,8 @@ const FEEDING_ZIP_KEYWORDS = [
 
 const NURSING_KEYWORDS = [
   'nursing', 'breastfeeding', 'breast feeding', 'lactation',
-  'feeding nighty', 'feeding gown', 'maternity nighty', 'maternity wear'
+  'feeding nighty', 'feeding gown', 'maternity nighty', 'maternity wear',
+  'maternity night', 'maternity & nursing', 'nursing dress', 'maternity'
 ];
 
 const SEL = {
@@ -101,7 +102,7 @@ async function enrichShywayDetails(page, records) {
 export async function scrapeShyaway(page, keyword, collected) {
   let pageNum = 1;
   while (collected.length < MAX_ITEMS) {
-    await page.goto(`https://www.shyaway.com/search/?q=${enc(keyword)}&page=${pageNum}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
+    await page.goto(`https://www.shyaway.com/nightwear-online/?q=${enc(keyword)}&page=${pageNum}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForSelector(SEL.card, { timeout: 8000 }).catch(() => {});
 
     const rows = await page.evaluate((s) =>
