@@ -1086,6 +1086,8 @@ function capitalize(s) {
 
 function formatTitle(t) {
   // Format: Material Half-Sleeve Round Neck - Plain Design Nighty
+  if (!t) return 'Nighty';
+
   const material = dominantFabric(t.sampleProducts) || 'Cotton';
 
   const sleeveName = {
@@ -1103,8 +1105,8 @@ function formatTitle(t) {
     'sweetheart': 'Sweetheart Neck'
   };
 
-  const sleeve = sleeveName[t.sleeve_length?.toLowerCase()] || capitalize(t.sleeve_length) + '-Sleeve';
-  const neck = neckName[t.neck_type?.toLowerCase()] || capitalize(t.neck_type) + ' Neck';
+  const sleeve = sleeveName[(t.sleeve_length || '').toLowerCase()] || capitalize(t.sleeve_length) + '-Sleeve' || 'Half-Sleeve';
+  const neck = neckName[(t.neck_type || '').toLowerCase()] || capitalize(t.neck_type) + ' Neck' || 'Round Neck';
 
   let design = 'Plain';
   if (t.front_top_treatment && t.front_top_treatment.toLowerCase() !== 'plain') {
@@ -1124,9 +1126,10 @@ function formatSubtitle(t) {
 }
 
 function dominantFabric(sampleProducts) {
-  if (!sampleProducts || sampleProducts.length === 0) return null;
+  if (!sampleProducts || !Array.isArray(sampleProducts) || sampleProducts.length === 0) return 'Cotton';
   const freq = {};
   sampleProducts.forEach(p => {
+    if (!p) return;
     let fabric = (p.fabric_resolved || '').toLowerCase().trim();
     if (fabric && fabric !== 'none') {
       fabric = fabric.replace(/^100%?\s*/, '').replace(/^\s*100\s*/, '').trim();
@@ -1134,17 +1137,17 @@ function dominantFabric(sampleProducts) {
     }
   });
   const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
-  return top ? capitalize(top[0]) : null;
+  return top ? capitalize(top[0]) : 'Cotton';
 }
 
 function hasNursing(sampleProducts) {
-  if (!sampleProducts) return false;
-  return sampleProducts.some(p => p.nursing_label && p.nursing_label !== 'None');
+  if (!sampleProducts || !Array.isArray(sampleProducts)) return false;
+  return sampleProducts.some(p => p && p.nursing_label && p.nursing_label !== 'None');
 }
 
 function hasPlusSizes(sampleProducts) {
-  if (!sampleProducts) return false;
-  return sampleProducts.some(p => p.has_plus_sizes === true);
+  if (!sampleProducts || !Array.isArray(sampleProducts)) return false;
+  return sampleProducts.some(p => p && p.has_plus_sizes === true);
 }
 
 function fabricBadgeClass(fabric) {
@@ -1682,8 +1685,15 @@ document.addEventListener('keydown', e => {
       <div style="text-align:center;padding:40px 20px;color:#666">
         <div style="font-size:40px;margin-bottom:12px">⚠️</div>
         <div style="font-weight:700;color:#111;margin-bottom:8px">Could not load trend data</div>
-        <div style="font-size:13px;margin-bottom:16px">Open this file via a local server, not file://</div>
-        <code style="background:#f5f5f5;padding:8px 14px;border-radius:8px;font-size:12px">npx serve .</code>
+        <div style="font-size:13px;margin-bottom:16px">
+          Make sure you're serving from the project root where <code>evidence/</code> folder exists.<br>
+          <strong>Run from /Users/ravi-19780/git/trend-scanner/</strong>
+        </div>
+        <code style="background:#f5f5f5;padding:8px 14px;border-radius:8px;font-size:12px;display:block;margin:12px 0">
+          cd /Users/ravi-19780/git/trend-scanner<br>
+          python3 -m http.server 5500
+        </code>
+        <div style="font-size:12px;color:#999;margin-top:12px">Then open: http://127.0.0.1:5500/trend-catalog.html</div>
       </div>`;
   }
 })();
