@@ -298,6 +298,18 @@ main {
   display: flex; flex-direction: column; gap: 5px;
   flex: 1;
 }
+
+/* Attribute pills */
+.card-attrs {
+  display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px;
+}
+.attr-pill {
+  font-size: 10px; font-weight: 600; padding: 2px 8px;
+  border-radius: 999px; background: var(--bg); color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.attr-pill.nursing { color: #7c3aed; border-color: #ede9fe; background: #ede9fe; }
+.attr-pill.plus    { color: #2563eb; border-color: #dbeafe; background: #dbeafe; }
 .card-title {
   font-size: 12px; font-weight: 700;
   line-height: 1.35; letter-spacing: -.01em;
@@ -566,6 +578,15 @@ main {
 
 /* Platform list */
 .platform-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+
+/* Feature tags */
+.feature-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.feature-tag {
+  font-size: 12px; font-weight: 700; padding: 5px 12px;
+  border-radius: 999px; background: var(--bg); color: var(--text-muted);
+}
+.feature-tag.nursing { background: #ede9fe; color: #7c3aed; }
+.feature-tag.plus    { background: #dbeafe; color: #2563eb; }
 .platform-pill {
   display: flex; align-items: center; gap: 5px;
   padding: 5px 10px; border-radius: 999px;
@@ -813,6 +834,17 @@ main {
 
   /* Hide scroll-to-top on mobile (feed handles navigation) */
   #scrollTop { display: none !important; }
+
+  /* Attribute pills on mobile: white text, semi-transparent bg */
+  .attr-pill {
+    background: rgba(0,0,0,.35) !important;
+    border-color: rgba(255,255,255,.2) !important;
+    color: white !important;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  .attr-pill.nursing { background: rgba(124,58,237,.55) !important; }
+  .attr-pill.plus    { background: rgba(37,99,235,.55) !important; }
 }
 </style>
 </head>
@@ -1040,11 +1072,13 @@ function capitalize(s) {
 }
 
 function formatTitle(t) {
-  return [
-    capitalize(t.design_pattern),
-    capitalize(t.neck_type) + ' Neck',
-    capitalize(t.sleeve_length) + ' Sleeve',
-  ].join(' · ');
+  const parts = [capitalize(t.design_pattern)];
+  if (t.front_top_treatment && t.front_top_treatment !== 'plain') {
+    parts.push(capitalize(t.front_top_treatment));
+  }
+  parts.push(capitalize(t.neck_type) + ' Neck');
+  parts.push(capitalize(t.sleeve_length) + ' Sleeve');
+  return parts.join(' · ');
 }
 
 function formatSubtitle(t) {
@@ -1056,18 +1090,66 @@ function formatSubtitle(t) {
   return parts.join(' · ') || 'Design cluster';
 }
 
+function dominantFabric(sampleProducts) {
+  if (!sampleProducts || sampleProducts.length === 0) return null;
+  const freq = {};
+  sampleProducts.forEach(p => {
+    let fabric = (p.fabric_resolved || '').toLowerCase().trim();
+    if (fabric && fabric !== 'none') {
+      fabric = fabric.replace(/^100%?\s*/, '').replace(/^\s*100\s*/, '').trim();
+      if (fabric) freq[fabric] = (freq[fabric] || 0) + 1;
+    }
+  });
+  const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
+  return top ? capitalize(top[0]) : null;
+}
+
+function hasNursing(sampleProducts) {
+  if (!sampleProducts) return false;
+  return sampleProducts.some(p => p.nursing_label && p.nursing_label !== 'None');
+}
+
+function hasPlusSizes(sampleProducts) {
+  if (!sampleProducts) return false;
+  return sampleProducts.some(p => p.has_plus_sizes === true);
+}
+
 // ── Data loading ───────────────────────────────────────────────
 async function loadData() {
-  const [trends, products] = await Promise.all([
+  const [data, products] = await Promise.all([
     fetch('evidence/output/trends.json').then(r => r.json()),
     fetch('evidence/clean/_merged.json').then(r => r.json()),
   ]);
+  const trends = data.top_trends || data;
   const byId = Object.fromEntries(products.map(p => [p.product_id, p]));
-  trends.forEach(t => {
-    t.images = t.sample_product_ids.map(id => byId[id]?.image).filter(Boolean);
-    t.sampleProducts = t.sample_product_ids.map(id => byId[id]).filter(Boolean);
+
+  return trends.map((t, idx) => {
+    const clusterKey = `${t.design_pattern}_${t.neck_type}_${t.sleeve_length}_${t.front_top_treatment}`;
+
+    // Enrich sample_products with full data from _merged.json
+    const enriched = t.sample_products?.map(sp => {
+      const full = byId[sp.product_id] || {};
+      return { ...sp, ...full };
+    }) || [];
+
+    const prices = enriched.map(p => p.price || 0).filter(p => p > 0);
+    const ratings = enriched.map(p => p.rating || 0).filter(p => p > 0);
+
+    return {
+      ...t,
+      cluster_key: clusterKey,
+      images: enriched.map(p => p.image).filter(Boolean),
+      min_price: prices.length > 0 ? Math.min(...prices) : 0,
+      max_price: prices.length > 0 ? Math.max(...prices) : 0,
+      avg_price: prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0,
+      avg_rating: ratings.length > 0 ? ratings.reduce((a, b) => a + b) / ratings.length : 0,
+      colors: enriched.flatMap(p => [
+        { primary: p.primary_color },
+        { primary: p.secondary_color }
+      ]).filter(c => c.primary),
+      sampleProducts: enriched,
+    };
   });
-  return trends;
 }
 
 // ── Render ─────────────────────────────────────────────────────
@@ -1142,6 +1224,11 @@ function renderCard(t, state) {
         ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
         ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
         <span class="card-count">${t.product_count} styles</span>
+      </div>
+      <div class="card-attrs">
+        ${dominantFabric(t.sampleProducts) ? `<span class="attr-pill">${dominantFabric(t.sampleProducts)}</span>` : ''}
+        ${hasNursing(t.sampleProducts) ? `<span class="attr-pill nursing">👶 Nursing</span>` : ''}
+        ${hasPlusSizes(t.sampleProducts) ? `<span class="attr-pill plus">📏 Plus</span>` : ''}
       </div>
       <div class="fire-row">
         <div class="fire-score">${fireMeter(t.score.total)}</div>
@@ -1401,10 +1488,14 @@ function openModal(t) {
   const avgPrice = t.avg_price ? `₹${Math.round(t.avg_price)}` : '—';
   const priceRange = t.min_price ? `₹${Math.round(t.min_price)}–${Math.round(t.max_price)}` : '—';
   const rating = t.avg_rating ? t.avg_rating.toFixed(1) : '—';
+  const fabric = dominantFabric(t.sampleProducts) || '—';
+  const plusSizes = hasPlusSizes(t.sampleProducts) ? 'Yes' : 'No';
   statsEl.innerHTML = [
     ['Styles Found', t.product_count, `across ${Object.keys(t.sources).length} platforms`],
     ['Buyer Rating', `★ ${rating}`, 'average out of 5.0'],
     ['Price Range',  priceRange, `avg ${avgPrice}`],
+    ['Fabric', fabric, 'primary material'],
+    ['Plus Sizes', plusSizes, 'available in cluster'],
     ['Trend Score',  `${fireMeter(t.score.total)}`, `${t.score.total} / 25`],
   ].map(([label, val, sub]) =>
     `<div class="stat-card">
@@ -1433,6 +1524,20 @@ function openModal(t) {
       ${capitalize(p)} <span style="color:var(--text-muted);font-weight:500">(${count})</span>
     </div>`;
   }).join('');
+
+  // Special features section
+  const nursing = hasNursing(t.sampleProducts);
+  const plusSz = hasPlusSizes(t.sampleProducts);
+  if (nursing || plusSz) {
+    const featureTags = [];
+    if (nursing) featureTags.push('<span class="feature-tag nursing">👶 Nursing-Friendly</span>');
+    if (plusSz) featureTags.push('<span class="feature-tag plus">📏 Plus Sizes Available</span>');
+    const featuresHtml = `
+      <div class="score-section-title" style="margin-bottom:8px;">Special Features ✨</div>
+      <div class="feature-tags">${featureTags.join('')}</div>
+    `;
+    plEl.insertAdjacentHTML('afterend', featuresHtml);
+  }
 
   refreshModalActions(t.cluster_key);
 
