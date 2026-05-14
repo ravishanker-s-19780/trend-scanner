@@ -1,6 +1,31 @@
-import { enc, abs, isHomepage, enrichDetails } from '../utils.js';
+import { enc, abs, isHomepage } from '../utils.js';
 import { buildRecord }          from '../inference.js';
 import { MAX_ITEMS }            from '../config.js';
+
+const FABRIC_KEYWORDS = [
+  'cotton', 'satin', 'silk', 'crepe', 'viscose', 'rayon',
+  'polyester', 'blend', 'georgette', 'chiffon', 'fleece',
+  'flannel', 'modal', 'lycra', 'spandex', 'nylon'
+];
+
+const FEEDING_ZIP_KEYWORDS = [
+  'feeding zip', 'front zip', 'zip front', 'zipper', 'zip model',
+  'zip at bust', 'side zip', 'zip opening'
+];
+
+const NURSING_KEYWORDS = [
+  'nursing', 'breastfeeding', 'breast feeding', 'lactation',
+  'feeding nighty', 'feeding gown', 'maternity nighty', 'maternity wear',
+  'maternity night', 'maternity & nursing', 'nursing dress', 'maternity'
+];
+
+function extractFabricFromTitle(title) {
+  const t = title.toLowerCase();
+  for (const kw of FABRIC_KEYWORDS) {
+    if (t.includes(kw)) return kw.charAt(0).toUpperCase() + kw.slice(1);
+  }
+  return null;
+}
 
 // Cards: SSR inside <ul id="id_all_list">
 // waitForSelector instead of networkidle — analytics pings keep network busy indefinitely
@@ -10,9 +35,68 @@ const SEL = {
   image:   'img.firstimage',
   price:   '[class*="price"], [class*="Price"]',
   rating:  'ul.ratings strong',   // "4.7" — available on listing
-  // review_count only on detail page — use generic scan
-  detail:  { rating: null, review: null },
 };
+
+async function enrichCloviaDetails(page, records) {
+  for (const rec of records) {
+    try {
+      await page.goto(rec.product_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.waitForTimeout(500);
+
+      const details = await page.evaluate(() => {
+        // --- Fabric Type ---
+        // Fabric info is in product description text, e.g., "100% soft & premium cotton fabric"
+        const descDiv = document.querySelector('.new-description');
+        const descText = descDiv?.innerText || '';
+
+        let fabricType = null;
+        // Try to extract from description (e.g., "100% cotton" or "cotton fabric")
+        for (const kw of ['cotton', 'satin', 'silk', 'crepe', 'viscose', 'rayon', 'polyester', 'blend', 'georgette', 'chiffon', 'fleece', 'flannel', 'modal', 'lycra', 'spandex', 'nylon']) {
+          if (descText.toLowerCase().includes(kw)) {
+            fabricType = kw.charAt(0).toUpperCase() + kw.slice(1);
+            break;
+          }
+        }
+
+        // --- Size Chart ---
+        // Clovia shows available sizes but not a detailed chart with measurements
+        const sizeLink = [...document.querySelectorAll('a')].find(a => a.innerText?.toLowerCase().includes('size chart'));
+        let sizeChart = null;
+        if (sizeLink) {
+          const sizesDiv = document.querySelector('.sizesAvail');
+          if (sizesDiv) {
+            const availableSizes = [...sizesDiv.querySelectorAll('[class*="size_li"], li')].map(li => {
+              const text = li.innerText?.trim() || li.textContent?.trim();
+              return text && text.match(/^[A-Z0-9]+$/) ? text : null;
+            }).filter(Boolean);
+
+            if (availableSizes.length > 0) {
+              sizeChart = { available_sizes: availableSizes };
+            }
+          }
+        }
+
+        // --- Nursing signals ---
+        const titleText = (document.querySelector('h1')?.innerText || '').toLowerCase();
+        const fullDescText = (document.body.innerText || '').toLowerCase();
+
+        return { fabricType, sizeChart, titleText, fullDescText };
+      });
+
+      if (details.fabricType) rec.fabric_type = details.fabricType;
+      if (details.sizeChart) rec.size_chart = details.sizeChart;
+
+      const combinedText = details.titleText + '\n' + details.fullDescText;
+      if (FEEDING_ZIP_KEYWORDS.some(kw => combinedText.includes(kw))) {
+        rec.nursing_label = 'Feeding Zip';
+      } else if (NURSING_KEYWORDS.some(kw => combinedText.includes(kw))) {
+        rec.nursing_label = 'Nursing-Friendly';
+      }
+
+    } catch (_) {}
+    await page.waitForTimeout(800 + Math.random() * 400);
+  }
+}
 
 export async function scrapeClovia(page, keyword, collected) {
   let pageNum = 1;
@@ -51,5 +135,13 @@ export async function scrapeClovia(page, keyword, collected) {
     await page.waitForTimeout(600);
   }
 
-  await enrichDetails(page, collected, SEL.detail);
+  // Pre-fill fabric from titles; initialize detail fields
+  for (const rec of collected) {
+    rec.fabric_type   = extractFabricFromTitle(rec.product_title);
+    rec.size_chart    = null;
+    rec.nursing_label = null;
+  }
+
+  // Enrich from detail pages
+  await enrichCloviaDetails(page, collected);
 }

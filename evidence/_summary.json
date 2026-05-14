@@ -1,12 +1,12 @@
 {
-  "startedAt": "2026-05-14T01:22:03.913Z",
+  "startedAt": "2026-05-14T01:37:57.745Z",
   "platforms": [
     {
-      "platform": "flipkart",
+      "platform": "clovia",
       "count": 10,
       "blocked": false
     }
   ],
-  "finishedAt": "2026-05-14T01:22:42.704Z",
+  "finishedAt": "2026-05-14T01:38:31.068Z",
   "total": 10
 }

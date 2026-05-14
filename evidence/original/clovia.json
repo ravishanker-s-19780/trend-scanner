@@ -9,8 +9,12 @@
     "rating": null,
     "review_count": null,
     "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns6534r03-804225.jpg?q=80"
-    ]
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns6534r03-804225.jpg?q=80",
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns6534r03-162439.jpg?q=80"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "cc1d62f70413",
@@ -24,7 +28,10 @@
     "images": [
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1564p03-194692.jpg?q=80",
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1564p03-118453.jpg?q=80"
-    ]
+    ],
+    "fabric_type": "Satin",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "3de625f701f8",
@@ -38,7 +45,10 @@
     "images": [
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-butterfly-button-me-up-shirt-pyjama-in-lilac-100-cotton-174003.jpg?q=80",
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-butterfly-button-me-up-shirt-pyjama-in-lilac-100-cotton-851216.jpg?q=80"
-    ]
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "7c33834f2c31",
@@ -52,7 +62,10 @@
     "images": [
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls0264p12-529337.jpg?q=80",
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls0264p12-223387.jpg?q=80"
-    ]
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "681090f4804d",
@@ -64,8 +77,12 @@
     "rating": null,
     "review_count": null,
     "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-dobby-weave-button-down-shirt-pyjama-set-in-light-pink-cotton-801999.jpg?q=80"
-    ]
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-dobby-weave-button-down-shirt-pyjama-set-in-light-pink-cotton-801999.jpg?q=80",
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-dobby-weave-button-down-shirt-pyjama-set-in-light-pink-cotton-401495.jpg?q=80"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "7cf96b2c91b7",
@@ -77,8 +94,12 @@
     "rating": null,
     "review_count": null,
     "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls5025r15-196154.jpg?q=80"
-    ]
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls5025r15-196154.jpg?q=80",
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls5025r15-195570.jpg?q=80"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "479c506dd000",
@@ -92,7 +113,10 @@
     "images": [
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-feeding-print-me-pretty-long-night-dress-in-light-pink-100-cotton-144200.jpg?q=80",
       "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-feeding-print-me-pretty-long-night-dress-in-light-pink-100-cotton-544573.jpg?q=80"
-    ]
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "fa027c52559b",
@@ -104,8 +128,12 @@
     "rating": null,
     "review_count": null,
     "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-button-down-shirt-pyjama-set-in-light-grey-100-cotton-316556.jpg?q=80"
-    ]
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-button-down-shirt-pyjama-set-in-light-grey-100-cotton-316556.jpg?q=80",
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-button-down-shirt-pyjama-set-in-light-grey-100-cotton-688632.jpg?q=80"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "41addfae67af",
@@ -117,8 +145,12 @@
     "rating": null,
     "review_count": null,
     "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1551p01-975423.jpg?q=80"
-    ]
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1551p01-975423.jpg?q=80",
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1551p01-453218.jpg?q=80"
+    ],
+    "fabric_type": "Rayon",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   },
   {
     "product_id": "5f4540bee0b8",
@@ -130,143 +162,11 @@
     "rating": null,
     "review_count": null,
     "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-long-nighty-in-light-grey-rayon-570086.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "02ba1e58ee28",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Chic Floral Print Short Nighty in Light Pink - Satin",
-    "product_url": "https://www.clovia.com/product/chic-floral-print-short-nighty-in-light-pink-satin-satin-short-nighty/",
-    "price": 882,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1566a22-556732.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "7d7bc0e98fe6",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Floral Print Long Nighty & Robe Set in Light Pink - Satin",
-    "product_url": "https://www.clovia.com/product/long-nighty-robe-set-in-wine-colour-satin-1/",
-    "price": 1199,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1499p22-121266.JPG?q=80",
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1499p22-809076.JPG?q=80"
-    ]
-  },
-  {
-    "product_id": "74650016e8b0",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Leaf Print Button-Down Night Suit in Light Green - Satin",
-    "product_url": "https://www.clovia.com/product/leaf-print-button-down-shirt-pyjama-set-in-light-green-satin/",
-    "price": 859,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-leaf-print-button-down-shirt-pyjama-set-in-light-green-satin-250426.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "1248966ea775",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Sunflower Print Button Down Night Suit in Light Yellow - Rayon",
-    "product_url": "https://www.clovia.com/product/sunflower-print-button-down-shirt-pyjama-set-in-light-yellow-rayon/",
-    "price": 798,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-sunflower-print-button-down-shirt-pyjama-set-in-light-yellow-rayon-800627.jpg?q=80",
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-sunflower-print-button-down-shirt-pyjama-set-in-light-yellow-rayon-235169.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "9349936f02c7",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Satin Short Nighty",
-    "product_url": "https://www.clovia.com/product/lace-on-cups-and-on-hemline-1/",
-    "price": 407,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-lace-on-cups-and-on-hemline-1-460294.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "0a08231bd43d",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Pretty Florals Long Nighty in Beige - Cotton",
-    "product_url": "https://www.clovia.com/product/pretty-florals-long-nighty-in-beige-cotton/",
-    "price": 843,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1459p24-315276.jpg?q=80",
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ns1459p24-610280.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "1994b37c4ad6",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Printed Short Nighty in Black- Cotton Rich",
-    "product_url": "https://www.clovia.com/product/printed-short-nighty-in-black-cotton-rich/",
-    "price": 399,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-printed-short-nighty-in-black-cotton-rich-633634.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "00845584f28c",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Owl Print Button Down Night Suit in Magenta - 100% Cotton",
-    "product_url": "https://www.clovia.com/product/owl-print-button-me-up-shirt-pyjama-set-in-magenta-cotton-rich/",
-    "price": 917,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-owl-print-button-me-up-shirt-pyjama-set-in-magenta-cotton-rich-133331.jpg?q=80",
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-owl-print-button-me-up-shirt-pyjama-set-in-magenta-cotton-rich-671499.jpg?q=80"
-    ]
-  },
-  {
-    "product_id": "362086c3872a",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Floral Print Long Nighty in White - Cotton",
-    "product_url": "https://www.clovia.com/product/floral-print-long-nighty-in-white-cotton/",
-    "price": 999,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-floral-print-long-nighty-in-white-cotton-840193.jpg?q=80",
-      "https://static.clovia.com/static/images/toggleIcon.svg"
-    ]
-  },
-  {
-    "product_id": "cfa0671ca297",
-    "platform": "clovia.com",
-    "keyword": "ladies cotton nighty",
-    "product_title": "Printed Long Nighty in Orange Colour - Cotton",
-    "product_url": "https://www.clovia.com/product/printed-long-nighty-in-orange-cotton/",
-    "price": 999,
-    "rating": null,
-    "review_count": null,
-    "images": [
-      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-printed-long-nighty-in-orange-cotton-109189.jpg?q=80",
-      "https://static.clovia.com/static/images/toggleIcon.svg"
-    ]
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-long-nighty-in-light-grey-rayon-570086.jpg?q=80",
+      "https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-long-nighty-in-light-grey-rayon-600072.jpg?q=80"
+    ],
+    "fabric_type": "Rayon",
+    "size_chart": null,
+    "nursing_label": "Nursing-Friendly"
   }
 ]
