@@ -1184,6 +1184,7 @@ async function loadData() {
 
     return {
       ...t,
+      rank: t.rank || (idx + 1),
       cluster_key: clusterKey,
       images: enriched.map(p => p.image).filter(Boolean),
       min_price: prices.length > 0 ? Math.min(...prices) : 0,
