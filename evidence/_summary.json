@@ -1,12 +1,12 @@
 {
-  "startedAt": "2026-05-14T00:27:15.073Z",
+  "startedAt": "2026-05-14T00:50:29.082Z",
   "platforms": [
     {
-      "platform": "myntra",
-      "count": 5,
+      "platform": "meesho",
+      "count": 10,
       "blocked": false
     }
   ],
-  "finishedAt": "2026-05-14T00:29:05.782Z",
-  "total": 5
+  "finishedAt": "2026-05-14T00:50:34.172Z",
+  "total": 10
 }
