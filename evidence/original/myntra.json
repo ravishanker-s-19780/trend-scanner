@@ -1,67 +1,178 @@
 [
   {
-    "product_id": "8dc10f6f46f7",
+    "product_id": "2e441864eeac",
     "platform": "myntra.com",
-    "keyword": "feeding nighty",
-    "product_title": "Moda Rapido - Women Printed Casual Kurta",
-    "product_url": "https://www.myntra.com/kurtas/moda+rapido/moda-rapido-women-floral-printed-maternity-cotton-anarkali-kurtas/34197335/buy",
-    "price": 439,
-    "rating": 3.9,
-    "review_count": 99,
+    "keyword": "maternity nighty",
+    "product_title": "Secret Wish - Pure Cotton Maternity Nighty",
+    "product_url": "https://www.myntra.com/nightdress/secret+wish/secret-wish-women-pure-cotton-maternity-nighty/32693826/buy",
+    "price": 824,
+    "rating": 4.5,
+    "review_count": 592,
     "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MAY/18/ORKADHPm_7af7fe57c6234977b3c9b31030994a21.jpg"
-    ]
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/FEBRUARY/7/hp7TJ473_923a0e0f257542d2999f62ac51e78cf3.jpg"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": {
+      "rows": [
+        {
+          "size": "S",
+          "brand_size": "S",
+          "chest_cm": "91.4",
+          "waist_cm": "91.4",
+          "length_cm": "12.7",
+          "hip_cm": "101.6",
+          "across_shoulder_(cm)": "35.6"
+        },
+        {
+          "size": "M",
+          "brand_size": "M",
+          "chest_cm": "96.5",
+          "waist_cm": "96.5",
+          "length_cm": "12.7",
+          "hip_cm": "106.7",
+          "across_shoulder_(cm)": "36.8"
+        },
+        {
+          "size": "L",
+          "brand_size": "L",
+          "chest_cm": "101.6",
+          "waist_cm": "101.6",
+          "length_cm": "12.7",
+          "hip_cm": "111.8",
+          "across_shoulder_(cm)": "38.1"
+        },
+        {
+          "size": "XL",
+          "brand_size": "XL",
+          "chest_cm": "106.7",
+          "waist_cm": "106.7",
+          "length_cm": "12.7",
+          "hip_cm": "116.8",
+          "across_shoulder_(cm)": "39.4"
+        },
+        {
+          "size": "XXL",
+          "brand_size": "2XL",
+          "chest_cm": "111.8",
+          "waist_cm": "111.8",
+          "length_cm": "12.7",
+          "hip_cm": "121.9",
+          "across_shoulder_(cm)": "40.6"
+        }
+      ]
+    },
+    "nursing_label": "Nursing-Friendly"
   },
   {
-    "product_id": "508b404526e4",
+    "product_id": "f6338297156c",
     "platform": "myntra.com",
-    "keyword": "feeding nighty",
-    "product_title": "Moda Rapido - Women Printed Casual Kurta",
-    "product_url": "https://www.myntra.com/kurtas/moda+rapido/moda-rapido-women-floral-printed-maternity-cotton-anarkali-kurtas/34197360/buy",
-    "price": 439,
-    "rating": 3.9,
-    "review_count": 138,
+    "keyword": "maternity nighty",
+    "product_title": "Secret Wish - Women Printed Nightdress",
+    "product_url": "https://www.myntra.com/nightdress/secret+wish/secret-wish-women-candy-hosiery-printed-pure-cotton-maternity-nighty/32693812/buy",
+    "price": 874,
+    "rating": 4.5,
+    "review_count": 52,
     "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/MAY/18/XZ7FeVqD_7c69382f711e4f36b46abdde51ac2e1f.jpg"
-    ]
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/FEBRUARY/7/6DPvi6Kb_396d71dc430740d197e078512cbea449.jpg"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": {
+      "rows": [
+        {
+          "size": "S",
+          "brand_size": "S",
+          "chest_cm": "91.4",
+          "waist_cm": "91.4",
+          "length_cm": "12.7",
+          "hip_cm": "101.6",
+          "across_shoulder_(cm)": "35.6"
+        },
+        {
+          "size": "M",
+          "brand_size": "M",
+          "chest_cm": "96.5",
+          "waist_cm": "96.5",
+          "length_cm": "12.7",
+          "hip_cm": "106.7",
+          "across_shoulder_(cm)": "36.8"
+        },
+        {
+          "size": "L",
+          "brand_size": "L",
+          "chest_cm": "101.6",
+          "waist_cm": "101.6",
+          "length_cm": "12.7",
+          "hip_cm": "111.8",
+          "across_shoulder_(cm)": "38.1"
+        },
+        {
+          "size": "XL",
+          "brand_size": "XL",
+          "chest_cm": "106.7",
+          "waist_cm": "106.7",
+          "length_cm": "12.7",
+          "hip_cm": "116.8",
+          "across_shoulder_(cm)": "39.4"
+        },
+        {
+          "size": "XXL",
+          "brand_size": "2XL",
+          "chest_cm": "111.8",
+          "waist_cm": "111.8",
+          "length_cm": "12.7",
+          "hip_cm": "121.9",
+          "across_shoulder_(cm)": "40.6"
+        }
+      ]
+    },
+    "nursing_label": "Nursing-Friendly"
   },
   {
-    "product_id": "993164782256",
+    "product_id": "80bf714d89c0",
     "platform": "myntra.com",
-    "keyword": "feeding nighty",
-    "product_title": "MomsBae - Pure Cotton Feeding Kurta",
-    "product_url": "https://www.myntra.com/kurtas/momsbae/momsbae-shibori-dyed-mandarin-collar-pure-cotton-feeding-maternity-a-line-kurta/33797329/buy",
-    "price": 1199,
+    "keyword": "maternity nighty",
+    "product_title": "Secret Wish - Pure Cotton Kaftan Nightdress",
+    "product_url": "https://www.myntra.com/nightdress/secret+wish/secret-wish-ethnic-motifs-printed-v-neck-pure-cotton-maternity-maxi-kaftan-nightdress/24624252/buy",
+    "price": 1164,
     "rating": 4.4,
-    "review_count": 58,
+    "review_count": 1200,
     "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/APRIL/26/Mjs8RsYp_6c554992b4d64747b35086a21ecd33af.jpg"
-    ]
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/24624252/2023/8/24/1b2f38ae-99b3-430d-abd0-f4c5e6a3b1721692859925803SecretWishPinkPrintedRayonMaternityKaftan1.jpg"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": null
   },
   {
-    "product_id": "7c6fa2f9c235",
+    "product_id": "bdb8d54d30aa",
     "platform": "myntra.com",
-    "keyword": "feeding nighty",
-    "product_title": "Pakiza Enterprises - Pack of 2 Anarkali Kurtas",
-    "product_url": "https://www.myntra.com/kurtas/pakiza+enterprises/pakiza-enterprises-women-pack-of-2-ethnic-motifs-printed-maternity-anarkali-kurtas/37216270/buy",
-    "price": 645,
+    "keyword": "maternity nighty",
+    "product_title": "Secret Wish - Women Printed Maternity Nighty",
+    "product_url": "https://www.myntra.com/nightdress/secret+wish/secret-wish-women-star-printed-pure-cotton-maternity-nighty/32693824/buy",
+    "price": 824,
+    "rating": 4.5,
+    "review_count": 587,
+    "images": [
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/FEBRUARY/7/S3dhevKJ_d22cb7f222c14cc298db27bce68b2f0c.jpg"
+    ],
+    "fabric_type": null,
+    "size_chart": null,
+    "nursing_label": null
+  },
+  {
+    "product_id": "c362f67bafbc",
+    "platform": "myntra.com",
+    "keyword": "maternity nighty",
+    "product_title": "Secret Wish - Women Pure Cotton Nightdress",
+    "product_url": "https://www.myntra.com/nightdress/secret+wish/secret-wish-women-pure-cotton-printed--maternity-nighty/32693819/buy",
+    "price": 824,
     "rating": 4.6,
-    "review_count": 21,
+    "review_count": 31,
     "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/SEPTEMBER/26/4P8pz7X6_b9538503c77c4b34a75eb263e5e22783.jpg"
-    ]
-  },
-  {
-    "product_id": "16d5479b047a",
-    "platform": "myntra.com",
-    "keyword": "feeding nighty",
-    "product_title": "B2F Manufacturing & Designing Kurti - Kurti Floral Print Kurtas",
-    "product_url": "https://www.myntra.com/kurtas/b2f+manufacturing+%26+designing+kurti/b2f-manufacturing--designing-women-kurti-floral-print-maternity-kurtas/34815488/buy",
-    "price": 999,
-    "rating": 4.7,
-    "review_count": 6,
-    "images": [
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/JUNE/9/cB0WDLwN_46f52fb0274e4779a83c60b76ca9242e.jpg"
-    ]
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/FEBRUARY/7/lfmA6H5E_661202844b2b4db0a9e23e725dbd976d.jpg"
+    ],
+    "fabric_type": "Cotton",
+    "size_chart": null,
+    "nursing_label": null
   }
 ]
