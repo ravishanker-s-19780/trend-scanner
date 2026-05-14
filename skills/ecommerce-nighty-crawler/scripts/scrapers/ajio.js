@@ -13,6 +13,16 @@ const NURSING_KEYWORDS = [
   'feeding/maternity', 'maternity wear', 'maternity'
 ];
 
+const FABRIC_KEYWORDS = ['silk', 'satin', 'rayon', 'modal', 'polyester', 'cotton'];
+
+function extractFabricFromTitle(title) {
+  const t = (title || '').toLowerCase();
+  for (const kw of FABRIC_KEYWORDS) {
+    if (t.includes(kw)) return kw.charAt(0).toUpperCase() + kw.slice(1);
+  }
+  return null;
+}
+
 const SEL = {
   card:    'div.item.rilrtl-products-list__item',
   link:    'a',
@@ -98,7 +108,7 @@ export async function scrapeAjio(page, keyword, collected) {
 
   // Pre-fill fabric type, size chart, and nursing label fields
   for (const rec of collected) {
-    rec.fabric_type = null;
+    rec.fabric_type = extractFabricFromTitle(rec.product_title);
     rec.size_chart = null;
     rec.nursing_label = null;
   }

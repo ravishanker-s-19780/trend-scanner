@@ -4,6 +4,7 @@ Rebuild merged data by properly joining original + image_features
 """
 import json
 import os
+import re
 from pathlib import Path
 from collections import defaultdict
 
@@ -41,10 +42,30 @@ def has_plus_sizes(size_chart):
             return any(r.get('size', '') in plus_size_keywords for r in rows)
     return False
 
-def resolve_fabric(fabric_type, cloth_texture):
-    """Prefer fabric_type from original; fall back to cloth_texture from garment features"""
+def extract_fabric_from_title(title):
+    """Extract fabric from product title, ordered by specificity (silk beats cotton)."""
+    if not title:
+        return None
+    t = title.lower()
+    if re.search(r'\bsilk\b', t):
+        return 'silk'
+    if re.search(r'\bsatin\b', t):
+        return 'satin'
+    if re.search(r'\brayon\b|\bmodal\b', t):
+        return 'rayon'
+    if re.search(r'\bpolyester\b|\bpoly\b', t):
+        return 'polyester'
+    if re.search(r'\bcotton\b', t):
+        return 'cotton'
+    return None
+
+def resolve_fabric(fabric_type, cloth_texture, title=None):
+    """Priority: fabric_type (PDP) > title_extracted > cloth_texture (vision) > None"""
     if fabric_type:
         return fabric_type
+    title_fabric = extract_fabric_from_title(title)
+    if title_fabric:
+        return title_fabric
     if cloth_texture:
         return cloth_texture
     return None
@@ -137,7 +158,8 @@ for platform in platforms:
         merged['has_plus_sizes'] = has_plus_sizes(merged.get('size_chart'))
         merged['fabric_resolved'] = resolve_fabric(
             merged.get('fabric_type'),
-            merged.get('cloth_texture')
+            merged.get('cloth_texture'),
+            merged.get('title') or merged.get('product_title')
         )
 
         # Skip incomplete records (missing critical fields)
