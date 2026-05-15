@@ -200,6 +200,24 @@
     color: #888;
   }
 
+  .demand-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #10b981;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .demand-signal {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
   @media (max-width: 480px) {
     main { grid-template-columns: 1fr 1fr; gap: 10px; }
     h1 { font-size: 1.1rem; }
@@ -221,7 +239,7 @@
 <header>
   <div class="header-top">
     <h1>Design Catalog</h1>
-    <span class="subtitle">42 designs · tap to share your preference</span>
+    <span class="subtitle">14 designs · tap to share your preference</span>
     <span class="summary" id="summary">0 liked · 0 disliked</span>
   </div>
   <div class="filters">
@@ -235,7 +253,7 @@
 
 <main id="grid">
 
-  <div class="card" data-key="plain|round|half|plain" data-vote="none">
+  <div class="card" data-key="plain|half" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/come4try-Nightwear-Nighty-Shorts-Lingerie/dp/B0GH8V35WQ/ref=sr_1_6?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-6" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/61BKq6tmxfL._AC_UL320_.jpg" alt="come4try Satin 6 Piece Nightwear Set, Includes Robe, Nighty, Top, Shorts, Lingerie Set, Solid Style"
@@ -253,114 +271,30 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Plain · Round Neck · Half Sleeve · Plain Front</div>
-      <div class="price">₹542 avg · 85 products</div>
-      <div class="colors"><span class="color-dot" style="background:white" title="white"></span><span class="color-dot" style="background:green" title="green"></span></div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Plain · Half Sleeve · Round Neck · Plain Front</div>
+        <span class="demand-badge">Blockbuster</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 55,451 reviews</div>
+      <div class="price">₹558 avg · 88 products</div>
+      <div class="colors"><span class="color-dot" style="background:white" title="white"></span><span class="color-dot" style="background:blue" title="blue"></span><span class="color-dot" style="background:pink" title="pink"></span><span class="color-dot" style="background:green" title="green"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain|round|half|plain', 'like', this)">
+        <button class="btn-like" onclick="vote('plain|half', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('plain|round|half|plain', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('plain|half', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="striped|v-neck|three-quarter|plain" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Anvesha-Sleeveless-Lightweight-Comfortable-Sleepwear/dp/B0GHDY6CG1/ref=sr_1_48?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-48" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61k+Um-fLKL._AC_UL320_.jpg" alt="Anvesha Beauty Silk Satin Night Dress for Women with Lace Trim | Soft V Neck Sleeveless Nighty Slip | Lightweight Comforta..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/G4Girl-Nighty-Womens-Girls-1007BEIGE-PINK/dp/B0CPWM8YHB/ref=sr_1_53?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-53" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/719YU8cFslL._AC_UL320_.jpg" alt="G4Girl Nighty for Womens/Girls (Combo of 2)"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYnRmOjMwMDcwMTg3NTkxNTQzMjo6MDo6&url=%2FPITINAN-Womens-Cotton-Jaipuri-Nighty%2Fdp%2FB0FFT15TL1%2Fref%3Dsr_1_58_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-58-spons%26aref%3DZu3QKsxj7p%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9idGY%26psc%3D1&aref=Zu3QKsxj7p&sp_cr=ZAZ" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61hp0sj0yoL._AC_UL320_.jpg" alt="PITINAN Women's Cotton Jaipuri Nighty Gown – Pack of 2 Rajasthani Print Night Dresses | Maxi Sleepwear with..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Striped · V-neck Neck · Three-quarter Sleeve · Plain Front</div>
-      <div class="price">₹540 avg · 75 products</div>
-      <div class="colors"><span class="color-dot" style="background:navy" title="navy"></span></div>
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('striped|v-neck|three-quarter|plain', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('striped|v-neck|three-quarter|plain', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|round|half|lace" data-vote="none">
+  <div class="card" data-key="floral|half" data-vote="none">
     <div class="photos">
           <a href="https://www.ajio.com/ichaa-women-floral-print-nightie-with-lace-details/p/702302063_peach?" target="_blank" rel="noopener">
             <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/giFf/69ff678814d0c21719ce1978/ichaa_peach_women_floral_print_nightie_with_lace_details.jpg" alt="Women Floral Print Nightie with Lace Details"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a>
-          <a href="https://www.amazon.in/G4Girl-Womens-Geometric-Kaftan-Nighty/dp/B097RS8ND1/ref=sr_1_49?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-49" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71JhmX8oXZL._AC_UL320_.jpg" alt="G4Girl Women's Silk Geometric Print Maxi Nightgown"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/Womens-Sleeve-Comfortable-Sleepwear-Nightwear/dp/B0G5B39NT5/ref=sr_1_54?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-54" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/516ecliKFnL._AC_UL320_.jpg" alt="Women's Satin Maxi Night Dress Full Sleeve Gown Comfortable & Fancy Sleepwear for Ladies Ankle Length Nightwear 2pcs Set w..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Floral · Round Neck · Half Sleeve · Lace Front</div>
-      <div class="price">₹536 avg · 76 products</div>
-      <div class="colors"><span class="color-dot" style="background:peach" title="peach"></span><span class="color-dot" style="background:cream" title="cream"></span></div>
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|round|half|lace', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral|round|half|lace', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="geometric|round|half|print" data-vote="none">
-    <div class="photos">
-          <a href="https://www.ajio.com/rio-women-printed-nightie/p/443099321_mustard?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/5CYP/69e729d4fcb5bb61d26cfa29/rio_mustard_women_printed_nightie.jpg" alt="Women Printed Nightie"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.ajio.com/buythattrendz-women-printed-round-neck-nightie/p/701558543_navy?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root/20250509/chCK/681e32ba55340d4b4f278ffa/buythattrendz_navy_blue_women_printed_round-neck_nightie.jpg" alt="Women Printed Round-Neck Nightie"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg" alt="Vlazom Women’s Cotton Maxi Nighty – Pack of 2 Printed Ankle-Length Night Dresses | Free Size Gown for Women | Soft & Breat..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Geometric · Round Neck · Half Sleeve · Print Front</div>
-      <div class="price">₹619 avg · 88 products</div>
-      <div class="colors"><span class="color-dot" style="background:mustard yellow" title="mustard yellow"></span><span class="color-dot" style="background:navy blue" title="navy blue"></span><span class="color-dot" style="background:multicolor" title="multicolor"></span><span class="color-dot" style="background:blue" title="blue"></span><span class="color-dot" style="background:green" title="green"></span></div>
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('geometric|round|half|print', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('geometric|round|half|print', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|round|half|print" data-vote="none">
-    <div class="photos">
           <a href="https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443082566_ltblue?" target="_blank" rel="noopener">
             <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250813/Gxsl/689c6a1b3d468c61ab68f5e6/rio_blue_women_floral_print_nightie_with_insert_pocket.jpg" alt="Women Floral Print Nightie with Insert Pocket"
               loading="lazy"
@@ -370,27 +304,26 @@
             <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260220/2ZZE/6998110ecbfa0d56082396e1/rio_green_women_floral_print_nightie_with_insert_pocket.jpg" alt="Women Floral Print Nightie with Insert Pocket"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDg2MDkxNTY2NzYzMjo6MDo6&url=%2FBahumaan-Cotton-Nighty-Stylish-XXL-Bust-48%2Fdp%2FB0FNR61FVT%2Fref%3Dsr_1_1_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-1-spons%26aref%3DEpM6OI4Njn%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=EpM6OI4Njn&sp_cr=ZAZ" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71oY1ehC+IL._AC_UL320_.jpg" alt="Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Women Nightwear with Pocket | Cotton Nighty for Wom..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Floral · Round Neck · Half Sleeve · Print Front</div>
-      <div class="price">₹611 avg · 93 products</div>
-      <div class="colors"><span class="color-dot" style="background:light blue" title="light blue"></span><span class="color-dot" style="background:light green" title="light green"></span><span class="color-dot" style="background:multicolor" title="multicolor"></span><span class="color-dot" style="background:pink" title="pink"></span><span class="color-dot" style="background:blue" title="blue"></span></div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Floral · Half Sleeve · Round Neck · Print Front</div>
+        <span class="demand-badge">Blockbuster</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 297,026 reviews</div>
+      <div class="price">₹577 avg · 169 products</div>
+      <div class="colors"><span class="color-dot" style="background:peach" title="peach"></span><span class="color-dot" style="background:light blue" title="light blue"></span><span class="color-dot" style="background:light green" title="light green"></span><span class="color-dot" style="background:multicolor" title="multicolor"></span><span class="color-dot" style="background:pink" title="pink"></span><span class="color-dot" style="background:cream" title="cream"></span><span class="color-dot" style="background:blue" title="blue"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|round|half|print', 'like', this)">
+        <button class="btn-like" onclick="vote('floral|half', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('floral|round|half|print', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('floral|half', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="striped|round|three-quarter|plain" data-vote="none">
+  <div class="card" data-key="striped|three-quarter" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMTA2NDkxOTE0MjEzMjo6MTo6&url=%2FAottori-Printed-Breathable-Sleepwear-Nightdress%2Fdp%2FB0GXG4H1GJ%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0GXG4H1GJ%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-2-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DxJbxp7oB3V%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=xJbxp7oB3V&sp_cr=ZAZ" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/51pP8mWt8pL._AC_UL320_.jpg" alt="Aottori Women’s Plus Size Cotton Nighty, Printed Full Length Maxi Night Gown, Soft Breathable Sleepwear Nig..."
@@ -408,51 +341,89 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Striped · Round Neck · Three-quarter Sleeve · Plain Front</div>
-      <div class="price">₹526 avg · 8 products</div>
-      <div class="colors"><span class="color-dot" style="background:navy blue" title="navy blue"></span></div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Striped · Three-quarter Sleeve · V-neck Neck · Plain Front</div>
+        <span class="demand-badge">Blockbuster</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 97,511 reviews</div>
+      <div class="price">₹539 avg · 83 products</div>
+      <div class="colors"><span class="color-dot" style="background:navy blue" title="navy blue"></span><span class="color-dot" style="background:navy" title="navy"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('striped|round|three-quarter|plain', 'like', this)">
+        <button class="btn-like" onclick="vote('striped|three-quarter', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('striped|round|three-quarter|plain', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('striped|three-quarter', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="printed||half|" data-vote="none">
+  <div class="card" data-key="geometric|half" data-vote="none">
     <div class="photos">
-          <a href="https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_9?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-9" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg" alt="MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi Nighty Gown, Short Sleeve Cotton Nightdress, Soft Breathable An..."
+          <a href="https://www.ajio.com/rio-women-printed-nightie/p/443099321_mustard?" target="_blank" rel="noopener">
+            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/5CYP/69e729d4fcb5bb61d26cfa29/rio_mustard_women_printed_nightie.jpg" alt="Women Printed Nightie"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a>
-          <a href="https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSXJRTG1/ref=sr_1_43?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-43" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71dwp7rNGrL._AC_UL320_.jpg" alt="MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi Nighty Gown, Short Sleeve Cotton Nightdress, Soft Breathable An..."
+          <a href="https://www.ajio.com/buythattrendz-women-printed-round-neck-nightie/p/701558543_navy?" target="_blank" rel="noopener">
+            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root/20250509/chCK/681e32ba55340d4b4f278ffa/buythattrendz_navy_blue_women_printed_round-neck_nightie.jpg" alt="Women Printed Round-Neck Nightie"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a>
-          <a href="https://www.amazon.in/G4Girl-Embroidery-Sleeves-Breathable-Nightwear/dp/B0FL9JVF19/ref=sr_1_60?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81+Eg5gR04L._AC_UL320_.jpg" alt="G4Girl Women's Cotton Tiger Print Nighty with Embroidery | Free Size Fits M to XXL | Half Sleeves | Soft & Breathable Nigh..."
+          <a href="https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7" target="_blank" rel="noopener">
+            <img src="https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg" alt="Vlazom Women’s Cotton Maxi Nighty – Pack of 2 Printed Ankle-Length Night Dresses | Free Size Gown for Women | Soft & Breat..."
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Printed ·  Neck · Half Sleeve ·  Front</div>
-      <div class="price">₹545 avg · 4 products</div>
-      
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Geometric · Half Sleeve · Round Neck · Print Front</div>
+        <span class="demand-badge">Blockbuster</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 118,372 reviews</div>
+      <div class="price">₹619 avg · 88 products</div>
+      <div class="colors"><span class="color-dot" style="background:mustard yellow" title="mustard yellow"></span><span class="color-dot" style="background:navy blue" title="navy blue"></span><span class="color-dot" style="background:multicolor" title="multicolor"></span><span class="color-dot" style="background:blue" title="blue"></span><span class="color-dot" style="background:green" title="green"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed||half|', 'like', this)">
+        <button class="btn-like" onclick="vote('geometric|half', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('printed||half|', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('geometric|half', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="floral|v-neck|sleeveless|lace" data-vote="none">
+  <div class="card" data-key="|half" data-vote="none">
+    <div class="photos">
+          <a href="https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_6?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-6" target="_blank" rel="noopener">
+            <img src="https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg" alt="MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi Nighty Gown, Short Sleeve Cotton Nightdress, Soft Breathable An..."
+              loading="lazy"
+              onerror="this.parentElement.style.display='none'">
+          </a>
+          <a href="https://www.amazon.in/Kuruti-Sheets-Sleeves-Jaipuri-Printed/dp/B0DRTF529Z/ref=sr_1_7?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-7" target="_blank" rel="noopener">
+            <img src="https://m.media-amazon.com/images/I/716e3Z8mlGL._AC_UL320_.jpg" alt="Kuruti B Sheets Nighty for Women Cotton Combo (Pack of 2) Nighty Gown Round Neck Short Sleeves Jaipuri Maxi Gown Printed F..."
+              loading="lazy"
+              onerror="this.parentElement.style.display='none'">
+          </a></div>
+    <div class="card-body">
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label"> · Half Sleeve · Round Neck · Print Front</div>
+        <span class="demand-badge">Emerging</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 602 reviews</div>
+      <div class="price">₹479 avg · 2 products</div>
+      
+      <div class="vote-bar">
+        <button class="btn-like" onclick="vote('|half', 'like', this)">
+          <span>👍</span> Like
+        </button>
+        <button class="btn-dislike" onclick="vote('|half', 'dislike', this)">
+          <span>👎</span> Dislike
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card" data-key="floral|sleeveless" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDczNjM0NTM4NDAzMjo6MDo6&url=%2FEliteZilla-Nighty-Alpine-Stylish-Cotton%2Fdp%2FB0DFV5NTHR%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0DFV5NTHR%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-1-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DlAgFOfktCF%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=lAgFOfktCF&sp_cr=ZAZ" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/71+eqrP0q8L._AC_UL320_.jpg" alt="EliteZilla Nighty| Nighty for Women| Alpine Nighty for Women| Nighty for Women Stylish| Nighty for Women Co..."
@@ -470,41 +441,54 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Floral · V-neck Neck · Sleeveless Sleeve · Lace Front</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Floral · Sleeveless Sleeve · V-neck Neck · Lace Front</div>
+        <span class="demand-badge">High</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 14,419 reviews</div>
       <div class="price">₹567 avg · 8 products</div>
       <div class="colors"><span class="color-dot" style="background:cream" title="cream"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|v-neck|sleeveless|lace', 'like', this)">
+        <button class="btn-like" onclick="vote('floral|sleeveless', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('floral|v-neck|sleeveless|lace', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('floral|sleeveless', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="plain|round|sleeveless|plain" data-vote="none">
+  <div class="card" data-key="plain|sleeveless" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Turkish/dp/B0C1K4LR4W/ref=sr_1_42?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-42" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/81ELDkNuvCL._AC_UL320_.jpg" alt="G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gown | Nighty | Nightdress | Maxi | Sleepwear | Jaipuri Nighty | ..."
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
+          </a>
+          <a href="https://www.shyaway.com/shyaway-camellia-orange-solid-sleeveless-nightwear-capri-set/" target="_blank" rel="noopener">
+            <img src="https://shyaway.static.n7.io/media/catalog/product/s/h/shycp002-camellia.jpg?aio=w-243;h-323;" alt="Shyaway Camellia Orange Solid Sleeveless Nightwear Capri Set"
+              loading="lazy"
+              onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Plain · Round Neck · Sleeveless Sleeve · Plain Front</div>
-      <div class="price">₹408 avg · 1 products</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Plain · Sleeveless Sleeve · Round Neck · Plain Front</div>
+        <span class="demand-badge">Emerging</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 669 reviews</div>
+      <div class="price">₹529 avg · 2 products</div>
       <div class="colors"><span class="color-dot" style="background:white" title="white"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain|round|sleeveless|plain', 'like', this)">
+        <button class="btn-like" onclick="vote('plain|sleeveless', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('plain|round|sleeveless|plain', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('plain|sleeveless', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="striped|round|half|plain" data-vote="none">
+  <div class="card" data-key="striped|half" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/FlyNery-Satin-Nighty-Women-Comfortable/dp/B0FTVJWC93/ref=sr_1_44?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-44" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/41fdOlu5TpL._AC_UL320_.jpg" alt="FlyNery Nighty for Women Stylish - Ladies Night Dress Robe, Stylish Knee Length Nighty Soft Satin Nightwear Gown with Lace..."
@@ -512,454 +496,79 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Striped · Round Neck · Half Sleeve · Plain Front</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Striped · Half Sleeve · Round Neck · Plain Front</div>
+        <span class="demand-badge">Unproven</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 12 reviews</div>
       <div class="price">₹299 avg · 1 products</div>
       <div class="colors"><span class="color-dot" style="background:blue" title="blue"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('striped|round|half|plain', 'like', this)">
+        <button class="btn-like" onclick="vote('striped|half', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('striped|round|half|plain', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('striped|half', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="printed|round|half|" data-vote="none">
+  <div class="card" data-key="floral|" data-vote="none">
     <div class="photos">
-          <a href="https://www.amazon.in/Kuruti-Sheets-Sleeves-Jaipuri-Printed/dp/B0DRTF529Z/ref=sr_1_12?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-12" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/716e3Z8mlGL._AC_UL320_.jpg" alt="Kuruti B Sheets Nighty for Women Cotton Combo (Pack of 2) Nighty Gown Round Neck Short Sleeves Jaipuri Maxi Gown Printed F..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Printed · Round Neck · Half Sleeve ·  Front</div>
-      <div class="price">₹499 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed|round|half|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('printed|round|half|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="printed|round|half|button" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Kuruti-Sheets-Printed-Comfortable-Sleepwear/dp/B0G5ZK1NR8/ref=sr_1_52?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-52" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71fkxTgQa1L._AC_UL320_.jpg" alt="Kuruti B Sheets Cotton Stylish Nighty for Women Full Length 2 Button Round Neck Nightdress Short Sleevess Printed Night Gown"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Printed · Round Neck · Half Sleeve · Button Front</div>
-      <div class="price">₹295 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed|round|half|button', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('printed|round|half|button', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="|round||button" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/YAZIA-Womens-Hosiery-Nightwear-Sleepwear/dp/B0CHS26WGZ/ref=sr_1_58?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81TEA6WE7RL._AC_UL320_.jpg" alt="YAZIA Women's Soft Hosiery Cotton Maxi Round Neck Front Button Full Length Nightwear Night Gown Nighty Sleepwear for Ladies"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label"> · Round Neck ·  Sleeve · Button Front</div>
-      <div class="price">₹399 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('|round||button', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('|round||button', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|round|sleeveless|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Vlazom-Womens-Cotton-Short-Nighty/dp/B0GNKCGD3S/ref=sr_1_83?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81ypanHdgdL._AC_UL320_.jpg" alt="Vlazom Women’s Cotton Short Nighty – Free Size Floral Sleeveless Nightdress with Round Neck, Soft Breathable Knee-Length S..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Floral · Round Neck · Sleeveless Sleeve ·  Front</div>
-      <div class="price">₹399 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|round|sleeveless|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral|round|sleeveless|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|||" data-vote="none">
-    <div class="photos">
-          <a href="https://www.ajio.com/ichaa-women-floral-print-nightie-with-lace-details/p/702302063_peach?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/giFf/69ff678814d0c21719ce1978/ichaa_peach_women_floral_print_nightie_with_lace_details.jpg" alt="Women Floral Print Nightie with Lace Details"
+          <a href="https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443105202_green?" target="_blank" rel="noopener">
+            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260403/VI8Y/69cfad5e9e784a25d5b9ad1e/rio_green_%26_white_women_floral_print_cotton_nightie.jpg" alt="Women Floral Print Cotton Nightie"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a>
-          <a href="https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443082566_ltblue?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250813/Gxsl/689c6a1b3d468c61ab68f5e6/rio_blue_women_floral_print_nightie_with_insert_pocket.jpg" alt="Women Floral Print Nightie with Insert Pocket"
+          <a href="https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443099325_grey?" target="_blank" rel="noopener">
+            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/w2lg/69e72a03fcb5bb61d26cfb8e/rio_grey_women_floral_print_cotton_nightie.jpg" alt="Women Floral Print Cotton Nightie"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a>
-          <a href="https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443099322_ltgreen?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260220/2ZZE/6998110ecbfa0d56082396e1/rio_green_women_floral_print_nightie_with_insert_pocket.jpg" alt="Women Floral Print Nightie with Insert Pocket"
+          <a href="https://www.ajio.com/sweet-dreams-women-cotton-floral-nighti/p/702648612_red?" target="_blank" rel="noopener">
+            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251222/uUmx/69492daf239b37265a9335bf/sweet_dreams_tomato_women_cotton_floral_nighti.jpg" alt="Women Cotton Floral Nighti"
               loading="lazy"
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Floral ·  Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹746 avg · 69 products</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Floral ·  Sleeve · Print Front</div>
+        <span class="demand-badge">Solid</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 1,509 reviews</div>
+      <div class="price">₹870 avg · 22 products</div>
       
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|||', 'like', this)">
+        <button class="btn-like" onclick="vote('floral|', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('floral|||', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('floral|', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="printed|||" data-vote="none">
-    <div class="photos">
-          <a href="https://www.ajio.com/rio-women-printed-nightie/p/443099321_mustard?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/5CYP/69e729d4fcb5bb61d26cfa29/rio_mustard_women_printed_nightie.jpg" alt="Women Printed Nightie"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg" alt="Vlazom Women’s Cotton Maxi Nighty – Pack of 2 Printed Ankle-Length Night Dresses | Free Size Gown for Women | Soft & Breat..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/PNAEONG-Womens-Cotton-Printed-Nighty/dp/B0G8LCNRDQ/ref=sr_1_8?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-8" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71e8Mx94cfS._AC_UL320_.jpg" alt="PNAEONG Women's Cotton Printed Nighty Night Gown Maxi Free Size (Pack of 2)"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Printed ·  Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹832 avg · 110 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed|||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('printed|||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|v-neck||" data-vote="none">
+  <div class="card" data-key="abstract|half" data-vote="none">
     <div class="photos"><div class="no-photo">No photo</div></div>
     <div class="card-body">
-      <div class="label">Floral · V-neck Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹396 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|v-neck||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral|v-neck||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Abstract · Half Sleeve · Round Neck · Print Front</div>
+        <span class="demand-badge">Unproven</span>
       </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|||button" data-vote="none">
-    <div class="photos">
-          <a href="https://www.clovia.com/product/sunflower-print-button-down-shirt-pyjama-set-in-light-yellow-rayon/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-sunflower-print-button-down-shirt-pyjama-set-in-light-yellow-rayon-800627.jpg?q=80" alt="Sunflower Print Button Down Night Suit in Light Yellow - Rayon"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.clovia.com/product/pretty-florals-button-down-shirt-pyjama-set-in-light-grey-100-cotton/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-pretty-florals-button-down-shirt-pyjama-set-in-light-grey-100-cotton-316556.jpg?q=80" alt="Pretty Florals Button Down Night Suit in Light Grey - 100% Cotton"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Floral ·  Neck ·  Sleeve · Button Front</div>
-      <div class="price">₹829 avg · 3 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|||button', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral|||button', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="embroidered|||" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Womens/dp/B0C1KKGCVP/ref=sr_1_28?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-28" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81uhZqplcoL._AC_UL320_.jpg" alt="G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gown | Nighty | Nightdress | Maxi | Sleepwear | Jaipuri Nighty | ..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Womens/dp/B0BXJKQLK3/ref=sr_1_34?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-34" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81eQ-YmkXoL._AC_UL320_.jpg" alt="G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gown | Nighty | Nightdress | Maxi | Sleepwear | Jaipuri Nighty | ..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/DIAMO-Embroidery-Nightdress-Sleepwear-Adjustable/dp/B0F5JWTC3M/ref=sr_1_36?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-36" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81xcYmfqRYL._AC_UL320_.jpg" alt="DIAMO Pure Cotton Embroidery Nighty for Women, Night Gown for Woman, Cotton Nighty for Women, Maxi Night Gown Nighty with ..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Embroidered ·  Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹791 avg · 14 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('embroidered|||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('embroidered|||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="|v-neck||" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/come4try-Nighty-Nightwear-V-Neck-Length/dp/B0GHN7ZCJQ/ref=sr_1_38?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-38" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/51brOkAhBTL._AC_UL320_.jpg" alt="come4try Women Nighty with Robe,Satin Nightwear Set, V-Neck Lace Trim, Floor Length, 2 Pieces"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/Deeva-Collections-Luxurious-Loungewear-Honeymoon/dp/B0GHS92BNB/ref=sr_1_46?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-46" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/71F8Rcyez3L._AC_UL320_.jpg" alt="Deeva Collections Women's Luxurious Satin V-Neck Maxi Nighty | Soft Silky Lace Night Gown for Sleep & Loungewear | Sexy Ni..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label"> · V-neck Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹354 avg · 2 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('|v-neck||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('|v-neck||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="|v-neck|sleeveless|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Anvesha-Sleeveless-Lightweight-Comfortable-Sleepwear/dp/B0GHDY6CG1/ref=sr_1_48?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-48" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61k+Um-fLKL._AC_UL320_.jpg" alt="Anvesha Beauty Silk Satin Night Dress for Women with Lace Trim | Soft V Neck Sleeveless Nighty Slip | Lightweight Comforta..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label"> · V-neck Neck · Sleeveless Sleeve ·  Front</div>
-      <div class="price">₹259 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('|v-neck|sleeveless|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('|v-neck|sleeveless|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral||sleeveless|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Bejods-Collection-Sleeveless-Printed-Breathable/dp/B0GRR2TBDH/ref=sr_1_49?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/9170WP35ANL._AC_UL320_.jpg" alt="Bejod's Collection Sleeveless Pure Cotton Nighty Maxi for Women | Full Length Floral Printed Cotton Nighty Maxi | Soft & B..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Floral ·  Neck · Sleeveless Sleeve ·  Front</div>
-      <div class="price">₹499 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral||sleeveless|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral||sleeveless|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="printed|round||" data-vote="none">
-    <div class="photos">
-          <a href="https://www.ajio.com/buythattrendz-women-printed-round-neck-nightie/p/701558543_navy?" target="_blank" rel="noopener">
-            <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root/20250509/chCK/681e32ba55340d4b4f278ffa/buythattrendz_navy_blue_women_printed_round-neck_nightie.jpg" alt="Women Printed Round-Neck Nightie"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Printed · Round Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹513 avg · 7 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed|round||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('printed|round||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="plain|||" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/come4try-Nightwear-Nighty-Shorts-Lingerie/dp/B0GH8V35WQ/ref=sr_1_6?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-6" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61BKq6tmxfL._AC_UL320_.jpg" alt="come4try Satin 6 Piece Nightwear Set, Includes Robe, Nighty, Top, Shorts, Lingerie Set, Solid Style"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/CIERGE-Womens-Cotton-Nighty-NIGHTY_Multicolored_Free/dp/B08JWS2KLB/ref=sr_1_56?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-56" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/714tVphy80L._AC_UL320_.jpg" alt="CIERGE Women's Cotton Lace Solid Color Nighty (Pack of 2)"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.amazon.in/AV2-Womens-Satin-Solid-Nighty/dp/B08P9TZJ78/ref=sr_1_62?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/81SWSOcoXoL._AC_UL320_.jpg" alt="AV2 Women's Satin Solid Knee Length Nighty with Robe"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Plain ·  Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹554 avg · 5 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain|||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('plain|||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="||full|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Womens-Sleeve-Comfortable-Sleepwear-Nightwear/dp/B0G5B39NT5/ref=sr_1_54?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-54" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/516ecliKFnL._AC_UL320_.jpg" alt="Women's Satin Maxi Night Dress Full Sleeve Gown Comfortable & Fancy Sleepwear for Ladies Ankle Length Nightwear 2pcs Set w..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label"> ·  Neck · Full Sleeve ·  Front</div>
-      <div class="price">₹413 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('||full|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('||full|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|v-neck|3/4|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Womens-Floral-Nightdress-Sleepwear-Comfortable/dp/B0GL8QG5CF/ref=sr_1_74?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/51TkaTAwt4L._AC_UL320_.jpg" alt="Women’s Floral Print Nighty Maxi Length Nightdress | Soft Sarina Fabric Sleepwear | 3/4 Sleeve V-Neck Comfortable Long Nig..."
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Floral · V-neck Neck · 3/4 Sleeve ·  Front</div>
-      <div class="price">₹299 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|v-neck|3/4|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral|v-neck|3/4|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="plain||half|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.shyaway.com/shyaway-pink-blue-solid-half-sleeve-shorts-set/" target="_blank" rel="noopener">
-            <img src="https://shyaway.static.n7.io/media/catalog/product/s/h/shyss020-rosesharon.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96" alt="Shyaway Pink Blue Solid Half Sleeve Shorts Set"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Plain ·  Neck · Half Sleeve ·  Front</div>
-      <div class="price">₹599 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain||half|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('plain||half|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="printed|v-neck||" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label">Printed · V-neck Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹529 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed|v-neck||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('printed|v-neck||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="abstract|round|half|print" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label">Abstract · Round Neck · Half Sleeve · Print Front</div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 7 reviews</div>
       <div class="price">₹743 avg · 3 products</div>
       <div class="colors"><span class="color-dot" style="background:white" title="white"></span><span class="color-dot" style="background:pink" title="pink"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('abstract|round|half|print', 'like', this)">
+        <button class="btn-like" onclick="vote('abstract|half', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('abstract|round|half|print', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('abstract|half', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="floral|round|three-quarter|print" data-vote="none">
+  <div class="card" data-key="floral|three-quarter" data-vote="none">
     <div class="photos">
           <a href="https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?" target="_blank" rel="noopener">
             <img src="https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg" alt="Women Floral Print Nightgown"
@@ -967,121 +576,24 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Floral · Round Neck · Three-quarter Sleeve · Print Front</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Floral · Three-quarter Sleeve · Round Neck · Print Front</div>
+        <span class="demand-badge">Unproven</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 4 reviews</div>
       <div class="price">₹658 avg · 1 products</div>
       <div class="colors"><span class="color-dot" style="background:mustard yellow" title="mustard yellow"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|round|three-quarter|print', 'like', this)">
+        <button class="btn-like" onclick="vote('floral|three-quarter', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('floral|round|three-quarter|print', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('floral|three-quarter', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="floral|round||" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label">Floral · Round Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹798 avg · 3 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|round||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral|round||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="|v-neck|full|button" data-vote="none">
-    <div class="photos">
-          <a href="https://www.amazon.in/Vlazom-Womens-Cotton-Rajasthani-Jaipuri/dp/B0FG87RJRV/ref=sr_1_50?dib=eyJ2IjoiMSJ9.whEEF8HSSed2ylt84ZLYjCkLU5RZWT-hva_CEtzbkopDWR2Ks59K-PnoRZXV4hQm9O8WlqPj5qf4yhkFNd3Y0Z_5NDjZqoqusO87iS1GEY7__5bO1tZ1zZckRtAdCEkKMNsgqq3BJppR0O0C3rqy8JLhpg3tmLZ8jrbjE00N_Je-CJ8RRfqwU8S7NHYhp7pOiXWQ1-QNm6S5yWsjZIhzOGQoSinb4Q03iB-DUbcmvZCC7ISOFE1mDe7MrESmCdiVskF3vV3powCwHOM6XRLkvJEHr2ETr7d3CNM0Uhk8okg.oyrhwzxlA9NTlZMRssRYcoiramwNHZJqKA6NHw89RZw&dib_tag=se&keywords=ladies+nighty&qid=1778346443&s=apparel" target="_blank" rel="noopener">
-            <img src="https://m.media-amazon.com/images/I/61UtGx37qhL._AC_UL320_.jpg" alt="Vlazom Women's Nightgowns V Neck with Button Placket Sleep Dress Long Sleeve Soft Nightdress Sleepwear Loungewear S-XXL"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label"> · V-neck Neck · Full Sleeve · Button Front</div>
-      <div class="price">₹599 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('|v-neck|full|button', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('|v-neck|full|button', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="|round||" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label"> · Round Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹651 avg · 2 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('|round||', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('|round||', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral||half|" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label">Floral ·  Neck · Half Sleeve ·  Front</div>
-      <div class="price">₹710 avg · 2 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral||half|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('floral||half|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="plain|round|half|lace" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label">Plain · Round Neck · Half Sleeve · Lace Front</div>
-      <div class="price">₹1099 avg · 1 products</div>
-      <div class="colors"><span class="color-dot" style="background:blue" title="blue"></span></div>
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain|round|half|lace', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('plain|round|half|lace', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="plain|round|half|embroidery" data-vote="none">
-    <div class="photos"><div class="no-photo">No photo</div></div>
-    <div class="card-body">
-      <div class="label">Plain · Round Neck · Half Sleeve · Embroidery Front</div>
-      <div class="price">₹1349 avg · 1 products</div>
-      <div class="colors"><span class="color-dot" style="background:pink" title="pink"></span></div>
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain|round|half|embroidery', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('plain|round|half|embroidery', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="geometric|round|full|embroidery" data-vote="none">
+  <div class="card" data-key="geometric|full" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDk2NzcxOTUyOTAzMjo6MDo6&url=%2FNIHSAMAH-Cotton-Nighty-Women-Comfortable%2Fdp%2FB0F37V7DHX%2Fref%3Dsr_1_4_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-4-spons%26aref%3DCvqbqV0AuA%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=CvqbqV0AuA&sp_cr=ZAZ" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/31H4VpYHoDL._AC_UL320_.jpg" alt="NIHSAMAH Viscose Nighty for Women — Embroidered & Printed Stylish Night Gown, Comfortable Sleepwear Long Ni..."
@@ -1089,114 +601,44 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Geometric · Round Neck · Full Sleeve · Embroidery Front</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Geometric · Full Sleeve · Round Neck · Embroidery Front</div>
+        <span class="demand-badge">Unproven</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 40 reviews</div>
       <div class="price">₹998 avg · 1 products</div>
       <div class="colors"><span class="color-dot" style="background:dark red" title="dark red"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('geometric|round|full|embroidery', 'like', this)">
+        <button class="btn-like" onclick="vote('geometric|full', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('geometric|round|full|embroidery', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('geometric|full', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="striped|||" data-vote="none">
+  <div class="card" data-key="other|" data-vote="none">
     <div class="photos"><div class="no-photo">No photo</div></div>
     <div class="card-body">
-      <div class="label">Striped ·  Neck ·  Sleeve ·  Front</div>
-      <div class="price">₹843 avg · 2 products</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Other ·  Sleeve · Embroidery Front</div>
+        <span class="demand-badge">No Data</span>
+      </div>
+      
+      <div class="price">₹1995 avg · 1 products</div>
       
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('striped|||', 'like', this)">
+        <button class="btn-like" onclick="vote('other|', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('striped|||', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('other|', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>
     </div>
   </div>
-  <div class="card" data-key="plain||sleeveless|" data-vote="none">
-    <div class="photos">
-          <a href="https://www.shyaway.com/shyaway-camellia-orange-solid-sleeveless-nightwear-capri-set/" target="_blank" rel="noopener">
-            <img src="https://shyaway.static.n7.io/media/catalog/product/s/h/shycp002-camellia.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96" alt="Shyaway Camellia Orange Solid Sleeveless Nightwear Capri Set"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Plain ·  Neck · Sleeveless Sleeve ·  Front</div>
-      <div class="price">₹649 avg · 1 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('plain||sleeveless|', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('plain||sleeveless|', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="|||button" data-vote="none">
-    <div class="photos">
-          <a href="https://www.clovia.com/product/butterfly-button-me-up-shirt-pyjama-in-lilac-100-cotton/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-butterfly-button-me-up-shirt-pyjama-in-lilac-100-cotton-174003.jpg?q=80" alt="Butterfly Button Down Night Suit in Light Purple - 100% Cotton"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.clovia.com/product/button-me-up-shirt-pyjama-set-in-multicolour-crepe/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-button-me-up-shirt-pyjama-set-in-multicolour-crepe-120347.jpg?q=80" alt="Button Down Night Suit in Multicolour - Crepe"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label"> ·  Neck ·  Sleeve · Button Front</div>
-      <div class="price">₹813 avg · 2 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('|||button', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('|||button', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="printed|||button" data-vote="none">
-    <div class="photos">
-          <a href="https://www.clovia.com/product/leaf-print-button-down-shirt-pyjama-set-in-light-green-satin/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-leaf-print-button-down-shirt-pyjama-set-in-light-green-satin-250426.jpg?q=80" alt="Leaf Print Button-Down Night Suit in Light Green - Satin"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.clovia.com/product/leaf-print-button-down-shirt-pyjama-set-in-light-purple-cotton/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls0264p12-529337.jpg?q=80" alt="Leaf Print Button-Down Night Suit in Light Purple - Cotton"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a>
-          <a href="https://www.clovia.com/product/printed-button-down-shirt-pyjama-set-in-light-purple-100-cotton/" target="_blank" rel="noopener">
-            <img src="https://image.clovia.com/media/clovia-images/images/350x525/clovia-picture-ls5025r15-196154.jpg?q=80" alt="Printed Button-down Night Suit in Light Purple - 100% Cotton"
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'">
-          </a></div>
-    <div class="card-body">
-      <div class="label">Printed ·  Neck ·  Sleeve · Button Front</div>
-      <div class="price">₹877 avg · 8 products</div>
-      
-      <div class="vote-bar">
-        <button class="btn-like" onclick="vote('printed|||button', 'like', this)">
-          <span>👍</span> Like
-        </button>
-        <button class="btn-dislike" onclick="vote('printed|||button', 'dislike', this)">
-          <span>👎</span> Dislike
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="card" data-key="floral|round|full|embroidery" data-vote="none">
+  <div class="card" data-key="floral|full" data-vote="none">
     <div class="photos">
           <a href="https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDk2NzcxOTUyOTEzMjo6MDo6&url=%2FNIHSAMAH-Cotton-Nighty-Women-Comfortable%2Fdp%2FB0CLXDT198%2Fref%3Dsr_1_3_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-3-spons%26aref%3DSShyfZzZCq%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=SShyfZzZCq&sp_cr=ZAZ" target="_blank" rel="noopener">
             <img src="https://m.media-amazon.com/images/I/81q5FsteFYL._AC_UL320_.jpg" alt="NIHSAMAH Cotton Nighty for Women - Premium Printed Long Night Gown with Pocket, Comfortable & Fancy Sleepwe..."
@@ -1204,14 +646,18 @@
               onerror="this.parentElement.style.display='none'">
           </a></div>
     <div class="card-body">
-      <div class="label">Floral · Round Neck · Full Sleeve · Embroidery Front</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">Floral · Full Sleeve · Round Neck · Embroidery Front</div>
+        <span class="demand-badge">Unproven</span>
+      </div>
+      <div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 91 reviews</div>
       <div class="price">₹998 avg · 1 products</div>
       <div class="colors"><span class="color-dot" style="background:multicolor" title="multicolor"></span></div>
       <div class="vote-bar">
-        <button class="btn-like" onclick="vote('floral|round|full|embroidery', 'like', this)">
+        <button class="btn-like" onclick="vote('floral|full', 'like', this)">
           <span>👍</span> Like
         </button>
-        <button class="btn-dislike" onclick="vote('floral|round|full|embroidery', 'dislike', this)">
+        <button class="btn-dislike" onclick="vote('floral|full', 'dislike', this)">
           <span>👎</span> Dislike
         </button>
       </div>

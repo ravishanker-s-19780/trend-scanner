@@ -14,12 +14,27 @@ const clusters = topN ? trends.slice(0, topN) : trends;
 
 const capitalize = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
 
-const labelCluster = t => [
-  capitalize(t.design_pattern),
-  capitalize(t.neck_type) + ' Neck',
-  capitalize(t.sleeve_length) + ' Sleeve',
-  capitalize(t.front_top_treatment) + ' Front',
-].join(' · ');
+const labelCluster = t => {
+  const parts = [
+    capitalize(t.design_pattern),
+    capitalize(t.sleeve_length) + ' Sleeve',
+  ];
+  // Add dominant neck type if available
+  if (t.neck_breakdown && Object.keys(t.neck_breakdown).length > 0) {
+    const dominantNeck = Object.entries(t.neck_breakdown).sort((a,b) =>
+      parseInt(b[1]) - parseInt(a[1])
+    )[0][0];
+    parts.push(capitalize(dominantNeck) + ' Neck');
+  }
+  // Add dominant treatment if available
+  if (t.treatment_breakdown && Object.keys(t.treatment_breakdown).length > 0) {
+    const dominantTreatment = Object.entries(t.treatment_breakdown).sort((a,b) =>
+      parseInt(b[1]) - parseInt(a[1])
+    )[0][0];
+    parts.push(capitalize(dominantTreatment) + ' Front');
+  }
+  return parts.join(' · ');
+};
 
 const uniqueColors = colors => {
   const seen = new Set();
@@ -51,11 +66,18 @@ function generateHTML(clusters) {
       `<span class="color-dot" style="background:${c}" title="${c}"></span>`
     ).join('');
 
+    const demandBadge = t.demand_label ? `<span class="demand-badge">${t.demand_label}</span>` : '';
+    const reviewsLabel = t.total_reviews ? `${(t.total_reviews || 0).toLocaleString()} reviews` : '';
+
     return `
   <div class="card" data-key="${key}" data-vote="none">
     <div class="photos">${photoHTML}</div>
     <div class="card-body">
-      <div class="label">${label}</div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;">
+        <div class="label">${label}</div>
+        ${demandBadge}
+      </div>
+      ${reviewsLabel ? `<div class="demand-signal" style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-bottom: 4px;">📊 ${reviewsLabel}</div>` : ''}
       ${priceLabel ? `<div class="price">${priceLabel} avg · ${t.product_count} products</div>` : ''}
       ${colorDots ? `<div class="colors">${colorDots}</div>` : ''}
       <div class="vote-bar">
@@ -270,6 +292,24 @@ function generateHTML(clusters) {
     padding: 24px 16px 40px;
     font-size: 0.82rem;
     color: #888;
+  }
+
+  .demand-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #10b981;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .demand-signal {
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   @media (max-width: 480px) {

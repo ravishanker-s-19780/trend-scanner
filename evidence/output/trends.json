@@ -1,720 +1,2881 @@
-{
-  "timestamp": "2026-05-15T00:07:02.880091",
-  "total_products": 479,
-  "total_clusters": 13,
-  "top_trends": [
-    {
-      "design_pattern": "plain",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "plain",
-      "product_count": 80,
-      "keyword_count": 2,
-      "sources": {
-        "amazon": 16,
-        "myntra": 8,
-        "flipkart": 13,
-        "meesho": 20,
-        "clovia": 20,
-        "tatacliq": 1,
-        "shyaway": 2
-      },
-      "avg_rating": 3.91,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 17,
-        "evidence_strength": 5,
-        "trend_signal": 3,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Send as Backup",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (12% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc76",
-          "Nursing-Friendly (2)",
-          "nursing"
-        ]
-      ],
-      "archetype": "Plain \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Plain Front",
-      "sample_products": [
-        {
-          "product_id": "4d1274f76d94",
-          "title": "Bahumaan Pure Cotton Nighty for Woman | Maxi Nighty for Wome"
-        },
-        {
-          "product_id": "b6eaf4e8bc3a",
-          "title": "Bahumaan Cotton Nighty for Women Full Length Stylish | Flora"
-        },
-        {
-          "product_id": "5e2e72daab15",
-          "title": "Deeva Collections Women's Luxurious Satin V-Neck Maxi Nighty"
-        }
-      ]
+[
+  {
+    "rank": 1,
+    "cluster_key": "plain|half",
+    "design_pattern": "plain",
+    "sleeve_length": "half",
+    "neck_breakdown": {
+      "round": "99%"
     },
-    {
-      "design_pattern": "floral",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "print",
-      "product_count": 88,
-      "keyword_count": 2,
-      "sources": {
-        "amazon": 20,
-        "flipkart": 19,
-        "ajio": 2,
-        "meesho": 20,
-        "clovia": 20,
-        "tatacliq": 5,
-        "shyaway": 2
-      },
-      "avg_rating": 4.03,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 17,
-        "evidence_strength": 5,
-        "trend_signal": 3,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Send as Backup",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (9% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc76",
-          "Nursing-Friendly (1)",
-          "nursing"
-        ]
-      ],
-      "archetype": "Floral \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Print Front",
-      "sample_products": [
-        {
-          "product_id": "816b957244ff",
-          "title": "DIAMO Pure Cotton Embroidery Nighty for Women's | Night Gown"
-        },
-        {
-          "product_id": "333e11ea6465",
-          "title": "Soulemo Women Cotton Floor Length Nighty 1633"
-        },
-        {
-          "product_id": "684605a2ed7e",
-          "title": "G4Girl Nighty for Womens/Girls (Combo of 3 PCS)"
-        }
-      ]
+    "treatment_breakdown": {
+      "plain": "98%",
+      "lace": "1%",
+      "embroidery": "1%"
     },
-    {
-      "design_pattern": "geometric",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "print",
-      "product_count": 71,
-      "keyword_count": 2,
-      "sources": {
-        "amazon": 16,
-        "myntra": 1,
-        "flipkart": 9,
-        "ajio": 2,
-        "meesho": 20,
-        "clovia": 20,
-        "tatacliq": 1,
-        "shyaway": 2
-      },
-      "avg_rating": 3.92,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 17,
-        "evidence_strength": 5,
-        "trend_signal": 3,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Send as Backup",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (15% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc76",
-          "Nursing-Friendly (4)",
-          "nursing"
-        ]
-      ],
-      "archetype": "Geometric \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Print Front",
-      "sample_products": [
-        {
-          "product_id": "0b74b808c03c",
-          "title": "Kuruti B Sheets Cotton Stylish Nighty for Women Full Length "
-        },
-        {
-          "product_id": "a6322616d009",
-          "title": "PHKMALL Satin 6 Piece Nightwear Set, Coral Pink Lace Trim Sl"
-        },
-        {
-          "product_id": "60d3daee9c68",
-          "title": "PNAEONG Satin Short Wedding Nighty for Women Bridal"
-        }
-      ]
+    "product_count": 88,
+    "total_reviews": 55451,
+    "demand_label": "Blockbuster",
+    "features_reliable_pct": 100,
+    "nursing_count": 2,
+    "top_fabrics": [
+      "cotton (2)",
+      "satin (1)",
+      "nylon spandex (1)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 3,
+    "keywords": [
+      "ladies-nighty",
+      "nighty",
+      "ladies cotton nighty"
+    ],
+    "sources": {
+      "amazon": 18,
+      "clovia": 20,
+      "flipkart": 20,
+      "meesho": 20,
+      "myntra": 4,
+      "shyaway": 3,
+      "tatacliq": 3
     },
-    {
-      "design_pattern": "striped",
-      "neck_type": "v-neck",
-      "sleeve_length": "three-quarter",
-      "front_top_treatment": "plain",
-      "product_count": 66,
-      "keyword_count": 2,
-      "sources": {
-        "amazon": 9,
-        "flipkart": 15,
-        "meesho": 20,
-        "clovia": 20,
-        "shyaway": 2
+    "avg_rating": 3.91,
+    "avg_price": 558,
+    "min_price": 177,
+    "max_price": 2499,
+    "colors": [
+      {
+        "primary": "white",
+        "secondary": "none"
       },
-      "avg_rating": 4.01,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 16,
-        "evidence_strength": 5,
-        "trend_signal": 3,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 3,
-        "margin_possibility": 1,
-        "capped": false
+      {
+        "primary": "white",
+        "secondary": "none"
       },
-      "decision": "Send as Backup",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (9% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc76",
-          "Nursing-Friendly (3)",
-          "nursing"
-        ],
-        [
-          "\ud83d\udc55",
-          "Three-Quarter Sleeves",
-          "sleeve34"
-        ]
-      ],
-      "archetype": "Striped \u00b7 V-Neck Neck \u00b7 Three-Quarter Sleeve \u00b7 Plain Front",
-      "sample_products": [
-        {
-          "product_id": "64618ce8a63c",
-          "title": "Women's Nighty Set, Pack of 6, Soft & Comfortable Nightwear "
-        },
-        {
-          "product_id": "f8d1bf7dd54c",
-          "title": "Anvesha Beauty Silk Satin Night Dress for Women with Lace Tr"
-        },
-        {
-          "product_id": "91d351702196",
-          "title": "G4Girl Nighty for Womens/Girls (Combo of 2)"
-        }
-      ]
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": "blue",
+        "secondary": "none"
+      },
+      {
+        "primary": "pink",
+        "secondary": "none"
+      },
+      {
+        "primary": "green",
+        "secondary": "none"
+      }
+    ],
+    "score": {
+      "total": 23,
+      "evidence_strength": 5,
+      "demand_volume": 5,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 5,
+      "margin_possibility": 3,
+      "capped": false
     },
-    {
-      "design_pattern": "floral",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "lace",
-      "product_count": 73,
-      "keyword_count": 2,
-      "sources": {
-        "amazon": 9,
-        "myntra": 1,
-        "flipkart": 20,
-        "ajio": 1,
-        "meesho": 20,
-        "clovia": 20,
-        "shyaway": 2
+    "decision": "Send Now",
+    "sample_product_ids": [
+      "308792e55ff6",
+      "641e86edcb66",
+      "2ccb8d846a2c"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/61BKq6tmxfL._AC_UL320_.jpg",
+        "title": "come4try Satin 6 Piece Nightwear Set, Includes Robe, Nighty, Top, Shorts, Lingerie Set, Solid Style",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/come4try-Nightwear-Nighty-Shorts-Lingerie/dp/B0GH8V35WQ/ref=sr_1_6?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-6"
       },
-      "avg_rating": 3.99,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 15,
-        "evidence_strength": 5,
-        "trend_signal": 3,
-        "tn_b2b_fit": 3,
-        "production_simplicity": 3,
-        "margin_possibility": 1,
-        "capped": false
+      {
+        "url": "https://m.media-amazon.com/images/I/61ouTgLjxvL._AC_UL320_.jpg",
+        "title": "AV2 Women Satin Short Nighty with Lace & Robe 1306",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDE2MjE4NjA1NTYzMjo6Mzo6&url=%2FAV2-Womens-Satin-Nighty-Maroon%2Fdp%2FB07GZP46RM%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB07GZP46RM%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-4-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DpErJQwCm1j%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=pErJQwCm1j&sp_cr=ZAZ"
       },
-      "decision": "Send as Backup",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (11% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc8d",
-          "Wedding / Trousseau Niche",
-          "trousseau"
-        ],
-        [
-          "\ud83d\udc76",
-          "Nursing-Friendly (2)",
-          "nursing"
-        ]
-      ],
-      "archetype": "Floral \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Lace Front",
-      "sample_products": [
-        {
-          "product_id": "6b9cd568c0b6",
-          "title": "Women's Cotton Maxi Nighty | Floral Printed Full Length Nigh"
-        },
-        {
-          "product_id": "c6218e4e57b6",
-          "title": "Mistic Women Satin Babydoll Soft & Comfortable Night Dress |"
-        },
-        {
-          "product_id": "55e849f3373a",
-          "title": "AV2 Women's Satin Solid Knee Length Nighty with Robe"
-        }
-      ]
+      {
+        "url": "https://m.media-amazon.com/images/I/71HlbL4VCVL._AC_UL320_.jpg",
+        "title": "Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Women Nightwear with Pocket | Cotton Nighty for Women Stylish | Ma...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Bahumaan-Cotton-Nighty-Floral-Stylish/dp/B0FG16THJG/ref=sr_1_11?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-11"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/615++VM-0SL._AC_UL320_.jpg",
+        "title": "WiWi Women's Cotton Printed Nighty Night Gown Maxi Free Size (Pack of 2)",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/WiWi-Keyocean-Womens-Cotton-Printed/dp/B0GLQCQ9V2/ref=sr_1_16?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-16"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71+eqrP0q8L._AC_UL320_.jpg",
+        "title": "EliteZilla Nighty| Nighty for Women| Alpine Nighty for Women| Nighty for Women Stylish| Nighty for Women Co...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfbXRmOjMwMDczNjM0NTM4NDAzMjo6MDo6&url=%2FEliteZilla-Nighty-Alpine-Stylish-Cotton%2Fdp%2FB0DFV5NTHR%2Fref%3Dsr_1_21_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-21-spons%26aref%3DlAgFOfktCF%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9tdGY%26psc%3D1&aref=lAgFOfktCF&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/61fXD4pJ0QL._AC_UL320_.jpg",
+        "title": "Bahumaan Pure Cotton Nighty for Woman | Maxi Nighty for Women Cotton | Night Gown for Women with Pocket, Ideal for Loungewear",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Bahumaan-Cotton-Nighty-Loungewear-M-Bust-42/dp/B0GLHP86X7/ref=sr_1_26?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-26"
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "cluster_key": "floral|half",
+    "design_pattern": "floral",
+    "sleeve_length": "half",
+    "neck_breakdown": {
+      "round": "100%"
     },
-    {
-      "design_pattern": "abstract",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "print",
-      "product_count": 8,
-      "keyword_count": 1,
-      "sources": {
-        "myntra": 3,
-        "tatacliq": 5
-      },
-      "avg_rating": 4.08,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 15,
-        "evidence_strength": 5,
-        "trend_signal": 1,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Send as Backup",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\ud83e\uddf5",
-          "100% Cotton",
-          "cotton"
-        ]
-      ],
-      "archetype": "Abstract \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Print Front",
-      "sample_products": [
-        {
-          "product_id": "29a053be29da",
-          "title": "Bindass Female Collection - Printed Nightdress"
-        },
-        {
-          "product_id": "05e202bddd7d",
-          "title": "Bindass Female Collection - Printed Nightdress"
-        },
-        {
-          "product_id": "21b7a030b0ba",
-          "title": "Russhies - Printed Nightdress"
-        }
-      ]
+    "treatment_breakdown": {
+      "lace": "45%",
+      "print": "55%"
     },
-    {
-      "design_pattern": "striped",
-      "neck_type": "round",
-      "sleeve_length": "three-quarter",
-      "front_top_treatment": "plain",
-      "product_count": 6,
-      "keyword_count": 1,
-      "sources": {
-        "amazon": 6
-      },
-      "avg_rating": 4.08,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 12,
-        "evidence_strength": 3,
-        "trend_signal": 1,
-        "tn_b2b_fit": 3,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Needs More Evidence",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (33% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc55",
-          "Three-Quarter Sleeves",
-          "sleeve34"
-        ]
-      ],
-      "archetype": "Striped \u00b7 Round Neck \u00b7 Three-Quarter Sleeve \u00b7 Plain Front",
-      "sample_products": [
-        {
-          "product_id": "c7135f3c3413",
-          "title": "BAILEY SELLS Women's Satin Printed Kaftan Nighty Long Maxi f"
-        },
-        {
-          "product_id": "7ec8ad44f6e8",
-          "title": "Bahumaan Nighty for Women Cotton Combo Pack of 2 | Free Size"
-        },
-        {
-          "product_id": "bf5483a93a7c",
-          "title": "MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi N"
-        }
-      ]
+    "product_count": 169,
+    "total_reviews": 297026,
+    "demand_label": "Blockbuster",
+    "features_reliable_pct": 100,
+    "nursing_count": 3,
+    "top_fabrics": [
+      "cotton (5)",
+      "cotton spandex (2)",
+      "rayon (1)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 2,
+    "keywords": [
+      "nighty",
+      "ladies-nighty"
+    ],
+    "sources": {
+      "ajio": 3,
+      "amazon": 33,
+      "clovia": 40,
+      "flipkart": 40,
+      "meesho": 40,
+      "myntra": 4,
+      "shyaway": 4,
+      "tatacliq": 5
     },
-    {
-      "design_pattern": "floral",
-      "neck_type": "v-neck",
-      "sleeve_length": "sleeveless",
-      "front_top_treatment": "lace",
-      "product_count": 6,
-      "keyword_count": 1,
-      "sources": {
-        "amazon": 6
+    "avg_rating": 4.02,
+    "avg_price": 577,
+    "min_price": 196,
+    "max_price": 2499,
+    "colors": [
+      {
+        "primary": "peach",
+        "secondary": "cream"
       },
-      "avg_rating": 3.98,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 11,
-        "evidence_strength": 3,
-        "trend_signal": 1,
-        "tn_b2b_fit": 3,
-        "production_simplicity": 3,
-        "margin_possibility": 1,
-        "capped": false
+      {
+        "primary": "light blue",
+        "secondary": "multicolor"
       },
-      "decision": "Needs More Evidence",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\u2728",
-          "Cotton + Premium Fabrics (17% Satin/Silk)",
-          "premium_mix"
-        ],
-        [
-          "\ud83d\udc8d",
-          "Wedding / Trousseau Niche",
-          "trousseau"
-        ]
-      ],
-      "archetype": "Floral \u00b7 V-Neck Neck \u00b7 Sleeveless Sleeve \u00b7 Lace Front",
-      "sample_products": [
-        {
-          "product_id": "2c0ef73b312b",
-          "title": "PNAEONG Women's Cotton Printed Nighty Night Gown Maxi Free S"
-        },
-        {
-          "product_id": "c5abd361f917",
-          "title": "G4Girl Women's Regular Nighty Rajasthani Nighty Rajasthani G"
-        },
-        {
-          "product_id": "33479e6cf6b3",
-          "title": "come4try Women Nighty with Robe,Satin Nightwear Set, V-Neck "
-        }
-      ]
+      {
+        "primary": "light green",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "pink",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "blue",
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 22,
+      "evidence_strength": 5,
+      "demand_volume": 5,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 4,
+      "margin_possibility": 3,
+      "capped": false
     },
-    {
-      "design_pattern": "plain",
-      "neck_type": "round",
-      "sleeve_length": "sleeveless",
-      "front_top_treatment": "plain",
-      "product_count": 1,
-      "keyword_count": 1,
-      "sources": {
-        "amazon": 1
+    "decision": "Send Now",
+    "sample_product_ids": [
+      "0e079dfa13e4",
+      "e83af993f9ce",
+      "ad21050be9e1"
+    ],
+    "sample_images": [
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/giFf/69ff678814d0c21719ce1978/ichaa_peach_women_floral_print_nightie_with_lace_details.jpg",
+        "title": "Women Floral Print Nightie with Lace Details",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/ichaa-women-floral-print-nightie-with-lace-details/p/702302063_peach?"
       },
-      "avg_rating": 3.9,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 11,
-        "evidence_strength": 1,
-        "trend_signal": 1,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250813/Gxsl/689c6a1b3d468c61ab68f5e6/rio_blue_women_floral_print_nightie_with_insert_pocket.jpg",
+        "title": "Women Floral Print Nightie with Insert Pocket",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443082566_ltblue?"
       },
-      "decision": "Needs More Evidence",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\ud83e\uddf5",
-          "100% Cotton",
-          "cotton"
-        ]
-      ],
-      "archetype": "Plain \u00b7 Round Neck \u00b7 Sleeveless Sleeve \u00b7 Plain Front",
-      "sample_products": [
-        {
-          "product_id": "8838b18db178",
-          "title": "G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gow"
-        }
-      ]
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260220/2ZZE/6998110ecbfa0d56082396e1/rio_green_women_floral_print_nightie_with_insert_pocket.jpg",
+        "title": "Women Floral Print Nightie with Insert Pocket",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443099322_ltgreen?"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71oY1ehC+IL._AC_UL320_.jpg",
+        "title": "Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Women Nightwear with Pocket | Cotton Nighty for Wom...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDg2MDkxNTY2NzYzMjo6MDo6&url=%2FBahumaan-Cotton-Nighty-Stylish-XXL-Bust-48%2Fdp%2FB0FNR61FVT%2Fref%3Dsr_1_1_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-1-spons%26aref%3DEpM6OI4Njn%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=EpM6OI4Njn&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71NohImjHYL._AC_UL320_.jpg",
+        "title": "Bahumaan Nighty for Women Cotton Combo Pack of 2 | Free Size Gown for Women Cotton with Side Pocket | Night...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDYyMjgwNjM5NzkzMjo6MDo6&url=%2FBahumaan-Nighty-Nighties-Stylish-Sleepwear%2Fdp%2FB0FH2VQT9Y%2Fref%3Dsr_1_2_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-2-spons%26aref%3D6zl4hUwmds%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=6zl4hUwmds&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/81-m4d8-VAL._AC_UL320_.jpg",
+        "title": "G4Girl Nighty for Womens/Girls (Combo of 3 PCS)",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/G4Girl-Nighty-Womens-Girls-Combo/dp/B0CGJ7FP5L/ref=sr_1_5?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-5"
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "cluster_key": "striped|three-quarter",
+    "design_pattern": "striped",
+    "sleeve_length": "three-quarter",
+    "neck_breakdown": {
+      "round": "10%",
+      "v-neck": "90%"
     },
-    {
-      "design_pattern": "floral",
-      "neck_type": "round",
-      "sleeve_length": "three-quarter",
-      "front_top_treatment": "print",
-      "product_count": 1,
-      "keyword_count": 1,
-      "sources": {
-        "ajio": 1
-      },
-      "avg_rating": 4.0,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 10,
-        "evidence_strength": 1,
-        "trend_signal": 1,
-        "tn_b2b_fit": 4,
-        "production_simplicity": 3,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Needs More Evidence",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\ud83e\uddf5",
-          "100% Cotton",
-          "cotton"
-        ],
-        [
-          "\ud83d\udc55",
-          "Three-Quarter Sleeves",
-          "sleeve34"
-        ]
-      ],
-      "archetype": "Floral \u00b7 Round Neck \u00b7 Three-Quarter Sleeve \u00b7 Print Front",
-      "sample_products": [
-        {
-          "product_id": "5baf5fb05321",
-          "title": "Women Floral Print Nightgown"
-        }
-      ]
+    "treatment_breakdown": {
+      "plain": "100%"
     },
-    {
-      "design_pattern": "striped",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "plain",
-      "product_count": 1,
-      "keyword_count": 1,
-      "sources": {
-        "amazon": 1
-      },
-      "avg_rating": 3.2,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 9,
-        "evidence_strength": 1,
-        "trend_signal": 0,
-        "tn_b2b_fit": 2,
-        "production_simplicity": 5,
-        "margin_possibility": 1,
-        "capped": false
-      },
-      "decision": "Do Not Send",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\ud83d\udc8e",
-          "Premium Fabrics (Satin/Silk)",
-          "premium_fabric"
-        ]
-      ],
-      "archetype": "Striped \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Plain Front",
-      "sample_products": [
-        {
-          "product_id": "5d4f6e95bbbd",
-          "title": "FlyNery Nighty for Women Stylish - Ladies Night Dress Robe, "
-        }
-      ]
+    "product_count": 83,
+    "total_reviews": 97511,
+    "demand_label": "Blockbuster",
+    "features_reliable_pct": 100,
+    "nursing_count": 3,
+    "top_fabrics": [
+      "nylon spandex (2)",
+      "rayon (1)",
+      "cotton (1)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 2,
+    "keywords": [
+      "ladies-nighty",
+      "nighty"
+    ],
+    "sources": {
+      "amazon": 18,
+      "clovia": 20,
+      "flipkart": 20,
+      "meesho": 20,
+      "myntra": 2,
+      "shyaway": 2,
+      "tatacliq": 1
     },
-    {
-      "design_pattern": "plain",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "embroidery",
-      "product_count": 1,
-      "keyword_count": 1,
-      "sources": {
-        "tatacliq": 1
+    "avg_rating": 4.03,
+    "avg_price": 539,
+    "min_price": 180,
+    "max_price": 2299,
+    "colors": [
+      {
+        "primary": "navy blue",
+        "secondary": "white"
       },
-      "avg_rating": 5.0,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 9,
-        "evidence_strength": 1,
-        "trend_signal": 1,
-        "tn_b2b_fit": 3,
-        "production_simplicity": 3,
-        "margin_possibility": 1,
-        "capped": false
+      {
+        "primary": "navy blue",
+        "secondary": "white"
       },
-      "decision": "Do Not Send",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\ud83e\uddf5",
-          "100% Cotton",
-          "cotton"
-        ],
-        [
-          "\ud83d\udc8d",
-          "Wedding / Trousseau Niche",
-          "trousseau"
-        ]
-      ],
-      "archetype": "Plain \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Embroidery Front",
-      "sample_products": [
-        {
-          "product_id": "4b1402dcd609",
-          "title": "KOI SLEEPWEAR KOI SLEEPWEAR Black Embroidered Nighty"
-        }
-      ]
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy",
+        "secondary": "white"
+      }
+    ],
+    "score": {
+      "total": 22,
+      "evidence_strength": 5,
+      "demand_volume": 5,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 4,
+      "margin_possibility": 3,
+      "capped": false
     },
-    {
-      "design_pattern": "plain",
-      "neck_type": "round",
-      "sleeve_length": "half",
-      "front_top_treatment": "lace",
-      "product_count": 1,
-      "keyword_count": 1,
-      "sources": {
-        "tatacliq": 1
+    "decision": "Send Now",
+    "sample_product_ids": [
+      "ee55f4aeff81",
+      "93698db8a6e4",
+      "e6ef5c9e8133"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/51pP8mWt8pL._AC_UL320_.jpg",
+        "title": "Aottori Women’s Plus Size Cotton Nighty, Printed Full Length Maxi Night Gown, Soft Breathable Sleepwear Nig...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMTA2NDkxOTE0MjEzMjo6MTo6&url=%2FAottori-Printed-Breathable-Sleepwear-Nightdress%2Fdp%2FB0GXG4H1GJ%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0GXG4H1GJ%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-2-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DxJbxp7oB3V%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=xJbxp7oB3V&sp_cr=ZAZ"
       },
-      "avg_rating": 3.0,
-      "price_range": "N/A",
-      "avg_price": 0,
-      "score": {
-        "total": 9,
-        "evidence_strength": 1,
-        "trend_signal": 0,
-        "tn_b2b_fit": 3,
-        "production_simplicity": 4,
-        "margin_possibility": 1,
-        "capped": false
+      {
+        "url": "https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg",
+        "title": "MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi Nighty Gown, Short Sleeve Cotton Nightdress, Soft Breathable An...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_9?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-9"
       },
-      "decision": "Do Not Send",
-      "persona_tags": [
-        [
-          "\ud83d\udcb0",
-          "Mass Market (\u20b9250\u2013600)",
-          "mass"
-        ],
-        [
-          "\ud83e\uddf5",
-          "100% Cotton",
-          "cotton"
-        ],
-        [
-          "\ud83d\udc8d",
-          "Wedding / Trousseau Niche",
-          "trousseau"
-        ]
-      ],
-      "archetype": "Plain \u00b7 Round Neck \u00b7 Half Sleeve \u00b7 Lace Front",
-      "sample_products": [
-        {
-          "product_id": "3e408b06b517",
-          "title": "Ms.Lingies Ms.Lingies Blue Lace Work Nighty"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "url": "https://m.media-amazon.com/images/I/81UJFddad3S._AC_UL320_.jpg",
+        "title": "G4Girl Women's Silk Geometric Print Maxi Kaftan Night Gown (Pack of 2)",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/G4Girl-Womens-Geometric-Length-Nightgown_Maroon-Blue_Free/dp/B099JKJKRF/ref=sr_1_14?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-14"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71DRVa-PtgL._AC_UL320_.jpg",
+        "title": "Bahumaan Nighty for Women Cotton Combo Pack of 2 | Free Size Gown for Women Cotton with Side Pocket | Nighties for Women P...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Bahumaan-Nighty-Nighties-Stylish-Sleepwear/dp/B0FYWWPJJY/ref=sr_1_19?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-19"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71bVFl5XOwL._AC_UL320_.jpg",
+        "title": "Fufufrog Cotton Nighty for Women Batik Handmade Printed Stylish Night Gown, Comfortable Sleepwear Long Nigh...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfbXRmOjMwMTA2MjYyMjk3MTEzMjo6MDo6&url=%2FFufufrog-Handmade-Comfortable-Sleepwear-Nightwear%2Fdp%2FB0F4DQVSLM%2Fref%3Dsr_1_24_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-24-spons%26aref%3DWLSMtwLsKM%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9tdGY%26psc%3D1&aref=WLSMtwLsKM&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/61STR8WU-eL._AC_UL320_.jpg",
+        "title": "PNAEONG Stylish Cotton Nighty for Women Printed Night Gown Maxi Nighty, Comfortable Sleepwear for Daily Use",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/PNAEONG-Stylish-Printed-Comfortable-Sleepwear/dp/B0GC786YPY/ref=sr_1_29?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-29"
+      }
+    ]
+  },
+  {
+    "rank": 4,
+    "cluster_key": "geometric|half",
+    "design_pattern": "geometric",
+    "sleeve_length": "half",
+    "neck_breakdown": {
+      "round": "100%"
+    },
+    "treatment_breakdown": {
+      "print": "100%"
+    },
+    "product_count": 88,
+    "total_reviews": 118372,
+    "demand_label": "Blockbuster",
+    "features_reliable_pct": 100,
+    "nursing_count": 4,
+    "top_fabrics": [
+      "cotton (3)",
+      "satin (2)",
+      "nylon spandex (1)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 2,
+    "keywords": [
+      "nighty",
+      "ladies-nighty"
+    ],
+    "sources": {
+      "ajio": 2,
+      "amazon": 19,
+      "clovia": 20,
+      "flipkart": 20,
+      "meesho": 20,
+      "myntra": 3,
+      "shyaway": 2,
+      "tatacliq": 2
+    },
+    "avg_rating": 3.92,
+    "avg_price": 619,
+    "min_price": 196,
+    "max_price": 2499,
+    "colors": [
+      {
+        "primary": "mustard yellow",
+        "secondary": "white"
+      },
+      {
+        "primary": "navy blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "multicolor",
+        "secondary": "none"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "blue",
+        "secondary": "white"
+      },
+      {
+        "primary": "green",
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 18,
+      "evidence_strength": 5,
+      "demand_volume": 5,
+      "tn_b2b_fit": 3,
+      "production_simplicity": 4,
+      "margin_possibility": 1,
+      "capped": false
+    },
+    "decision": "Send as Backup",
+    "sample_product_ids": [
+      "871bfda6f70b",
+      "5924cd8fa827",
+      "321ae7fa9afd"
+    ],
+    "sample_images": [
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/5CYP/69e729d4fcb5bb61d26cfa29/rio_mustard_women_printed_nightie.jpg",
+        "title": "Women Printed Nightie",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/rio-women-printed-nightie/p/443099321_mustard?"
+      },
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root/20250509/chCK/681e32ba55340d4b4f278ffa/buythattrendz_navy_blue_women_printed_round-neck_nightie.jpg",
+        "title": "Women Printed Round-Neck Nightie",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/buythattrendz-women-printed-round-neck-nightie/p/701558543_navy?"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg",
+        "title": "Vlazom Women’s Cotton Maxi Nighty – Pack of 2 Printed Ankle-Length Night Dresses | Free Size Gown for Women | Soft & Breat...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71bVFl5XOwL._AC_UL320_.jpg",
+        "title": "Fufufrog Cotton Nighty for Women Batik Handmade Printed Stylish Night Gown, Comfortable Sleepwear Long Nigh...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMTA2MjYyMjk3MTEzMjo6NDo6&url=%2FFufufrog-Handmade-Comfortable-Sleepwear-Nightwear%2Fdp%2FB0F4DQVSLM%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0F4DQVSLM%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-5-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DWLSMtwLsKM%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=WLSMtwLsKM&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/716e3Z8mlGL._AC_UL320_.jpg",
+        "title": "Kuruti B Sheets Nighty for Women Cotton Combo (Pack of 2) Nighty Gown Round Neck Short Sleeves Jaipuri Maxi Gown Printed F...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Kuruti-Sheets-Sleeves-Jaipuri-Printed/dp/B0DRTF529Z/ref=sr_1_12?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-12"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/8159aktQHoL._AC_UL320_.jpg",
+        "title": "NEGLIGEE Nighty for Women Cotton Printed Maxi Gown Ankle Length Nighty Night Dress Gown for Women Free Size (Pack of 4) Mu...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/NEGLIGEE-Womens-Cotton-Printed-Nighty/dp/B08MV6C5JW/ref=sr_1_17?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-17"
+      }
+    ]
+  },
+  {
+    "rank": 5,
+    "cluster_key": "|half",
+    "design_pattern": null,
+    "sleeve_length": "half",
+    "neck_breakdown": {
+      "round": "50%"
+    },
+    "treatment_breakdown": {
+      "print": "100%"
+    },
+    "product_count": 2,
+    "total_reviews": 602,
+    "demand_label": "Emerging",
+    "features_reliable_pct": 50,
+    "nursing_count": 2,
+    "top_fabrics": [
+      "cotton (2)"
+    ],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies cotton nighty"
+    ],
+    "sources": {
+      "amazon": 2
+    },
+    "avg_rating": 4.45,
+    "avg_price": 479,
+    "min_price": 469,
+    "max_price": 489,
+    "colors": [
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 14,
+      "evidence_strength": 1,
+      "demand_volume": 2,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 4,
+      "margin_possibility": 3,
+      "capped": true
+    },
+    "decision": "Needs More Evidence",
+    "sample_product_ids": [
+      "50ba6532d11d",
+      "f57cf80c5152"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/71xkr5ofSLL._AC_UL320_.jpg",
+        "title": "MYRELOOK Women Cotton Nighty Combo Pack of 2, Printed Maxi Nighty Gown, Short Sleeve Cotton Nightdress, Soft Breathable An...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/MYRELOOK-Nightdress-Breathable-Sleepwear-Nightwear/dp/B0GSX74HKN/ref=sr_1_6?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-6"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/716e3Z8mlGL._AC_UL320_.jpg",
+        "title": "Kuruti B Sheets Nighty for Women Cotton Combo (Pack of 2) Nighty Gown Round Neck Short Sleeves Jaipuri Maxi Gown Printed F...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Kuruti-Sheets-Sleeves-Jaipuri-Printed/dp/B0DRTF529Z/ref=sr_1_7?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-7"
+      }
+    ]
+  },
+  {
+    "rank": 6,
+    "cluster_key": "floral|sleeveless",
+    "design_pattern": "floral",
+    "sleeve_length": "sleeveless",
+    "neck_breakdown": {
+      "v-neck": "100%"
+    },
+    "treatment_breakdown": {
+      "lace": "100%"
+    },
+    "product_count": 8,
+    "total_reviews": 14419,
+    "demand_label": "High",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies-nighty"
+    ],
+    "sources": {
+      "amazon": 8
+    },
+    "avg_rating": 3.89,
+    "avg_price": 567,
+    "min_price": 284.05,
+    "max_price": 949,
+    "colors": [
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      },
+      {
+        "primary": "cream",
+        "secondary": "multicolor"
+      }
+    ],
+    "score": {
+      "total": 14,
+      "evidence_strength": 2,
+      "demand_volume": 4,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 3,
+      "margin_possibility": 3,
+      "capped": true
+    },
+    "decision": "Needs More Evidence",
+    "sample_product_ids": [
+      "8276f09b23a3",
+      "f78fa530525f",
+      "f5d767b999e2"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/71+eqrP0q8L._AC_UL320_.jpg",
+        "title": "EliteZilla Nighty| Nighty for Women| Alpine Nighty for Women| Nighty for Women Stylish| Nighty for Women Co...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDczNjM0NTM4NDAzMjo6MDo6&url=%2FEliteZilla-Nighty-Alpine-Stylish-Cotton%2Fdp%2FB0DFV5NTHR%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0DFV5NTHR%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-1-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DlAgFOfktCF%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=lAgFOfktCF&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71e8Mx94cfS._AC_UL320_.jpg",
+        "title": "PNAEONG Women's Cotton Printed Nighty Night Gown Maxi Free Size (Pack of 2)",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/PNAEONG-Womens-Cotton-Printed-Nighty/dp/B0G8LCNRDQ/ref=sr_1_8?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-8"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/91a7EFouw3L._AC_UL320_.jpg",
+        "title": "G4Girl Women's Regular Nighty Rajasthani Nighty Rajasthani Gown Jaipuri Nighty Jaipuri Gown Maxi Gown with Pocket - (Combo)",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/G4Girl-Cotton-Regular-Rajasthani-Jaipuri/dp/B0DT4QNXWV/ref=sr_1_13?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-13"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/91KaN7oG1yL._AC_UL320_.jpg",
+        "title": "G4Girl Women's Pure Cotton Regular Nighty Rajasthani Nighty Rajasthani Gown Jaipuri Nighty Jaipuri Gown Maxi Gown (Pack of...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/G4Girl-Regular-Rajasthani-Jaipuri-Turkish/dp/B0DNF6C2JF/ref=sr_1_18?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-18"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/81lFxaJiDZL._AC_UL320_.jpg",
+        "title": "SSoShHub Women Lace Kimono Robe Babydoll Lingerie Mesh Chemise Nightgown Cover Up Robe with Panty",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfbXRmOjMwMDM5OTM3MTYyMzEzMjo6MDo6&url=%2FSSoShHub-Babydoll-Lingerie-Chemise-Nightgown%2Fdp%2FB0DKCBVGZ1%2Fref%3Dsr_1_23_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-23-spons%26aref%3DL194DqgHy9%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9tdGY%26psc%3D1&aref=L194DqgHy9&sp_cr=ZAZ"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/81uhZqplcoL._AC_UL320_.jpg",
+        "title": "G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gown | Nighty | Nightdress | Maxi | Sleepwear | Jaipuri Nighty | ...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Womens/dp/B0C1KKGCVP/ref=sr_1_28?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-28"
+      }
+    ]
+  },
+  {
+    "rank": 7,
+    "cluster_key": "plain|sleeveless",
+    "design_pattern": "plain",
+    "sleeve_length": "sleeveless",
+    "neck_breakdown": {
+      "round": "50%"
+    },
+    "treatment_breakdown": {
+      "plain": "100%"
+    },
+    "product_count": 2,
+    "total_reviews": 669,
+    "demand_label": "Emerging",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [
+      "cotton (1)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 2,
+    "keywords": [
+      "ladies-nighty",
+      "ladies cotton nighty"
+    ],
+    "sources": {
+      "amazon": 1,
+      "shyaway": 1
+    },
+    "avg_rating": 4.25,
+    "avg_price": 529,
+    "min_price": 408,
+    "max_price": 649,
+    "colors": [
+      {
+        "primary": "white",
+        "secondary": "none"
+      },
+      {
+        "primary": null,
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 14,
+      "evidence_strength": 2,
+      "demand_volume": 2,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 5,
+      "margin_possibility": 3,
+      "capped": true
+    },
+    "decision": "Needs More Evidence",
+    "sample_product_ids": [
+      "69f480964a9c",
+      "0fec0d145b32"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/81ELDkNuvCL._AC_UL320_.jpg",
+        "title": "G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gown | Nighty | Nightdress | Maxi | Sleepwear | Jaipuri Nighty | ...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Turkish/dp/B0C1K4LR4W/ref=sr_1_42?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-42"
+      },
+      {
+        "url": "https://shyaway.static.n7.io/media/catalog/product/s/h/shycp002-camellia.jpg?aio=w-243;h-323;",
+        "title": "Shyaway Camellia Orange Solid Sleeveless Nightwear Capri Set",
+        "source": "shyaway",
+        "product_url": "https://www.shyaway.com/shyaway-camellia-orange-solid-sleeveless-nightwear-capri-set/"
+      }
+    ]
+  },
+  {
+    "rank": 8,
+    "cluster_key": "striped|half",
+    "design_pattern": "striped",
+    "sleeve_length": "half",
+    "neck_breakdown": {
+      "round": "100%"
+    },
+    "treatment_breakdown": {
+      "plain": "100%"
+    },
+    "product_count": 1,
+    "total_reviews": 12,
+    "demand_label": "Unproven",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies-nighty"
+    ],
+    "sources": {
+      "amazon": 1
+    },
+    "avg_rating": 3.2,
+    "avg_price": 299,
+    "min_price": 299,
+    "max_price": 299,
+    "colors": [
+      {
+        "primary": "blue",
+        "secondary": "white"
+      }
+    ],
+    "score": {
+      "total": 14,
+      "evidence_strength": 1,
+      "demand_volume": 1,
+      "tn_b2b_fit": 5,
+      "production_simplicity": 5,
+      "margin_possibility": 5,
+      "capped": true
+    },
+    "decision": "Needs More Evidence",
+    "sample_product_ids": [
+      "e05158a559fa"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/41fdOlu5TpL._AC_UL320_.jpg",
+        "title": "FlyNery Nighty for Women Stylish - Ladies Night Dress Robe, Stylish Knee Length Nighty Soft Satin Nightwear Gown with Lace...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/FlyNery-Satin-Nighty-Women-Comfortable/dp/B0FTVJWC93/ref=sr_1_44?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-44"
+      }
+    ]
+  },
+  {
+    "rank": 9,
+    "cluster_key": "floral|",
+    "design_pattern": "floral",
+    "sleeve_length": null,
+    "neck_breakdown": {},
+    "treatment_breakdown": {
+      "print": "68%",
+      "other": "5%"
+    },
+    "product_count": 22,
+    "total_reviews": 1509,
+    "demand_label": "Solid",
+    "features_reliable_pct": 100,
+    "nursing_count": 7,
+    "top_fabrics": [
+      "cotton (9)",
+      "100% cotton (3)",
+      "rayon (2)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies cotton nighty"
+    ],
+    "sources": {
+      "ajio": 5,
+      "amazon": 4,
+      "clovia": 7,
+      "tatacliq": 6
+    },
+    "avg_rating": 3.87,
+    "avg_price": 870,
+    "min_price": 299,
+    "max_price": 1995,
+    "colors": [
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": null,
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 13,
+      "evidence_strength": 5,
+      "demand_volume": 3,
+      "tn_b2b_fit": 2,
+      "production_simplicity": 3,
+      "margin_possibility": 0,
+      "capped": false
+    },
+    "decision": "Needs More Evidence",
+    "sample_product_ids": [
+      "8b5850a14a32",
+      "b6e2342823b1",
+      "814b396020e8"
+    ],
+    "sample_images": [
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260403/VI8Y/69cfad5e9e784a25d5b9ad1e/rio_green_%26_white_women_floral_print_cotton_nightie.jpg",
+        "title": "Women Floral Print Cotton Nightie",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443105202_green?"
+      },
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/w2lg/69e72a03fcb5bb61d26cfb8e/rio_grey_women_floral_print_cotton_nightie.jpg",
+        "title": "Women Floral Print Cotton Nightie",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443099325_grey?"
+      },
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251222/uUmx/69492daf239b37265a9335bf/sweet_dreams_tomato_women_cotton_floral_nighti.jpg",
+        "title": "Women Cotton Floral Nighti",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/sweet-dreams-women-cotton-floral-nighti/p/702648612_red?"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41uDo10bdiL._AC_UL320_.jpg",
+        "title": "Women Flower Printed Casual Wear Cotton Nighty - Gown-MFNT5014",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/PrathaVastra-Flower-Printed-Casual-Cotton/dp/B0FJ5KMPSX/ref=sr_1_5?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-5"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/71HlbL4VCVL._AC_UL320_.jpg",
+        "title": "Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Women Nightwear with Pocket | Cotton Nighty for Women Stylish | Ma...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Bahumaan-Cotton-Nighty-Floral-Stylish/dp/B0FG16THJG/ref=sr_1_10?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-10"
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/61nKeRpCaiL._AC_UL320_.jpg",
+        "title": "Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Women Nightwear with Pocket | Cotton Nighty for Women Stylish | Ma...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/Bahumaan-Cotton-Nighty-Floral-Stylish/dp/B0FG16XW7G/ref=sr_1_11?dib=eyJ2IjoiMSJ9.gDcspLoh9FkY6G5J7fv0SLgGnm7VicEpqhD4dUkuFu612XH1SywoIATAf7CPoLlkU5LyuiOpn4wRw9P9SWTcBZo_d_P46ZstFAUq6gt-3S7xdvNf9zivALYgdyfEeP5MsE_WZYMCVv35gDsGzc3Gaq3lGe37-ZFY8L3H6hTtgBs-rQQKNpzdVLGuvVMsQRoPcNiLZlDtKazkR-9X3UxH9GKODaysN3uEwVkD0KpMTaPmgw_w90xXMOE7_GRxMaG35mHnqJcpxrJ7uAlZfnF1zHvHZMS8fNRGzGWWsXDM-oo.-VE1jD0kcPZggga5fnMuMKnekQXSLQ3S-AyA2P9Tt6k&dib_tag=se&keywords=ladies+cotton+nighty&qid=1778716351&s=apparel&sr=1-11"
+      }
+    ]
+  },
+  {
+    "rank": 10,
+    "cluster_key": "abstract|half",
+    "design_pattern": "abstract",
+    "sleeve_length": "half",
+    "neck_breakdown": {
+      "round": "100%"
+    },
+    "treatment_breakdown": {
+      "print": "100%"
+    },
+    "product_count": 3,
+    "total_reviews": 7,
+    "demand_label": "Unproven",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies-nighty"
+    ],
+    "sources": {
+      "tatacliq": 3
+    },
+    "avg_rating": 2.85,
+    "avg_price": 743,
+    "min_price": 524,
+    "max_price": 864,
+    "colors": [
+      {
+        "primary": null,
+        "secondary": null
+      },
+      {
+        "primary": "white",
+        "secondary": null
+      },
+      {
+        "primary": "pink",
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 10,
+      "evidence_strength": 1,
+      "demand_volume": 1,
+      "tn_b2b_fit": 3,
+      "production_simplicity": 4,
+      "margin_possibility": 1,
+      "capped": true
+    },
+    "decision": "Needs More Evidence",
+    "sample_product_ids": [
+      "8bf96181c287",
+      "f8927dba0e59",
+      "bf8bcdd38269"
+    ],
+    "sample_images": []
+  },
+  {
+    "rank": 11,
+    "cluster_key": "floral|three-quarter",
+    "design_pattern": "floral",
+    "sleeve_length": "three-quarter",
+    "neck_breakdown": {
+      "round": "100%"
+    },
+    "treatment_breakdown": {
+      "print": "100%"
+    },
+    "product_count": 1,
+    "total_reviews": 4,
+    "demand_label": "Unproven",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "nighty"
+    ],
+    "sources": {
+      "ajio": 1
+    },
+    "avg_rating": 4,
+    "avg_price": 658,
+    "min_price": 658,
+    "max_price": 658,
+    "colors": [
+      {
+        "primary": "mustard yellow",
+        "secondary": "multicolor"
+      }
+    ],
+    "score": {
+      "total": 9,
+      "evidence_strength": 1,
+      "demand_volume": 1,
+      "tn_b2b_fit": 3,
+      "production_simplicity": 3,
+      "margin_possibility": 1,
+      "capped": true
+    },
+    "decision": "Do Not Send",
+    "sample_product_ids": [
+      "69cc2209b524"
+    ],
+    "sample_images": [
+      {
+        "url": "https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg",
+        "title": "Women Floral Print Nightgown",
+        "source": "ajio",
+        "product_url": "https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?"
+      }
+    ]
+  },
+  {
+    "rank": 12,
+    "cluster_key": "geometric|full",
+    "design_pattern": "geometric",
+    "sleeve_length": "full",
+    "neck_breakdown": {
+      "round": "100%"
+    },
+    "treatment_breakdown": {
+      "embroidery": "100%"
+    },
+    "product_count": 1,
+    "total_reviews": 40,
+    "demand_label": "Unproven",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies-nighty"
+    ],
+    "sources": {
+      "amazon": 1
+    },
+    "avg_rating": 3.8,
+    "avg_price": 998,
+    "min_price": 998,
+    "max_price": 998,
+    "colors": [
+      {
+        "primary": "dark red",
+        "secondary": "gold"
+      }
+    ],
+    "score": {
+      "total": 7,
+      "evidence_strength": 1,
+      "demand_volume": 1,
+      "tn_b2b_fit": 3,
+      "production_simplicity": 2,
+      "margin_possibility": 0,
+      "capped": true
+    },
+    "decision": "Do Not Send",
+    "sample_product_ids": [
+      "cc42960ed30b"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/31H4VpYHoDL._AC_UL320_.jpg",
+        "title": "NIHSAMAH Viscose Nighty for Women — Embroidered & Printed Stylish Night Gown, Comfortable Sleepwear Long Ni...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDk2NzcxOTUyOTAzMjo6MDo6&url=%2FNIHSAMAH-Cotton-Nighty-Women-Comfortable%2Fdp%2FB0F37V7DHX%2Fref%3Dsr_1_4_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-4-spons%26aref%3DCvqbqV0AuA%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=CvqbqV0AuA&sp_cr=ZAZ"
+      }
+    ]
+  },
+  {
+    "rank": 13,
+    "cluster_key": "other|",
+    "design_pattern": "other",
+    "sleeve_length": null,
+    "neck_breakdown": {},
+    "treatment_breakdown": {
+      "embroidery": "100%"
+    },
+    "product_count": 1,
+    "total_reviews": 0,
+    "demand_label": "No Data",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [
+      "cotton (1)"
+    ],
+    "has_plus_sizes": true,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies cotton nighty"
+    ],
+    "sources": {
+      "tatacliq": 1
+    },
+    "avg_rating": null,
+    "avg_price": 1995,
+    "min_price": 1995,
+    "max_price": 1995,
+    "colors": [
+      {
+        "primary": null,
+        "secondary": null
+      }
+    ],
+    "score": {
+      "total": 6,
+      "evidence_strength": 1,
+      "demand_volume": 0,
+      "tn_b2b_fit": 3,
+      "production_simplicity": 2,
+      "margin_possibility": 0,
+      "capped": true
+    },
+    "decision": "Do Not Send",
+    "sample_product_ids": [
+      "230567af30c1"
+    ],
+    "sample_images": []
+  },
+  {
+    "rank": 14,
+    "cluster_key": "floral|full",
+    "design_pattern": "floral",
+    "sleeve_length": "full",
+    "neck_breakdown": {
+      "round": "100%"
+    },
+    "treatment_breakdown": {
+      "embroidery": "100%"
+    },
+    "product_count": 1,
+    "total_reviews": 91,
+    "demand_label": "Unproven",
+    "features_reliable_pct": 100,
+    "nursing_count": 0,
+    "top_fabrics": [],
+    "has_plus_sizes": false,
+    "keyword_count": 1,
+    "keywords": [
+      "ladies-nighty"
+    ],
+    "sources": {
+      "amazon": 1
+    },
+    "avg_rating": 4,
+    "avg_price": 998,
+    "min_price": 998,
+    "max_price": 998,
+    "colors": [
+      {
+        "primary": "multicolor",
+        "secondary": "gold"
+      }
+    ],
+    "score": {
+      "total": 5,
+      "evidence_strength": 1,
+      "demand_volume": 1,
+      "tn_b2b_fit": 1,
+      "production_simplicity": 2,
+      "margin_possibility": 0,
+      "capped": true
+    },
+    "decision": "Do Not Send",
+    "sample_product_ids": [
+      "6a6ff75bf6e7"
+    ],
+    "sample_images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/81q5FsteFYL._AC_UL320_.jpg",
+        "title": "NIHSAMAH Cotton Nighty for Women - Premium Printed Long Night Gown with Pocket, Comfortable & Fancy Sleepwe...",
+        "source": "amazon",
+        "product_url": "https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDk2NzcxOTUyOTEzMjo6MDo6&url=%2FNIHSAMAH-Cotton-Nighty-Women-Comfortable%2Fdp%2FB0CLXDT198%2Fref%3Dsr_1_3_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-3-spons%26aref%3DSShyfZzZCq%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=SShyfZzZCq&sp_cr=ZAZ"
+      }
+    ]
+  }
+]

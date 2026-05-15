@@ -149,9 +149,10 @@ function normalizeRecord(record, keyword) {
   const featuresReliable = record.confidence !== 'low';
 
   let secondaryColor = record.secondary_color;
-  if (secondaryColor === 'unknown') {
-    secondaryColor = null;
-  }
+  if (secondaryColor === 'unknown') secondaryColor = null;
+
+  let primaryColor = record.primary_color;
+  if (primaryColor === 'unknown') primaryColor = null;
 
   return {
     product_id: productId,
@@ -173,14 +174,17 @@ function normalizeRecord(record, keyword) {
     design_pattern: record.design_pattern,
     front_top_treatment: record.front_top_treatment,
     front_bottom_style: record.front_bottom_style,
-    primary_color: record.primary_color,
+    primary_color: primaryColor,
     secondary_color: secondaryColor,
     sleeve_length: record.sleeve_length,
     cloth_texture: record.cloth_texture,
     texture_resolved: textureResolved,
     confidence: record.confidence,
     features_reliable: featuresReliable,
-    notes: record.notes
+    notes: record.notes,
+    fabric_type: record.fabric_type || null,
+    size_chart: record.size_chart || null,
+    nursing_label: record.nursing_label || null
   };
 }
 
@@ -295,9 +299,10 @@ function inferFeaturesFromTitle(title) {
   if (/floral|flower/.test(t)) design_pattern = 'floral';
   else if (/stripe|striped/.test(t)) design_pattern = 'striped';
   else if (/check|checked|checkered|plaid/.test(t)) design_pattern = 'checkered';
-  else if (/print|printed/.test(t)) design_pattern = 'printed';
-  else if (/embroid/.test(t)) design_pattern = 'embroidered';
+  else if (/geometric|abstract/.test(t)) design_pattern = 'geometric';
+  else if (/embroid/.test(t)) design_pattern = 'other';  // embroidery is a treatment, not a pattern
   else if (/plain|solid/.test(t)) design_pattern = 'plain';
+  // "printed" alone doesn't indicate a specific pattern — leave as null
 
   let neck_type = null;
   if (/round neck|round-neck/.test(t)) neck_type = 'round';
@@ -309,20 +314,23 @@ function inferFeaturesFromTitle(title) {
   let sleeve_length = null;
   if (/sleeveless|no sleeve/.test(t)) sleeve_length = 'sleeveless';
   else if (/full sleeve|full-sleeve|long sleeve/.test(t)) sleeve_length = 'full';
-  else if (/3\/4 sleeve|3\/4sleeve|three.quarter/.test(t)) sleeve_length = '3/4';
+  else if (/3\/4 sleeve|3\/4sleeve|three.quarter/.test(t)) sleeve_length = 'three-quarter';
   else if (/half sleeve|half-sleeve|short sleeve/.test(t)) sleeve_length = 'half';
 
   let front_top_treatment = null;
-  if (/front zip|front-zip|zip model|zipper/.test(t)) front_top_treatment = 'zip';
-  else if (/front open|button|placket/.test(t)) front_top_treatment = 'button';
+  if (/embroid/.test(t)) front_top_treatment = 'embroidery';
+  else if (/lace/.test(t)) front_top_treatment = 'lace';
+  else if (/print|printed/.test(t)) front_top_treatment = 'print';
+  else if (/front zip|front-zip|zip model|zipper|front open|button|placket/.test(t)) front_top_treatment = 'other';
+  else if (/plain|solid/.test(t)) front_top_treatment = 'plain';
 
   let cloth_texture = null;
   if (/cotton/.test(t)) cloth_texture = 'cotton';
   else if (/satin/.test(t)) cloth_texture = 'satin';
-  else if (/silk/.test(t)) cloth_texture = 'silk';
-  else if (/polyester/.test(t)) cloth_texture = 'polyester';
-  else if (/rayon/.test(t)) cloth_texture = 'rayon';
-  else if (/modal/.test(t)) cloth_texture = 'modal';
+  else if (/silk/.test(t)) cloth_texture = 'silk-like';
+  else if (/polyester/.test(t)) cloth_texture = 'polyester-look';
+  // rayon/modal can't be confirmed from image — mark as unsure
+  else if (/rayon|modal/.test(t)) cloth_texture = 'unsure';
 
   return { design_pattern, neck_type, sleeve_length, front_top_treatment, cloth_texture };
 }
@@ -416,10 +424,13 @@ function processOriginalPlatforms(enrichedProductIds) {
           secondary_color: null,
           sleeve_length: inferred.sleeve_length,
           cloth_texture: inferred.cloth_texture || null,
-          texture_resolved: !!inferred.cloth_texture,
+          texture_resolved: !!inferred.cloth_texture && inferred.cloth_texture !== 'unsure',
           confidence,
           features_reliable: featuresReliable,
           notes: null,
+          fabric_type: r.fabric_type || null,
+          size_chart: r.size_chart || null,
+          nursing_label: r.nursing_label || null,
         });
       }
 
@@ -485,6 +496,50 @@ async function main() {
     }
   } else {
     log(`evidence/image_features/ not found — skipping enriched step`);
+  }
+
+  // Step 1.5: back-fill fabric_type / size_chart / nursing_label from original/
+  // into records that were enriched via image_features/ (which predate these fields).
+  if (!dryRun && fs.existsSync(ORIGINAL_DIR)) {
+    // Key by cleaned URL — product_ids differ between original/ (uses "amazon.in") and clean/ (uses "amazon")
+    const enrichmentMap = new Map(); // cleanedUrl → {fabric_type, size_chart, nursing_label}
+    for (const file of fs.readdirSync(ORIGINAL_DIR).filter(f => f.endsWith('.json'))) {
+      try {
+        const records = JSON.parse(fs.readFileSync(path.join(ORIGINAL_DIR, file), 'utf-8'));
+        for (const r of records) {
+          if (r.fabric_type || r.size_chart || r.nursing_label) {
+            const url = cleanURL(r.product_url || r.url || '');
+            if (url) enrichmentMap.set(url, {
+              fabric_type: r.fabric_type || null,
+              size_chart: r.size_chart || null,
+              nursing_label: r.nursing_label || null,
+            });
+          }
+        }
+      } catch (_) {}
+    }
+
+    if (enrichmentMap.size > 0) {
+      let patched = 0;
+      for (const source of fs.readdirSync(CLEAN_DIR).filter(f => fs.statSync(path.join(CLEAN_DIR, f)).isDirectory())) {
+        const sourceDir = path.join(CLEAN_DIR, source);
+        for (const file of fs.readdirSync(sourceDir).filter(f => f.endsWith('.json'))) {
+          const filePath = path.join(sourceDir, file);
+          const records = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+          let changed = false;
+          for (const r of records) {
+            const enrich = enrichmentMap.get(r.url);
+            if (enrich && !r.fabric_type && !r.nursing_label) {
+              Object.assign(r, enrich);
+              changed = true;
+              patched++;
+            }
+          }
+          if (changed) fs.writeFileSync(filePath, JSON.stringify(records, null, 2));
+        }
+      }
+      log(`Back-filled enrichment fields into ${patched} image_features records from original/`);
+    }
   }
 
   // Step 2: process evidence/original/ (raw crawler data with title-inferred features)

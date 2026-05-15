@@ -124,8 +124,10 @@ async function processProducts() {
       const keywordSlug = keyword.toLowerCase().replace(/\s+/g, '-');
       const outputPath = path.join(platformDir, `${keywordSlug}.json`);
 
-      // Filter products with images
-      const productsWithImages = items.filter(p => p.image);
+      // Normalize field names: evidence/original/ uses product_title/product_url/images[]
+      // while image_features/ uses title/url/image (string). Support both formats.
+      const getImage = p => p.image || (Array.isArray(p.images) ? p.images[0] : null);
+      const productsWithImages = items.filter(p => getImage(p));
       if (productsWithImages.length === 0) {
         console.log(`  ⊘ ${keyword}: no images, skipped`);
         continue;
@@ -138,7 +140,7 @@ async function processProducts() {
       // Process in batches
       for (let i = 0; i < productsWithImages.length; i += BATCH_SIZE) {
         const batch = productsWithImages.slice(i, i + BATCH_SIZE);
-        const imageUrls = batch.map(p => p.image);
+        const imageUrls = batch.map(p => getImage(p));
 
         try {
           process.stdout.write(`    Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(productsWithImages.length / BATCH_SIZE)}... `);
@@ -154,12 +156,16 @@ async function processProducts() {
               product_id: product.product_id || '',
               source: platform,
               keyword,
-              title: product.title || '',
-              url: product.url || '',
-              price: product.price || '',
-              rating: product.rating || '',
-              review_count: product.review_count || null,
-              image: product.image,
+              title: product.product_title || product.title || '',
+              url: product.product_url || product.url || '',
+              price: product.price != null ? product.price : '',
+              rating: product.rating != null ? product.rating : '',
+              review_count: product.review_count != null ? product.review_count : null,
+              image: getImage(product),
+              // Enrichment fields from crawler — passed through unchanged
+              fabric_type: product.fabric_type || null,
+              size_chart: product.size_chart || null,
+              nursing_label: product.nursing_label || null,
               // Vision-extracted features
               neck_type: feature.neck_type || null,
               design_pattern: feature.design_pattern || null,

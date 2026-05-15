@@ -14,15 +14,15 @@ REQUIRED_FIELDS = [
 ]
 
 ENUM_FIELDS = {
-    'source': ['amazon', 'indiamart', 'meesho', 'myntra'],
+    'source': ['amazon', 'indiamart', 'meesho', 'myntra', 'flipkart', 'ajio', 'clovia', 'tatacliq', 'shyaway'],
     'price_confidence': ['exact', 'approx', None],
-    'neck_type': ['round', 'v-neck', 'square', 'boat', 'other'],
-    'design_pattern': ['floral', 'geometric', 'plain', 'striped', 'checkered', 'abstract', 'other'],
-    'front_top_treatment': ['embroidery', 'print', 'plain', 'lace', 'other'],
-    'front_bottom_style': ['umbrella', 'straight', 'open-type', 'a-line', 'other'],
-    'sleeve_length': ['half', 'three-quarter', 'full', 'sleeveless'],
-    'cloth_texture': ['cotton', 'satin', 'silk-like', 'polyester-look', 'unsure'],
-    'confidence': ['high', 'medium', 'low'],
+    'neck_type': ['round', 'v-neck', 'square', 'boat', 'other', None],
+    'design_pattern': ['floral', 'geometric', 'plain', 'striped', 'checkered', 'abstract', 'other', None],
+    'front_top_treatment': ['embroidery', 'print', 'plain', 'lace', 'other', None],
+    'front_bottom_style': ['umbrella', 'straight', 'open-type', 'a-line', 'other', None],
+    'sleeve_length': ['half', 'three-quarter', 'full', 'sleeveless', None],
+    'cloth_texture': ['cotton', 'satin', 'silk-like', 'polyester-look', 'unsure', None],
+    'confidence': ['high', 'medium', 'low', 'inferred'],
     'title_truncated': [True, False],
     'texture_resolved': [True, False],
     'features_reliable': [True, False]

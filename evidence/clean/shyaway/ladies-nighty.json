@@ -1,197 +1,21 @@
 [
   {
-    "product_id": "3b7ed14e6672",
+    "product_id": "ba4163f184c7",
     "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Taabu Mauveglow Full Coverage Padded Minimizer Bra",
-    "url": "https://www.shyaway.com/taabu-mauveglow-full-coverage-padded-minimizer-bra/",
-    "price": 599,
-    "rating": 4.4,
-    "review_count": 411,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/s/m/smn01-mauveglow.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
-    "neck_type": "round",
-    "design_pattern": "plain",
-    "front_top_treatment": "plain",
-    "front_bottom_style": "straight",
-    "primary_color": "white",
-    "secondary_color": "none",
-    "sleeve_length": "half",
-    "cloth_texture": "cotton",
-    "confidence": "high",
-    "notes": null,
-    "fabric_type": "Nylon Spandex",
-    "nursing_label": null,
-    "size_chart": null,
-    "rating_numeric": 4.4,
-    "size_count": 0,
-    "has_plus_sizes": false,
-    "fabric_resolved": "Nylon Spandex"
-  },
-  {
-    "product_id": "1ee548abc7c6",
-    "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Susie Light Pink Ribbed Medium Waist Hipster Panty",
-    "url": "https://www.shyaway.com/susie-light-pink-ribbed-medium-waist-hipster-panty/",
-    "price": 449,
-    "rating": null,
-    "review_count": null,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/M/C/MCT004-LightPink-f20251201033931_.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
-    "neck_type": "round",
-    "design_pattern": "floral",
-    "front_top_treatment": "print",
-    "front_bottom_style": "straight",
-    "primary_color": "pink",
-    "secondary_color": "multicolor",
-    "sleeve_length": "half",
-    "cloth_texture": "cotton",
-    "confidence": "high",
-    "notes": null,
-    "fabric_type": "Cotton Spandex",
-    "nursing_label": null,
-    "size_chart": {
-      "rows": [
-        {
-          "size": "XS",
-          "hip_cm": "75-82"
-        },
-        {
-          "size": "S",
-          "hip_cm": "83-89"
-        },
-        {
-          "size": "M",
-          "hip_cm": "90-97"
-        },
-        {
-          "size": "L",
-          "hip_cm": "98-104"
-        },
-        {
-          "size": "XL",
-          "hip_cm": "105-112"
-        },
-        {
-          "size": "2XL",
-          "hip_cm": "113-119"
-        },
-        {
-          "size": "3XL",
-          "hip_cm": "120-127"
-        },
-        {
-          "size": "4XL",
-          "hip_cm": "128-134"
-        },
-        {
-          "size": "5XL",
-          "hip_cm": "135-142"
-        },
-        {
-          "size": "6XL",
-          "hip_cm": "143-149"
-        }
-      ]
-    },
-    "size_count": 10,
-    "has_plus_sizes": true,
-    "fabric_resolved": "Cotton Spandex"
-  },
-  {
-    "product_id": "b0557d07680e",
-    "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Shyaway Pink Blue Solid Half Sleeve Shorts Set",
-    "url": "https://www.shyaway.com/shyaway-pink-blue-solid-half-sleeve-shorts-set/",
-    "price": 599,
-    "rating": 4.4,
-    "review_count": 236,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/s/h/shyss020-rosesharon.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
-    "neck_type": "round",
-    "design_pattern": "geometric",
-    "front_top_treatment": "print",
-    "front_bottom_style": "straight",
-    "primary_color": "blue",
-    "secondary_color": "white",
-    "sleeve_length": "half",
-    "cloth_texture": "cotton",
-    "confidence": "medium",
-    "notes": "thumbnail image quality, features inferred from available visual data",
-    "fabric_type": "Cotton",
-    "nursing_label": null,
-    "size_chart": {
-      "rows": [
-        {
-          "size": "2XS",
-          "bust_cm": "71-78",
-          "hip_cm": "68-74"
-        },
-        {
-          "size": "XS",
-          "bust_cm": "78-83",
-          "hip_cm": "75-82"
-        },
-        {
-          "size": "S",
-          "bust_cm": "83-88",
-          "hip_cm": "83-89"
-        },
-        {
-          "size": "M",
-          "bust_cm": "88-93",
-          "hip_cm": "90-97"
-        },
-        {
-          "size": "L",
-          "bust_cm": "93-99",
-          "hip_cm": "98-104"
-        },
-        {
-          "size": "XL",
-          "bust_cm": "99-104",
-          "hip_cm": "105-112"
-        },
-        {
-          "size": "2XL",
-          "bust_cm": "104-109",
-          "hip_cm": "113-119"
-        },
-        {
-          "size": "3XL",
-          "bust_cm": "109-114",
-          "hip_cm": "120-127"
-        },
-        {
-          "size": "4XL",
-          "bust_cm": "114-119",
-          "hip_cm": "128-134"
-        },
-        {
-          "size": "5XL",
-          "bust_cm": "119-124",
-          "hip_cm": "135-142"
-        },
-        {
-          "size": "6XL",
-          "bust_cm": "124-129",
-          "hip_cm": "143-149"
-        }
-      ]
-    },
-    "rating_numeric": 4.4,
-    "size_count": 11,
-    "has_plus_sizes": true,
-    "fabric_resolved": "Cotton"
-  },
-  {
-    "product_id": "0d03d8d35fe0",
-    "source": "shyaway",
-    "keyword": "ladies nighty",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
     "title": "Shyaway Black White Heart Print Seamless T-Shirt Bra",
+    "title_truncated": false,
     "url": "https://www.shyaway.com/shyaway-black-white-heart-print-seamless-t-shirt-bra/",
     "price": 550,
+    "price_numeric": 550,
+    "price_confidence": "exact",
     "rating": 4.6,
+    "rating_numeric": 4.6,
     "review_count": 719,
+    "review_count_numeric": 719,
     "image": "https://shyaway.static.n7.io/media/catalog/product/s/y/sy91020-blackwhite-front_1.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
     "neck_type": "v-neck",
     "design_pattern": "striped",
@@ -201,123 +25,31 @@
     "secondary_color": "white",
     "sleeve_length": "three-quarter",
     "cloth_texture": "cotton",
+    "texture_resolved": true,
     "confidence": "medium",
+    "features_reliable": true,
     "notes": "thumbnail image quality, features inferred from available visual data",
     "fabric_type": "Nylon Spandex",
-    "nursing_label": null,
     "size_chart": null,
-    "rating_numeric": 4.6,
-    "size_count": 0,
-    "has_plus_sizes": false,
-    "fabric_resolved": "Nylon Spandex"
+    "nursing_label": null
   },
   {
-    "product_id": "d68e3d17864f",
+    "product_id": "2582c9839d6b",
     "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Susie Red Lace Detachable Strap Padded Underwire Balconette Bra",
-    "url": "https://www.shyaway.com/susie-red-lace-detachable-strap-padded-underwire-balconette-bra/",
-    "price": 599,
-    "rating": 4.8,
-    "review_count": 349,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/s/0/s032-red-front.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
-    "neck_type": "round",
-    "design_pattern": "floral",
-    "front_top_treatment": "lace",
-    "front_bottom_style": "straight",
-    "primary_color": "cream",
-    "secondary_color": "multicolor",
-    "sleeve_length": "half",
-    "cloth_texture": "cotton",
-    "confidence": "high",
-    "notes": null,
-    "fabric_type": "Nylon Spandex",
-    "nursing_label": null,
-    "size_chart": null,
-    "rating_numeric": 4.8,
-    "size_count": 0,
-    "has_plus_sizes": false,
-    "fabric_resolved": "Nylon Spandex"
-  },
-  {
-    "product_id": "ffa7cf8dc829",
-    "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Susie Peach Bunny Printed Medium Waist Hipster Panty",
-    "url": "https://www.shyaway.com/susie-peach-bunny-printed-medium-waist-hipster-panty/",
-    "price": 449,
-    "rating": null,
-    "review_count": null,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/M/C/MCT007-Peach-f20251201041304_.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
-    "neck_type": "v-neck",
-    "design_pattern": "striped",
-    "front_top_treatment": "plain",
-    "front_bottom_style": "straight",
-    "primary_color": "navy",
-    "secondary_color": "white",
-    "sleeve_length": "three-quarter",
-    "cloth_texture": "cotton",
-    "confidence": "medium",
-    "notes": "thumbnail image quality, features inferred from available visual data",
-    "fabric_type": "Nylon Spandex",
-    "nursing_label": null,
-    "size_chart": {
-      "rows": [
-        {
-          "size": "XS",
-          "hip_cm": "75-82"
-        },
-        {
-          "size": "S",
-          "hip_cm": "83-89"
-        },
-        {
-          "size": "M",
-          "hip_cm": "90-97"
-        },
-        {
-          "size": "L",
-          "hip_cm": "98-104"
-        },
-        {
-          "size": "XL",
-          "hip_cm": "105-112"
-        },
-        {
-          "size": "2XL",
-          "hip_cm": "113-119"
-        },
-        {
-          "size": "3XL",
-          "hip_cm": "120-127"
-        },
-        {
-          "size": "4XL",
-          "hip_cm": "128-134"
-        },
-        {
-          "size": "5XL",
-          "hip_cm": "135-142"
-        },
-        {
-          "size": "6XL",
-          "hip_cm": "143-149"
-        }
-      ]
-    },
-    "size_count": 10,
-    "has_plus_sizes": true,
-    "fabric_resolved": "Nylon Spandex"
-  },
-  {
-    "product_id": "eafd21b5a4c3",
-    "source": "shyaway",
-    "keyword": "ladies nighty",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
     "title": "Susie StormFront Grey U Neck Broad Strap Camisole",
+    "title_truncated": false,
     "url": "https://www.shyaway.com/susie-stormfront-grey-u-neck-broad-strap-camisole/",
     "price": 499,
+    "price_numeric": 499,
+    "price_confidence": "exact",
     "rating": null,
+    "rating_numeric": null,
     "review_count": null,
+    "review_count_numeric": null,
     "image": "https://shyaway.static.n7.io/media/catalog/product/l/c/lc003-stormfront.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
     "neck_type": "round",
     "design_pattern": "floral",
@@ -327,10 +59,11 @@
     "secondary_color": "multicolor",
     "sleeve_length": "half",
     "cloth_texture": "cotton",
+    "texture_resolved": true,
     "confidence": "high",
+    "features_reliable": true,
     "notes": null,
     "fabric_type": "Cotton Spandex",
-    "nursing_label": null,
     "size_chart": {
       "rows": [
         {
@@ -379,32 +112,39 @@
         }
       ]
     },
-    "size_count": 11,
-    "has_plus_sizes": true,
-    "fabric_resolved": "Cotton Spandex"
+    "nursing_label": null
   },
   {
-    "product_id": "17684fcd5630",
+    "product_id": "b4bd34851824",
     "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Susie Pale Peach White Lace Low Waist Hipster Panty",
-    "url": "https://www.shyaway.com/susie-pale-peach-white-lace-low-waist-hipster-panty/",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Susie Light Pink Ribbed Medium Waist Hipster Panty",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/susie-light-pink-ribbed-medium-waist-hipster-panty/",
     "price": 449,
-    "rating": 5,
-    "review_count": 1,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/M/C/MCT005-PalePeach-f20251201035154_.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "price_numeric": 449,
+    "price_confidence": "exact",
+    "rating": null,
+    "rating_numeric": null,
+    "review_count": null,
+    "review_count_numeric": null,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/M/C/MCT004-LightPink-f20251201033931_.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
     "neck_type": "round",
-    "design_pattern": "plain",
-    "front_top_treatment": "plain",
+    "design_pattern": "floral",
+    "front_top_treatment": "print",
     "front_bottom_style": "straight",
-    "primary_color": "white",
-    "secondary_color": "none",
+    "primary_color": "pink",
+    "secondary_color": "multicolor",
     "sleeve_length": "half",
     "cloth_texture": "cotton",
+    "texture_resolved": true,
     "confidence": "high",
+    "features_reliable": true,
     "notes": null,
     "fabric_type": "Cotton Spandex",
-    "nursing_label": null,
     "size_chart": {
       "rows": [
         {
@@ -449,33 +189,73 @@
         }
       ]
     },
-    "rating_numeric": 5.0,
-    "size_count": 10,
-    "has_plus_sizes": true,
-    "fabric_resolved": "Cotton Spandex"
+    "nursing_label": null
   },
   {
-    "product_id": "0fec0d145b32",
+    "product_id": "8a29d9df88ce",
     "source": "shyaway",
-    "keyword": "ladies nighty",
-    "title": "Shyaway Camellia Orange Solid Sleeveless Nightwear Capri Set",
-    "url": "https://www.shyaway.com/shyaway-camellia-orange-solid-sleeveless-nightwear-capri-set/",
-    "price": 649,
-    "rating": 4.6,
-    "review_count": 253,
-    "image": "https://shyaway.static.n7.io/media/catalog/product/s/h/shycp002-camellia.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Taabu Mauveglow Full Coverage Padded Minimizer Bra",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/taabu-mauveglow-full-coverage-padded-minimizer-bra/",
+    "price": 599,
+    "price_numeric": 599,
+    "price_confidence": "exact",
+    "rating": 4.4,
+    "rating_numeric": 4.4,
+    "review_count": 411,
+    "review_count_numeric": 411,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/s/m/smn01-mauveglow.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
     "neck_type": "round",
-    "design_pattern": "floral",
-    "front_top_treatment": "print",
+    "design_pattern": "plain",
+    "front_top_treatment": "plain",
     "front_bottom_style": "straight",
-    "primary_color": "pink",
-    "secondary_color": "multicolor",
+    "primary_color": "white",
+    "secondary_color": "none",
     "sleeve_length": "half",
     "cloth_texture": "cotton",
+    "texture_resolved": true,
     "confidence": "high",
+    "features_reliable": true,
     "notes": null,
+    "fabric_type": "Nylon Spandex",
+    "size_chart": null,
+    "nursing_label": null
+  },
+  {
+    "product_id": "541602ecb68a",
+    "source": "shyaway",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Shyaway Pink Blue Solid Half Sleeve Shorts Set",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/shyaway-pink-blue-solid-half-sleeve-shorts-set/",
+    "price": 599,
+    "price_numeric": 599,
+    "price_confidence": "exact",
+    "rating": 4.4,
+    "rating_numeric": 4.4,
+    "review_count": 236,
+    "review_count_numeric": 236,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/s/h/shyss020-rosesharon.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "neck_type": "round",
+    "design_pattern": "geometric",
+    "front_top_treatment": "print",
+    "front_bottom_style": "straight",
+    "primary_color": "blue",
+    "secondary_color": "white",
+    "sleeve_length": "half",
+    "cloth_texture": "cotton",
+    "texture_resolved": true,
+    "confidence": "medium",
+    "features_reliable": true,
+    "notes": "thumbnail image quality, features inferred from available visual data",
     "fabric_type": "Cotton",
-    "nursing_label": null,
     "size_chart": {
       "rows": [
         {
@@ -535,20 +315,305 @@
         }
       ]
     },
-    "rating_numeric": 4.6,
-    "size_count": 11,
-    "has_plus_sizes": true,
-    "fabric_resolved": "Cotton"
+    "nursing_label": null
   },
   {
-    "product_id": "f59879726a38",
+    "product_id": "7da9711d0d38",
     "source": "shyaway",
-    "keyword": "ladies nighty",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Susie Peach Bunny Printed Medium Waist Hipster Panty",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/susie-peach-bunny-printed-medium-waist-hipster-panty/",
+    "price": 449,
+    "price_numeric": 449,
+    "price_confidence": "exact",
+    "rating": null,
+    "rating_numeric": null,
+    "review_count": null,
+    "review_count_numeric": null,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/M/C/MCT007-Peach-f20251201041304_.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "neck_type": "v-neck",
+    "design_pattern": "striped",
+    "front_top_treatment": "plain",
+    "front_bottom_style": "straight",
+    "primary_color": "navy",
+    "secondary_color": "white",
+    "sleeve_length": "three-quarter",
+    "cloth_texture": "cotton",
+    "texture_resolved": true,
+    "confidence": "medium",
+    "features_reliable": true,
+    "notes": "thumbnail image quality, features inferred from available visual data",
+    "fabric_type": "Nylon Spandex",
+    "size_chart": {
+      "rows": [
+        {
+          "size": "XS",
+          "hip_cm": "75-82"
+        },
+        {
+          "size": "S",
+          "hip_cm": "83-89"
+        },
+        {
+          "size": "M",
+          "hip_cm": "90-97"
+        },
+        {
+          "size": "L",
+          "hip_cm": "98-104"
+        },
+        {
+          "size": "XL",
+          "hip_cm": "105-112"
+        },
+        {
+          "size": "2XL",
+          "hip_cm": "113-119"
+        },
+        {
+          "size": "3XL",
+          "hip_cm": "120-127"
+        },
+        {
+          "size": "4XL",
+          "hip_cm": "128-134"
+        },
+        {
+          "size": "5XL",
+          "hip_cm": "135-142"
+        },
+        {
+          "size": "6XL",
+          "hip_cm": "143-149"
+        }
+      ]
+    },
+    "nursing_label": null
+  },
+  {
+    "product_id": "32da8ef46235",
+    "source": "shyaway",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Susie Red Lace Detachable Strap Padded Underwire Balconette Bra",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/susie-red-lace-detachable-strap-padded-underwire-balconette-bra/",
+    "price": 599,
+    "price_numeric": 599,
+    "price_confidence": "exact",
+    "rating": 4.8,
+    "rating_numeric": 4.8,
+    "review_count": 349,
+    "review_count_numeric": 349,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/s/0/s032-red-front.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "neck_type": "round",
+    "design_pattern": "floral",
+    "front_top_treatment": "lace",
+    "front_bottom_style": "straight",
+    "primary_color": "cream",
+    "secondary_color": "multicolor",
+    "sleeve_length": "half",
+    "cloth_texture": "cotton",
+    "texture_resolved": true,
+    "confidence": "high",
+    "features_reliable": true,
+    "notes": null,
+    "fabric_type": "Nylon Spandex",
+    "size_chart": null,
+    "nursing_label": null
+  },
+  {
+    "product_id": "606190919717",
+    "source": "shyaway",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Shyaway Camellia Orange Solid Sleeveless Nightwear Capri Set",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/shyaway-camellia-orange-solid-sleeveless-nightwear-capri-set/",
+    "price": 649,
+    "price_numeric": 649,
+    "price_confidence": "exact",
+    "rating": 4.6,
+    "rating_numeric": 4.6,
+    "review_count": 253,
+    "review_count_numeric": 253,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/s/h/shycp002-camellia.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "neck_type": "round",
+    "design_pattern": "floral",
+    "front_top_treatment": "print",
+    "front_bottom_style": "straight",
+    "primary_color": "pink",
+    "secondary_color": "multicolor",
+    "sleeve_length": "half",
+    "cloth_texture": "cotton",
+    "texture_resolved": true,
+    "confidence": "high",
+    "features_reliable": true,
+    "notes": null,
+    "fabric_type": "Cotton",
+    "size_chart": {
+      "rows": [
+        {
+          "size": "2XS",
+          "bust_cm": "71-78",
+          "hip_cm": "68-74"
+        },
+        {
+          "size": "XS",
+          "bust_cm": "78-83",
+          "hip_cm": "75-82"
+        },
+        {
+          "size": "S",
+          "bust_cm": "83-88",
+          "hip_cm": "83-89"
+        },
+        {
+          "size": "M",
+          "bust_cm": "88-93",
+          "hip_cm": "90-97"
+        },
+        {
+          "size": "L",
+          "bust_cm": "93-99",
+          "hip_cm": "98-104"
+        },
+        {
+          "size": "XL",
+          "bust_cm": "99-104",
+          "hip_cm": "105-112"
+        },
+        {
+          "size": "2XL",
+          "bust_cm": "104-109",
+          "hip_cm": "113-119"
+        },
+        {
+          "size": "3XL",
+          "bust_cm": "109-114",
+          "hip_cm": "120-127"
+        },
+        {
+          "size": "4XL",
+          "bust_cm": "114-119",
+          "hip_cm": "128-134"
+        },
+        {
+          "size": "5XL",
+          "bust_cm": "119-124",
+          "hip_cm": "135-142"
+        },
+        {
+          "size": "6XL",
+          "bust_cm": "124-129",
+          "hip_cm": "143-149"
+        }
+      ]
+    },
+    "nursing_label": null
+  },
+  {
+    "product_id": "235b1f159b50",
+    "source": "shyaway",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
+    "title": "Susie Pale Peach White Lace Low Waist Hipster Panty",
+    "title_truncated": false,
+    "url": "https://www.shyaway.com/susie-pale-peach-white-lace-low-waist-hipster-panty/",
+    "price": 449,
+    "price_numeric": 449,
+    "price_confidence": "exact",
+    "rating": 5,
+    "rating_numeric": 5,
+    "review_count": 1,
+    "review_count_numeric": 1,
+    "image": "https://shyaway.static.n7.io/media/catalog/product/M/C/MCT005-PalePeach-f20251201035154_.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
+    "neck_type": "round",
+    "design_pattern": "plain",
+    "front_top_treatment": "plain",
+    "front_bottom_style": "straight",
+    "primary_color": "white",
+    "secondary_color": "none",
+    "sleeve_length": "half",
+    "cloth_texture": "cotton",
+    "texture_resolved": true,
+    "confidence": "high",
+    "features_reliable": true,
+    "notes": null,
+    "fabric_type": "Cotton Spandex",
+    "size_chart": {
+      "rows": [
+        {
+          "size": "XS",
+          "hip_cm": "75-82"
+        },
+        {
+          "size": "S",
+          "hip_cm": "83-89"
+        },
+        {
+          "size": "M",
+          "hip_cm": "90-97"
+        },
+        {
+          "size": "L",
+          "hip_cm": "98-104"
+        },
+        {
+          "size": "XL",
+          "hip_cm": "105-112"
+        },
+        {
+          "size": "2XL",
+          "hip_cm": "113-119"
+        },
+        {
+          "size": "3XL",
+          "hip_cm": "120-127"
+        },
+        {
+          "size": "4XL",
+          "hip_cm": "128-134"
+        },
+        {
+          "size": "5XL",
+          "hip_cm": "135-142"
+        },
+        {
+          "size": "6XL",
+          "hip_cm": "143-149"
+        }
+      ]
+    },
+    "nursing_label": null
+  },
+  {
+    "product_id": "af3a4cfc0818",
+    "source": "shyaway",
+    "keyword": "ladies-nighty",
+    "keyword_matches": [
+      "ladies-nighty"
+    ],
     "title": "Susie Black Beauty Fully Lace Cup Padded Wired Bra",
+    "title_truncated": false,
     "url": "https://www.shyaway.com/susie-black-beauty-fully-lace-cup-padded-wired-bra/",
     "price": 599,
+    "price_numeric": 599,
+    "price_confidence": "exact",
     "rating": 4.3,
+    "rating_numeric": 4.3,
     "review_count": 130,
+    "review_count_numeric": 130,
     "image": "https://shyaway.static.n7.io/media/catalog/product/s/0/s020f-blackbeauty-front_1.jpg?aio=w-243;h-323;?aio=w-30;h-10;blur-96",
     "neck_type": "round",
     "design_pattern": "geometric",
@@ -558,14 +623,12 @@
     "secondary_color": "white",
     "sleeve_length": "half",
     "cloth_texture": "cotton",
+    "texture_resolved": true,
     "confidence": "medium",
+    "features_reliable": true,
     "notes": "thumbnail image quality, features inferred from available visual data",
     "fabric_type": "Nylon Spandex",
-    "nursing_label": null,
     "size_chart": null,
-    "rating_numeric": 4.3,
-    "size_count": 0,
-    "has_plus_sizes": false,
-    "fabric_resolved": "Nylon Spandex"
+    "nursing_label": null
   }
 ]

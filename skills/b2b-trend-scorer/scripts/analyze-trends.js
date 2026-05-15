@@ -53,48 +53,60 @@ if (products.length === 0) {
 }
 
 // ── Cluster ───────────────────────────────────────────────────────────────────
+// Primary cluster key: design_pattern + sleeve_length (the most visually distinctive features)
+// Neck type and treatment become cluster attributes for reporting
 const clusters = new Map();
 
 for (const p of products) {
-  if (!p.design_pattern && !p.neck_type && !p.sleeve_length && !p.front_top_treatment) continue;
-  const key = [p.design_pattern, p.neck_type, p.sleeve_length, p.front_top_treatment].join('|');
+  if (!p.design_pattern && !p.sleeve_length) continue;
+  const key = [p.design_pattern, p.sleeve_length].join('|');
   if (!clusters.has(key)) {
     clusters.set(key, {
       cluster_key: key,
       design_pattern: p.design_pattern,
-      neck_type: p.neck_type,
       sleeve_length: p.sleeve_length,
-      front_top_treatment: p.front_top_treatment,
+      neck_types: {},
+      treatments: {},
       products: [],
     });
   }
-  clusters.get(key).products.push(p);
+  const cluster = clusters.get(key);
+  cluster.products.push(p);
+
+  // Track neck type and treatment distributions
+  if (p.neck_type) {
+    cluster.neck_types[p.neck_type] = (cluster.neck_types[p.neck_type] || 0) + 1;
+  }
+  if (p.front_top_treatment) {
+    cluster.treatments[p.front_top_treatment] = (cluster.treatments[p.front_top_treatment] || 0) + 1;
+  }
 }
 
 // ── Scoring helpers ───────────────────────────────────────────────────────────
 
 function scoreEvidenceStrength(cluster) {
   const sources  = new Set(cluster.products.map(p => p.source));
-  const rated    = cluster.products.filter(p => p.rating_numeric !== null);
-  const avgRating = rated.length
-    ? rated.reduce((s, p) => s + p.rating_numeric, 0) / rated.length
-    : 0;
+  const productCount = cluster.products.length;
 
-  if (sources.size >= 2 && avgRating >= 3.8) return 5;
-  if (sources.size >= 2 || (sources.size === 1 && cluster.products.length >= 3 && rated.length >= 2)) return 3;
+  // New: weight by product count alongside platform presence
+  if (sources.size >= 3 && productCount >= 15) return 5;
+  if (sources.size >= 3 || (sources.size >= 2 && productCount >= 10)) return 4;
+  if (sources.size >= 2 && productCount >= 5) return 3;
+  if (sources.size >= 2 || productCount >= 8) return 2;
   return 1;
 }
 
-function scoreTrendSignal(cluster) {
-  const rated    = cluster.products.filter(p => p.rating_numeric !== null);
-  const avgRating = rated.length
-    ? rated.reduce((s, p) => s + p.rating_numeric, 0) / rated.length
-    : 0;
-  const keywords = new Set(cluster.products.map(p => p.keyword));
+function scoreDemandVolume(cluster) {
+  // New: measure demand by review count (real buyer signal), not rating
+  // Review count is the most reliable proxy for actual purchase volume
+  const withReviews = cluster.products.filter(p => p.review_count_numeric > 0);
+  const totalReviews = withReviews.reduce((s, p) => s + (p.review_count_numeric || 0), 0);
 
-  if (avgRating >= 4.0 && keywords.size >= 3) return 5;
-  if (avgRating >= 3.9 && keywords.size >= 2) return 3;
-  if (avgRating >= 3.7) return 1;
+  if (totalReviews > 15000) return 5;
+  if (totalReviews > 5000) return 4;
+  if (totalReviews > 1500) return 3;
+  if (totalReviews > 300) return 2;
+  if (withReviews.length > 0) return 1;
   return 0;
 }
 
@@ -109,27 +121,29 @@ function scoreTNB2BFit(cluster) {
   if (avgPrice !== null && avgPrice > 600) score -= 2;
   else if (avgPrice === null) score -= 1;
 
-  // Fabric: cotton preferred
-  const nonCotton = cluster.products.filter(p => p.cloth_texture !== 'cotton').length;
-  if (nonCotton > 0) score -= 2;
+  // Fabric: prefer crawler-extracted fabric_type (more reliable than vision cloth_texture)
+  // Fall back to cloth_texture when fabric_type is absent
+  const fabricSignals = cluster.products.map(p => {
+    const f = (p.fabric_type || '').toLowerCase();
+    if (f.includes('cotton')) return 'cotton';
+    if (f) return 'non-cotton';
+    // fallback to vision
+    if (p.cloth_texture === 'cotton') return 'cotton';
+    if (p.cloth_texture && p.cloth_texture !== 'unsure') return 'non-cotton';
+    return null;
+  }).filter(Boolean);
+  const nonCottonRatio = fabricSignals.length > 0
+    ? fabricSignals.filter(f => f === 'non-cotton').length / fabricSignals.length
+    : 0;
+  if (nonCottonRatio > 0.5) score -= 2;
+  else if (nonCottonRatio > 0.2) score -= 1;
 
-  // Channel fit: embroidery is hard to scale for district wholesaler
-  if (cluster.front_top_treatment === 'embroidery' || cluster.front_top_treatment === 'lace') {
-    score -= 1;
-  }
-
+  // Note: lace/embroidery penalty removed from here (redundant with Production Simplicity dimension)
   return Math.max(0, score);
 }
 
 function scoreProductionSimplicity(cluster) {
-  const treatmentScore = {
-    plain: 5,
-    print: 3,
-    lace: 2,
-    embroidery: 1,
-    other: 2,
-  }[cluster.front_top_treatment] ?? 2;
-
+  // Sleeve is still part of cluster key
   const sleeveScore = {
     half: 5,
     sleeveless: 4,
@@ -137,6 +151,18 @@ function scoreProductionSimplicity(cluster) {
     full: 2,
     other: 3,
   }[cluster.sleeve_length] ?? 3;
+
+  // Treatment is now distributed; use dominant treatment for simplicity score
+  const dominantTreatment = Object.entries(cluster.treatments)
+    .sort((a, b) => b[1] - a[1])[0]?.[0] ?? 'plain';
+
+  const treatmentScore = {
+    plain: 5,
+    print: 3,
+    lace: 2,
+    embroidery: 1,
+    other: 2,
+  }[dominantTreatment] ?? 2;
 
   return Math.round((treatmentScore + sleeveScore) / 2);
 }
@@ -148,7 +174,7 @@ function scoreMarginPossibility(cluster) {
   if (avgPrice <= 450) return 5;
   if (avgPrice <= 600) return 3;
   if (avgPrice <= 750) return 1;
-  return 1;
+  return 0;
 }
 
 function decision(total) {
@@ -180,7 +206,7 @@ function scoreCluster(cluster) {
   const maxPrice  = priced.length ? Math.max(...priced.map(p => p.price_numeric)) : null;
 
   const A = scoreEvidenceStrength(cluster);
-  const B = scoreTrendSignal(cluster);
+  const B = scoreDemandVolume(cluster);
   const C = scoreTNB2BFit(cluster);
   const D = scoreProductionSimplicity(cluster);
   const E = scoreMarginPossibility(cluster);
@@ -189,13 +215,53 @@ function scoreCluster(cluster) {
   const capped = A < 3;
   if (capped && total > 14) total = 14;
 
+  const reliableCount = cluster.products.filter(p => p.features_reliable).length;
+  const featuresReliablePct = Math.round((reliableCount / cluster.products.length) * 100);
+
+  // New: compute total reviews and breakdowns for customer-facing output
+  const totalReviews = cluster.products.reduce((s, p) => s + (p.review_count_numeric || 0), 0);
+  const demandLabel = totalReviews > 15000 ? 'Blockbuster' : totalReviews > 5000 ? 'High' : totalReviews > 1500 ? 'Solid' : totalReviews > 300 ? 'Emerging' : totalReviews > 0 ? 'Unproven' : 'No Data';
+
+  // Compute percentage breakdowns for neck types and treatments
+  const neckBreakdown = {};
+  Object.entries(cluster.neck_types).forEach(([type, count]) => {
+    neckBreakdown[type] = Math.round((count / cluster.products.length) * 100) + '%';
+  });
+  const treatmentBreakdown = {};
+  Object.entries(cluster.treatments).forEach(([type, count]) => {
+    treatmentBreakdown[type] = Math.round((count / cluster.products.length) * 100) + '%';
+  });
+
+  // Enrichment signals from crawler
+  const nursingCount = cluster.products.filter(p => p.nursing_label).length;
+  const fabricCounts = cluster.products.reduce((acc, p) => {
+    const f = (p.fabric_type || '').toLowerCase().trim();
+    if (f) acc[f] = (acc[f] || 0) + 1;
+    return acc;
+  }, {});
+  const topFabrics = Object.entries(fabricCounts).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([f, n]) => `${f} (${n})`);
+  const hasPlusSizes = cluster.products.some(p => {
+    if (!p.size_chart) return false;
+    const rows = p.size_chart.rows || p.size_chart.available_sizes || [];
+    return Array.isArray(rows) && rows.some(r => {
+      const s = (r.size || r || '').toString().toUpperCase();
+      return s.includes('2X') || s.includes('3X') || s.includes('4X') || s === 'XXL' || s === 'XXXL';
+    });
+  });
+
   return {
     cluster_key: cluster.cluster_key,
     design_pattern: cluster.design_pattern,
-    neck_type: cluster.neck_type,
     sleeve_length: cluster.sleeve_length,
-    front_top_treatment: cluster.front_top_treatment,
+    neck_breakdown: neckBreakdown,
+    treatment_breakdown: treatmentBreakdown,
     product_count: cluster.products.length,
+    total_reviews: totalReviews,
+    demand_label: demandLabel,
+    features_reliable_pct: featuresReliablePct,
+    nursing_count: nursingCount,
+    top_fabrics: topFabrics,
+    has_plus_sizes: hasPlusSizes,
     keyword_count: keywords.length,
     keywords,
     sources,
@@ -207,7 +273,7 @@ function scoreCluster(cluster) {
     score: {
       total,
       evidence_strength: A,
-      trend_signal: B,
+      demand_volume: B,
       tn_b2b_fit: C,
       production_simplicity: D,
       margin_possibility: E,
@@ -263,9 +329,9 @@ function generateHTML(results, top) {
       })
       .join('');
 
-    const sourceLine = Object.entries(r.sources).map(([s, n]) => `${s} (${n})`).join(', ');
+    const sourceLine = Object.entries(r.sources).map(([s, n]) => `${s}`).join(', ');
     const priceLine = r.min_price !== null
-      ? `₹${r.min_price}–₹${r.max_price} (avg ₹${r.avg_price})`
+      ? `₹${r.min_price}–₹${r.max_price}`
       : 'price unknown';
 
     const scorePercent = (r.score.total / 25) * 100;
@@ -276,13 +342,14 @@ function generateHTML(results, top) {
         <div>
           <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600;">
             #${r.rank} — ${[
-              r.design_pattern ? r.design_pattern.charAt(0).toUpperCase() + r.design_pattern.slice(1) : 'Unknown pattern',
-              r.neck_type === 'v-neck' ? 'V-neck' : r.neck_type ? r.neck_type.charAt(0).toUpperCase() + r.neck_type.slice(1) + ' neck' : null,
+              r.design_pattern ? r.design_pattern.charAt(0).toUpperCase() + r.design_pattern.slice(1) : 'Unknown',
               r.sleeve_length === 'sleeveless' ? 'Sleeveless' : r.sleeve_length ? r.sleeve_length.charAt(0).toUpperCase() + r.sleeve_length.slice(1) + ' sleeve' : null,
-              r.front_top_treatment ? r.front_top_treatment.charAt(0).toUpperCase() + r.front_top_treatment.slice(1) + ' front' : null,
             ].filter(Boolean).join(' · ')}
           </h3>
-          <p style="margin: 0; color: #666; font-size: 14px;">${r.product_count} products across ${r.keyword_count} keyword(s)</p>
+          <p style="margin: 0; color: #666; font-size: 13px;">
+            <strong style="color: #111;">${r.total_reviews.toLocaleString()} real buyers</strong> ·
+            ${sourceLine} · ${priceLine}
+          </p>
         </div>
         <div style="text-align: right;">
           <div style="font-size: 24px; font-weight: bold; color: ${decisionColor[r.decision]};">${r.score.total}/25</div>
@@ -293,18 +360,18 @@ function generateHTML(results, top) {
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
         <div>
-          <h4 style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #444; text-transform: uppercase;">Market Signal</h4>
+          <h4 style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #444; text-transform: uppercase;">Design Attributes</h4>
           <div style="font-size: 13px; line-height: 1.6; color: #666;">
-            <div><strong>Sources:</strong> ${sourceLine}</div>
+            ${Object.entries(r.neck_breakdown).length > 0 ? `<div><strong>Neck:</strong> ${Object.entries(r.neck_breakdown).map(([k,v]) => k + ' ' + v).join(', ')}</div>` : ''}
+            ${Object.entries(r.treatment_breakdown).length > 0 ? `<div><strong>Treatment:</strong> ${Object.entries(r.treatment_breakdown).map(([k,v]) => k + ' ' + v).join(', ')}</div>` : ''}
             <div><strong>Avg Rating:</strong> ${r.avg_rating !== null ? r.avg_rating + ' ★' : 'n/a'}</div>
-            <div><strong>Price:</strong> ${priceLine}</div>
           </div>
         </div>
         <div>
           <h4 style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #444; text-transform: uppercase;">Score Breakdown</h4>
           <div style="font-size: 12px; line-height: 1.6; color: #666; font-family: monospace;">
             <div>A. Evidence Strength: <strong>${r.score.evidence_strength}/5</strong></div>
-            <div>B. Trend Signal: <strong>${r.score.trend_signal}/5</strong></div>
+            <div>B. Demand Volume: <strong>${r.score.demand_volume}/5</strong></div>
             <div>C. TN B2B Fit: <strong>${r.score.tn_b2b_fit}/5</strong></div>
             <div>D. Production Simplicity: <strong>${r.score.production_simplicity}/5</strong></div>
             <div>E. Margin Possibility: <strong>${r.score.margin_possibility}/5</strong></div>
@@ -412,13 +479,10 @@ if (!JSON_ONLY) {
 
   for (const r of top) {
     const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : null;
-    const fmtNeck = s => s === 'v-neck' ? 'V-neck' : s ? cap(s) + ' neck' : null;
     const fmtSleeve = s => s === 'sleeveless' ? 'Sleeveless' : s ? cap(s) + ' sleeve' : null;
     const label = [
       cap(r.design_pattern) || 'Unknown pattern',
-      fmtNeck(r.neck_type),
       fmtSleeve(r.sleeve_length),
-      r.front_top_treatment ? cap(r.front_top_treatment) + ' front' : null,
     ].filter(Boolean).join(' · ');
 
     // Deduplicate color pairs for display
@@ -443,10 +507,12 @@ if (!JSON_ONLY) {
     console.log(`Score: ${r.score.total}/25 | Decision: ${r.decision}${r.score.capped ? ' [score capped — evidence too weak]' : ''}`);
     console.log(line);
     console.log(`Design Attributes:`);
-    console.log(`  Pattern:    ${(r.design_pattern || 'n/a').padEnd(14)} Treatment: ${r.front_top_treatment || 'n/a'}`);
-    console.log(`  Neck:       ${(r.neck_type || 'n/a').padEnd(14)} Sleeve:    ${r.sleeve_length || 'n/a'}`);
-    console.log(`  Texture:    cotton`);
+    const neckStr = Object.entries(r.neck_breakdown).map(([k,v]) => `${k} ${v}`).join(', ') || 'n/a';
+    const treatStr = Object.entries(r.treatment_breakdown).map(([k,v]) => `${k} ${v}`).join(', ') || 'n/a';
+    console.log(`  Pattern:    ${(r.design_pattern || 'n/a').padEnd(14)} Sleeve:    ${r.sleeve_length || 'n/a'}`);
+    console.log(`  Neck:       ${neckStr.padEnd(14)} Treatment: ${treatStr}`);
     console.log(`\nMarket Signal:`);
+    console.log(`  Demand:     ${r.total_reviews.toLocaleString()} total reviews [${r.demand_label}]`);
     console.log(`  Products:   ${r.product_count} items across ${r.keyword_count} keyword(s)`);
     console.log(`  Sources:    ${sourceLine}`);
     console.log(`  Avg Rating: ${r.avg_rating !== null ? r.avg_rating + ' ★' : 'n/a'}`);
@@ -454,7 +520,7 @@ if (!JSON_ONLY) {
     console.log(`  Colors:     ${topColors}`);
     console.log(`\nScore Breakdown:`);
     console.log(`  A. Evidence Strength    : ${r.score.evidence_strength}/5`);
-    console.log(`  B. Trend Signal         : ${r.score.trend_signal}/5`);
+    console.log(`  B. Demand Volume        : ${r.score.demand_volume}/5`);
     console.log(`  C. TN B2B Fit           : ${r.score.tn_b2b_fit}/5`);
     console.log(`  D. Production Simplicity: ${r.score.production_simplicity}/5`);
     console.log(`  E. Margin Possibility   : ${r.score.margin_possibility}/5`);

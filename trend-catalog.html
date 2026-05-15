@@ -298,26 +298,6 @@ main {
   display: flex; flex-direction: column; gap: 5px;
   flex: 1;
 }
-
-/* Attribute pills */
-.card-attrs {
-  display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px;
-}
-.attr-pill {
-  font-size: 10px; font-weight: 600; padding: 2px 8px;
-  border-radius: 999px; background: var(--bg); color: var(--text-muted);
-  border: 1px solid var(--border);
-}
-.attr-pill.nursing { color: #7c3aed; border-color: #ede9fe; background: #ede9fe; }
-.attr-pill.plus    { color: #2563eb; border-color: #dbeafe; background: #dbeafe; }
-
-/* Fabric type badges with color coding */
-.attr-pill.fabric-cotton { color: #92400e; background: #fef3c7; border-color: #fcd34d; }
-.attr-pill.fabric-silk   { color: #7c2d12; background: #fed7aa; border-color: #fdba74; }
-.attr-pill.fabric-satin  { color: #4c0519; background: #fbcfe8; border-color: #f472b6; }
-.attr-pill.fabric-poly   { color: #1e1b4b; background: #e0e7ff; border-color: #c7d2fe; }
-.attr-pill.fabric-rayon  { color: #164e63; background: #cffafe; border-color: #a5f3fc; }
-.attr-pill.fabric-generic { color: var(--text-muted); background: var(--bg); border-color: var(--border); }
 .card-title {
   font-size: 12px; font-weight: 700;
   line-height: 1.35; letter-spacing: -.01em;
@@ -586,15 +566,6 @@ main {
 
 /* Platform list */
 .platform-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-
-/* Feature tags */
-.feature-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-.feature-tag {
-  font-size: 12px; font-weight: 700; padding: 5px 12px;
-  border-radius: 999px; background: var(--bg); color: var(--text-muted);
-}
-.feature-tag.nursing { background: #ede9fe; color: #7c3aed; }
-.feature-tag.plus    { background: #dbeafe; color: #2563eb; }
 .platform-pill {
   display: flex; align-items: center; gap: 5px;
   padding: 5px 10px; border-radius: 999px;
@@ -842,22 +813,6 @@ main {
 
   /* Hide scroll-to-top on mobile (feed handles navigation) */
   #scrollTop { display: none !important; }
-
-  /* Attribute pills on mobile: white text, semi-transparent bg */
-  .attr-pill {
-    background: rgba(0,0,0,.35) !important;
-    border-color: rgba(255,255,255,.2) !important;
-    color: white !important;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-  }
-  .attr-pill.nursing { background: rgba(124,58,237,.55) !important; }
-  .attr-pill.plus    { background: rgba(37,99,235,.55) !important; }
-  .attr-pill.fabric-cotton { background: rgba(146,64,14,.6) !important; }
-  .attr-pill.fabric-silk   { background: rgba(124,45,18,.6) !important; }
-  .attr-pill.fabric-satin  { background: rgba(76,5,25,.6) !important; }
-  .attr-pill.fabric-poly   { background: rgba(30,27,75,.6) !important; }
-  .attr-pill.fabric-rayon  { background: rgba(22,78,99,.6) !important; }
 }
 </style>
 </head>
@@ -1085,35 +1040,11 @@ function capitalize(s) {
 }
 
 function formatTitle(t) {
-  // Format: Material Half-Sleeve Round Neck - Plain Design Nighty
-  if (!t) return 'Nighty';
-
-  const material = dominantFabric(t.sampleProducts) || 'Cotton';
-
-  const sleeveName = {
-    'half': 'Half-Sleeve',
-    'sleeveless': 'Sleeveless',
-    'three-quarter': '3/4-Sleeve',
-    '3/4': '3/4-Sleeve',
-    'full': 'Full-Sleeve'
-  };
-
-  const neckName = {
-    'round': 'Round Neck',
-    'v-neck': 'V-Neck',
-    'square': 'Square Neck',
-    'sweetheart': 'Sweetheart Neck'
-  };
-
-  const sleeve = sleeveName[(t.sleeve_length || '').toLowerCase()] || capitalize(t.sleeve_length) + '-Sleeve' || 'Half-Sleeve';
-  const neck = neckName[(t.neck_type || '').toLowerCase()] || capitalize(t.neck_type) + ' Neck' || 'Round Neck';
-
-  let design = 'Plain';
-  if (t.front_top_treatment && t.front_top_treatment.toLowerCase() !== 'plain') {
-    design = capitalize(t.front_top_treatment);
-  }
-
-  return `${material} ${sleeve} ${neck} - ${design} Design Nighty`;
+  return [
+    capitalize(t.design_pattern),
+    capitalize(t.neck_type) + ' Neck',
+    capitalize(t.sleeve_length) + ' Sleeve',
+  ].join(' · ');
 }
 
 function formatSubtitle(t) {
@@ -1125,93 +1056,18 @@ function formatSubtitle(t) {
   return parts.join(' · ') || 'Design cluster';
 }
 
-function dominantFabric(sampleProducts) {
-  if (!sampleProducts || !Array.isArray(sampleProducts) || sampleProducts.length === 0) return 'Cotton';
-  const freq = {};
-  sampleProducts.forEach(p => {
-    if (!p) return;
-    let fabric = (p.fabric_resolved || '').toLowerCase().trim();
-    if (fabric && fabric !== 'none') {
-      fabric = fabric.replace(/^100%?\s*/, '').replace(/^\s*100\s*/, '').trim();
-      if (fabric) freq[fabric] = (freq[fabric] || 0) + 1;
-    }
-  });
-  const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
-  return top ? capitalize(top[0]) : 'Cotton';
-}
-
-function hasNursing(sampleProducts) {
-  if (!sampleProducts || !Array.isArray(sampleProducts)) return false;
-  return sampleProducts.some(p => p && p.nursing_label && p.nursing_label !== 'None');
-}
-
-function hasPlusSizes(sampleProducts) {
-  if (!sampleProducts || !Array.isArray(sampleProducts)) return false;
-  return sampleProducts.some(p => p && p.has_plus_sizes === true);
-}
-
-function fabricBadgeClass(fabric) {
-  if (!fabric) return 'fabric-generic';
-  const f = fabric.toLowerCase();
-  if (f.includes('cotton')) return 'fabric-cotton';
-  if (f.includes('silk')) return 'fabric-silk';
-  if (f.includes('satin')) return 'fabric-satin';
-  if (f.includes('polyester') || f.includes('poly')) return 'fabric-poly';
-  if (f.includes('rayon') || f.includes('modal')) return 'fabric-rayon';
-  return 'fabric-generic';
-}
-
-function getFabricFromPersonaTags(personaTags) {
-  // Extract fabric info from persona tags array
-  if (!personaTags || !Array.isArray(personaTags)) return null;
-  for (const tag of personaTags) {
-    if (Array.isArray(tag) && tag.length >= 2) {
-      const label = tag[1];
-      if (label.includes('Cotton') || label.includes('Fabric')) {
-        return label;
-      }
-    }
-  }
-  return null;
-}
-
 // ── Data loading ───────────────────────────────────────────────
 async function loadData() {
-  const [data, products] = await Promise.all([
+  const [trends, products] = await Promise.all([
     fetch('evidence/output/trends.json').then(r => r.json()),
     fetch('evidence/clean/_merged.json').then(r => r.json()),
   ]);
-  const trends = data.top_trends || data;
   const byId = Object.fromEntries(products.map(p => [p.product_id, p]));
-
-  return trends.map((t, idx) => {
-    const clusterKey = `${t.design_pattern}_${t.neck_type}_${t.sleeve_length}_${t.front_top_treatment}`;
-
-    // Enrich sample_products with full data from _merged.json
-    const enriched = t.sample_products?.map(sp => {
-      const full = byId[sp.product_id] || {};
-      return { ...sp, ...full };
-    }) || [];
-
-    const prices = enriched.map(p => p.price || 0).filter(p => p > 0);
-    const ratings = enriched.map(p => p.rating || 0).filter(p => p > 0);
-
-    return {
-      ...t,
-      rank: t.rank || (idx + 1),
-      cluster_key: clusterKey,
-      images: enriched.map(p => p.image).filter(Boolean),
-      min_price: prices.length > 0 ? Math.min(...prices) : 0,
-      max_price: prices.length > 0 ? Math.max(...prices) : 0,
-      avg_price: prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0,
-      avg_rating: ratings.length > 0 ? ratings.reduce((a, b) => a + b) / ratings.length : 0,
-      colors: enriched.flatMap(p => [
-        { primary: p.primary_color },
-        { primary: p.secondary_color }
-      ]).filter(c => c.primary),
-      sampleProducts: enriched,
-    };
+  trends.forEach(t => {
+    t.images = t.sample_product_ids.map(id => byId[id]?.image).filter(Boolean);
+    t.sampleProducts = t.sample_product_ids.map(id => byId[id]).filter(Boolean);
   });
+  return trends;
 }
 
 // ── Render ─────────────────────────────────────────────────────
@@ -1286,11 +1142,6 @@ function renderCard(t, state) {
         ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
         ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
         <span class="card-count">${t.product_count} styles</span>
-      </div>
-      <div class="card-attrs">
-        ${getFabricFromPersonaTags(t.persona_tags) ? `<span class="attr-pill ${fabricBadgeClass(getFabricFromPersonaTags(t.persona_tags))}">🧵 ${getFabricFromPersonaTags(t.persona_tags)}</span>` : (dominantFabric(t.sampleProducts) ? `<span class="attr-pill ${fabricBadgeClass(dominantFabric(t.sampleProducts))}">🧵 ${dominantFabric(t.sampleProducts)}</span>` : '')}
-        ${hasNursing(t.sampleProducts) ? `<span class="attr-pill nursing">Nursing-Friendly ✓</span>` : ''}
-        ${hasPlusSizes(t.sampleProducts) ? `<span class="attr-pill plus">📏 Plus</span>` : ''}
       </div>
       <div class="fire-row">
         <div class="fire-score">${fireMeter(t.score.total)}</div>
@@ -1550,14 +1401,10 @@ function openModal(t) {
   const avgPrice = t.avg_price ? `₹${Math.round(t.avg_price)}` : '—';
   const priceRange = t.min_price ? `₹${Math.round(t.min_price)}–${Math.round(t.max_price)}` : '—';
   const rating = t.avg_rating ? t.avg_rating.toFixed(1) : '—';
-  const fabric = dominantFabric(t.sampleProducts) || '—';
-  const plusSizes = hasPlusSizes(t.sampleProducts) ? 'Yes' : 'No';
   statsEl.innerHTML = [
     ['Styles Found', t.product_count, `across ${Object.keys(t.sources).length} platforms`],
     ['Buyer Rating', `★ ${rating}`, 'average out of 5.0'],
     ['Price Range',  priceRange, `avg ${avgPrice}`],
-    ['Fabric', fabric, 'primary material'],
-    ['Plus Sizes', plusSizes, 'available in cluster'],
     ['Trend Score',  `${fireMeter(t.score.total)}`, `${t.score.total} / 25`],
   ].map(([label, val, sub]) =>
     `<div class="stat-card">
@@ -1586,20 +1433,6 @@ function openModal(t) {
       ${capitalize(p)} <span style="color:var(--text-muted);font-weight:500">(${count})</span>
     </div>`;
   }).join('');
-
-  // Special features section
-  const nursing = hasNursing(t.sampleProducts);
-  const plusSz = hasPlusSizes(t.sampleProducts);
-  if (nursing || plusSz) {
-    const featureTags = [];
-    if (nursing) featureTags.push('<span class="feature-tag nursing">👶 Nursing-Friendly</span>');
-    if (plusSz) featureTags.push('<span class="feature-tag plus">📏 Plus Sizes Available</span>');
-    const featuresHtml = `
-      <div class="score-section-title" style="margin-bottom:8px;">Special Features ✨</div>
-      <div class="feature-tags">${featureTags.join('')}</div>
-    `;
-    plEl.insertAdjacentHTML('afterend', featuresHtml);
-  }
 
   refreshModalActions(t.cluster_key);
 
@@ -1700,15 +1533,8 @@ document.addEventListener('keydown', e => {
       <div style="text-align:center;padding:40px 20px;color:#666">
         <div style="font-size:40px;margin-bottom:12px">⚠️</div>
         <div style="font-weight:700;color:#111;margin-bottom:8px">Could not load trend data</div>
-        <div style="font-size:13px;margin-bottom:16px">
-          Make sure you're serving from the project root where <code>evidence/</code> folder exists.<br>
-          <strong>Run from /Users/ravi-19780/git/trend-scanner/</strong>
-        </div>
-        <code style="background:#f5f5f5;padding:8px 14px;border-radius:8px;font-size:12px;display:block;margin:12px 0">
-          cd /Users/ravi-19780/git/trend-scanner<br>
-          python3 -m http.server 5500
-        </code>
-        <div style="font-size:12px;color:#999;margin-top:12px">Then open: http://127.0.0.1:5500/trend-catalog.html</div>
+        <div style="font-size:13px;margin-bottom:16px">Open this file via a local server, not file://</div>
+        <code style="background:#f5f5f5;padding:8px 14px;border-radius:8px;font-size:12px">npx serve .</code>
       </div>`;
   }
 })();
