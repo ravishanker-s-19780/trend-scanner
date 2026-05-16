@@ -1035,6 +1035,40 @@ const COLOR_MAP = {
   multicolor: 'linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff)',
 };
 
+
+// ── Customer-friendly discovery feed functions ──────────────────
+const TITLE_MAP = {
+  'Blockbuster': { plain: 'Fast-Moving Basic Nighty', floral: 'Best-Selling Floral Nighty', geometric: 'High-Demand Geometric Nighty', striped: 'Popular Striped Nighty', printed: 'Best-Selling Printed Nighty' },
+  'High': { plain: 'Demand Winner Nighty', floral: 'Top-Selling Floral Nighty', geometric: 'Trending Geometric Style', striped: 'Rising Striped Style', printed: 'Trending Printed Style' },
+  'Solid': { plain: 'Steady Basic Nighty', floral: 'Consistent Floral Style', geometric: 'Reliable Geometric Design', striped: 'Dependable Striped Nighty', printed: 'Consistent Printed Style' },
+  'Emerging': { default: 'Fresh Find Nighty' },
+  'Unproven': { default: 'Watch Only Style' }
+};
+
+function generateCustomerTrendTitle(t) {
+  const demand = t.demand_label || 'Solid';
+  const pattern = t.design_pattern || 'plain';
+  const titleEntry = TITLE_MAP[demand] || TITLE_MAP['Solid'];
+  return titleEntry[pattern] || titleEntry.default || 'Nighty Style';
+}
+
+function mapDecisionToCardType(t) {
+  if (!t.confidence_tier || !t.risk_flags) return 'test-batch';
+  const isHighConf = t.confidence_tier === 'High';
+  const hasRisks = t.risk_flags.length > 0;
+  const prodCount = t.product_count || 0;
+  if (isHighConf && !hasRisks && prodCount >= 30) return 'buy-now';
+  if (t.decision === 'Niche' || t.decision === 'Do Not Send' || hasRisks) return 'watch-only';
+  if (t.confidence_tier === 'Low' || t.demand_label === 'Emerging' || t.demand_label === 'Unproven') return 'fresh-find';
+  return 'test-batch';
+}
+
+function getCardTypeBadge(cardType, decision) {
+  const badges = { 'buy-now': { icon: '🟢', text: 'Buy Now', class: 'send-now' }, 'test-batch': { icon: '🔵', text: 'Test Small Batch', class: 'backup' }, 'fresh-find': { icon: '✨', text: 'Fresh Find', class: 'needs-evidence' }, 'watch-only': { icon: '🟡', text: 'Watch Only', class: 'needs-evidence' } };
+  if (decision === 'Do Not Send') return { icon: '🔴', text: 'Do Not Send', class: 'do-not-send' };
+  return badges[cardType] || badges['test-batch'];
+}
+
 const SCORE_LABELS = [
   ['A', 'Popularity Spread', 'evidence_strength'],
   ['B', 'Buyer Demand',      'demand_volume'],
@@ -1229,8 +1263,10 @@ function renderCard(t, state) {
     </div>
     <div class="color-strip">${colorStrip}</div>
     <div class="card-body">
-      <h3 class="card-title" style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3;">${formatTitle(t)}</h3>
+      <h2 class="card-title" style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.3; color: white;">${generateCustomerTrendTitle(t)}</h2>
+      <div style="font-size: 13px; color: rgba(255,255,255,.75); margin: 3px 0 6px;">${formatTitle(t)}</div>
       ${tagsHTML}
+      <div style="font-size: 12px; color: rgba(255,255,255,.8); margin: 6px 0; line-height: 1.4;">${t.product_count} products · ${t.total_reviews.toLocaleString()} reviews · ${Object.keys(t.sources).length} platforms</div>
       <div class="card-meta">
         ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
         ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
