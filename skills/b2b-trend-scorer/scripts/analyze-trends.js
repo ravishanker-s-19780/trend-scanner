@@ -47,6 +47,10 @@ let products = JSON.parse(fs.readFileSync(MERGED, 'utf8'));
 // Only filter by source if specified
 if (SOURCE) products = products.filter(p => p.source === SOURCE);
 
+// Exclude bundle/set products (multi-piece combos, not single nighty styles)
+const BUNDLE_RE = /combo|piece set|\d+ piece|nightwear set|lingerie set|bundle/i;
+products = products.filter(p => !BUNDLE_RE.test(p.title || ''));
+
 if (products.length === 0) {
   console.error('No products found after filtering.');
   process.exit(1);
@@ -110,35 +114,17 @@ function scoreDemandVolume(cluster) {
   return 0;
 }
 
-function scoreTNB2BFit(cluster) {
+function scoreCustomerAppeal(cluster) {
   let score = 5;
   const priced = cluster.products.filter(p => p.price_numeric !== null);
   const avgPrice = priced.length
     ? priced.reduce((s, p) => s + p.price_numeric, 0) / priced.length
     : null;
 
-  // Price band: retail ≤ 600 → wholesale ~300 ≤ TN ceiling 320
-  if (avgPrice !== null && avgPrice > 600) score -= 2;
+  // D2C sweet spot: customers are comfortable up to ₹1000 for nightwear
+  if (avgPrice !== null && avgPrice > 1000) score -= 2;
   else if (avgPrice === null) score -= 1;
 
-  // Fabric: prefer crawler-extracted fabric_type (more reliable than vision cloth_texture)
-  // Fall back to cloth_texture when fabric_type is absent
-  const fabricSignals = cluster.products.map(p => {
-    const f = (p.fabric_type || '').toLowerCase();
-    if (f.includes('cotton')) return 'cotton';
-    if (f) return 'non-cotton';
-    // fallback to vision
-    if (p.cloth_texture === 'cotton') return 'cotton';
-    if (p.cloth_texture && p.cloth_texture !== 'unsure') return 'non-cotton';
-    return null;
-  }).filter(Boolean);
-  const nonCottonRatio = fabricSignals.length > 0
-    ? fabricSignals.filter(f => f === 'non-cotton').length / fabricSignals.length
-    : 0;
-  if (nonCottonRatio > 0.5) score -= 2;
-  else if (nonCottonRatio > 0.2) score -= 1;
-
-  // Note: lace/embroidery penalty removed from here (redundant with Production Simplicity dimension)
   return Math.max(0, score);
 }
 
@@ -167,21 +153,22 @@ function scoreProductionSimplicity(cluster) {
   return Math.round((treatmentScore + sleeveScore) / 2);
 }
 
-function scoreMarginPossibility(cluster) {
+function scoreValueScore(cluster) {
+  // D2C value perception: best value under ₹500, good under ₹800, acceptable under ₹1200
   const priced = cluster.products.filter(p => p.price_numeric !== null);
   if (!priced.length) return 1;
   const avgPrice = priced.reduce((s, p) => s + p.price_numeric, 0) / priced.length;
-  if (avgPrice <= 450) return 5;
-  if (avgPrice <= 600) return 3;
-  if (avgPrice <= 750) return 1;
+  if (avgPrice <= 500) return 5;
+  if (avgPrice <= 800) return 3;
+  if (avgPrice <= 1200) return 1;
   return 0;
 }
 
 function decision(total) {
-  if (total >= 20) return 'Send Now';
-  if (total >= 15) return 'Send as Backup';
-  if (total >= 10) return 'Needs More Evidence';
-  return 'Do Not Send';
+  if (total >= 20) return 'Trending Now';
+  if (total >= 15) return 'Worth Watching';
+  if (total >= 10) return 'Emerging';
+  return 'Niche';
 }
 
 // ── Score each cluster ────────────────────────────────────────────────────────
@@ -207,9 +194,9 @@ function scoreCluster(cluster) {
 
   const A = scoreEvidenceStrength(cluster);
   const B = scoreDemandVolume(cluster);
-  const C = scoreTNB2BFit(cluster);
+  const C = scoreCustomerAppeal(cluster);
   const D = scoreProductionSimplicity(cluster);
-  const E = scoreMarginPossibility(cluster);
+  const E = scoreValueScore(cluster);
 
   let total = A + B + C + D + E;
   const capped = A < 3;
@@ -249,6 +236,48 @@ function scoreCluster(cluster) {
     });
   });
 
+  // Derive B2B decision fields
+  const recommendedAction = total >= 20 && !capped ? 'Buy / Produce Now'
+    : total >= 15 && !capped ? 'Test Small Batch'
+    : total >= 10 || capped ? 'Watch — Needs Evidence'
+    : 'Do Not Send';
+
+  const testQuantity = total >= 20 && !capped ? '50–100 pcs'
+    : total >= 15 && !capped ? '25–50 pcs'
+    : total >= 10 || capped ? '10–25 pcs'
+    : 'Do not order';
+
+  const confidenceTier = featuresReliablePct >= 85 && !capped ? 'High'
+    : featuresReliablePct >= 60 && !capped ? 'Medium'
+    : featuresReliablePct >= 40 ? 'Low'
+    : 'Needs Manual Check';
+
+  // Build risk flags
+  const riskFlags = [];
+  if (cluster.products.length < 10) riskFlags.push('Low product count');
+  if (capped) riskFlags.push('Score capped (weak platform spread)');
+  if (Object.keys(sources).length < 3) riskFlags.push('Single or few platforms');
+  if (avgRating !== null && avgRating < 3.5) riskFlags.push('Below average rating');
+  if (featuresReliablePct < 60) riskFlags.push('Low feature reliability');
+
+  // Build buyer segment array
+  const buyerSegment = [];
+  if (hasPlusSizes) buyerSegment.push('Plus size buyers');
+  if (nursingCount > 0) buyerSegment.push('Maternity / nursing');
+  if (avgPrice !== null && avgPrice <= 500) buyerSegment.push('Budget buyers');
+  if (avgPrice !== null && avgPrice > 800) buyerSegment.push('Mid-premium buyers');
+  buyerSegment.push(cluster.design_pattern === 'plain' && cluster.sleeve_length === 'half' ? 'Daily wear' : 'General buyers');
+
+  // Margin tier based on price
+  const marginTier = avgPrice !== null && avgPrice >= 800 ? 'Good margin (>40%)'
+    : avgPrice !== null && avgPrice >= 500 ? 'Moderate (25–40%)'
+    : 'Tight (<25%)';
+
+  // Season fit based on sleeve
+  const seasonFit = cluster.sleeve_length === 'full' ? 'Winter / Year-round'
+    : cluster.sleeve_length === 'sleeveless' ? 'Summer / Festival'
+    : 'Year-round';
+
   return {
     cluster_key: cluster.cluster_key,
     design_pattern: cluster.design_pattern,
@@ -274,12 +303,20 @@ function scoreCluster(cluster) {
       total,
       evidence_strength: A,
       demand_volume: B,
-      tn_b2b_fit: C,
+      customer_appeal: C,
       production_simplicity: D,
-      margin_possibility: E,
+      value_score: E,
       capped,
     },
     decision: decision(total),
+    recommended_action: recommendedAction,
+    test_quantity: testQuantity,
+    confidence_tier: confidenceTier,
+    confidence_pct: featuresReliablePct,
+    risk_flags: riskFlags,
+    buyer_segment: buyerSegment,
+    margin_tier: marginTier,
+    season_fit: seasonFit,
     sample_product_ids: cluster.products.slice(0, 3).map(p => p.product_id),
     sample_images: cluster.products
       .map(p => ({ url: p.image, title: p.title, source: p.source, product_url: p.url }))
@@ -301,10 +338,10 @@ let results = [...clusters.values()]
 function generateHTML(results, top) {
   const topResults = results.slice(0, top);
   const decisionColor = {
-    'Send Now': '#10b981',
-    'Send as Backup': '#f59e0b',
-    'Needs More Evidence': '#6366f1',
-    'Do Not Send': '#ef4444',
+    'Trending Now': '#10b981',
+    'Worth Watching': '#f59e0b',
+    'Emerging': '#6366f1',
+    'Niche': '#ef4444',
   };
 
   const trendCards = topResults.map(r => {
@@ -372,9 +409,9 @@ function generateHTML(results, top) {
           <div style="font-size: 12px; line-height: 1.6; color: #666; font-family: monospace;">
             <div>A. Evidence Strength: <strong>${r.score.evidence_strength}/5</strong></div>
             <div>B. Demand Volume: <strong>${r.score.demand_volume}/5</strong></div>
-            <div>C. TN B2B Fit: <strong>${r.score.tn_b2b_fit}/5</strong></div>
-            <div>D. Production Simplicity: <strong>${r.score.production_simplicity}/5</strong></div>
-            <div>E. Margin Possibility: <strong>${r.score.margin_possibility}/5</strong></div>
+            <div>C. Customer Appeal: <strong>${r.score.customer_appeal}/5</strong></div>
+            <div>D. Style Simplicity: <strong>${r.score.production_simplicity}/5</strong></div>
+            <div>E. Value Score: <strong>${r.score.value_score}/5</strong></div>
           </div>
         </div>
       </div>
@@ -412,7 +449,7 @@ function generateHTML(results, top) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B2B Trend Analysis Report</title>
+  <title>Trend Analysis Report</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -446,7 +483,7 @@ function generateHTML(results, top) {
 </head>
 <body>
   <div class="container">
-    <h1>B2B Trend Analysis</h1>
+    <h1>Trend Analysis</h1>
     <div class="summary">
       <p>Analyzed ${results.length} design clusters across ${[...clusters.values()].reduce((s,c)=>s+c.products.length,0)} classifiable products (${products.length} total). Showing top ${Math.min(TOP_N, results.length)} trends.</p>
       <p><strong>Generated:</strong> ${new Date().toLocaleString()}</p>
@@ -521,9 +558,9 @@ if (!JSON_ONLY) {
     console.log(`\nScore Breakdown:`);
     console.log(`  A. Evidence Strength    : ${r.score.evidence_strength}/5`);
     console.log(`  B. Demand Volume        : ${r.score.demand_volume}/5`);
-    console.log(`  C. TN B2B Fit           : ${r.score.tn_b2b_fit}/5`);
-    console.log(`  D. Production Simplicity: ${r.score.production_simplicity}/5`);
-    console.log(`  E. Margin Possibility   : ${r.score.margin_possibility}/5`);
+    console.log(`  C. Customer Appeal      : ${r.score.customer_appeal}/5`);
+    console.log(`  D. Style Simplicity     : ${r.score.production_simplicity}/5`);
+    console.log(`  E. Value Score          : ${r.score.value_score}/5`);
     console.log(dash + '\n');
   }
 

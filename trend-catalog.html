@@ -52,6 +52,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
+/* ── Accessibility ──────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* ── Loading screen ─────────────────────────────── */
 #loader {
   position: fixed; inset: 0;
@@ -813,7 +824,29 @@ main {
 
   /* Hide scroll-to-top on mobile (feed handles navigation) */
   #scrollTop { display: none !important; }
+
+  /* Mobile tag margin override */
+  .card-tags { margin: 4px 0 6px; }
 }
+
+/* Product attribute tags (all screen sizes) */
+.card-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin: 3px 0 4px;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.tag-fabric  { background: #f3f4f6; color: #374151; }
+.tag-size    { background: #eff6ff; color: #1d4ed8; }
+.tag-nursing { background: #fdf2f8; color: #be185d; }
 </style>
 </head>
 <body>
@@ -825,6 +858,7 @@ main {
 </div>
 
 <!-- Header -->
+<h1 class="sr-only">TrendBoard: B2B Ladies Nighty Trends</h1>
 <header>
   <div class="header-inner">
     <div class="brand">
@@ -834,7 +868,7 @@ main {
     <div class="header-tabs">
       <button class="tab-btn active" data-tab="discover" onclick="switchTab('discover')">Discover</button>
       <button class="tab-btn" data-tab="wishlist" onclick="switchTab('wishlist')">
-        Saved
+        Shortlist
         <span class="wishlist-badge" id="headerWishlistBadge"></span>
       </button>
     </div>
@@ -846,14 +880,15 @@ main {
 <div class="filter-bar">
   <div class="filter-scroll" id="filterBar">
     <button class="filter-chip active" data-filter="decision" data-val="all" onclick="setFilter('decision','all',this)">All Trends</button>
-    <button class="filter-chip send-now" data-filter="decision" data-val="Send Now" onclick="setFilter('decision','Send Now',this)">🔥 High Demand</button>
-    <button class="filter-chip backup" data-filter="decision" data-val="Send as Backup" onclick="setFilter('decision','Send as Backup',this)">📈 Rising</button>
-    <button class="filter-chip" data-filter="decision" data-val="Needs More Evidence" onclick="setFilter('decision','Needs More Evidence',this)">👀 Emerging</button>
+    <button class="filter-chip send-now" data-filter="decision" data-val="Trending Now" onclick="setFilter('decision','Trending Now',this)">🟢 Buy Now</button>
+    <button class="filter-chip backup" data-filter="decision" data-val="Worth Watching" onclick="setFilter('decision','Worth Watching',this)">🔵 Test Batch</button>
+    <button class="filter-chip" data-filter="decision" data-val="Emerging" onclick="setFilter('decision','Emerging',this)">🟡 Watch</button>
+    <button class="filter-chip" data-filter="decision" data-val="Niche" onclick="setFilter('decision','Niche',this)">🔴 Do Not Send</button>
     <div class="filter-divider"></div>
     <button class="filter-chip" data-filter="pattern" data-val="all" onclick="setFilter('pattern','all',this)">All Patterns</button>
     <button class="filter-chip" data-filter="pattern" data-val="plain" onclick="setFilter('pattern','plain',this)">Plain</button>
     <button class="filter-chip" data-filter="pattern" data-val="floral" onclick="setFilter('pattern','floral',this)">Floral</button>
-    <button class="filter-chip" data-filter="pattern" data-val="print" onclick="setFilter('pattern','print',this)">Print</button>
+    <button class="filter-chip" data-filter="pattern" data-val="geometric" onclick="setFilter('pattern','geometric',this)">Geometric</button>
     <button class="filter-chip" data-filter="pattern" data-val="striped" onclick="setFilter('pattern','striped',this)">Striped</button>
     <div class="filter-divider"></div>
     <button class="filter-chip" data-filter="sleeve" data-val="all" onclick="setFilter('sleeve','all',this)">All Sleeves</button>
@@ -861,6 +896,19 @@ main {
     <button class="filter-chip" data-filter="sleeve" data-val="sleeveless" onclick="setFilter('sleeve','sleeveless',this)">Sleeveless</button>
     <button class="filter-chip" data-filter="sleeve" data-val="three-quarter" onclick="setFilter('sleeve','three-quarter',this)">¾ Sleeve</button>
     <button class="filter-chip" data-filter="sleeve" data-val="full" onclick="setFilter('sleeve','full',this)">Full Sleeve</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="neck" data-val="all" onclick="setFilter('neck','all',this)">All Necks</button>
+    <button class="filter-chip" data-filter="neck" data-val="round" onclick="setFilter('neck','round',this)">Round Neck</button>
+    <button class="filter-chip" data-filter="neck" data-val="v-neck" onclick="setFilter('neck','v-neck',this)">V-Neck</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="price" data-val="all" onclick="setFilter('price','all',this)">All Prices</button>
+    <button class="filter-chip" data-filter="price" data-val="budget" onclick="setFilter('price','budget',this)">Under ₹500</button>
+    <button class="filter-chip" data-filter="price" data-val="mid" onclick="setFilter('price','mid',this)">₹500–₹900</button>
+    <button class="filter-chip" data-filter="price" data-val="premium" onclick="setFilter('price','premium',this)">₹900+</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="special" data-val="all" onclick="setFilter('special','all',this)">All</button>
+    <button class="filter-chip" data-filter="special" data-val="nursing" onclick="setFilter('special','nursing',this)">🤱 Nursing-Friendly</button>
+    <button class="filter-chip" data-filter="special" data-val="plus" onclick="setFilter('special','plus',this)">Plus Sizes</button>
   </div>
 </div>
 
@@ -882,12 +930,12 @@ main {
   </button>
   <button class="bottom-nav-item" data-tab="wishlist" onclick="switchTab('wishlist')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-    Saved
+    Shortlist
     <span class="bottom-nav-badge" id="bottomWishlistBadge"></span>
   </button>
   <button class="bottom-nav-item" onclick="exportWishlist()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    Export
+    Export Shortlist
   </button>
 </nav>
 
@@ -897,7 +945,7 @@ main {
 </button>
 
 <!-- Modal -->
-<div class="modal-overlay" id="modal" onclick="handleModalOverlayClick(event)">
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="handleModalOverlayClick(event)">
   <div class="modal" id="modalContent">
     <div class="modal-handle"><span></span></div>
     <div class="modal-close-row">
@@ -909,8 +957,12 @@ main {
         <span class="modal-decision-badge" id="modalDecisionBadge"></span>
         <span class="score-num" id="modalRank"></span>
       </div>
-      <div class="modal-title" id="modalTitle"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
       <div class="modal-subtitle" id="modalSubtitle"></div>
+
+      <div class="b2b-decision-panel" id="b2bPanel" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px;">
+        <div id="b2bContent"></div>
+      </div>
 
       <div class="score-section">
         <div class="score-section-title">Why this trend? 🔍</div>
@@ -932,6 +984,11 @@ main {
       <div class="score-section-title" style="margin-bottom:8px;">Where to Buy 🛒</div>
       <div class="platform-list" id="modalPlatforms"></div>
 
+      <div class="trust-section" id="trustSection" style="background: #f0f9ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 12px;">
+        <div style="font-weight: 600; color: #1e40af; margin-bottom: 8px; cursor: pointer;" onclick="toggleTrustSection()">🔍 Why trust this? <span id="trustToggle" style="float: right;">▼</span></div>
+        <div id="trustContent" style="display: none;"></div>
+      </div>
+
       <div class="modal-actions" id="modalActions"></div>
     </div>
   </div>
@@ -951,26 +1008,19 @@ const PLATFORM_COLORS = {
 };
 
 const DECISION_CLASS = {
-  'Send Now':           'send-now',
-  'Send as Backup':     'backup',
-  'Needs More Evidence':'needs-evidence',
-  'Do Not Send':        'do-not-send',
+  'Trending Now':  'send-now',
+  'Worth Watching':'backup',
+  'Emerging':      'needs-evidence',
+  'Niche':         'do-not-send',
 };
 
-// Consumer-friendly labels mapped from internal B2B decision keys
 const DECISION_LABEL = {
-  'Send Now':            '🔥 High Demand',
-  'Send as Backup':      '📈 Rising',
-  'Needs More Evidence': '👀 Emerging',
-  'Do Not Send':         '❌ Low Demand',
+  'Trending Now':  '🟢 Buy / Produce Now',
+  'Worth Watching':'🔵 Test Small Batch',
+  'Emerging':      '🟡 Watch — Needs Evidence',
+  'Niche':         '🔴 Do Not Send',
 };
 
-const DECISION_COLOR = {
-  'Send Now':            'var(--send-now)',
-  'Send as Backup':      'var(--backup)',
-  'Needs More Evidence': 'var(--needs-evidence)',
-  'Do Not Send':         'var(--do-not-send)',
-};
 
 const COLOR_MAP = {
   white: '#ffffff', cream: '#FFFDD0', peach: '#FFCBA4',
@@ -986,17 +1036,17 @@ const COLOR_MAP = {
 };
 
 const SCORE_LABELS = [
-  ['A', 'Evidence Strength', 'evidence_strength'],
-  ['B', 'Trend Signal',       'trend_signal'],
-  ['C', 'TN B2B Fit',         'tn_b2b_fit'],
-  ['D', 'Production',         'production_simplicity'],
-  ['E', 'Margin',             'margin_possibility'],
+  ['A', 'Popularity Spread', 'evidence_strength'],
+  ['B', 'Buyer Demand',      'demand_volume'],
+  ['C', 'Customer Appeal',   'customer_appeal'],
+  ['D', 'Easy to Find',      'production_simplicity'],
+  ['E', 'Value Score',       'value_score'],
 ];
 
 // ── State ──────────────────────────────────────────────────────
 let allTrends = [];
 let activeTab = 'discover';
-let activeFilters = { decision: 'all', pattern: 'all', sleeve: 'all' };
+let activeFilters = { decision: 'all', pattern: 'all', sleeve: 'all', neck: 'all', price: 'all', special: 'all' };
 let currentModalKey = null;
 
 function getState() {
@@ -1039,12 +1089,21 @@ function capitalize(s) {
   return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, ' ');
 }
 
+const SLEEVE_LABELS = {
+  'half':          'Half Sleeve',
+  'full':          'Full Sleeve',
+  'sleeveless':    'Sleeveless',
+  'three-quarter': '¾ Sleeve',
+};
+
 function formatTitle(t) {
-  return [
-    capitalize(t.design_pattern),
-    capitalize(t.neck_type) + ' Neck',
-    capitalize(t.sleeve_length) + ' Sleeve',
-  ].join(' · ');
+  const sleeve = t.sleeve_length ? (SLEEVE_LABELS[t.sleeve_length] || capitalize(t.sleeve_length) + ' Sleeve') : null;
+  return sleeve ? [capitalize(t.design_pattern), sleeve].join(' · ') : capitalize(t.design_pattern);
+}
+
+function dominantNeck(t) {
+  if (!t.neck_breakdown || Object.keys(t.neck_breakdown).length === 0) return null;
+  return Object.entries(t.neck_breakdown).sort((a, b) => parseInt(b[1]) - parseInt(a[1]))[0][0];
 }
 
 function formatSubtitle(t) {
@@ -1123,8 +1182,46 @@ function renderCard(t, state) {
        </div>`
     : '';
 
+  // Build product attribute tags (fabric, size, nursing)
+  const topFabric = t.top_fabrics && t.top_fabrics.length > 0
+    ? t.top_fabrics[0].replace(/\s*\(\d+\)/, '').trim()
+    : null;
+  const fabricTag = topFabric
+    ? `<span class="tag tag-fabric">${topFabric}</span>`
+    : '';
+
+  const neck = dominantNeck(t);
+  const neckTag = neck
+    ? `<span class="tag tag-fabric">${capitalize(neck)} Neck</span>`
+    : '';
+
+  const sizeTag = t.has_plus_sizes
+    ? `<span class="tag tag-size">Up to 3XL</span>`
+    : '';
+
+  const nursingTag = t.nursing_count > 0
+    ? `<span class="tag tag-nursing">Nursing-friendly</span>`
+    : '';
+
+  const tagsHTML = (fabricTag || neckTag || sizeTag || nursingTag)
+    ? `<div class="card-tags">${fabricTag}${neckTag}${sizeTag}${nursingTag}</div>`
+    : '';
+
+  const confidenceTier = t.confidence_tier || 'Unknown';
+  const confidenceColor = confidenceTier === 'High' ? '#10b981'
+    : confidenceTier === 'Medium' ? '#f59e0b'
+    : confidenceTier === 'Low' ? '#f97316'
+    : '#ef4444';
+  const platformCount = Object.keys(t.sources).length;
+  const confidenceRow = `
+    <div class="confidence-row" style="display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid #f0f0f0; margin-top: 8px;">
+      <span class="confidence-dot" style="width: 8px; height: 8px; border-radius: 50%; background: ${confidenceColor}; flex-shrink: 0;"></span>
+      <span class="confidence-label" style="font-size: 12px; color: #666;">${confidenceTier} confidence · ${t.product_count} products · ${platformCount} platforms</span>
+    </div>
+  `;
+
   return `
-  <div class="card${disliked ? ' disliked' : ''}"
+  <article class="card${disliked ? ' disliked' : ''}"
     data-key="${t.cluster_key}"
     data-imgidx="0"
     onclick="handleCardClick(event,'${t.cluster_key}')">
@@ -1137,7 +1234,8 @@ function renderCard(t, state) {
     </div>
     <div class="color-strip">${colorStrip}</div>
     <div class="card-body">
-      <div class="card-title">${formatTitle(t)}</div>
+      <h3 class="card-title" style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3;">${formatTitle(t)}</h3>
+      ${tagsHTML}
       <div class="card-meta">
         ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
         ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
@@ -1147,31 +1245,32 @@ function renderCard(t, state) {
         <div class="fire-score">${fireMeter(t.score.total)}</div>
         <div class="platform-dots">${platformDots}</div>
       </div>
+      ${confidenceRow}
     </div>
     <div class="action-row">
       <button class="action-btn${liked ? ' liked' : ''}"
-        onclick="toggleLike(event,'${t.cluster_key}')" title="Like">
+        onclick="toggleLike(event,'${t.cluster_key}')" title="Interested">
         <svg class="heart-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
-        Like
+        Interested
       </button>
       <button class="action-btn${disliked ? ' disliked-state' : ''}"
-        onclick="toggleDislike(event,'${t.cluster_key}')" title="Skip">
+        onclick="toggleDislike(event,'${t.cluster_key}')" title="Reject">
         <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
           <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
         </svg>
-        Skip
+        Reject
       </button>
       <button class="action-btn${wishlisted ? ' wishlisted' : ''}"
-        onclick="toggleWishlist(event,'${t.cluster_key}')" title="Save">
+        onclick="toggleWishlist(event,'${t.cluster_key}')" title="Shortlist">
         <svg class="bookmark-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
           <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
         </svg>
-        Save
+        Shortlist
       </button>
     </div>
-  </div>`;
+  </article>`;
 }
 
 function getFilteredList() {
@@ -1189,6 +1288,23 @@ function getFilteredList() {
     }
     if (activeFilters.sleeve !== 'all') {
       list = list.filter(t => t.sleeve_length === activeFilters.sleeve);
+    }
+    if (activeFilters.neck !== 'all') {
+      list = list.filter(t => dominantNeck(t) === activeFilters.neck);
+    }
+    if (activeFilters.price !== 'all') {
+      list = list.filter(t => {
+        const p = t.avg_price;
+        if (!p) return activeFilters.price === 'mid';
+        if (activeFilters.price === 'budget')  return p < 500;
+        if (activeFilters.price === 'mid')     return p >= 500 && p <= 900;
+        if (activeFilters.price === 'premium') return p > 900;
+        return true;
+      });
+    }
+    if (activeFilters.special !== 'all') {
+      if (activeFilters.special === 'nursing') list = list.filter(t => t.nursing_count > 0);
+      if (activeFilters.special === 'plus')    list = list.filter(t => t.has_plus_sizes);
     }
   }
   return list;
@@ -1380,11 +1496,11 @@ function openModal(t) {
   document.getElementById('modalFireScore').textContent = fireMeter(t.score.total);
   const barsEl = document.getElementById('modalScoreBars');
   const friendlyLabels = [
-    ['Market Coverage',   'evidence_strength', 'How widely available across platforms'],
-    ['Buyer Demand',      'trend_signal',       'Based on ratings and keyword popularity'],
-    ['Price Fit',         'tn_b2b_fit',         'Fits wholesale price range (under ₹600)'],
-    ['Easy to Source',    'production_simplicity', 'Simple design — faster delivery'],
-    ['Profit Potential',  'margin_possibility', 'Room for margin at retail price'],
+    ['Popularity Spread', 'evidence_strength',    'How widely available across platforms'],
+    ['Buyer Demand',      'demand_volume',         'Based on actual buyer reviews'],
+    ['Customer Appeal',   'customer_appeal',       'Price sweet spot for direct buyers'],
+    ['Easy to Find',      'production_simplicity', 'Simple style — widely stocked online'],
+    ['Value Score',       'value_score',           'How competitively priced this style is'],
   ];
   barsEl.innerHTML = friendlyLabels.map(([label, key, hint]) => {
     const val = t.score[key] || 0;
@@ -1434,6 +1550,38 @@ function openModal(t) {
     </div>`;
   }).join('');
 
+  // B2B Decision Panel
+  const b2bEl = document.getElementById('b2bContent');
+  const recAction = t.recommended_action || 'Watch — Needs Evidence';
+  const testQty = t.test_quantity || '10–25 pcs';
+  const marginTier = t.margin_tier || 'Moderate (25–40%)';
+  const seasonFit = t.season_fit || 'Year-round';
+  const buyerSegment = (t.buyer_segment || []).join(' · ');
+  const riskFlags = (t.risk_flags || []).length > 0 ? t.risk_flags.join(', ') : 'None flagged';
+  b2bEl.innerHTML = `
+    <div style="font-weight: 600; color: #111; margin-bottom: 8px;">${recAction}</div>
+    <div style="margin-bottom: 6px;"><strong>Suggested first order:</strong> ${testQty}</div>
+    <div style="margin-bottom: 6px;"><strong>Margin:</strong> ${marginTier} · ${seasonFit}</div>
+    <div style="border-top: 1px solid #d1d5db; padding-top: 8px; margin-top: 8px;">
+      <div style="margin-bottom: 6px;"><strong>Buyers:</strong> ${buyerSegment}</div>
+      <div><strong>Risk:</strong> ${riskFlags}</div>
+    </div>
+  `;
+
+  // Trust Section
+  const trustEl = document.getElementById('trustContent');
+  const confTier = t.confidence_tier || 'Unknown';
+  const confPct = t.confidence_pct || 0;
+  const platformCount = Object.keys(t.sources).length;
+  const sourceBreakdown = Object.entries(t.sources).map(([p, c]) => `${capitalize(p)} ·${c}`).join(' ');
+  trustEl.innerHTML = `
+    <div style="margin-bottom: 8px;"><strong>Confidence:</strong> ${confTier}</div>
+    <div style="margin-bottom: 8px;">Based on ${t.product_count} products across ${platformCount} platforms</div>
+    <div style="margin-bottom: 8px;"><strong>Feature classification:</strong> ${confPct}% reliable</div>
+    <div style="margin-bottom: 8px;"><strong>Score capped:</strong> ${t.score.capped ? 'Yes (weak platform spread)' : 'No'}</div>
+    <div style="font-size: 11px; color: #666; margin-top: 8px;"><strong>Data sources:</strong> ${sourceBreakdown}</div>
+  `;
+
   refreshModalActions(t.cluster_key);
 
   document.getElementById('modal').classList.add('open');
@@ -1452,23 +1600,35 @@ function refreshModalActions(key) {
       <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${liked ? 'currentColor' : 'none'}" stroke-linecap="round">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
       </svg>
-      ${liked ? 'Liked!' : 'Like'}
+      ${liked ? 'Interested ✓' : 'Interested'}
     </button>
     <button class="modal-action-btn wishlist-btn ${wishlisted ? 'active' : ''}"
       onclick="toggleWishlist(event,'${key}')">
       <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${wishlisted ? 'currentColor' : 'none'}" stroke-linecap="round">
         <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
       </svg>
-      ${wishlisted ? 'Saved!' : 'Save'}
+      ${wishlisted ? 'Shortlist ✓' : 'Shortlist'}
     </button>
     <button class="modal-action-btn skip-btn ${disliked ? 'active' : ''}"
       onclick="toggleDislike(event,'${key}')">
       <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
         <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
       </svg>
-      ${disliked ? 'Skipped' : 'Skip'}
+      ${disliked ? 'Reject ✓' : 'Reject'}
     </button>
   `;
+}
+
+function toggleTrustSection() {
+  const content = document.getElementById('trustContent');
+  const toggle = document.getElementById('trustToggle');
+  if (content.style.display === 'none') {
+    content.style.display = 'block';
+    toggle.textContent = '▲';
+  } else {
+    content.style.display = 'none';
+    toggle.textContent = '▼';
+  }
 }
 
 function closeModal() {
@@ -1499,14 +1659,35 @@ function exportWishlist() {
     reaction: reactions[t.cluster_key] || null,
   }));
   if (items.length === 0) {
-    alert('No saved trends yet. Tap 🔖 on cards to save trends.');
+    alert('No shortlisted trends yet. Tap 🔖 on cards to shortlist trends.');
     return;
   }
-  const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'saved-trends.json';
-  a.click(); URL.revokeObjectURL(url);
+
+  const format = confirm('Export as JSON (OK) or Text for WhatsApp (Cancel)?') ? 'json' : 'text';
+  const today = new Date().toLocaleDateString('en-IN');
+
+  if (format === 'json') {
+    const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `shortlist-${today}.json`;
+    a.click(); URL.revokeObjectURL(url);
+  } else {
+    let text = `📋 SHORTLISTED NIGHTY TRENDS\nGenerated: ${today}\n\n`;
+    items.forEach((item, idx) => {
+      text += `${idx + 1}. ${item.title}\n`;
+      text += `   Action: ${item.decision}\n`;
+      text += `   Score: ${item.score}/25\n`;
+      text += `   Price: ₹${item.min_price}–₹${item.max_price} (avg ₹${item.avg_price})\n`;
+      text += `   Rating: ${item.avg_rating ? item.avg_rating.toFixed(1) : 'N/A'} ⭐\n`;
+      text += `   Found: ${item.product_count} styles\n\n`;
+    });
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `shortlist-${today}.txt`;
+    a.click(); URL.revokeObjectURL(url);
+  }
 }
 
 // ── Scroll to top button ───────────────────────────────────────
