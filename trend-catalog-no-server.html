@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Trend Catalog — B2B Ladies Nighty Trends</title>
+<style>
+/* ── Variables ──────────────────────────────────── */
+:root {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --border: #e8e8e8;
+  --text: #111111;
+  --text-muted: #666666;
+  --text-light: #999999;
+  --accent: #e91e63;
+  --accent-dark: #c2185b;
+  --accent-light: #fce4ec;
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.16);
+  --header-h: 56px;
+  --filter-h: 48px;
+  --bottom-nav-h: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Decision colors */
+  --send-now: #16a34a;
+  --send-now-bg: #dcfce7;
+  --backup: #2563eb;
+  --backup-bg: #dbeafe;
+  --needs-evidence: #d97706;
+  --needs-evidence-bg: #fef3c7;
+  --do-not-send: #dc2626;
+  --do-not-send-bg: #fee2e2;
+}
+
+/* ── Reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Accessibility ──────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Loading screen ─────────────────────────────── */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--surface);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px; z-index: 9999;
+}
+.loader-ring {
+  width: 48px; height: 48px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-text { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+#loader.hidden { display: none; }
+
+/* ── Header ─────────────────────────────────────── */
+header {
+  position: sticky;
+  top: 0; z-index: 100;
+  height: var(--header-h);
+  background: rgba(255,255,255,.92);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  height: 100%;
+  padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.brand {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 16px; letter-spacing: -.02em; flex-shrink: 0;
+}
+.brand-icon {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), #9c27b0);
+  display: grid; place-items: center;
+  font-size: 15px;
+}
+.header-tabs {
+  display: flex; gap: 4px;
+  background: var(--bg);
+  border-radius: 999px;
+  padding: 3px;
+}
+.tab-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text-muted);
+  transition: all .15s ease;
+  position: relative;
+  white-space: nowrap;
+}
+.tab-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.wishlist-badge {
+  display: none;
+  position: absolute; top: -2px; right: -2px;
+  background: var(--accent);
+  color: white;
+  font-size: 9px; font-weight: 700;
+  min-width: 16px; height: 16px;
+  border-radius: 999px; padding: 0 4px;
+  align-items: center; justify-content: center;
+  border: 2px solid var(--surface);
+}
+.wishlist-badge.visible { display: flex; }
+.header-count {
+  font-size: 12px; color: var(--text-muted); font-weight: 500; flex-shrink: 0;
+}
+
+/* ── Filter Bar ─────────────────────────────────── */
+.filter-bar {
+  position: sticky;
+  top: var(--header-h); z-index: 90;
+  background: rgba(245,245,245,.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  height: var(--filter-h);
+}
+.filter-scroll {
+  max-width: 1200px; margin: 0 auto;
+  height: 100%;
+  display: flex; align-items: center; gap: 6px;
+  padding: 0 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.filter-scroll::-webkit-scrollbar { display: none; }
+.filter-chip {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 12px; font-weight: 600;
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+.filter-chip:hover { border-color: var(--text-muted); color: var(--text); }
+.filter-chip.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: white;
+}
+.filter-chip.active.send-now { background: var(--send-now); border-color: var(--send-now); }
+.filter-chip.active.backup { background: var(--backup); border-color: var(--backup); }
+.filter-divider {
+  flex-shrink: 0;
+  width: 1px; height: 20px;
+  background: var(--border);
+  margin: 0 2px;
+}
+
+/* ── Main / Grid ────────────────────────────────── */
+main {
+  max-width: 1200px; margin: 0 auto;
+  padding: 12px 10px calc(var(--bottom-nav-h) + var(--safe-bottom) + 20px);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 480px) {
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+@media (min-width: 768px) {
+  main { padding: 16px 16px 80px; }
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+}
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+}
+
+/* ── Trend Card ─────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.card:active { transform: scale(0.97); }
+.card.disliked { opacity: 0.45; }
+@media (hover: hover) {
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+}
+
+/* Hero image */
+.collage {
+  position: relative;
+  overflow: hidden;
+  background: #f0f0f0;
+  aspect-ratio: 2/3;
+}
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  transition: transform .5s ease;
+  display: block;
+  background: #f9f6f2;
+}
+.card:hover .hero-img { transform: scale(1.04); }
+.hero-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, #f5f0ff, #fce4ec);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+}
+
+/* Photos badge (desktop grid) */
+.photos-badge {
+  position: absolute; bottom: 36px; right: 8px; z-index: 5;
+  background: rgba(0,0,0,.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: white; font-size: 9px; font-weight: 700;
+  padding: 2px 7px; border-radius: 999px;
+}
+@media (max-width: 767px) { .photos-badge { display: none; } }
+
+/* Image dots indicator */
+.img-dots {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 4px; z-index: 5;
+}
+.img-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  transition: background .2s;
+}
+.img-dot.active { background: white; }
+
+/* Overlays on collage */
+.rank-badge {
+  position: absolute; top: 8px; left: 8px; z-index: 5;
+  background: rgba(0,0,0,.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 7px; border-radius: 999px;
+  letter-spacing: .02em;
+}
+.decision-badge {
+  position: absolute; top: 8px; right: 8px; z-index: 5;
+  font-size: 9px; font-weight: 800;
+  padding: 3px 7px; border-radius: 999px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.decision-badge.send-now { background: var(--send-now-bg); color: var(--send-now); }
+.decision-badge.backup { background: var(--backup-bg); color: var(--backup); }
+.decision-badge.needs-evidence { background: var(--needs-evidence-bg); color: var(--needs-evidence); }
+.decision-badge.do-not-send { background: var(--do-not-send-bg); color: var(--do-not-send); }
+
+/* Color DNA strip */
+.color-strip {
+  display: flex; height: 4px;
+  overflow: hidden;
+}
+.color-strip span { flex: 1; }
+
+/* Card body */
+.card-body {
+  padding: 10px 10px 8px;
+  display: flex; flex-direction: column; gap: 5px;
+  flex: 1;
+}
+.card-title {
+  font-size: 12px; font-weight: 700;
+  line-height: 1.35; letter-spacing: -.01em;
+  color: var(--text);
+}
+@media (min-width: 480px) { .card-title { font-size: 13px; } }
+
+.card-meta {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap;
+}
+.card-rating {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600; color: #f59e0b;
+}
+.card-price {
+  font-size: 11px; font-weight: 600; color: var(--text);
+}
+.card-count {
+  font-size: 10px; color: var(--text-muted); margin-left: auto;
+}
+
+/* Platform dots */
+.platform-dots {
+  display: flex; gap: 3px; flex-wrap: wrap; align-items: center;
+}
+.platform-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+  title: attr(data-platform);
+}
+
+/* Fire score */
+.fire-row {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.fire-score { font-size: 12px; letter-spacing: .02em; }
+.score-num {
+  font-size: 10px; color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Action row */
+.action-row {
+  display: flex; align-items: center;
+  gap: 4px;
+  padding: 6px 10px 8px;
+  border-top: 1px solid var(--border);
+}
+.action-btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  padding: 7px 4px;
+  border-radius: var(--radius-sm);
+  font-size: 11px; font-weight: 600;
+  color: var(--text-muted);
+  transition: all .15s ease;
+  min-height: 34px;
+}
+.action-btn:hover, .action-btn:active { background: var(--bg); }
+.action-btn.liked { color: var(--accent); }
+.action-btn.wishlisted { color: #7c3aed; }
+.action-btn.disliked-state { color: var(--text-muted); }
+.action-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.action-btn.liked svg.heart-icon { fill: var(--accent); stroke: var(--accent); }
+.action-btn.wishlisted svg.bookmark-icon { fill: #7c3aed; stroke: #7c3aed; }
+
+/* Like animation */
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.5); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.heart-pop { animation: heartPop .35s ease forwards; }
+
+/* ── Empty state ────────────────────────────────── */
+.empty-state {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-muted); display: none;
+}
+.empty-state.visible { display: block; }
+.empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-title { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.empty-sub { font-size: 14px; }
+
+/* ── Bottom Nav (mobile) ────────────────────────── */
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: calc(var(--bottom-nav-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: rgba(255,255,255,.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  z-index: 80;
+}
+@media (min-width: 768px) { .bottom-nav { display: none; } }
+.bottom-nav-item {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px;
+  font-size: 10px; font-weight: 600; color: var(--text-muted);
+  transition: color .15s ease;
+  position: relative;
+}
+.bottom-nav-item.active { color: var(--accent); }
+.bottom-nav-item svg { width: 22px; height: 22px; }
+.bottom-nav-badge {
+  display: none;
+  position: absolute; top: 6px; right: calc(50% - 18px);
+  background: var(--accent); color: white;
+  font-size: 9px; font-weight: 800;
+  min-width: 16px; height: 16px;
+  border-radius: 999px; padding: 0 3px;
+  align-items: center; justify-content: center;
+  border: 2px solid var(--surface);
+}
+.bottom-nav-badge.visible { display: flex; }
+
+/* ── Scroll to top ──────────────────────────────── */
+#scrollTop {
+  position: fixed; right: 16px;
+  bottom: calc(var(--bottom-nav-h) + var(--safe-bottom) + 12px);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--text);
+  color: white;
+  display: none; place-items: center;
+  box-shadow: var(--shadow-md);
+  z-index: 75; transition: opacity .2s ease;
+}
+#scrollTop.visible { display: grid; }
+@media (min-width: 768px) {
+  #scrollTop { bottom: 24px; }
+}
+
+/* ── Modal ──────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none; align-items: flex-end; justify-content: center;
+  padding: 0;
+}
+.modal-overlay.open { display: flex; }
+@media (min-width: 600px) {
+  .modal-overlay { align-items: center; padding: 20px; }
+}
+.modal {
+  background: var(--surface);
+  width: 100%; max-width: 520px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  max-height: 92vh; overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: slideUp .25s ease;
+}
+@media (min-width: 600px) {
+  .modal { border-radius: var(--radius-lg); max-height: 88vh; }
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Modal drag handle */
+.modal-handle {
+  display: flex; justify-content: center; padding: 10px 0 6px;
+}
+.modal-handle span {
+  width: 36px; height: 4px;
+  background: var(--border); border-radius: 999px;
+}
+@media (min-width: 600px) { .modal-handle { display: none; } }
+
+/* Modal images */
+.modal-images {
+  display: flex; gap: 6px;
+  padding: 0 14px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.modal-images::-webkit-scrollbar { display: none; }
+.modal-img-wrap {
+  flex-shrink: 0;
+  width: 120px; height: 160px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #f0f0f0;
+  position: relative;
+}
+.modal-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.modal-img-wrap .placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; color: #ccc;
+}
+
+/* Modal body */
+.modal-body { padding: 0 16px 24px; }
+.modal-decision-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.modal-decision-badge {
+  font-size: 11px; font-weight: 800;
+  padding: 4px 10px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.modal-title {
+  font-size: 20px; font-weight: 800;
+  letter-spacing: -.02em; margin-bottom: 6px;
+  line-height: 1.2;
+}
+.modal-subtitle {
+  font-size: 13px; color: var(--text-muted); margin-bottom: 16px;
+}
+
+/* Score breakdown */
+.score-section { margin-bottom: 16px; }
+.score-section-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.score-total-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.score-total-num {
+  font-size: 28px; font-weight: 800; letter-spacing: -.03em;
+}
+.score-total-denom { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+.score-bars { display: flex; flex-direction: column; gap: 6px; }
+.score-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.score-label { font-size: 11px; font-weight: 600; color: var(--text-muted); width: 140px; flex-shrink: 0; }
+.score-bar-track {
+  flex: 1; height: 6px;
+  background: var(--bg); border-radius: 999px; overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), #9c27b0);
+  transition: width .5s ease;
+}
+.score-val { font-size: 11px; font-weight: 700; width: 20px; text-align: right; flex-shrink: 0; }
+
+/* Stats grid */
+.stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; margin-bottom: 16px;
+}
+.stat-card {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.stat-label { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
+.stat-value { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+.stat-sub { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+
+/* Platform list */
+.platform-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.platform-pill {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 999px;
+  background: var(--bg);
+  font-size: 11px; font-weight: 700; color: var(--text);
+}
+.platform-pill-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* Color palette */
+.color-palette { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.color-swatch {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  position: relative;
+}
+.color-swatch::after {
+  content: attr(data-name);
+  position: absolute; top: 34px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; color: var(--text-muted); white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Modal action row */
+.modal-actions {
+  display: flex; gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.modal-action-btn {
+  flex: 1; padding: 12px 8px;
+  border-radius: var(--radius);
+  font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: all .15s ease;
+  min-height: 44px;
+}
+.modal-action-btn.like-btn { background: var(--accent-light); color: var(--accent); }
+.modal-action-btn.like-btn:hover { background: var(--accent); color: white; }
+.modal-action-btn.like-btn.active { background: var(--accent); color: white; }
+.modal-action-btn.wishlist-btn { background: #ede9fe; color: #7c3aed; }
+.modal-action-btn.wishlist-btn:hover { background: #7c3aed; color: white; }
+.modal-action-btn.wishlist-btn.active { background: #7c3aed; color: white; }
+.modal-action-btn.skip-btn { background: var(--bg); color: var(--text-muted); }
+.modal-action-btn.skip-btn.active { background: #f1f5f9; color: #64748b; }
+.modal-action-btn svg { width: 18px; height: 18px; }
+
+/* Modal close */
+.modal-close-row {
+  display: flex; justify-content: flex-end; padding: 12px 14px 0;
+}
+.modal-close-btn {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--bg); display: grid; place-items: center;
+  color: var(--text-muted);
+  font-size: 18px; line-height: 1;
+  display: none;
+}
+@media (min-width: 600px) { .modal-close-btn { display: grid; } }
+
+/* ════════════════════════════════════════════════
+   MOBILE: Full-screen vertical snap-scroll feed
+   ════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Lock body scroll — only the feed scrolls */
+  body { overflow: hidden; height: 100dvh; }
+
+  /* Feed container: fixed, fills between header+filter and bottom nav */
+  main {
+    position: fixed;
+    top: calc(var(--header-h) + var(--filter-h));
+    left: 0; right: 0;
+    bottom: calc(var(--bottom-nav-h) + var(--safe-bottom));
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior-y: none;
+  }
+
+  .grid {
+    display: block;
+    gap: 0;
+  }
+
+  /* Each card = one full screen */
+  .card {
+    scroll-snap-align: start;
+    height: calc(100dvh - var(--header-h) - var(--filter-h) - var(--bottom-nav-h) - var(--safe-bottom));
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transform: none !important;
+  }
+  .card:active { transform: none !important; }
+
+  /* Image fills entire card */
+  .collage {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: unset;
+    z-index: 0;
+  }
+
+  /* Bottom gradient for readability */
+  .collage::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,.80) 0%,
+      rgba(0,0,0,.40) 35%,
+      rgba(0,0,0,.10) 60%,
+      transparent 80%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* Rank badge: stay top-left */
+  .rank-badge { z-index: 5; }
+
+  /* Decision badge: stay top-right */
+  .decision-badge { z-index: 5; }
+
+  /* Dots: above gradient */
+  .img-dots { z-index: 5; bottom: 12px; }
+
+  /* Color DNA strip: pinned at very bottom */
+  .color-strip {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    z-index: 6;
+  }
+
+  /* Info panel: bottom-left overlay on image */
+  .card-body {
+    position: absolute;
+    bottom: 5px; left: 0;
+    right: 72px; /* leave space for right FABs */
+    z-index: 5;
+    padding: 14px 16px 20px;
+    gap: 6px;
+    background: none;
+    flex: unset;
+  }
+
+  .card-title {
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    text-shadow: 0 1px 4px rgba(0,0,0,.5);
+    line-height: 1.25;
+  }
+
+  .card-meta { gap: 8px; }
+  .card-rating { color: #fbbf24; font-size: 13px; font-weight: 700; }
+  .card-price { color: white; font-size: 13px; font-weight: 700; }
+  .card-count { color: rgba(255,255,255,.7); font-size: 11px; margin-left: 0; }
+
+  .fire-row { margin-top: 2px; }
+  .fire-score { font-size: 16px; }
+
+  .platform-dots .platform-dot {
+    width: 10px; height: 10px;
+    border: 1.5px solid rgba(255,255,255,.5);
+  }
+
+  /* Right-side action FABs: TikTok/Reels style */
+  .action-row {
+    position: absolute;
+    right: 12px;
+    bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    padding: 0;
+    z-index: 5;
+    background: none;
+  }
+
+  .action-btn {
+    flex: unset;
+    flex-direction: column;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.35);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    gap: 3px;
+    padding: 0;
+    border: 1.5px solid rgba(255,255,255,.2);
+    min-height: unset;
+    justify-content: center;
+  }
+  .action-btn svg { width: 20px; height: 20px; }
+  .action-btn:hover, .action-btn:active {
+    background: rgba(0,0,0,.55);
+  }
+  .action-btn.liked {
+    background: rgba(233,30,99,.55);
+    border-color: var(--accent);
+    color: white;
+  }
+  .action-btn.liked svg.heart-icon { fill: white; stroke: white; }
+  .action-btn.wishlisted {
+    background: rgba(124,58,237,.55);
+    border-color: #7c3aed;
+    color: white;
+  }
+  .action-btn.wishlisted svg.bookmark-icon { fill: white; stroke: white; }
+
+  /* Swipe hint on first card */
+  .swipe-hint {
+    position: absolute;
+    bottom: 24px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: rgba(255,255,255,.7);
+    font-size: 11px; font-weight: 600;
+    animation: swipeBounce 1.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .swipe-hint svg { width: 20px; height: 20px; }
+  @keyframes swipeBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: .7; }
+    50% { transform: translateX(-50%) translateY(-6px); opacity: 1; }
+  }
+
+  /* Hide scroll-to-top on mobile (feed handles navigation) */
+  #scrollTop { display: none !important; }
+
+  /* Mobile tag margin override */
+  .card-tags { margin: 4px 0 6px; }
+}
+
+/* Product attribute tags (all screen sizes) */
+.card-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin: 3px 0 4px;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.tag-fabric  { background: #f3f4f6; color: #374151; }
+.tag-size    { background: #eff6ff; color: #1d4ed8; }
+.tag-nursing { background: #fdf2f8; color: #be185d; }
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">Loading trend data…</div>
+</div>
+
+<!-- Header -->
+<h1 class="sr-only">TrendBoard: B2B Ladies Nighty Trends</h1>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">👗</div>
+      <span>TrendBoard</span>
+    </div>
+    <div class="header-tabs">
+      <button class="tab-btn active" data-tab="discover" onclick="switchTab('discover')">Discover</button>
+      <button class="tab-btn" data-tab="wishlist" onclick="switchTab('wishlist')">
+        Shortlist
+        <span class="wishlist-badge" id="headerWishlistBadge"></span>
+      </button>
+    </div>
+    <div class="header-count" id="headerCount"></div>
+  </div>
+</header>
+
+<!-- Filter bar -->
+<div class="filter-bar">
+  <div class="filter-scroll" id="filterBar">
+    <button class="filter-chip active" data-filter="decision" data-val="all" onclick="setFilter('decision','all',this)">All Trends</button>
+    <button class="filter-chip send-now" data-filter="decision" data-val="Trending Now" onclick="setFilter('decision','Trending Now',this)">🟢 Buy Now</button>
+    <button class="filter-chip backup" data-filter="decision" data-val="Worth Watching" onclick="setFilter('decision','Worth Watching',this)">🔵 Test Batch</button>
+    <button class="filter-chip" data-filter="decision" data-val="Emerging" onclick="setFilter('decision','Emerging',this)">🟡 Watch</button>
+    <button class="filter-chip" data-filter="decision" data-val="Niche" onclick="setFilter('decision','Niche',this)">🔴 Do Not Send</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="pattern" data-val="all" onclick="setFilter('pattern','all',this)">All Patterns</button>
+    <button class="filter-chip" data-filter="pattern" data-val="plain" onclick="setFilter('pattern','plain',this)">Plain</button>
+    <button class="filter-chip" data-filter="pattern" data-val="floral" onclick="setFilter('pattern','floral',this)">Floral</button>
+    <button class="filter-chip" data-filter="pattern" data-val="geometric" onclick="setFilter('pattern','geometric',this)">Geometric</button>
+    <button class="filter-chip" data-filter="pattern" data-val="striped" onclick="setFilter('pattern','striped',this)">Striped</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="sleeve" data-val="all" onclick="setFilter('sleeve','all',this)">All Sleeves</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="half" onclick="setFilter('sleeve','half',this)">Half</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="sleeveless" onclick="setFilter('sleeve','sleeveless',this)">Sleeveless</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="three-quarter" onclick="setFilter('sleeve','three-quarter',this)">¾ Sleeve</button>
+    <button class="filter-chip" data-filter="sleeve" data-val="full" onclick="setFilter('sleeve','full',this)">Full Sleeve</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="neck" data-val="all" onclick="setFilter('neck','all',this)">All Necks</button>
+    <button class="filter-chip" data-filter="neck" data-val="round" onclick="setFilter('neck','round',this)">Round Neck</button>
+    <button class="filter-chip" data-filter="neck" data-val="v-neck" onclick="setFilter('neck','v-neck',this)">V-Neck</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="price" data-val="all" onclick="setFilter('price','all',this)">All Prices</button>
+    <button class="filter-chip" data-filter="price" data-val="budget" onclick="setFilter('price','budget',this)">Under ₹500</button>
+    <button class="filter-chip" data-filter="price" data-val="mid" onclick="setFilter('price','mid',this)">₹500–₹900</button>
+    <button class="filter-chip" data-filter="price" data-val="premium" onclick="setFilter('price','premium',this)">₹900+</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" data-filter="special" data-val="all" onclick="setFilter('special','all',this)">All</button>
+    <button class="filter-chip" data-filter="special" data-val="nursing" onclick="setFilter('special','nursing',this)">🤱 Nursing-Friendly</button>
+    <button class="filter-chip" data-filter="special" data-val="plus" onclick="setFilter('special','plus',this)">Plus Sizes</button>
+  </div>
+</div>
+
+<!-- Main grid -->
+<main>
+  <div class="grid" id="trendGrid"></div>
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon">🔍</div>
+    <div class="empty-title">No trends found</div>
+    <div class="empty-sub">Try a different filter combination</div>
+  </div>
+</main>
+
+<!-- Bottom nav (mobile) -->
+<nav class="bottom-nav">
+  <button class="bottom-nav-item active" data-tab="discover" onclick="switchTab('discover')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    Discover
+  </button>
+  <button class="bottom-nav-item" data-tab="wishlist" onclick="switchTab('wishlist')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    Shortlist
+    <span class="bottom-nav-badge" id="bottomWishlistBadge"></span>
+  </button>
+  <button class="bottom-nav-item" onclick="exportWishlist()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Export Shortlist
+  </button>
+</nav>
+
+<!-- Scroll to top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="handleModalOverlayClick(event)">
+  <div class="modal" id="modalContent">
+    <div class="modal-handle"><span></span></div>
+    <div class="modal-close-row">
+      <button class="modal-close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-images" id="modalImages"></div>
+    <div class="modal-body">
+      <div class="modal-decision-row">
+        <span class="modal-decision-badge" id="modalDecisionBadge"></span>
+        <span class="score-num" id="modalRank"></span>
+      </div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-subtitle" id="modalSubtitle"></div>
+
+      <div class="b2b-decision-panel" id="b2bPanel" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px;">
+        <div id="b2bContent"></div>
+      </div>
+
+      <div class="score-section">
+        <div class="score-section-title">Why this trend? 🔍</div>
+        <div class="score-total-row">
+          <div>
+            <span class="score-total-num" id="modalScoreTotal"></span>
+            <span class="score-total-denom"> / 25</span>
+          </div>
+          <div id="modalFireScore" style="font-size:22px;"></div>
+        </div>
+        <div class="score-bars" id="modalScoreBars"></div>
+      </div>
+
+      <div class="stats-grid" id="modalStats"></div>
+
+      <div class="score-section-title" style="margin-bottom:8px;">Popular Colours 🎨</div>
+      <div class="color-palette" id="modalColors"></div>
+
+      <div class="score-section-title" style="margin-bottom:8px;">Where to Buy 🛒</div>
+      <div class="platform-list" id="modalPlatforms"></div>
+
+      <div class="trust-section" id="trustSection" style="background: #f0f9ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 12px;">
+        <div style="font-weight: 600; color: #1e40af; margin-bottom: 8px; cursor: pointer;" onclick="toggleTrustSection()">🔍 Why trust this? <span id="trustToggle" style="float: right;">▼</span></div>
+        <div id="trustContent" style="display: none;"></div>
+      </div>
+
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Constants ──────────────────────────────────────────────────
+const PLATFORM_COLORS = {
+  amazon:   '#FF9900',
+  myntra:   '#FF3F6C',
+  meesho:   '#9B2335',
+  flipkart: '#2874F0',
+  ajio:     '#F28A2E',
+  clovia:   '#E91E7A',
+  shyaway:  '#8B0000',
+  tatacliq: '#942F82',
+};
+
+const DECISION_CLASS = {
+  'Trending Now':  'send-now',
+  'Worth Watching':'backup',
+  'Emerging':      'needs-evidence',
+  'Niche':         'do-not-send',
+};
+
+const DECISION_LABEL = {
+  'Trending Now':  '🟢 Buy / Produce Now',
+  'Worth Watching':'🔵 Test Small Batch',
+  'Emerging':      '🟡 Watch — Needs Evidence',
+  'Niche':         '🔴 Do Not Send',
+};
+
+
+const COLOR_MAP = {
+  white: '#ffffff', cream: '#FFFDD0', peach: '#FFCBA4',
+  pink: '#FFB6C1', 'light pink': '#FFB6C1', 'hot pink': '#FF69B4',
+  red: '#e53935', 'dark red': '#b71c1c', maroon: '#800000',
+  blue: '#1565c0', 'light blue': '#64b5f6', 'navy blue': '#001f5b', navy: '#001f5b',
+  green: '#2e7d32', 'light green': '#81c784', 'dark green': '#1b5e20',
+  yellow: '#f9a825', 'mustard yellow': '#e6a817', mustard: '#e6a817',
+  orange: '#ef6c00', purple: '#7b1fa2', lavender: '#9575cd',
+  grey: '#9e9e9e', gray: '#9e9e9e', black: '#212121',
+  'sky blue': '#87ceeb', teal: '#009688', aqua: '#00bcd4',
+  multicolor: 'linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff)',
+};
+
+const SCORE_LABELS = [
+  ['A', 'Popularity Spread', 'evidence_strength'],
+  ['B', 'Buyer Demand',      'demand_volume'],
+  ['C', 'Customer Appeal',   'customer_appeal'],
+  ['D', 'Easy to Find',      'production_simplicity'],
+  ['E', 'Value Score',       'value_score'],
+];
+
+// ── State ──────────────────────────────────────────────────────
+let allTrends = [];
+let activeTab = 'discover';
+let activeFilters = { decision: 'all', pattern: 'all', sleeve: 'all', neck: 'all', price: 'all', special: 'all' };
+let currentModalKey = null;
+
+function getState() {
+  return {
+    reactions: JSON.parse(localStorage.getItem('trend_reactions') || '{}'),
+    wishlist:  JSON.parse(localStorage.getItem('trend_wishlist')  || '[]'),
+  };
+}
+function saveState(s) {
+  localStorage.setItem('trend_reactions', JSON.stringify(s.reactions));
+  localStorage.setItem('trend_wishlist',  JSON.stringify(s.wishlist));
+}
+
+// ── Helpers ────────────────────────────────────────────────────
+function fireMeter(score) {
+  const n = score >= 20 ? 5 : score >= 15 ? 4 : score >= 10 ? 3 : score >= 5 ? 2 : 1;
+  return '🔥'.repeat(n);
+}
+
+function topColors(colors, limit = 6) {
+  const freq = {};
+  colors.forEach(c => {
+    const k = (c.primary || '').toLowerCase().trim();
+    if (k && k !== 'unknown' && k !== 'none') freq[k] = (freq[k] || 0) + 1;
+  });
+  return Object.entries(freq)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([name]) => name);
+}
+
+function colorCss(name) {
+  if (!name) return '#e0e0e0';
+  const k = name.toLowerCase().trim();
+  return COLOR_MAP[k] || '#e0e0e0';
+}
+
+function capitalize(s) {
+  if (!s) return '';
+  return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, ' ');
+}
+
+const SLEEVE_LABELS = {
+  'half':          'Half Sleeve',
+  'full':          'Full Sleeve',
+  'sleeveless':    'Sleeveless',
+  'three-quarter': '¾ Sleeve',
+};
+
+function formatTitle(t) {
+  const sleeve = t.sleeve_length ? (SLEEVE_LABELS[t.sleeve_length] || capitalize(t.sleeve_length) + ' Sleeve') : null;
+  return sleeve ? [capitalize(t.design_pattern), sleeve].join(' · ') : capitalize(t.design_pattern);
+}
+
+function dominantNeck(t) {
+  if (!t.neck_breakdown || Object.keys(t.neck_breakdown).length === 0) return null;
+  return Object.entries(t.neck_breakdown).sort((a, b) => parseInt(b[1]) - parseInt(a[1]))[0][0];
+}
+
+function formatSubtitle(t) {
+  const parts = [];
+  if (t.front_top_treatment && t.front_top_treatment !== 'plain') {
+    parts.push(capitalize(t.front_top_treatment) + ' treatment');
+  }
+  if (t.keyword_count > 1) parts.push(`${t.keyword_count} keyword matches`);
+  return parts.join(' · ') || 'Design cluster';
+}
+
+// ── Data loading ───────────────────────────────────────────────
+
+const EMBEDDED_TRENDS_DATA = [{"rank":1,"cluster_key":"plain|half","design_pattern":"plain","sleeve_length":"half","neck_breakdown":{"round":"99%"},"treatment_breakdown":{"plain":"98%","lace":"1%","embroidery":"1%"},"product_count":87,"total_reviews":55431,"demand_label":"Blockbuster","features_reliable_pct":100,"nursing_count":2,"top_fabrics":["cotton (2)","satin (1)","nylon spandex (1)"],"has_plus_sizes":true,"keyword_count":3,"keywords":["ladies-nighty","nighty","ladies cotton nighty"],"sources":{"amazon":17,"clovia":20,"flipkart":20,"meesho":20,"myntra":4,"shyaway":3,"tatacliq":3},"avg_rating":3.93,"avg_price":558,"min_price":177,"max_price":2499,"score":{"total":23,"evidence_strength":5,"demand_volume":5,"customer_appeal":5,"production_simplicity":5,"value_score":3,"capped":false},"decision":"Trending Now","recommended_action":"Buy / Produce Now","test_quantity":"50–100 pcs","confidence_tier":"High","confidence_pct":100,"risk_flags":[],"buyer_segment":["Plus size buyers","Maternity / nursing","Daily wear"],"margin_tier":"Moderate (25–40%)","season_fit":"Year-round","sample_product_ids":["641e86edcb66","2ccb8d846a2c","026768ef5649"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/61ouTgLjxvL._AC_UL320_.jpg","title":"AV2 Women Satin Short Nighty with Lace & Robe 1306","source":"amazon","product_url":"https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDE2MjE4NjA1NTYzMjo6Mzo6&url=%2FAV2-Womens-Satin-Nighty-Maroon%2Fdp%2FB07GZP46RM%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB07GZP46RM%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-4-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DpErJQwCm1j%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=pErJQwCm1j&sp_cr=ZAZ"},{"url":"https://m.media-amazon.com/images/I/71HlbL4VCVL._AC_UL320_.jpg","title":"Bahumaan Pure Cotton Nighty for Woman | Floral Gown for Women Nightwear with Pocket | Cotton Nighty for Women Stylish | Ma...","source":"amazon","product_url":"https://www.amazon.in/Bahumaan-Cotton-Nighty-Floral-Stylish/dp/B0FG16THJG/ref=sr_1_11?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-11"},{"url":"https://m.media-amazon.com/images/I/615++VM-0SL._AC_UL320_.jpg","title":"WiWi Women's Cotton Printed Nighty Night Gown Maxi Free Size (Pack of 2)","source":"amazon","product_url":"https://www.amazon.in/WiWi-Keyocean-Womens-Cotton-Printed/dp/B0GLQCQ9V2/ref=sr_1_16?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-16"}]},{"rank":2,"cluster_key":"floral|half","design_pattern":"floral","sleeve_length":"half","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"lace":"46%","print":"54%"},"product_count":166,"total_reviews":295874,"demand_label":"Blockbuster","features_reliable_pct":100,"nursing_count":3,"top_fabrics":["cotton (5)","cotton spandex (2)","rayon (1)"],"has_plus_sizes":true,"keyword_count":2,"keywords":["nighty","ladies-nighty"],"sources":{"ajio":3,"amazon":30,"clovia":40,"flipkart":40,"meesho":40,"myntra":4,"shyaway":4,"tatacliq":5},"avg_rating":4.01,"avg_price":577,"min_price":196,"max_price":2499,"score":{"total":22,"evidence_strength":5,"demand_volume":5,"customer_appeal":5,"production_simplicity":4,"value_score":3,"capped":false},"decision":"Trending Now","recommended_action":"Buy / Produce Now","test_quantity":"50–100 pcs","confidence_tier":"High","confidence_pct":100,"risk_flags":[],"buyer_segment":["Plus size buyers","Maternity / nursing","General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Year-round","sample_product_ids":["0e079dfa13e4","e83af993f9ce","ad21050be9e1"],"sample_images":[{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260509/giFf/69ff678814d0c21719ce1978/ichaa_peach_women_floral_print_nightie_with_lace_details.jpg","title":"Women Floral Print Nightie with Lace Details","source":"ajio","product_url":"https://www.ajio.com/ichaa-women-floral-print-nightie-with-lace-details/p/702302063_peach?"},{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250813/Gxsl/689c6a1b3d468c61ab68f5e6/rio_blue_women_floral_print_nightie_with_insert_pocket.jpg","title":"Women Floral Print Nightie with Insert Pocket","source":"ajio","product_url":"https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443082566_ltblue?"},{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260220/2ZZE/6998110ecbfa0d56082396e1/rio_green_women_floral_print_nightie_with_insert_pocket.jpg","title":"Women Floral Print Nightie with Insert Pocket","source":"ajio","product_url":"https://www.ajio.com/rio-women-floral-print-nightie-with-insert-pocket/p/443099322_ltgreen?"}]},{"rank":3,"cluster_key":"geometric|half","design_pattern":"geometric","sleeve_length":"half","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"print":"100%"},"product_count":86,"total_reviews":117739,"demand_label":"Blockbuster","features_reliable_pct":100,"nursing_count":4,"top_fabrics":["cotton (3)","satin (2)","nylon spandex (1)"],"has_plus_sizes":true,"keyword_count":2,"keywords":["nighty","ladies-nighty"],"sources":{"ajio":2,"amazon":17,"clovia":20,"flipkart":20,"meesho":20,"myntra":3,"shyaway":2,"tatacliq":2},"avg_rating":3.92,"avg_price":621,"min_price":196,"max_price":2499,"score":{"total":22,"evidence_strength":5,"demand_volume":5,"customer_appeal":5,"production_simplicity":4,"value_score":3,"capped":false},"decision":"Trending Now","recommended_action":"Buy / Produce Now","test_quantity":"50–100 pcs","confidence_tier":"High","confidence_pct":100,"risk_flags":[],"buyer_segment":["Plus size buyers","Maternity / nursing","General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Year-round","sample_product_ids":["871bfda6f70b","5924cd8fa827","321ae7fa9afd"],"sample_images":[{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/5CYP/69e729d4fcb5bb61d26cfa29/rio_mustard_women_printed_nightie.jpg","title":"Women Printed Nightie","source":"ajio","product_url":"https://www.ajio.com/rio-women-printed-nightie/p/443099321_mustard?"},{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root/20250509/chCK/681e32ba55340d4b4f278ffa/buythattrendz_navy_blue_women_printed_round-neck_nightie.jpg","title":"Women Printed Round-Neck Nightie","source":"ajio","product_url":"https://www.ajio.com/buythattrendz-women-printed-round-neck-nightie/p/701558543_navy?"},{"url":"https://m.media-amazon.com/images/I/61V2Fl5ZAcL._AC_UL320_.jpg","title":"Vlazom Women’s Cotton Maxi Nighty – Pack of 2 Printed Ankle-Length Night Dresses | Free Size Gown for Women | Soft & Breat...","source":"amazon","product_url":"https://www.amazon.in/Vlazom-Womens-Cotton-Printed-Nighty/dp/B0FG1JMF4L/ref=sr_1_7?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-7"}]},{"rank":4,"cluster_key":"striped|three-quarter","design_pattern":"striped","sleeve_length":"three-quarter","neck_breakdown":{"round":"8%","v-neck":"93%"},"treatment_breakdown":{"plain":"100%"},"product_count":80,"total_reviews":97292,"demand_label":"Blockbuster","features_reliable_pct":100,"nursing_count":3,"top_fabrics":["nylon spandex (2)","rayon (1)","cotton (1)"],"has_plus_sizes":true,"keyword_count":2,"keywords":["ladies-nighty","nighty"],"sources":{"amazon":15,"clovia":20,"flipkart":20,"meesho":20,"myntra":2,"shyaway":2,"tatacliq":1},"avg_rating":4.02,"avg_price":538,"min_price":180,"max_price":2299,"score":{"total":22,"evidence_strength":5,"demand_volume":5,"customer_appeal":5,"production_simplicity":4,"value_score":3,"capped":false},"decision":"Trending Now","recommended_action":"Buy / Produce Now","test_quantity":"50–100 pcs","confidence_tier":"High","confidence_pct":100,"risk_flags":[],"buyer_segment":["Plus size buyers","Maternity / nursing","General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Year-round","sample_product_ids":["ee55f4aeff81","e6ef5c9e8133","c34a114af6e4"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/51pP8mWt8pL._AC_UL320_.jpg","title":"Aottori Women’s Plus Size Cotton Nighty, Printed Full Length Maxi Night Gown, Soft Breathable Sleepwear Nig...","source":"amazon","product_url":"https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMTA2NDkxOTE0MjEzMjo6MTo6&url=%2FAottori-Printed-Breathable-Sleepwear-Nightdress%2Fdp%2FB0GXG4H1GJ%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0GXG4H1GJ%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-2-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DxJbxp7oB3V%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=xJbxp7oB3V&sp_cr=ZAZ"},{"url":"https://m.media-amazon.com/images/I/81UJFddad3S._AC_UL320_.jpg","title":"G4Girl Women's Silk Geometric Print Maxi Kaftan Night Gown (Pack of 2)","source":"amazon","product_url":"https://www.amazon.in/G4Girl-Womens-Geometric-Length-Nightgown_Maroon-Blue_Free/dp/B099JKJKRF/ref=sr_1_14?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-14"},{"url":"https://m.media-amazon.com/images/I/71bVFl5XOwL._AC_UL320_.jpg","title":"Fufufrog Cotton Nighty for Women Batik Handmade Printed Stylish Night Gown, Comfortable Sleepwear Long Nigh...","source":"amazon","product_url":"https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfbXRmOjMwMTA2MjYyMjk3MTEzMjo6MDo6&url=%2FFufufrog-Handmade-Comfortable-Sleepwear-Nightwear%2Fdp%2FB0F4DQVSLM%2Fref%3Dsr_1_24_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-24-spons%26aref%3DWLSMtwLsKM%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9tdGY%26psc%3D1&aref=WLSMtwLsKM&sp_cr=ZAZ"}]},{"rank":5,"cluster_key":"floral|","design_pattern":"floral","sleeve_length":null,"neck_breakdown":{},"treatment_breakdown":{"print":"68%","other":"5%"},"product_count":22,"total_reviews":1509,"demand_label":"Solid","features_reliable_pct":100,"nursing_count":7,"top_fabrics":["cotton (9)","100% cotton (3)","rayon (2)"],"has_plus_sizes":true,"keyword_count":1,"keywords":["ladies cotton nighty"],"sources":{"ajio":5,"amazon":4,"clovia":7,"tatacliq":6},"avg_rating":3.87,"avg_price":870,"min_price":299,"max_price":1995,"score":{"total":17,"evidence_strength":5,"demand_volume":3,"customer_appeal":5,"production_simplicity":3,"value_score":1,"capped":false},"decision":"Worth Watching","recommended_action":"Test Small Batch","test_quantity":"25–50 pcs","confidence_tier":"High","confidence_pct":100,"risk_flags":[],"buyer_segment":["Plus size buyers","Maternity / nursing","Mid-premium buyers","General buyers"],"margin_tier":"Good margin (>40%)","season_fit":"Year-round","sample_product_ids":["8b5850a14a32","b6e2342823b1","814b396020e8"],"sample_images":[{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260403/VI8Y/69cfad5e9e784a25d5b9ad1e/rio_green_%26_white_women_floral_print_cotton_nightie.jpg","title":"Women Floral Print Cotton Nightie","source":"ajio","product_url":"https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443105202_green?"},{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20260421/w2lg/69e72a03fcb5bb61d26cfb8e/rio_grey_women_floral_print_cotton_nightie.jpg","title":"Women Floral Print Cotton Nightie","source":"ajio","product_url":"https://www.ajio.com/rio-women-floral-print-cotton-nightie/p/443099325_grey?"},{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20251222/uUmx/69492daf239b37265a9335bf/sweet_dreams_tomato_women_cotton_floral_nighti.jpg","title":"Women Cotton Floral Nighti","source":"ajio","product_url":"https://www.ajio.com/sweet-dreams-women-cotton-floral-nighti/p/702648612_red?"}]},{"rank":6,"cluster_key":"floral|sleeveless","design_pattern":"floral","sleeve_length":"sleeveless","neck_breakdown":{"v-neck":"100%"},"treatment_breakdown":{"lace":"100%"},"product_count":6,"total_reviews":14022,"demand_label":"High","features_reliable_pct":100,"nursing_count":0,"top_fabrics":[],"has_plus_sizes":false,"keyword_count":1,"keywords":["ladies-nighty"],"sources":{"amazon":6},"avg_rating":3.92,"avg_price":591,"min_price":284.05,"max_price":949,"score":{"total":14,"evidence_strength":1,"demand_volume":4,"customer_appeal":5,"production_simplicity":3,"value_score":3,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms"],"buyer_segment":["General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Summer / Festival","sample_product_ids":["8276f09b23a3","f78fa530525f","8edb6dff7663"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/71+eqrP0q8L._AC_UL320_.jpg","title":"EliteZilla Nighty| Nighty for Women| Alpine Nighty for Women| Nighty for Women Stylish| Nighty for Women Co...","source":"amazon","product_url":"https://www.amazon.in/sspa/click?ie=UTF8&spc=MToxNDE5MjE5OTY5OTA0MDI2OjE3NzgzNDY0MzU6c3Bfc2VhcmNoX3RoZW1hdGljOjMwMDczNjM0NTM4NDAzMjo6MDo6&url=%2FEliteZilla-Nighty-Alpine-Stylish-Cotton%2Fdp%2FB0DFV5NTHR%2Fref%3Dsxin_14_pa_sp_search_thematic_sspa%3Fcontent-id%3Damzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%253Aamzn1.sym.ed1dc214-655d-439d-94db-1ad9c2f35607%26cv_ct_cx%3Dladies%2Bnighty%26keywords%3Dladies%2Bnighty%26pd_rd_i%3DB0DFV5NTHR%26pd_rd_r%3Dedd9de5f-5d75-4b35-96ce-df8f0744712a%26pd_rd_w%3D8nesw%26pd_rd_wg%3D5Rmtt%26pf_rd_p%3Ded1dc214-655d-439d-94db-1ad9c2f35607%26pf_rd_r%3D6PHVCGPQJQ31QGVWZ0P7%26qid%3D1778346435%26s%3Dapparel%26sbo%3DRZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D%26sr%3D1-1-883a54c7-f466-4d42-997c-6d482a360a1a-spons%26aref%3DlAgFOfktCF%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM%26psc%3D1&aref=lAgFOfktCF&sp_cr=ZAZ"},{"url":"https://m.media-amazon.com/images/I/71e8Mx94cfS._AC_UL320_.jpg","title":"PNAEONG Women's Cotton Printed Nighty Night Gown Maxi Free Size (Pack of 2)","source":"amazon","product_url":"https://www.amazon.in/PNAEONG-Womens-Cotton-Printed-Nighty/dp/B0G8LCNRDQ/ref=sr_1_8?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-8"},{"url":"https://m.media-amazon.com/images/I/91KaN7oG1yL._AC_UL320_.jpg","title":"G4Girl Women's Pure Cotton Regular Nighty Rajasthani Nighty Rajasthani Gown Jaipuri Nighty Jaipuri Gown Maxi Gown (Pack of...","source":"amazon","product_url":"https://www.amazon.in/G4Girl-Regular-Rajasthani-Jaipuri-Turkish/dp/B0DNF6C2JF/ref=sr_1_18?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-18"}]},{"rank":7,"cluster_key":"plain|sleeveless","design_pattern":"plain","sleeve_length":"sleeveless","neck_breakdown":{"round":"50%"},"treatment_breakdown":{"plain":"100%"},"product_count":2,"total_reviews":669,"demand_label":"Emerging","features_reliable_pct":100,"nursing_count":0,"top_fabrics":["cotton (1)"],"has_plus_sizes":true,"keyword_count":2,"keywords":["ladies-nighty","ladies cotton nighty"],"sources":{"amazon":1,"shyaway":1},"avg_rating":4.25,"avg_price":529,"min_price":408,"max_price":649,"score":{"total":14,"evidence_strength":2,"demand_volume":2,"customer_appeal":5,"production_simplicity":5,"value_score":3,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms"],"buyer_segment":["Plus size buyers","General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Summer / Festival","sample_product_ids":["69f480964a9c","0fec0d145b32"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/81ELDkNuvCL._AC_UL320_.jpg","title":"G4Girl Pure Cotton Embroidery Nighty for Women's | Night Gown | Nighty | Nightdress | Maxi | Sleepwear | Jaipuri Nighty | ...","source":"amazon","product_url":"https://www.amazon.in/G4Girl-Cotton-Embroidery-Nighty-Turkish/dp/B0C1K4LR4W/ref=sr_1_42?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-42"},{"url":"https://shyaway.static.n7.io/media/catalog/product/s/h/shycp002-camellia.jpg?aio=w-243;h-323;","title":"Shyaway Camellia Orange Solid Sleeveless Nightwear Capri Set","source":"shyaway","product_url":"https://www.shyaway.com/shyaway-camellia-orange-solid-sleeveless-nightwear-capri-set/"}]},{"rank":8,"cluster_key":"striped|half","design_pattern":"striped","sleeve_length":"half","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"plain":"100%"},"product_count":1,"total_reviews":12,"demand_label":"Unproven","features_reliable_pct":100,"nursing_count":0,"top_fabrics":[],"has_plus_sizes":false,"keyword_count":1,"keywords":["ladies-nighty"],"sources":{"amazon":1},"avg_rating":3.2,"avg_price":299,"min_price":299,"max_price":299,"score":{"total":14,"evidence_strength":1,"demand_volume":1,"customer_appeal":5,"production_simplicity":5,"value_score":5,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms","Below average rating"],"buyer_segment":["Budget buyers","General buyers"],"margin_tier":"Tight (<25%)","season_fit":"Year-round","sample_product_ids":["e05158a559fa"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/41fdOlu5TpL._AC_UL320_.jpg","title":"FlyNery Nighty for Women Stylish - Ladies Night Dress Robe, Stylish Knee Length Nighty Soft Satin Nightwear Gown with Lace...","source":"amazon","product_url":"https://www.amazon.in/FlyNery-Satin-Nighty-Women-Comfortable/dp/B0FTVJWC93/ref=sr_1_44?dib=eyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw&dib_tag=se&keywords=ladies+nighty&qid=1778346435&s=apparel&sr=1-44"}]},{"rank":9,"cluster_key":"abstract|half","design_pattern":"abstract","sleeve_length":"half","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"print":"100%"},"product_count":3,"total_reviews":7,"demand_label":"Unproven","features_reliable_pct":100,"nursing_count":0,"top_fabrics":[],"has_plus_sizes":false,"keyword_count":1,"keywords":["ladies-nighty"],"sources":{"tatacliq":3},"avg_rating":2.85,"avg_price":743,"min_price":524,"max_price":864,"score":{"total":14,"evidence_strength":1,"demand_volume":1,"customer_appeal":5,"production_simplicity":4,"value_score":3,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms","Below average rating"],"buyer_segment":["General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Year-round","sample_product_ids":["8bf96181c287","f8927dba0e59","bf8bcdd38269"],"sample_images":[]},{"rank":10,"cluster_key":"floral|three-quarter","design_pattern":"floral","sleeve_length":"three-quarter","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"print":"100%"},"product_count":1,"total_reviews":4,"demand_label":"Unproven","features_reliable_pct":100,"nursing_count":0,"top_fabrics":[],"has_plus_sizes":false,"keyword_count":1,"keywords":["nighty"],"sources":{"ajio":1},"avg_rating":4,"avg_price":658,"min_price":658,"max_price":658,"score":{"total":13,"evidence_strength":1,"demand_volume":1,"customer_appeal":5,"production_simplicity":3,"value_score":3,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms"],"buyer_segment":["General buyers"],"margin_tier":"Moderate (25–40%)","season_fit":"Year-round","sample_product_ids":["69cc2209b524"],"sample_images":[{"url":"https://assets-jiocdn.ajio.com/medias/sys_master/root1/20250915/nGK5/68c8190c8bfb9009ac06c20b/sweet_dreams_mustard_women_floral_print_nightgown.jpg","title":"Women Floral Print Nightgown","source":"ajio","product_url":"https://www.ajio.com/sweet-dreams-women-floral-print-nightgown/p/702259573_mustard?"}]},{"rank":11,"cluster_key":"floral|full","design_pattern":"floral","sleeve_length":"full","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"embroidery":"100%"},"product_count":1,"total_reviews":91,"demand_label":"Unproven","features_reliable_pct":100,"nursing_count":0,"top_fabrics":[],"has_plus_sizes":false,"keyword_count":1,"keywords":["ladies-nighty"],"sources":{"amazon":1},"avg_rating":4,"avg_price":998,"min_price":998,"max_price":998,"score":{"total":10,"evidence_strength":1,"demand_volume":1,"customer_appeal":5,"production_simplicity":2,"value_score":1,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms"],"buyer_segment":["Mid-premium buyers","General buyers"],"margin_tier":"Good margin (>40%)","season_fit":"Winter / Year-round","sample_product_ids":["6a6ff75bf6e7"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/81q5FsteFYL._AC_UL320_.jpg","title":"NIHSAMAH Cotton Nighty for Women - Premium Printed Long Night Gown with Pocket, Comfortable & Fancy Sleepwe...","source":"amazon","product_url":"https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDk2NzcxOTUyOTEzMjo6MDo6&url=%2FNIHSAMAH-Cotton-Nighty-Women-Comfortable%2Fdp%2FB0CLXDT198%2Fref%3Dsr_1_3_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-3-spons%26aref%3DSShyfZzZCq%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=SShyfZzZCq&sp_cr=ZAZ"}]},{"rank":12,"cluster_key":"geometric|full","design_pattern":"geometric","sleeve_length":"full","neck_breakdown":{"round":"100%"},"treatment_breakdown":{"embroidery":"100%"},"product_count":1,"total_reviews":40,"demand_label":"Unproven","features_reliable_pct":100,"nursing_count":0,"top_fabrics":[],"has_plus_sizes":false,"keyword_count":1,"keywords":["ladies-nighty"],"sources":{"amazon":1},"avg_rating":3.8,"avg_price":998,"min_price":998,"max_price":998,"score":{"total":10,"evidence_strength":1,"demand_volume":1,"customer_appeal":5,"production_simplicity":2,"value_score":1,"capped":true},"decision":"Emerging","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms"],"buyer_segment":["Mid-premium buyers","General buyers"],"margin_tier":"Good margin (>40%)","season_fit":"Winter / Year-round","sample_product_ids":["cc42960ed30b"],"sample_images":[{"url":"https://m.media-amazon.com/images/I/31H4VpYHoDL._AC_UL320_.jpg","title":"NIHSAMAH Viscose Nighty for Women — Embroidered & Printed Stylish Night Gown, Comfortable Sleepwear Long Ni...","source":"amazon","product_url":"https://www.amazon.in/sspa/click?ie=UTF8&spc=MTo4OTIxNzMzMDY4NTg4OTg2OjE3NzgzNDY0MzU6c3BfYXRmOjMwMDk2NzcxOTUyOTAzMjo6MDo6&url=%2FNIHSAMAH-Cotton-Nighty-Women-Comfortable%2Fdp%2FB0F37V7DHX%2Fref%3Dsr_1_4_sspa%3Fdib%3DeyJ2IjoiMSJ9.DRJHMlUEUdtcEXMAmwkJBTTFtSX5dbsFtVRamoMVTSehxX1Vur6FjVo8sKKRY8AxnuPeZXQHpqAsYQnhYjcPQ_Vt3GM7rP8CZHAaOo2SAfn2dTOIbvKWgFil3S1O7_m_dy3iGhU_mJSIJikmxg_imNnQ3X0tQkMd7LPyTDjEPALLpfgD6QcCGbHvVIk_HF537kID01-hZ1BFnCOTV5DITIDC6OjALtwAga-HwXGHUvqS04k3dD9vGiwLqwcL9_ePGSIu2YYYnt4dv3D9u3GVqvie7xLV73X2dy7YR7F0Hhg.pt0HNx6tDvMohvgcIWi0LQU4SvJrrBtuxGXIVvABEMw%26dib_tag%3Dse%26keywords%3Dladies%2Bnighty%26qid%3D1778346435%26s%3Dapparel%26sr%3D1-4-spons%26aref%3DCvqbqV0AuA%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1&aref=CvqbqV0AuA&sp_cr=ZAZ"}]},{"rank":13,"cluster_key":"other|","design_pattern":"other","sleeve_length":null,"neck_breakdown":{},"treatment_breakdown":{"embroidery":"100%"},"product_count":1,"total_reviews":0,"demand_label":"No Data","features_reliable_pct":100,"nursing_count":0,"top_fabrics":["cotton (1)"],"has_plus_sizes":true,"keyword_count":1,"keywords":["ladies cotton nighty"],"sources":{"tatacliq":1},"avg_rating":null,"avg_price":1995,"min_price":1995,"max_price":1995,"score":{"total":6,"evidence_strength":1,"demand_volume":0,"customer_appeal":3,"production_simplicity":2,"value_score":0,"capped":true},"decision":"Niche","recommended_action":"Watch — Needs Evidence","test_quantity":"10–25 pcs","confidence_tier":"Low","confidence_pct":100,"risk_flags":["Low product count","Score capped (weak platform spread)","Single or few platforms"],"buyer_segment":["Plus size buyers","Mid-premium buyers","General buyers"],"margin_tier":"Good margin (>40%)","season_fit":"Year-round","sample_product_ids":["230567af30c1"],"sample_images":[]}];
+
+async function loadData() {
+  return EMBEDDED_TRENDS_DATA;
+}
+
+
+// ── Render ─────────────────────────────────────────────────────
+function heroImageHTML(images) {
+  if (images.length === 0) {
+    return `<div class="hero-placeholder">👗</div>`;
+  }
+  const dots = images.length > 1
+    ? `<div class="img-dots">${images.map((_, i) =>
+        `<span class="img-dot${i === 0 ? ' active' : ''}"></span>`
+      ).join('')}</div>`
+    : '';
+  return `<img class="hero-img" src="${images[0]}" alt="Product" loading="lazy"
+    onerror="this.outerHTML='<div class=\\'hero-placeholder\\'>👗</div>'"/>
+    ${dots}`;
+}
+
+// Track current image index per card for swipe navigation
+const cardImgIndex = {};
+
+function renderCard(t, state) {
+  const dc = DECISION_CLASS[t.decision] || 'do-not-send';
+  const liked      = state.reactions[t.cluster_key] === 'like';
+  const disliked   = state.reactions[t.cluster_key] === 'dislike';
+  const wishlisted = state.wishlist.includes(t.cluster_key);
+
+  const colors = topColors(t.colors, 5);
+  const colorStrip = colors.map(c => {
+    const css = colorCss(c);
+    const bg = css.startsWith('linear') ? `background:${css}` : `background-color:${css}`;
+    return `<span style="${bg}"></span>`;
+  }).join('');
+
+  const platformDots = Object.entries(t.sources).map(([p]) => {
+    const col = PLATFORM_COLORS[p] || '#999';
+    return `<span class="platform-dot" style="background:${col}" title="${p}"></span>`;
+  }).join('');
+
+  const ratingStr     = t.avg_rating ? t.avg_rating.toFixed(1) : '';
+  const priceStr      = t.min_price  ? `₹${Math.round(t.min_price)}–₹${Math.round(t.max_price)}` : '';
+  const decisionLabel = DECISION_LABEL[t.decision] || t.decision;
+
+  // "N photos" badge on image (desktop only; mobile uses dots)
+  const swipeHint = t.images.length > 1
+    ? `<span class="photos-badge">${t.images.length} photos</span>`
+    : '';
+
+  // Swipe-up hint on very first card (mobile)
+  const swipeUpHint = t.rank === 1
+    ? `<div class="swipe-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+        Swipe up
+       </div>`
+    : '';
+
+  // Build product attribute tags (fabric, size, nursing)
+  const topFabric = t.top_fabrics && t.top_fabrics.length > 0
+    ? t.top_fabrics[0].replace(/\s*\(\d+\)/, '').trim()
+    : null;
+  const fabricTag = topFabric
+    ? `<span class="tag tag-fabric">${topFabric}</span>`
+    : '';
+
+  const neck = dominantNeck(t);
+  const neckTag = neck
+    ? `<span class="tag tag-fabric">${capitalize(neck)} Neck</span>`
+    : '';
+
+  const sizeTag = t.has_plus_sizes
+    ? `<span class="tag tag-size">Up to 3XL</span>`
+    : '';
+
+  const nursingTag = t.nursing_count > 0
+    ? `<span class="tag tag-nursing">Nursing-friendly</span>`
+    : '';
+
+  const tagsHTML = (fabricTag || neckTag || sizeTag || nursingTag)
+    ? `<div class="card-tags">${fabricTag}${neckTag}${sizeTag}${nursingTag}</div>`
+    : '';
+
+  const confidenceTier = t.confidence_tier || 'Unknown';
+  const confidenceColor = confidenceTier === 'High' ? '#10b981'
+    : confidenceTier === 'Medium' ? '#f59e0b'
+    : confidenceTier === 'Low' ? '#f97316'
+    : '#ef4444';
+  const platformCount = Object.keys(t.sources).length;
+  const confidenceRow = `
+    <div class="confidence-row" style="display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid #f0f0f0; margin-top: 8px;">
+      <span class="confidence-dot" style="width: 8px; height: 8px; border-radius: 50%; background: ${confidenceColor}; flex-shrink: 0;"></span>
+      <span class="confidence-label" style="font-size: 12px; color: #666;">${confidenceTier} confidence · ${t.product_count} products · ${platformCount} platforms</span>
+    </div>
+  `;
+
+  return `
+  <article class="card${disliked ? ' disliked' : ''}"
+    data-key="${t.cluster_key}"
+    data-imgidx="0"
+    onclick="handleCardClick(event,'${t.cluster_key}')">
+    <div class="collage">
+      ${heroImageHTML(t.images)}
+      ${swipeHint}
+      ${swipeUpHint}
+      <span class="rank-badge">#${t.rank}</span>
+      <span class="decision-badge ${dc}">${decisionLabel}</span>
+    </div>
+    <div class="color-strip">${colorStrip}</div>
+    <div class="card-body">
+      <h3 class="card-title" style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3;">${formatTitle(t)}</h3>
+      ${tagsHTML}
+      <div class="card-meta">
+        ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
+        ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
+        <span class="card-count">${t.product_count} styles</span>
+      </div>
+      <div class="fire-row">
+        <div class="fire-score">${fireMeter(t.score.total)}</div>
+        <div class="platform-dots">${platformDots}</div>
+      </div>
+      ${confidenceRow}
+    </div>
+    <div class="action-row">
+      <button class="action-btn${liked ? ' liked' : ''}"
+        onclick="toggleLike(event,'${t.cluster_key}')" title="Interested">
+        <svg class="heart-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        Interested
+      </button>
+      <button class="action-btn${disliked ? ' disliked-state' : ''}"
+        onclick="toggleDislike(event,'${t.cluster_key}')" title="Reject">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        Reject
+      </button>
+      <button class="action-btn${wishlisted ? ' wishlisted' : ''}"
+        onclick="toggleWishlist(event,'${t.cluster_key}')" title="Shortlist">
+        <svg class="bookmark-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        Shortlist
+      </button>
+    </div>
+  </article>`;
+}
+
+function getFilteredList() {
+  const state = getState();
+  let list = [...allTrends];
+
+  if (activeTab === 'wishlist') {
+    list = list.filter(t => state.wishlist.includes(t.cluster_key));
+  } else {
+    if (activeFilters.decision !== 'all') {
+      list = list.filter(t => t.decision === activeFilters.decision);
+    }
+    if (activeFilters.pattern !== 'all') {
+      list = list.filter(t => t.design_pattern === activeFilters.pattern);
+    }
+    if (activeFilters.sleeve !== 'all') {
+      list = list.filter(t => t.sleeve_length === activeFilters.sleeve);
+    }
+    if (activeFilters.neck !== 'all') {
+      list = list.filter(t => dominantNeck(t) === activeFilters.neck);
+    }
+    if (activeFilters.price !== 'all') {
+      list = list.filter(t => {
+        const p = t.avg_price;
+        if (!p) return activeFilters.price === 'mid';
+        if (activeFilters.price === 'budget')  return p < 500;
+        if (activeFilters.price === 'mid')     return p >= 500 && p <= 900;
+        if (activeFilters.price === 'premium') return p > 900;
+        return true;
+      });
+    }
+    if (activeFilters.special !== 'all') {
+      if (activeFilters.special === 'nursing') list = list.filter(t => t.nursing_count > 0);
+      if (activeFilters.special === 'plus')    list = list.filter(t => t.has_plus_sizes);
+    }
+  }
+  return list;
+}
+
+function renderGrid() {
+  const state = getState();
+  const list = getFilteredList();
+  const grid = document.getElementById('trendGrid');
+  const empty = document.getElementById('emptyState');
+  const count = document.getElementById('headerCount');
+
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    empty.classList.add('visible');
+    count.textContent = '';
+  } else {
+    empty.classList.remove('visible');
+    grid.innerHTML = list.map(t => renderCard(t, state)).join('');
+    count.textContent = `${list.length} trends`;
+  }
+
+  updateBadges();
+}
+
+// ── Filters & tabs ─────────────────────────────────────────────
+function setFilter(type, val, btn) {
+  // Update active chip in same group
+  document.querySelectorAll(`[data-filter="${type}"]`).forEach(c => {
+    c.classList.remove('active');
+    // re-apply send-now/backup class for styling
+  });
+  btn.classList.add('active');
+  activeFilters[type] = val;
+  renderGrid();
+}
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+  document.querySelectorAll('.bottom-nav-item').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+  renderGrid();
+}
+
+function updateBadges() {
+  const { wishlist } = getState();
+  const n = wishlist.length;
+  const headerBadge = document.getElementById('headerWishlistBadge');
+  const bottomBadge = document.getElementById('bottomWishlistBadge');
+  if (n > 0) {
+    headerBadge.textContent = n; headerBadge.classList.add('visible');
+    bottomBadge.textContent = n; bottomBadge.classList.add('visible');
+  } else {
+    headerBadge.classList.remove('visible');
+    bottomBadge.classList.remove('visible');
+  }
+}
+
+// ── Card interactions ──────────────────────────────────────────
+function handleCardClick(e, key) {
+  if (e.target.closest('.action-btn')) return;
+  const t = allTrends.find(x => x.cluster_key === key);
+  if (!t) return;
+
+  // Tap on image area cycles through photos; tap on card body opens modal
+  if (e.target.closest('.collage') && t.images.length > 1) {
+    const card = e.currentTarget;
+    let idx = parseInt(card.dataset.imgidx || '0');
+    idx = (idx + 1) % t.images.length;
+    card.dataset.imgidx = idx;
+    const heroImg = card.querySelector('.hero-img');
+    if (heroImg) {
+      heroImg.style.opacity = '0';
+      heroImg.style.transition = 'opacity .15s';
+      setTimeout(() => {
+        heroImg.src = t.images[idx];
+        heroImg.style.opacity = '1';
+      }, 150);
+    }
+    // Update dots
+    card.querySelectorAll('.img-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+    });
+    return;
+  }
+
+  openModal(t);
+}
+
+function toggleLike(e, key) {
+  e.stopPropagation();
+  const s = getState();
+  if (s.reactions[key] === 'like') {
+    delete s.reactions[key];
+  } else {
+    s.reactions[key] = 'like';
+  }
+  saveState(s);
+
+  // Animate
+  const card = document.querySelector(`[data-key="${key}"]`);
+  if (card) {
+    const heartBtn = card.querySelector('.action-btn:first-child');
+    const heartSvg = heartBtn?.querySelector('.heart-icon');
+    heartSvg?.classList.add('heart-pop');
+    setTimeout(() => heartSvg?.classList.remove('heart-pop'), 400);
+  }
+
+  refreshCard(key);
+  if (currentModalKey === key) refreshModalActions(key);
+}
+
+function toggleDislike(e, key) {
+  e.stopPropagation();
+  const s = getState();
+  if (s.reactions[key] === 'dislike') {
+    delete s.reactions[key];
+  } else {
+    s.reactions[key] = 'dislike';
+  }
+  saveState(s);
+  refreshCard(key);
+  if (currentModalKey === key) refreshModalActions(key);
+}
+
+function toggleWishlist(e, key) {
+  if (e) e.stopPropagation();
+  const s = getState();
+  const idx = s.wishlist.indexOf(key);
+  if (idx >= 0) {
+    s.wishlist.splice(idx, 1);
+  } else {
+    s.wishlist.push(key);
+  }
+  saveState(s);
+  refreshCard(key);
+  updateBadges();
+  if (currentModalKey === key) refreshModalActions(key);
+  // If on wishlist tab and we just removed, re-render
+  if (activeTab === 'wishlist') renderGrid();
+}
+
+function refreshCard(key) {
+  const el = document.querySelector(`[data-key="${key}"]`);
+  if (!el) return;
+  const t = allTrends.find(x => x.cluster_key === key);
+  if (!t) return;
+  const state = getState();
+  const newCard = document.createElement('div');
+  newCard.innerHTML = renderCard(t, state).trim();
+  const cardEl = newCard.firstChild;
+  el.replaceWith(cardEl);
+}
+
+// ── Modal ──────────────────────────────────────────────────────
+function openModal(t) {
+  currentModalKey = t.cluster_key;
+  const state = getState();
+
+  // Images
+  const imagesEl = document.getElementById('modalImages');
+  if (t.images.length > 0) {
+    imagesEl.innerHTML = t.images.map(src =>
+      `<div class="modal-img-wrap">
+        <img src="${src}" alt="Product" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>👗</div>'"/>
+      </div>`
+    ).join('');
+  } else {
+    imagesEl.innerHTML = `<div class="modal-img-wrap"><div class="placeholder">👗</div></div>`;
+  }
+
+  // Decision badge — use friendly label
+  const dc = DECISION_CLASS[t.decision] || 'do-not-send';
+  const badge = document.getElementById('modalDecisionBadge');
+  badge.className = `modal-decision-badge ${dc}`;
+  badge.textContent = DECISION_LABEL[t.decision] || t.decision;
+
+  document.getElementById('modalRank').textContent = `Trend #${t.rank}`;
+  document.getElementById('modalTitle').textContent = formatTitle(t);
+  document.getElementById('modalSubtitle').textContent = `${t.product_count} styles found across ${Object.keys(t.sources).length} platforms`;
+
+  // Score — label as "Why this trend?"
+  document.getElementById('modalScoreTotal').textContent = t.score.total;
+  document.getElementById('modalFireScore').textContent = fireMeter(t.score.total);
+  const barsEl = document.getElementById('modalScoreBars');
+  const friendlyLabels = [
+    ['Popularity Spread', 'evidence_strength',    'How widely available across platforms'],
+    ['Buyer Demand',      'demand_volume',         'Based on actual buyer reviews'],
+    ['Customer Appeal',   'customer_appeal',       'Price sweet spot for direct buyers'],
+    ['Easy to Find',      'production_simplicity', 'Simple style — widely stocked online'],
+    ['Value Score',       'value_score',           'How competitively priced this style is'],
+  ];
+  barsEl.innerHTML = friendlyLabels.map(([label, key, hint]) => {
+    const val = t.score[key] || 0;
+    const pct = (val / 5) * 100;
+    return `<div class="score-row" title="${hint}">
+      <div class="score-label">${label}</div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:${pct}%"></div></div>
+      <div class="score-val">${val}/5</div>
+    </div>`;
+  }).join('');
+
+  // Stats
+  const statsEl = document.getElementById('modalStats');
+  const avgPrice = t.avg_price ? `₹${Math.round(t.avg_price)}` : '—';
+  const priceRange = t.min_price ? `₹${Math.round(t.min_price)}–${Math.round(t.max_price)}` : '—';
+  const rating = t.avg_rating ? t.avg_rating.toFixed(1) : '—';
+  statsEl.innerHTML = [
+    ['Styles Found', t.product_count, `across ${Object.keys(t.sources).length} platforms`],
+    ['Buyer Rating', `★ ${rating}`, 'average out of 5.0'],
+    ['Price Range',  priceRange, `avg ${avgPrice}`],
+    ['Trend Score',  `${fireMeter(t.score.total)}`, `${t.score.total} / 25`],
+  ].map(([label, val, sub]) =>
+    `<div class="stat-card">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${val}</div>
+      <div class="stat-sub">${sub}</div>
+    </div>`
+  ).join('');
+
+  // Colors
+  const colorsEl = document.getElementById('modalColors');
+  const palette = topColors(t.colors, 8);
+  colorsEl.innerHTML = palette.map(name => {
+    const css = colorCss(name);
+    const bg = css.startsWith('linear') ? `background:${css}` : `background-color:${css}`;
+    const border = name === 'white' ? 'border:1.5px solid #e0e0e0' : '';
+    return `<div class="color-swatch" style="${bg};${border}" data-name="${name}" title="${name}"></div>`;
+  }).join('');
+
+  // Platforms
+  const plEl = document.getElementById('modalPlatforms');
+  plEl.innerHTML = Object.entries(t.sources).map(([p, count]) => {
+    const col = PLATFORM_COLORS[p] || '#999';
+    return `<div class="platform-pill">
+      <span class="platform-pill-dot" style="background:${col}"></span>
+      ${capitalize(p)} <span style="color:var(--text-muted);font-weight:500">(${count})</span>
+    </div>`;
+  }).join('');
+
+  // B2B Decision Panel
+  const b2bEl = document.getElementById('b2bContent');
+  const recAction = t.recommended_action || 'Watch — Needs Evidence';
+  const testQty = t.test_quantity || '10–25 pcs';
+  const marginTier = t.margin_tier || 'Moderate (25–40%)';
+  const seasonFit = t.season_fit || 'Year-round';
+  const buyerSegment = (t.buyer_segment || []).join(' · ');
+  const riskFlags = (t.risk_flags || []).length > 0 ? t.risk_flags.join(', ') : 'None flagged';
+  b2bEl.innerHTML = `
+    <div style="font-weight: 600; color: #111; margin-bottom: 8px;">${recAction}</div>
+    <div style="margin-bottom: 6px;"><strong>Suggested first order:</strong> ${testQty}</div>
+    <div style="margin-bottom: 6px;"><strong>Margin:</strong> ${marginTier} · ${seasonFit}</div>
+    <div style="border-top: 1px solid #d1d5db; padding-top: 8px; margin-top: 8px;">
+      <div style="margin-bottom: 6px;"><strong>Buyers:</strong> ${buyerSegment}</div>
+      <div><strong>Risk:</strong> ${riskFlags}</div>
+    </div>
+  `;
+
+  // Trust Section
+  const trustEl = document.getElementById('trustContent');
+  const confTier = t.confidence_tier || 'Unknown';
+  const confPct = t.confidence_pct || 0;
+  const platformCount = Object.keys(t.sources).length;
+  const sourceBreakdown = Object.entries(t.sources).map(([p, c]) => `${capitalize(p)} ·${c}`).join(' ');
+  trustEl.innerHTML = `
+    <div style="margin-bottom: 8px;"><strong>Confidence:</strong> ${confTier}</div>
+    <div style="margin-bottom: 8px;">Based on ${t.product_count} products across ${platformCount} platforms</div>
+    <div style="margin-bottom: 8px;"><strong>Feature classification:</strong> ${confPct}% reliable</div>
+    <div style="margin-bottom: 8px;"><strong>Score capped:</strong> ${t.score.capped ? 'Yes (weak platform spread)' : 'No'}</div>
+    <div style="font-size: 11px; color: #666; margin-top: 8px;"><strong>Data sources:</strong> ${sourceBreakdown}</div>
+  `;
+
+  refreshModalActions(t.cluster_key);
+
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function refreshModalActions(key) {
+  const s = getState();
+  const liked     = s.reactions[key] === 'like';
+  const disliked  = s.reactions[key] === 'dislike';
+  const wishlisted = s.wishlist.includes(key);
+
+  document.getElementById('modalActions').innerHTML = `
+    <button class="modal-action-btn like-btn ${liked ? 'active' : ''}"
+      onclick="toggleLike(event,'${key}')">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${liked ? 'currentColor' : 'none'}" stroke-linecap="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      ${liked ? 'Interested ✓' : 'Interested'}
+    </button>
+    <button class="modal-action-btn wishlist-btn ${wishlisted ? 'active' : ''}"
+      onclick="toggleWishlist(event,'${key}')">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${wishlisted ? 'currentColor' : 'none'}" stroke-linecap="round">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+      ${wishlisted ? 'Shortlist ✓' : 'Shortlist'}
+    </button>
+    <button class="modal-action-btn skip-btn ${disliked ? 'active' : ''}"
+      onclick="toggleDislike(event,'${key}')">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+      </svg>
+      ${disliked ? 'Reject ✓' : 'Reject'}
+    </button>
+  `;
+}
+
+function toggleTrustSection() {
+  const content = document.getElementById('trustContent');
+  const toggle = document.getElementById('trustToggle');
+  if (content.style.display === 'none') {
+    content.style.display = 'block';
+    toggle.textContent = '▲';
+  } else {
+    content.style.display = 'none';
+    toggle.textContent = '▼';
+  }
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  currentModalKey = null;
+}
+
+function handleModalOverlayClick(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+
+// ── Export ─────────────────────────────────────────────────────
+function exportWishlist() {
+  const { wishlist, reactions } = getState();
+  const items = allTrends.filter(t => wishlist.includes(t.cluster_key)).map(t => ({
+    rank: t.rank,
+    cluster: t.cluster_key,
+    title: formatTitle(t),
+    decision: t.decision,
+    score: t.score.total,
+    avg_price: t.avg_price,
+    min_price: t.min_price,
+    max_price: t.max_price,
+    avg_rating: t.avg_rating,
+    product_count: t.product_count,
+    sources: t.sources,
+    reaction: reactions[t.cluster_key] || null,
+  }));
+  if (items.length === 0) {
+    alert('No shortlisted trends yet. Tap 🔖 on cards to shortlist trends.');
+    return;
+  }
+
+  const format = confirm('Export as JSON (OK) or Text for WhatsApp (Cancel)?') ? 'json' : 'text';
+  const today = new Date().toLocaleDateString('en-IN');
+
+  if (format === 'json') {
+    const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `shortlist-${today}.json`;
+    a.click(); URL.revokeObjectURL(url);
+  } else {
+    let text = `📋 SHORTLISTED NIGHTY TRENDS\nGenerated: ${today}\n\n`;
+    items.forEach((item, idx) => {
+      text += `${idx + 1}. ${item.title}\n`;
+      text += `   Action: ${item.decision}\n`;
+      text += `   Score: ${item.score}/25\n`;
+      text += `   Price: ₹${item.min_price}–₹${item.max_price} (avg ₹${item.avg_price})\n`;
+      text += `   Rating: ${item.avg_rating ? item.avg_rating.toFixed(1) : 'N/A'} ⭐\n`;
+      text += `   Found: ${item.product_count} styles\n\n`;
+    });
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `shortlist-${today}.txt`;
+    a.click(); URL.revokeObjectURL(url);
+  }
+}
+
+// ── Scroll to top button ───────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+}, { passive: true });
+
+// ── Keyboard ───────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ── Init ───────────────────────────────────────────────────────
+(async () => {
+  try {
+    allTrends = await loadData();
+    renderGrid();
+    document.getElementById('loader').classList.add('hidden');
+  } catch (err) {
+    console.error('Failed to load trend data:', err);
+    document.getElementById('loader').innerHTML = `
+      <div style="text-align:center;padding:40px 20px;color:#666">
+        <div style="font-size:40px;margin-bottom:12px">⚠️</div>
+        <div style="font-weight:700;color:#111;margin-bottom:8px">Could not load trend data</div>
+        <div style="font-size:13px;margin-bottom:16px">Open this file via a local server, not file://</div>
+        <code style="background:#f5f5f5;padding:8px 14px;border-radius:8px;font-size:12px">npx serve .</code>
+      </div>`;
+  }
+})();
+</script>
+</body>
+</html>
