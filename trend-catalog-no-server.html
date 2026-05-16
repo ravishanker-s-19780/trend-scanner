@@ -1083,16 +1083,17 @@ async function loadData() {
 
 
 // ── Render ─────────────────────────────────────────────────────
-function heroImageHTML(images) {
+function heroImageHTML(images, startIndex = 0) {
   if (images.length === 0) {
     return `<div class="hero-placeholder">👗</div>`;
   }
+  const selectedIdx = startIndex % Math.max(1, images.length);
   const dots = images.length > 1
     ? `<div class="img-dots">${images.map((_, i) =>
-        `<span class="img-dot${i === 0 ? ' active' : ''}"></span>`
+        `<span class="img-dot${i === selectedIdx ? ' active' : ''}"></span>`
       ).join('')}</div>`
     : '';
-  return `<img class="hero-img" src="${images[0]}" alt="Product" loading="lazy"
+  return `<img class="hero-img" src="${images[selectedIdx]}" alt="Product" loading="lazy"
     onerror="this.outerHTML='<div class=\\'hero-placeholder\\'>👗</div>'"/>
     ${dots}`;
 }
@@ -1103,6 +1104,8 @@ const cardImgIndex = {};
 // ── Feed pipeline state ────────────────────────────────────────
 let feedCursor = 0;
 let allRanked = [];
+let recentClusterKeys = [];
+let recentImageUrls = [];
 
 function rankTrendOpportunities(trends) {
   const confOrder = { 'High': 0, 'Medium': 1, 'Low': 2 };
@@ -1132,13 +1135,66 @@ function buildInfiniteFeedItems(ranked, targetLength = 40) {
   });
   const pattern = ['A','A','A','A','A','A','A','B','B','C'];
   const idxOf = { A: 0, B: 0, C: 0 };
+  const imageIdxOf = {}; // Track current image index per cluster
   const feed = [];
   let pi = 0;
+  let instanceCounter = 0;
+
   while (feed.length < targetLength) {
     const slot = pattern[pi % 10];
     const pool = pools[slot];
     if (pool.length > 0) {
-      feed.push(pool[idxOf[slot] % pool.length]);
+      let selectedTrend = null;
+      let attempts = 0;
+      const maxAttempts = pool.length * 2;
+
+      // Try to find a trend not recently used
+      while (attempts < maxAttempts) {
+        selectedTrend = pool[idxOf[slot] % pool.length];
+        if (!recentClusterKeys.includes(selectedTrend.cluster_key)) break;
+        idxOf[slot]++;
+        attempts++;
+      }
+
+      if (selectedTrend) {
+        // Get next image index for this cluster
+        if (!imageIdxOf[selectedTrend.cluster_key]) {
+          imageIdxOf[selectedTrend.cluster_key] = 0;
+        }
+        const heroImageIndex = imageIdxOf[selectedTrend.cluster_key];
+        const images = selectedTrend.images || [];
+        const selectedImage = images[heroImageIndex % Math.max(1, images.length)];
+
+        // Try to avoid recently used image URLs
+        if (selectedImage && !recentImageUrls.includes(selectedImage)) {
+          feed.push({
+            trend: selectedTrend,
+            heroImageIndex,
+            instanceId: instanceCounter++
+          });
+          // Update tracking (keep last 5 clusters, last 10 images)
+          recentClusterKeys.push(selectedTrend.cluster_key);
+          if (recentClusterKeys.length > 5) recentClusterKeys.shift();
+          if (selectedImage) {
+            recentImageUrls.push(selectedImage);
+            if (recentImageUrls.length > 10) recentImageUrls.shift();
+          }
+          // Advance to next image for this cluster
+          imageIdxOf[selectedTrend.cluster_key]++;
+        } else if (selectedImage) {
+          // Image is recent, but add it anyway to avoid infinite loop
+          feed.push({
+            trend: selectedTrend,
+            heroImageIndex,
+            instanceId: instanceCounter++
+          });
+          recentClusterKeys.push(selectedTrend.cluster_key);
+          if (recentClusterKeys.length > 5) recentClusterKeys.shift();
+          recentImageUrls.push(selectedImage);
+          if (recentImageUrls.length > 10) recentImageUrls.shift();
+          imageIdxOf[selectedTrend.cluster_key]++;
+        }
+      }
       idxOf[slot]++;
     }
     pi++;
@@ -1149,7 +1205,7 @@ function buildInfiniteFeedItems(ranked, targetLength = 40) {
 function appendMoreFeedItems() {
   const batch = buildInfiniteFeedItems(allRanked, feedCursor + 15).slice(feedCursor);
   const state = getState();
-  const html = batch.map((t, i) => renderCard(t, state)).join('');
+  const html = batch.map((feedItem, i) => renderCard(feedItem.trend, state, feedItem.heroImageIndex, feedItem.instanceId)).join('');
   document.getElementById('feedContainer').insertAdjacentHTML('beforeend', html);
   feedCursor += batch.length;
   setupScrollObserver();
@@ -1174,7 +1230,7 @@ function openEvidenceSheet(e, key) {
   openModal(t);
 }
 
-function renderCard(t, state) {
+function renderCard(t, state, heroImageIndex = 0, instanceId = null) {
   const dc = DECISION_CLASS[t.decision] || 'do-not-send';
   const liked      = state.reactions[t.cluster_key] === 'like';
   const disliked   = state.reactions[t.cluster_key] === 'dislike';
@@ -1250,10 +1306,11 @@ function renderCard(t, state) {
   return `
   <article class="card${disliked ? ' disliked' : ''}"
     data-key="${t.cluster_key}"
-    data-imgidx="0"
+    data-imgidx="${heroImageIndex}"
+    data-instance-id="${instanceId}"
     onclick="handleCardClick(event,'${t.cluster_key}')">
     <div class="collage">
-      ${heroImageHTML(t.images)}
+      ${heroImageHTML(t.images, heroImageIndex)}
       ${swipeHint}
       ${swipeUpHint}
       <span class="rank-badge">#${t.rank}</span>
@@ -1261,7 +1318,7 @@ function renderCard(t, state) {
     </div>
     <div class="color-strip">${colorStrip}</div>
     <div class="card-body">
-      <h2 class="card-title" style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.3; color: white;">${generateCustomerTrendTitle(t)}</h2>
+      <h2 class="card-title" style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.3;">${generateCustomerTrendTitle(t)}</h2>
       <div style="font-size: 13px; color: rgba(255,255,255,.75); margin: 3px 0 6px;">${formatTitle(t)}</div>
       ${tagsHTML}
       <div style="font-size: 12px; color: rgba(255,255,255,.8); margin: 6px 0; line-height: 1.4;">${t.product_count} products · ${t.total_reviews.toLocaleString()} reviews · ${Object.keys(t.sources).length} platforms</div>
@@ -1306,11 +1363,13 @@ function renderFeed() {
   const container = document.getElementById('feedContainer');
   container.innerHTML = '';
   feedCursor = 0;
+  recentClusterKeys = [];
+  recentImageUrls = [];
   const state = getState();
 
   if (activeTab === 'wishlist') {
     const items = allTrends.filter(t => state.wishlist.includes(t.cluster_key));
-    container.innerHTML = items.map((t, i) => renderCard(t, state)).join('');
+    container.innerHTML = items.map((t, i) => renderCard(t, state, 0, 'wishlist-' + i)).join('');
   } else {
     allRanked = rankTrendOpportunities(allTrends);
     appendMoreFeedItems();
