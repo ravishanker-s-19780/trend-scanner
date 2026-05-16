@@ -1476,7 +1476,7 @@ function toggleLike(e, key) {
   saveState(s);
 
   // Animate
-  const card = document.querySelector(`[data-key="${key}"]`);
+  const card = e.currentTarget.closest('.card');
   if (card) {
     const heartBtn = card.querySelector('.action-btn:first-child');
     const heartSvg = heartBtn?.querySelector('.heart-icon');
@@ -1484,7 +1484,7 @@ function toggleLike(e, key) {
     setTimeout(() => heartSvg?.classList.remove('heart-pop'), 400);
   }
 
-  refreshCard(key);
+  refreshCardFromEvent(e, key);
   if (currentModalKey === key) refreshModalActions(key);
 }
 
@@ -1497,7 +1497,7 @@ function toggleDislike(e, key) {
     s.reactions[key] = 'dislike';
   }
   saveState(s);
-  refreshCard(key);
+  refreshCardFromEvent(e, key);
   if (currentModalKey === key) refreshModalActions(key);
 }
 
@@ -1511,15 +1511,15 @@ function toggleWishlist(e, key) {
     s.wishlist.push(key);
   }
   saveState(s);
-  refreshCard(key);
+  refreshCardFromEvent(e, key);
   updateBadges();
   if (currentModalKey === key) refreshModalActions(key);
   // If on wishlist tab and we just removed, re-render
   if (activeTab === 'wishlist') renderFeed();
 }
 
-function refreshCard(key) {
-  const el = document.querySelector(`[data-key="${key}"]`);
+function refreshCardFromEvent(e, key) {
+  const el = e ? e.currentTarget.closest('.card') : document.querySelector(`[data-key="${key}"]`);
   if (!el) return;
   const t = allTrends.find(x => x.cluster_key === key);
   if (!t) return;
@@ -1529,8 +1529,11 @@ function refreshCard(key) {
   const sampleImage = (t.sample_images || [])[currentImgIdx] || null;
   const newCard = document.createElement('div');
   newCard.innerHTML = renderCard(t, state, currentImgIdx, currentInstanceId, sampleImage).trim();
-  const cardEl = newCard.firstChild;
-  el.replaceWith(cardEl);
+  el.replaceWith(newCard.firstChild);
+}
+
+function refreshCard(key) {
+  refreshCardFromEvent(null, key);
 }
 
 // ── Modal ──────────────────────────────────────────────────────
@@ -1704,6 +1707,7 @@ function exportWishlist() {
 // ── Scroll to top button ───────────────────────────────────────
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('scrollTop');
+  if (!btn) return;
   if (window.scrollY > 400) btn.classList.add('visible');
   else btn.classList.remove('visible');
 }, { passive: true });
