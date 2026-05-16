@@ -1302,43 +1302,6 @@ function renderCard(t, state) {
   </article>`;
 }
 
-function getFilteredList() {
-  const state = getState();
-  let list = [...allTrends];
-
-  if (activeTab === 'wishlist') {
-    list = list.filter(t => state.wishlist.includes(t.cluster_key));
-  } else {
-    if (activeFilters.decision !== 'all') {
-      list = list.filter(t => t.decision === activeFilters.decision);
-    }
-    if (activeFilters.pattern !== 'all') {
-      list = list.filter(t => t.design_pattern === activeFilters.pattern);
-    }
-    if (activeFilters.sleeve !== 'all') {
-      list = list.filter(t => t.sleeve_length === activeFilters.sleeve);
-    }
-    if (activeFilters.neck !== 'all') {
-      list = list.filter(t => dominantNeck(t) === activeFilters.neck);
-    }
-    if (activeFilters.price !== 'all') {
-      list = list.filter(t => {
-        const p = t.avg_price;
-        if (!p) return activeFilters.price === 'mid';
-        if (activeFilters.price === 'budget')  return p < 500;
-        if (activeFilters.price === 'mid')     return p >= 500 && p <= 900;
-        if (activeFilters.price === 'premium') return p > 900;
-        return true;
-      });
-    }
-    if (activeFilters.special !== 'all') {
-      if (activeFilters.special === 'nursing') list = list.filter(t => t.nursing_count > 0);
-      if (activeFilters.special === 'plus')    list = list.filter(t => t.has_plus_sizes);
-    }
-  }
-  return list;
-}
-
 function renderFeed() {
   const container = document.getElementById('feedContainer');
   container.innerHTML = '';
