@@ -1,0 +1,20 @@
+[build]
+  command = "mkdir -p public/evidence/output public/evidence/clean && cp trend-catalog.html public/index.html && cp evidence/output/trends.json public/evidence/output/trends.json && cp evidence/clean/_merged.json public/evidence/clean/_merged.json"
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/evidence/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=60"
