@@ -1538,118 +1538,71 @@ function openModal(t) {
   currentModalKey = t.cluster_key;
   const state = getState();
 
-  // Images
-  const imagesEl = document.getElementById('modalImages');
-  if (t.images.length > 0) {
-    imagesEl.innerHTML = t.images.map(src =>
-      `<div class="modal-img-wrap">
-        <img src="${src}" alt="Product" loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>👗</div>'"/>
-      </div>`
-    ).join('');
-  } else {
-    imagesEl.innerHTML = `<div class="modal-img-wrap"><div class="placeholder">👗</div></div>`;
-  }
+  // Title and subtitle
+  document.getElementById('modalTitle').textContent = generateCustomerTrendTitle(t);
+  const platformCount = Object.keys(t.sources).length;
+  document.getElementById('modalSubtitle').textContent = `${t.product_count} products · ${t.total_reviews.toLocaleString()} reviews · ${platformCount} platforms`;
 
-  // Decision badge — use friendly label
-  const dc = DECISION_CLASS[t.decision] || 'do-not-send';
-  const badge = document.getElementById('modalDecisionBadge');
-  badge.className = `modal-decision-badge ${dc}`;
-  badge.textContent = DECISION_LABEL[t.decision] || t.decision;
+  // Evidence content — B2B summary with key metrics
+  const recAction = t.recommended_action || t.decision;
+  const testQty = t.test_quantity || 'Sample 10–25 pcs';
+  const confTier = t.confidence_tier || 'Unknown';
+  const marginTier = t.margin_tier || 'Moderate (25–40%)';
+  const seasonFit = t.season_fit || 'Year-round';
+  const riskFlags = (t.risk_flags || []).length > 0 ? t.risk_flags.join(', ') : 'None identified';
+  const buyerSegment = (t.buyer_segment || []).join(' · ') || 'Direct buyers';
 
-  document.getElementById('modalRank').textContent = `Trend #${t.rank}`;
-  document.getElementById('modalTitle').textContent = formatTitle(t);
-  document.getElementById('modalSubtitle').textContent = `${t.product_count} styles found across ${Object.keys(t.sources).length} platforms`;
-
-  // Score — label as "Why this trend?"
-  document.getElementById('modalScoreTotal').textContent = t.score.total;
-  document.getElementById('modalFireScore').textContent = fireMeter(t.score.total);
-  const barsEl = document.getElementById('modalScoreBars');
-  const friendlyLabels = [
-    ['Popularity Spread', 'evidence_strength',    'How widely available across platforms'],
-    ['Buyer Demand',      'demand_volume',         'Based on actual buyer reviews'],
-    ['Customer Appeal',   'customer_appeal',       'Price sweet spot for direct buyers'],
-    ['Easy to Find',      'production_simplicity', 'Simple style — widely stocked online'],
-    ['Value Score',       'value_score',           'How competitively priced this style is'],
-  ];
-  barsEl.innerHTML = friendlyLabels.map(([label, key, hint]) => {
-    const val = t.score[key] || 0;
-    const pct = (val / 5) * 100;
-    return `<div class="score-row" title="${hint}">
-      <div class="score-label">${label}</div>
-      <div class="score-bar-track"><div class="score-bar-fill" style="width:${pct}%"></div></div>
-      <div class="score-val">${val}/5</div>
-    </div>`;
-  }).join('');
-
-  // Stats
-  const statsEl = document.getElementById('modalStats');
   const avgPrice = t.avg_price ? `₹${Math.round(t.avg_price)}` : '—';
   const priceRange = t.min_price ? `₹${Math.round(t.min_price)}–${Math.round(t.max_price)}` : '—';
   const rating = t.avg_rating ? t.avg_rating.toFixed(1) : '—';
-  statsEl.innerHTML = [
-    ['Styles Found', t.product_count, `across ${Object.keys(t.sources).length} platforms`],
-    ['Buyer Rating', `★ ${rating}`, 'average out of 5.0'],
-    ['Price Range',  priceRange, `avg ${avgPrice}`],
-    ['Trend Score',  `${fireMeter(t.score.total)}`, `${t.score.total} / 25`],
-  ].map(([label, val, sub]) =>
-    `<div class="stat-card">
-      <div class="stat-label">${label}</div>
-      <div class="stat-value">${val}</div>
-      <div class="stat-sub">${sub}</div>
-    </div>`
+
+  const neck = dominantNeck(t) || 'Various';
+  const samples = t.sample_images || [];
+  const sampleThumbs = samples.slice(0, 4).map(s =>
+    `<img src="${s.url}" alt="Sample" style="width:48px;height:64px;object-fit:cover;border-radius:4px" loading="lazy" onerror="this.style.display='none'"/>`
   ).join('');
 
-  // Colors
-  const colorsEl = document.getElementById('modalColors');
-  const palette = topColors(t.colors, 8);
-  colorsEl.innerHTML = palette.map(name => {
-    const css = colorCss(name);
-    const bg = css.startsWith('linear') ? `background:${css}` : `background-color:${css}`;
-    const border = name === 'white' ? 'border:1.5px solid #e0e0e0' : '';
-    return `<div class="color-swatch" style="${bg};${border}" data-name="${name}" title="${name}"></div>`;
-  }).join('');
-
-  // Platforms
-  const plEl = document.getElementById('modalPlatforms');
-  plEl.innerHTML = Object.entries(t.sources).map(([p, count]) => {
-    const col = PLATFORM_COLORS[p] || '#999';
-    return `<div class="platform-pill">
-      <span class="platform-pill-dot" style="background:${col}"></span>
-      ${capitalize(p)} <span style="color:var(--text-muted);font-weight:500">(${count})</span>
-    </div>`;
-  }).join('');
-
-  // B2B Decision Panel
-  const b2bEl = document.getElementById('b2bContent');
-  const recAction = t.recommended_action || 'Watch — Needs Evidence';
-  const testQty = t.test_quantity || '10–25 pcs';
-  const marginTier = t.margin_tier || 'Moderate (25–40%)';
-  const seasonFit = t.season_fit || 'Year-round';
-  const buyerSegment = (t.buyer_segment || []).join(' · ');
-  const riskFlags = (t.risk_flags || []).length > 0 ? t.risk_flags.join(', ') : 'None flagged';
-  b2bEl.innerHTML = `
-    <div style="font-weight: 600; color: #111; margin-bottom: 8px;">${recAction}</div>
-    <div style="margin-bottom: 6px;"><strong>Suggested first order:</strong> ${testQty}</div>
-    <div style="margin-bottom: 6px;"><strong>Margin:</strong> ${marginTier} · ${seasonFit}</div>
-    <div style="border-top: 1px solid #d1d5db; padding-top: 8px; margin-top: 8px;">
-      <div style="margin-bottom: 6px;"><strong>Buyers:</strong> ${buyerSegment}</div>
-      <div><strong>Risk:</strong> ${riskFlags}</div>
+  document.getElementById('evidenceContent').innerHTML = `
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+      <div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 2px;">Recommendation</div>
+        <div style="font-weight: 600; color: #111; font-size: 14px;">${recAction}</div>
+      </div>
+      <div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 2px;">Test Quantity</div>
+        <div style="font-weight: 600; color: #111; font-size: 14px;">${testQty}</div>
+      </div>
+      <div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 2px;">Confidence</div>
+        <div style="font-weight: 600; color: #111; font-size: 14px;">${confTier}</div>
+      </div>
+      <div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 2px;">Margin Tier</div>
+        <div style="font-weight: 600; color: #111; font-size: 14px;">${marginTier}</div>
+      </div>
     </div>
-  `;
 
-  // Trust Section
-  const trustEl = document.getElementById('trustContent');
-  const confTier = t.confidence_tier || 'Unknown';
-  const confPct = t.confidence_pct || 0;
-  const platformCount = Object.keys(t.sources).length;
-  const sourceBreakdown = Object.entries(t.sources).map(([p, c]) => `${capitalize(p)} ·${c}`).join(' ');
-  trustEl.innerHTML = `
-    <div style="margin-bottom: 8px;"><strong>Confidence:</strong> ${confTier}</div>
-    <div style="margin-bottom: 8px;">Based on ${t.product_count} products across ${platformCount} platforms</div>
-    <div style="margin-bottom: 8px;"><strong>Feature classification:</strong> ${confPct}% reliable</div>
-    <div style="margin-bottom: 8px;"><strong>Score capped:</strong> ${t.score.capped ? 'Yes (weak platform spread)' : 'No'}</div>
-    <div style="font-size: 11px; color: #666; margin-top: 8px;"><strong>Data sources:</strong> ${sourceBreakdown}</div>
+    <div style="border-top: 1px solid #e8e8e8; padding-top: 12px; margin-bottom: 12px;">
+      <div style="font-size: 12px; margin-bottom: 8px;"><strong>Market Data</strong></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px;">
+        <div><span style="color: #666;">Avg Price:</span> <span style="font-weight: 600;">${avgPrice}</span></div>
+        <div><span style="color: #666;">Range:</span> <span style="font-weight: 600;">${priceRange}</span></div>
+        <div><span style="color: #666;">Rating:</span> <span style="font-weight: 600;">★ ${rating}</span></div>
+        <div><span style="color: #666;">Neckline:</span> <span style="font-weight: 600;">${capitalize(neck)}</span></div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid #e8e8e8; padding-top: 12px; margin-bottom: 12px;">
+      <div style="font-size: 12px; margin-bottom: 8px;"><strong>B2B Fit</strong></div>
+      <div style="font-size: 13px; margin-bottom: 6px;"><span style="color: #666;">Buyers:</span> ${buyerSegment}</div>
+      <div style="font-size: 13px; margin-bottom: 6px;"><span style="color: #666;">Season:</span> ${seasonFit}</div>
+      <div style="font-size: 13px;"><span style="color: #666;">Risks:</span> ${riskFlags}</div>
+    </div>
+
+    ${sampleThumbs ? `<div style="border-top: 1px solid #e8e8e8; padding-top: 12px;">
+      <div style="font-size: 12px; margin-bottom: 8px;"><strong>Sample Images</strong></div>
+      <div style="display: flex; gap: 6px;">${sampleThumbs}</div>
+    </div>` : ''}
   `;
 
   refreshModalActions(t.cluster_key);
@@ -1687,18 +1640,6 @@ function refreshModalActions(key) {
       ${disliked ? 'Reject ✓' : 'Reject'}
     </button>
   `;
-}
-
-function toggleTrustSection() {
-  const content = document.getElementById('trustContent');
-  const toggle = document.getElementById('trustToggle');
-  if (content.style.display === 'none') {
-    content.style.display = 'block';
-    toggle.textContent = '▲';
-  } else {
-    content.style.display = 'none';
-    toggle.textContent = '▼';
-  }
 }
 
 function closeModal() {
