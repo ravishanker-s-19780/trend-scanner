@@ -996,10 +996,12 @@ function getCardTypeBadge(cardType, decision) {
 function actionHint(t, cardType) {
   const badge = getCardTypeBadge(cardType, t.decision);
   const tier = t.confidence_tier || 'Unknown';
-  const qty = cardType === 'buy-now'   ? 'Order 100+ pcs'
-    : cardType === 'test-batch'         ? 'Test 30–50 pcs'
-    : cardType === 'fresh-find'         ? 'Sample 5–10 pcs'
-    : 'Monitor only';
+  const qty = t.test_quantity || (
+    cardType === 'buy-now'    ? 'Order 100+ pcs'
+    : cardType === 'test-batch' ? 'Test 30–50 pcs'
+    : cardType === 'fresh-find' ? 'Sample 5–10 pcs'
+    : 'Monitor only'
+  );
   return `${badge.icon} ${badge.text} · ${qty} · ${tier} Confidence`;
 }
 
@@ -1114,10 +1116,22 @@ const cardImgIndex = {};
 // ── Feed pipeline state ────────────────────────────────────────
 let feedCursor = 0;
 let allRanked = [];
-let recentClusterKeys = [];
-let recentImageUrls = [];
 let imageIdxOf = {};
+let usedImageUrls = new Set();
+let usedImageQueue = [];
+let lastRenderedClusterKey = null;
 let globalInstanceCounter = 0;
+let poolCursor = { A: 0, B: 0, C: 0 };
+let feedPatternIndex = 0;
+
+function rememberImageUrl(url) {
+  if (!url) return;
+  usedImageUrls.add(url);
+  usedImageQueue.push(url);
+  if (usedImageQueue.length > 30) {
+    usedImageUrls.delete(usedImageQueue.shift());
+  }
+}
 
 function rankTrendOpportunities(trends) {
   const confOrder = { 'High': 0, 'Medium': 1, 'Low': 2 };
@@ -1145,69 +1159,65 @@ function buildInfiniteFeedItems(ranked, batchSize = 15) {
     else if (ct === 'test-batch') pools.B.push(t);
     else pools.C.push(t);
   });
+
   const pattern = ['A','A','A','A','A','A','A','B','B','C'];
-  const idxOf = { A: 0, B: 0, C: 0 };
   const feed = [];
-  let pi = 0;
 
   while (feed.length < batchSize) {
-    const slot = pattern[pi % 10];
+    const slot = pattern[feedPatternIndex % 10];
     const pool = pools[slot];
+
     if (pool.length > 0) {
       let selectedTrend = null;
       let attempts = 0;
       const maxAttempts = pool.length * 2;
 
-      // Try to find a trend not recently used
+      // Try to find a trend not recently used (adjacent prevention)
       while (attempts < maxAttempts) {
-        selectedTrend = pool[idxOf[slot] % pool.length];
-        if (!recentClusterKeys.includes(selectedTrend.cluster_key)) break;
-        idxOf[slot]++;
+        selectedTrend = pool[poolCursor[slot] % pool.length];
+        if (selectedTrend.cluster_key !== lastRenderedClusterKey) break;
+        poolCursor[slot]++;
         attempts++;
       }
 
-      if (selectedTrend) {
+      // Only proceed if we found a different cluster OR this is the first card
+      if (selectedTrend && (selectedTrend.cluster_key !== lastRenderedClusterKey || feed.length === 0)) {
+        // Skip clusters with no sample images
+        const samples = selectedTrend.sample_images || [];
+        if (samples.length === 0) {
+          poolCursor[slot]++;
+          feedPatternIndex++;
+          continue;
+        }
+
         // Get next image index for this cluster
-        if (!imageIdxOf[selectedTrend.cluster_key]) {
+        if (imageIdxOf[selectedTrend.cluster_key] == null) {
           imageIdxOf[selectedTrend.cluster_key] = 0;
         }
-        const heroImageIndex = imageIdxOf[selectedTrend.cluster_key];
-        const images = selectedTrend.images || [];
-        const selectedImage = images[heroImageIndex % Math.max(1, images.length)];
+        let sampleIdx = imageIdxOf[selectedTrend.cluster_key] % samples.length;
+        let sampleImage = samples[sampleIdx];
 
-        // Try to avoid recently used image URLs
-        if (selectedImage && !recentImageUrls.includes(selectedImage)) {
-          feed.push({
-            trend: selectedTrend,
-            heroImageIndex,
-            instanceId: globalInstanceCounter++
-          });
-          // Update tracking (keep last 5 clusters, last 10 images)
-          recentClusterKeys.push(selectedTrend.cluster_key);
-          if (recentClusterKeys.length > 5) recentClusterKeys.shift();
-          if (selectedImage) {
-            recentImageUrls.push(selectedImage);
-            if (recentImageUrls.length > 10) recentImageUrls.shift();
-          }
-          // Advance to next image for this cluster
+        // If this image is recently used and we have options, try next image
+        if (usedImageUrls.has(sampleImage.url) && samples.length > 1) {
           imageIdxOf[selectedTrend.cluster_key]++;
-        } else if (selectedImage) {
-          // Image is recent, but add it anyway to avoid infinite loop
-          feed.push({
-            trend: selectedTrend,
-            heroImageIndex,
-            instanceId: globalInstanceCounter++
-          });
-          recentClusterKeys.push(selectedTrend.cluster_key);
-          if (recentClusterKeys.length > 5) recentClusterKeys.shift();
-          recentImageUrls.push(selectedImage);
-          if (recentImageUrls.length > 10) recentImageUrls.shift();
-          imageIdxOf[selectedTrend.cluster_key]++;
+          sampleIdx = imageIdxOf[selectedTrend.cluster_key] % samples.length;
+          sampleImage = samples[sampleIdx];
         }
+
+        // Push the card (use current image even if recently seen to avoid infinite loop)
+        feed.push({
+          trend: selectedTrend,
+          sampleImage,
+          sampleImageIndex: sampleIdx,
+          instanceId: globalInstanceCounter++
+        });
+        rememberImageUrl(sampleImage.url);
+        lastRenderedClusterKey = selectedTrend.cluster_key;
+        imageIdxOf[selectedTrend.cluster_key]++;
       }
-      idxOf[slot]++;
+      poolCursor[slot]++;
     }
-    pi++;
+    feedPatternIndex++;
   }
   return feed;
 }
@@ -1215,7 +1225,7 @@ function buildInfiniteFeedItems(ranked, batchSize = 15) {
 function appendMoreFeedItems() {
   const batch = buildInfiniteFeedItems(allRanked, 15);
   const state = getState();
-  const html = batch.map((feedItem, i) => renderCard(feedItem.trend, state, feedItem.heroImageIndex, feedItem.instanceId)).join('');
+  const html = batch.map((feedItem) => renderCard(feedItem.trend, state, feedItem.sampleImageIndex, feedItem.instanceId, feedItem.sampleImage)).join('');
   document.getElementById('feedContainer').insertAdjacentHTML('beforeend', html);
   feedCursor += batch.length;
   setupScrollObserver();
@@ -1240,7 +1250,7 @@ function openEvidenceSheet(e, key) {
   openModal(t);
 }
 
-function renderCard(t, state, heroImageIndex = 0, instanceId = null) {
+function renderCard(t, state, heroImageIndex = 0, instanceId = null, sampleImage = null) {
   const dc = DECISION_CLASS[t.decision] || 'do-not-send';
   const liked      = state.reactions[t.cluster_key] === 'like';
   const disliked   = state.reactions[t.cluster_key] === 'dislike';
@@ -1262,6 +1272,12 @@ function renderCard(t, state, heroImageIndex = 0, instanceId = null) {
   const ratingStr     = t.avg_rating ? t.avg_rating.toFixed(1) : '';
   const priceStr      = t.min_price  ? `₹${Math.round(t.min_price)}–₹${Math.round(t.max_price)}` : '';
   const decisionLabel = DECISION_LABEL[t.decision] || t.decision;
+
+  // Use sampleImage if available, otherwise fall back to t.images
+  const heroUrl = sampleImage ? sampleImage.url : (t.images || [])[heroImageIndex] || '';
+  const heroAlt = sampleImage
+    ? `${generateCustomerTrendTitle(t)} — ${sampleImage.source || ''}`
+    : generateCustomerTrendTitle(t);
 
   // "N photos" badge on image (desktop only; mobile uses dots)
   const swipeHint = t.images.length > 1
@@ -1321,7 +1337,7 @@ function renderCard(t, state, heroImageIndex = 0, instanceId = null) {
     data-instance-id="${instanceId}"
     onclick="handleCardClick(event,'${t.cluster_key}')">
     <div class="collage">
-      ${heroImageHTML(t.images, heroImageIndex)}
+      ${sampleImage ? `<img class="hero-img" src="${heroUrl}" alt="${heroAlt}" loading="lazy" onerror="this.outerHTML='<div class=\\'hero-placeholder\\'>👗</div>'"/>` : heroImageHTML(t.images, heroImageIndex)}
       ${swipeHint}
       ${swipeUpHint}
       <span class="rank-badge">#${t.rank}</span>
@@ -1366,9 +1382,12 @@ function renderFeed() {
   container.innerHTML = '';
   feedCursor = 0;
   imageIdxOf = {};
+  usedImageUrls = new Set();
+  usedImageQueue = [];
+  lastRenderedClusterKey = null;
   globalInstanceCounter = 0;
-  recentClusterKeys = [];
-  recentImageUrls = [];
+  poolCursor = { A: 0, B: 0, C: 0 };
+  feedPatternIndex = 0;
   const state = getState();
 
   if (activeTab === 'wishlist') {
@@ -1507,8 +1526,9 @@ function refreshCard(key) {
   const state = getState();
   const currentImgIdx = Number(el.dataset.imgidx || 0);
   const currentInstanceId = el.dataset.instanceId || null;
+  const sampleImage = (t.sample_images || [])[currentImgIdx] || null;
   const newCard = document.createElement('div');
-  newCard.innerHTML = renderCard(t, state, currentImgIdx, currentInstanceId).trim();
+  newCard.innerHTML = renderCard(t, state, currentImgIdx, currentInstanceId, sampleImage).trim();
   const cardEl = newCard.firstChild;
   el.replaceWith(cardEl);
 }
