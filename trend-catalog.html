@@ -23,7 +23,6 @@
   --shadow-md: 0 4px 16px rgba(0,0,0,.10);
   --shadow-lg: 0 12px 40px rgba(0,0,0,.16);
   --header-h: 56px;
-  --filter-h: 48px;
   --bottom-nav-h: 64px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 
@@ -144,51 +143,6 @@ header {
   font-size: 12px; color: var(--text-muted); font-weight: 500; flex-shrink: 0;
 }
 
-/* ── Filter Bar ─────────────────────────────────── */
-.filter-bar {
-  position: sticky;
-  top: var(--header-h); z-index: 90;
-  background: rgba(245,245,245,.95);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  height: var(--filter-h);
-}
-.filter-scroll {
-  max-width: 1200px; margin: 0 auto;
-  height: 100%;
-  display: flex; align-items: center; gap: 6px;
-  padding: 0 16px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.filter-scroll::-webkit-scrollbar { display: none; }
-.filter-chip {
-  flex-shrink: 0;
-  padding: 5px 12px;
-  border-radius: 999px;
-  border: 1.5px solid var(--border);
-  background: var(--surface);
-  color: var(--text-muted);
-  font-size: 12px; font-weight: 600;
-  transition: all .15s ease;
-  white-space: nowrap;
-}
-.filter-chip:hover { border-color: var(--text-muted); color: var(--text); }
-.filter-chip.active {
-  background: var(--text);
-  border-color: var(--text);
-  color: white;
-}
-.filter-chip.active.send-now { background: var(--send-now); border-color: var(--send-now); }
-.filter-chip.active.backup { background: var(--backup); border-color: var(--backup); }
-.filter-divider {
-  flex-shrink: 0;
-  width: 1px; height: 20px;
-  background: var(--border);
-  margin: 0 2px;
-}
 
 /* ── Main / Grid ────────────────────────────────── */
 main {
@@ -341,15 +295,6 @@ main {
   title: attr(data-platform);
 }
 
-/* Fire score */
-.fire-row {
-  display: flex; align-items: center; justify-content: space-between;
-}
-.fire-score { font-size: 12px; letter-spacing: .02em; }
-.score-num {
-  font-size: 10px; color: var(--text-muted);
-  font-weight: 600;
-}
 
 /* Action row */
 .action-row {
@@ -446,198 +391,6 @@ main {
   #scrollTop { bottom: 24px; }
 }
 
-/* ── Modal ──────────────────────────────────────── */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.55);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  z-index: 200;
-  display: none; align-items: flex-end; justify-content: center;
-  padding: 0;
-}
-.modal-overlay.open { display: flex; }
-@media (min-width: 600px) {
-  .modal-overlay { align-items: center; padding: 20px; }
-}
-.modal {
-  background: var(--surface);
-  width: 100%; max-width: 520px;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  max-height: 92vh; overflow-y: auto;
-  overscroll-behavior: contain;
-  animation: slideUp .25s ease;
-}
-@media (min-width: 600px) {
-  .modal { border-radius: var(--radius-lg); max-height: 88vh; }
-}
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Modal drag handle */
-.modal-handle {
-  display: flex; justify-content: center; padding: 10px 0 6px;
-}
-.modal-handle span {
-  width: 36px; height: 4px;
-  background: var(--border); border-radius: 999px;
-}
-@media (min-width: 600px) { .modal-handle { display: none; } }
-
-/* Modal images */
-.modal-images {
-  display: flex; gap: 6px;
-  padding: 0 14px 12px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.modal-images::-webkit-scrollbar { display: none; }
-.modal-img-wrap {
-  flex-shrink: 0;
-  width: 120px; height: 160px;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: #f0f0f0;
-  position: relative;
-}
-.modal-img-wrap img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-.modal-img-wrap .placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 32px; color: #ccc;
-}
-
-/* Modal body */
-.modal-body { padding: 0 16px 24px; }
-.modal-decision-row {
-  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
-}
-.modal-decision-badge {
-  font-size: 11px; font-weight: 800;
-  padding: 4px 10px; border-radius: 999px;
-  text-transform: uppercase; letter-spacing: .04em;
-}
-.modal-title {
-  font-size: 20px; font-weight: 800;
-  letter-spacing: -.02em; margin-bottom: 6px;
-  line-height: 1.2;
-}
-.modal-subtitle {
-  font-size: 13px; color: var(--text-muted); margin-bottom: 16px;
-}
-
-/* Score breakdown */
-.score-section { margin-bottom: 16px; }
-.score-section-title {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .06em; color: var(--text-muted);
-  margin-bottom: 10px;
-}
-.score-total-row {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 10px;
-}
-.score-total-num {
-  font-size: 28px; font-weight: 800; letter-spacing: -.03em;
-}
-.score-total-denom { font-size: 14px; color: var(--text-muted); font-weight: 500; }
-.score-bars { display: flex; flex-direction: column; gap: 6px; }
-.score-row {
-  display: flex; align-items: center; gap: 8px;
-}
-.score-label { font-size: 11px; font-weight: 600; color: var(--text-muted); width: 140px; flex-shrink: 0; }
-.score-bar-track {
-  flex: 1; height: 6px;
-  background: var(--bg); border-radius: 999px; overflow: hidden;
-}
-.score-bar-fill {
-  height: 100%; border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), #9c27b0);
-  transition: width .5s ease;
-}
-.score-val { font-size: 11px; font-weight: 700; width: 20px; text-align: right; flex-shrink: 0; }
-
-/* Stats grid */
-.stats-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 8px; margin-bottom: 16px;
-}
-.stat-card {
-  background: var(--bg);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-}
-.stat-label { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
-.stat-value { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
-.stat-sub { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
-
-/* Platform list */
-.platform-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-.platform-pill {
-  display: flex; align-items: center; gap: 5px;
-  padding: 5px 10px; border-radius: 999px;
-  background: var(--bg);
-  font-size: 11px; font-weight: 700; color: var(--text);
-}
-.platform-pill-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-/* Color palette */
-.color-palette { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-.color-swatch {
-  width: 28px; height: 28px; border-radius: 50%;
-  border: 2px solid white;
-  box-shadow: 0 1px 3px rgba(0,0,0,.15);
-  position: relative;
-}
-.color-swatch::after {
-  content: attr(data-name);
-  position: absolute; top: 34px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 9px; color: var(--text-muted); white-space: nowrap;
-  pointer-events: none;
-}
-
-/* Modal action row */
-.modal-actions {
-  display: flex; gap: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--border);
-  margin-top: 8px;
-}
-.modal-action-btn {
-  flex: 1; padding: 12px 8px;
-  border-radius: var(--radius);
-  font-size: 13px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  transition: all .15s ease;
-  min-height: 44px;
-}
-.modal-action-btn.like-btn { background: var(--accent-light); color: var(--accent); }
-.modal-action-btn.like-btn:hover { background: var(--accent); color: white; }
-.modal-action-btn.like-btn.active { background: var(--accent); color: white; }
-.modal-action-btn.wishlist-btn { background: #ede9fe; color: #7c3aed; }
-.modal-action-btn.wishlist-btn:hover { background: #7c3aed; color: white; }
-.modal-action-btn.wishlist-btn.active { background: #7c3aed; color: white; }
-.modal-action-btn.skip-btn { background: var(--bg); color: var(--text-muted); }
-.modal-action-btn.skip-btn.active { background: #f1f5f9; color: #64748b; }
-.modal-action-btn svg { width: 18px; height: 18px; }
-
-/* Modal close */
-.modal-close-row {
-  display: flex; justify-content: flex-end; padding: 12px 14px 0;
-}
-.modal-close-btn {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: var(--bg); display: grid; place-items: center;
-  color: var(--text-muted);
-  font-size: 18px; line-height: 1;
-  display: none;
-}
-@media (min-width: 600px) { .modal-close-btn { display: grid; } }
 
 /* ════════════════════════════════════════════════
    MOBILE: Full-screen vertical snap-scroll feed
@@ -646,10 +399,10 @@ main {
   /* Lock body scroll — only the feed scrolls */
   body { overflow: hidden; height: 100dvh; }
 
-  /* Feed container: fixed, fills between header+filter and bottom nav */
+  /* Feed container: fixed, fills between header and bottom nav */
   main {
     position: fixed;
-    top: calc(var(--header-h) + var(--filter-h));
+    top: var(--header-h);
     left: 0; right: 0;
     bottom: calc(var(--bottom-nav-h) + var(--safe-bottom));
     padding: 0;
@@ -667,7 +420,7 @@ main {
   /* Each card = one full screen */
   .card {
     scroll-snap-align: start;
-    height: calc(100dvh - var(--header-h) - var(--filter-h) - var(--bottom-nav-h) - var(--safe-bottom));
+    height: calc(100dvh - var(--header-h) - var(--bottom-nav-h) - var(--safe-bottom));
     border-radius: 0;
     box-shadow: none;
     border: none;
@@ -748,8 +501,6 @@ main {
   .card-price { color: white; font-size: 13px; font-weight: 700; }
   .card-count { color: rgba(255,255,255,.7); font-size: 11px; margin-left: 0; }
 
-  .fire-row { margin-top: 2px; }
-  .fire-score { font-size: 16px; }
 
   .platform-dots .platform-dot {
     width: 10px; height: 10px;
@@ -804,6 +555,9 @@ main {
   }
   .action-btn.wishlisted svg.bookmark-icon { fill: white; stroke: white; }
 
+  /* Icons only — hide text labels */
+  .action-btn .btn-label { display: none; }
+
   /* Swipe hint on first card */
   .swipe-hint {
     position: absolute;
@@ -854,7 +608,7 @@ main {
 <!-- Loading -->
 <div id="loader">
   <div class="loader-ring"></div>
-  <div class="loader-text">Loading trend data…</div>
+  <div class="loader-text">Loading top products…</div>
 </div>
 
 <!-- Header -->
@@ -876,41 +630,6 @@ main {
   </div>
 </header>
 
-<!-- Filter bar -->
-<div class="filter-bar">
-  <div class="filter-scroll" id="filterBar">
-    <button class="filter-chip active" data-filter="decision" data-val="all" onclick="setFilter('decision','all',this)">All Trends</button>
-    <button class="filter-chip send-now" data-filter="decision" data-val="Trending Now" onclick="setFilter('decision','Trending Now',this)">🟢 Buy Now</button>
-    <button class="filter-chip backup" data-filter="decision" data-val="Worth Watching" onclick="setFilter('decision','Worth Watching',this)">🔵 Test Batch</button>
-    <button class="filter-chip" data-filter="decision" data-val="Emerging" onclick="setFilter('decision','Emerging',this)">🟡 Watch</button>
-    <button class="filter-chip" data-filter="decision" data-val="Niche" onclick="setFilter('decision','Niche',this)">🔴 Do Not Send</button>
-    <div class="filter-divider"></div>
-    <button class="filter-chip" data-filter="pattern" data-val="all" onclick="setFilter('pattern','all',this)">All Patterns</button>
-    <button class="filter-chip" data-filter="pattern" data-val="plain" onclick="setFilter('pattern','plain',this)">Plain</button>
-    <button class="filter-chip" data-filter="pattern" data-val="floral" onclick="setFilter('pattern','floral',this)">Floral</button>
-    <button class="filter-chip" data-filter="pattern" data-val="geometric" onclick="setFilter('pattern','geometric',this)">Geometric</button>
-    <button class="filter-chip" data-filter="pattern" data-val="striped" onclick="setFilter('pattern','striped',this)">Striped</button>
-    <div class="filter-divider"></div>
-    <button class="filter-chip" data-filter="sleeve" data-val="all" onclick="setFilter('sleeve','all',this)">All Sleeves</button>
-    <button class="filter-chip" data-filter="sleeve" data-val="half" onclick="setFilter('sleeve','half',this)">Half</button>
-    <button class="filter-chip" data-filter="sleeve" data-val="sleeveless" onclick="setFilter('sleeve','sleeveless',this)">Sleeveless</button>
-    <button class="filter-chip" data-filter="sleeve" data-val="three-quarter" onclick="setFilter('sleeve','three-quarter',this)">¾ Sleeve</button>
-    <button class="filter-chip" data-filter="sleeve" data-val="full" onclick="setFilter('sleeve','full',this)">Full Sleeve</button>
-    <div class="filter-divider"></div>
-    <button class="filter-chip" data-filter="neck" data-val="all" onclick="setFilter('neck','all',this)">All Necks</button>
-    <button class="filter-chip" data-filter="neck" data-val="round" onclick="setFilter('neck','round',this)">Round Neck</button>
-    <button class="filter-chip" data-filter="neck" data-val="v-neck" onclick="setFilter('neck','v-neck',this)">V-Neck</button>
-    <div class="filter-divider"></div>
-    <button class="filter-chip" data-filter="price" data-val="all" onclick="setFilter('price','all',this)">All Prices</button>
-    <button class="filter-chip" data-filter="price" data-val="budget" onclick="setFilter('price','budget',this)">Under ₹500</button>
-    <button class="filter-chip" data-filter="price" data-val="mid" onclick="setFilter('price','mid',this)">₹500–₹900</button>
-    <button class="filter-chip" data-filter="price" data-val="premium" onclick="setFilter('price','premium',this)">₹900+</button>
-    <div class="filter-divider"></div>
-    <button class="filter-chip" data-filter="special" data-val="all" onclick="setFilter('special','all',this)">All</button>
-    <button class="filter-chip" data-filter="special" data-val="nursing" onclick="setFilter('special','nursing',this)">🤱 Nursing-Friendly</button>
-    <button class="filter-chip" data-filter="special" data-val="plus" onclick="setFilter('special','plus',this)">Plus Sizes</button>
-  </div>
-</div>
 
 <!-- Main grid -->
 <main>
@@ -944,55 +663,6 @@ main {
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="handleModalOverlayClick(event)">
-  <div class="modal" id="modalContent">
-    <div class="modal-handle"><span></span></div>
-    <div class="modal-close-row">
-      <button class="modal-close-btn" onclick="closeModal()">×</button>
-    </div>
-    <div class="modal-images" id="modalImages"></div>
-    <div class="modal-body">
-      <div class="modal-decision-row">
-        <span class="modal-decision-badge" id="modalDecisionBadge"></span>
-        <span class="score-num" id="modalRank"></span>
-      </div>
-      <h2 class="modal-title" id="modalTitle"></h2>
-      <div class="modal-subtitle" id="modalSubtitle"></div>
-
-      <div class="b2b-decision-panel" id="b2bPanel" style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 12px 0; font-size: 13px;">
-        <div id="b2bContent"></div>
-      </div>
-
-      <div class="score-section">
-        <div class="score-section-title">Why this trend? 🔍</div>
-        <div class="score-total-row">
-          <div>
-            <span class="score-total-num" id="modalScoreTotal"></span>
-            <span class="score-total-denom"> / 25</span>
-          </div>
-          <div id="modalFireScore" style="font-size:22px;"></div>
-        </div>
-        <div class="score-bars" id="modalScoreBars"></div>
-      </div>
-
-      <div class="stats-grid" id="modalStats"></div>
-
-      <div class="score-section-title" style="margin-bottom:8px;">Popular Colours 🎨</div>
-      <div class="color-palette" id="modalColors"></div>
-
-      <div class="score-section-title" style="margin-bottom:8px;">Where to Buy 🛒</div>
-      <div class="platform-list" id="modalPlatforms"></div>
-
-      <div class="trust-section" id="trustSection" style="background: #f0f9ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 12px;">
-        <div style="font-weight: 600; color: #1e40af; margin-bottom: 8px; cursor: pointer;" onclick="toggleTrustSection()">🔍 Why trust this? <span id="trustToggle" style="float: right;">▼</span></div>
-        <div id="trustContent" style="display: none;"></div>
-      </div>
-
-      <div class="modal-actions" id="modalActions"></div>
-    </div>
-  </div>
-</div>
 
 <script>
 // ── Constants ──────────────────────────────────────────────────
@@ -1046,8 +716,7 @@ const SCORE_LABELS = [
 // ── State ──────────────────────────────────────────────────────
 let allTrends = [];
 let activeTab = 'discover';
-let activeFilters = { decision: 'all', pattern: 'all', sleeve: 'all', neck: 'all', price: 'all', special: 'all' };
-let currentModalKey = null;
+let activeFilters = { decision: 'all', source: 'all', price: 'all', rating: 'all' };
 
 function getState() {
   return {
@@ -1097,8 +766,7 @@ const SLEEVE_LABELS = {
 };
 
 function formatTitle(t) {
-  const sleeve = t.sleeve_length ? (SLEEVE_LABELS[t.sleeve_length] || capitalize(t.sleeve_length) + ' Sleeve') : null;
-  return sleeve ? [capitalize(t.design_pattern), sleeve].join(' · ') : capitalize(t.design_pattern);
+  return t.title || capitalize(t.design_pattern) || 'Untitled Product';
 }
 
 function dominantNeck(t) {
@@ -1107,26 +775,103 @@ function dominantNeck(t) {
 }
 
 function formatSubtitle(t) {
-  const parts = [];
-  if (t.front_top_treatment && t.front_top_treatment !== 'plain') {
-    parts.push(capitalize(t.front_top_treatment) + ' treatment');
-  }
-  if (t.keyword_count > 1) parts.push(`${t.keyword_count} keyword matches`);
-  return parts.join(' · ') || 'Design cluster';
+  const source = t.source ? capitalize(t.source) : 'Unknown source';
+  const keyword = t.keyword || 'nighty';
+  return `${source} · ${keyword}`;
+}
+
+function classifyDecision(reviewCount) {
+  if (reviewCount >= 10000) return 'Trending Now';
+  if (reviewCount >= 3000) return 'Worth Watching';
+  if (reviewCount >= 800) return 'Emerging';
+  return 'Niche';
+}
+
+function decisionAction(decision) {
+  if (decision === 'Trending Now') return 'Buy / Produce Now';
+  if (decision === 'Worth Watching') return 'Test Small Batch';
+  if (decision === 'Emerging') return 'Watch — Needs Evidence';
+  return 'Do Not Send';
+}
+
+function scoreFromProduct(product) {
+  const reviews = product.review_numeric || 0;
+  const rating = product.rating_numeric || 0;
+  const price = product.price_numeric || 0;
+
+  const evidence = reviews >= 10000 ? 5 : reviews >= 5000 ? 4 : reviews >= 2000 ? 3 : reviews >= 500 ? 2 : 1;
+  const demand = reviews >= 12000 ? 5 : reviews >= 7000 ? 4 : reviews >= 3000 ? 3 : reviews >= 1000 ? 2 : 1;
+  const appeal = rating >= 4.3 ? 5 : rating >= 4.0 ? 4 : rating >= 3.7 ? 3 : rating >= 3.4 ? 2 : 1;
+  const production = 4;
+  const value = price > 0 && price <= 450 ? 5 : price <= 700 ? 4 : price <= 1000 ? 3 : price <= 1400 ? 2 : 1;
+
+  const total = evidence + demand + appeal + production + value;
+
+  return {
+    total,
+    evidence_strength: evidence,
+    demand_volume: demand,
+    customer_appeal: appeal,
+    production_simplicity: production,
+    value_score: value,
+    capped: false
+  };
 }
 
 // ── Data loading ───────────────────────────────────────────────
 async function loadData() {
-  const [trends, products] = await Promise.all([
-    fetch('evidence/output/trends.json').then(r => r.json()),
-    fetch('evidence/clean/_merged.json').then(r => r.json()),
-  ]);
-  const byId = Object.fromEntries(products.map(p => [p.product_id, p]));
-  trends.forEach(t => {
-    t.images = t.sample_product_ids.map(id => byId[id]?.image).filter(Boolean);
-    t.sampleProducts = t.sample_product_ids.map(id => byId[id]).filter(Boolean);
+  const products = await fetch('evidence/output/top-50-products-by-reviews.json').then(r => r.json());
+
+  return products.map((product, index) => {
+    const decision = classifyDecision(product.review_numeric || 0);
+    const score = scoreFromProduct(product);
+    const platform = (product.source || '').toLowerCase();
+
+    return {
+      rank: product.rank || index + 1,
+      cluster_key: product.url || `${platform}-${product.rank || index + 1}`,
+      title: product.title || '',
+      source: platform,
+      keyword: product.keyword || '',
+      url: product.url || '',
+      image: product.image || '',
+      decision,
+      recommended_action: decisionAction(decision),
+      design_pattern: product.keyword || 'nighty',
+      sleeve_length: 'half',
+      neck_breakdown: {},
+      front_top_treatment: 'print',
+      keyword_count: 1,
+      product_count: 1,
+      sources: platform ? { [platform]: 1 } : {},
+      avg_rating: typeof product.rating_numeric === 'number' ? product.rating_numeric : null,
+      avg_price: typeof product.price_numeric === 'number' ? product.price_numeric : null,
+      min_price: typeof product.price_numeric === 'number' ? product.price_numeric : null,
+      max_price: typeof product.price_numeric === 'number' ? product.price_numeric : null,
+      review_numeric: product.review_numeric || 0,
+      colors: [],
+      top_fabrics: [],
+      has_plus_sizes: false,
+      nursing_count: 0,
+      confidence_tier: 'High',
+      confidence_pct: 100,
+      test_quantity: '20-50 pcs',
+      margin_tier: 'Moderate (25-40%)',
+      season_fit: 'Year-round',
+      buyer_segment: ['Mass market', 'Value buyers'],
+      risk_flags: [],
+      score,
+      images: product.image ? [product.image] : [],
+      sampleProducts: [
+        {
+          source: product.source || '',
+          title: product.title || '',
+          url: product.url || '',
+          image: product.image || ''
+        }
+      ]
+    };
   });
-  return trends;
 }
 
 // ── Render ─────────────────────────────────────────────────────
@@ -1166,7 +911,7 @@ function renderCard(t, state) {
   }).join('');
 
   const ratingStr     = t.avg_rating ? t.avg_rating.toFixed(1) : '';
-  const priceStr      = t.min_price  ? `₹${Math.round(t.min_price)}–₹${Math.round(t.max_price)}` : '';
+  const priceStr      = t.min_price  ? `₹${Math.round(t.min_price)}` : '';
   const decisionLabel = DECISION_LABEL[t.decision] || t.decision;
 
   // "N photos" badge on image (desktop only; mobile uses dots)
@@ -1216,7 +961,7 @@ function renderCard(t, state) {
   const confidenceRow = `
     <div class="confidence-row" style="display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid #f0f0f0; margin-top: 8px;">
       <span class="confidence-dot" style="width: 8px; height: 8px; border-radius: 50%; background: ${confidenceColor}; flex-shrink: 0;"></span>
-      <span class="confidence-label" style="font-size: 12px; color: #666;">${confidenceTier} confidence · ${t.product_count} products · ${platformCount} platforms</span>
+      <span class="confidence-label" style="font-size: 12px; color: #666;">${confidenceTier} confidence · ${(t.review_numeric || 0).toLocaleString()} reviews</span>
     </div>
   `;
 
@@ -1230,20 +975,16 @@ function renderCard(t, state) {
       ${swipeHint}
       ${swipeUpHint}
       <span class="rank-badge">#${t.rank}</span>
-      <span class="decision-badge ${dc}">${decisionLabel}</span>
     </div>
     <div class="color-strip">${colorStrip}</div>
     <div class="card-body">
       <h3 class="card-title" style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.3;">${formatTitle(t)}</h3>
+      <div style="margin-top:4px;font-size:12px;color:var(--text-muted)">${formatSubtitle(t)}</div>
       ${tagsHTML}
       <div class="card-meta">
         ${ratingStr ? `<span class="card-rating">⭐ ${ratingStr}</span>` : ''}
         ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
-        <span class="card-count">${t.product_count} styles</span>
-      </div>
-      <div class="fire-row">
-        <div class="fire-score">${fireMeter(t.score.total)}</div>
-        <div class="platform-dots">${platformDots}</div>
+        <span class="card-count">${(t.review_numeric || 0).toLocaleString()} reviews</span>
       </div>
       ${confidenceRow}
     </div>
@@ -1253,21 +994,21 @@ function renderCard(t, state) {
         <svg class="heart-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
-        Interested
+        <span class="btn-label">Interested</span>
       </button>
       <button class="action-btn${disliked ? ' disliked-state' : ''}"
         onclick="toggleDislike(event,'${t.cluster_key}')" title="Reject">
         <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
           <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
         </svg>
-        Reject
+        <span class="btn-label">Reject</span>
       </button>
       <button class="action-btn${wishlisted ? ' wishlisted' : ''}"
         onclick="toggleWishlist(event,'${t.cluster_key}')" title="Shortlist">
         <svg class="bookmark-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
           <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
         </svg>
-        Shortlist
+        <span class="btn-label">Shortlist</span>
       </button>
     </div>
   </article>`;
@@ -1283,14 +1024,8 @@ function getFilteredList() {
     if (activeFilters.decision !== 'all') {
       list = list.filter(t => t.decision === activeFilters.decision);
     }
-    if (activeFilters.pattern !== 'all') {
-      list = list.filter(t => t.design_pattern === activeFilters.pattern);
-    }
-    if (activeFilters.sleeve !== 'all') {
-      list = list.filter(t => t.sleeve_length === activeFilters.sleeve);
-    }
-    if (activeFilters.neck !== 'all') {
-      list = list.filter(t => dominantNeck(t) === activeFilters.neck);
+    if (activeFilters.source !== 'all') {
+      list = list.filter(t => t.source === activeFilters.source);
     }
     if (activeFilters.price !== 'all') {
       list = list.filter(t => {
@@ -1302,9 +1037,8 @@ function getFilteredList() {
         return true;
       });
     }
-    if (activeFilters.special !== 'all') {
-      if (activeFilters.special === 'nursing') list = list.filter(t => t.nursing_count > 0);
-      if (activeFilters.special === 'plus')    list = list.filter(t => t.has_plus_sizes);
+    if (activeFilters.rating !== 'all') {
+      if (activeFilters.rating === 'high') list = list.filter(t => (t.avg_rating || 0) >= 4.0);
     }
   }
   return list;
@@ -1324,7 +1058,7 @@ function renderGrid() {
   } else {
     empty.classList.remove('visible');
     grid.innerHTML = list.map(t => renderCard(t, state)).join('');
-    count.textContent = `${list.length} trends`;
+    count.textContent = `${list.length} products`;
   }
 
   updateBadges();
@@ -1395,7 +1129,6 @@ function handleCardClick(e, key) {
     return;
   }
 
-  openModal(t);
 }
 
 function toggleLike(e, key) {
@@ -1418,7 +1151,6 @@ function toggleLike(e, key) {
   }
 
   refreshCard(key);
-  if (currentModalKey === key) refreshModalActions(key);
 }
 
 function toggleDislike(e, key) {
@@ -1431,7 +1163,6 @@ function toggleDislike(e, key) {
   }
   saveState(s);
   refreshCard(key);
-  if (currentModalKey === key) refreshModalActions(key);
 }
 
 function toggleWishlist(e, key) {
@@ -1446,7 +1177,6 @@ function toggleWishlist(e, key) {
   saveState(s);
   refreshCard(key);
   updateBadges();
-  if (currentModalKey === key) refreshModalActions(key);
   // If on wishlist tab and we just removed, re-render
   if (activeTab === 'wishlist') renderGrid();
 }
@@ -1463,183 +1193,6 @@ function refreshCard(key) {
   el.replaceWith(cardEl);
 }
 
-// ── Modal ──────────────────────────────────────────────────────
-function openModal(t) {
-  currentModalKey = t.cluster_key;
-  const state = getState();
-
-  // Images
-  const imagesEl = document.getElementById('modalImages');
-  if (t.images.length > 0) {
-    imagesEl.innerHTML = t.images.map(src =>
-      `<div class="modal-img-wrap">
-        <img src="${src}" alt="Product" loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>👗</div>'"/>
-      </div>`
-    ).join('');
-  } else {
-    imagesEl.innerHTML = `<div class="modal-img-wrap"><div class="placeholder">👗</div></div>`;
-  }
-
-  // Decision badge — use friendly label
-  const dc = DECISION_CLASS[t.decision] || 'do-not-send';
-  const badge = document.getElementById('modalDecisionBadge');
-  badge.className = `modal-decision-badge ${dc}`;
-  badge.textContent = DECISION_LABEL[t.decision] || t.decision;
-
-  document.getElementById('modalRank').textContent = `Trend #${t.rank}`;
-  document.getElementById('modalTitle').textContent = formatTitle(t);
-  document.getElementById('modalSubtitle').textContent = `${t.product_count} styles found across ${Object.keys(t.sources).length} platforms`;
-
-  // Score — label as "Why this trend?"
-  document.getElementById('modalScoreTotal').textContent = t.score.total;
-  document.getElementById('modalFireScore').textContent = fireMeter(t.score.total);
-  const barsEl = document.getElementById('modalScoreBars');
-  const friendlyLabels = [
-    ['Popularity Spread', 'evidence_strength',    'How widely available across platforms'],
-    ['Buyer Demand',      'demand_volume',         'Based on actual buyer reviews'],
-    ['Customer Appeal',   'customer_appeal',       'Price sweet spot for direct buyers'],
-    ['Easy to Find',      'production_simplicity', 'Simple style — widely stocked online'],
-    ['Value Score',       'value_score',           'How competitively priced this style is'],
-  ];
-  barsEl.innerHTML = friendlyLabels.map(([label, key, hint]) => {
-    const val = t.score[key] || 0;
-    const pct = (val / 5) * 100;
-    return `<div class="score-row" title="${hint}">
-      <div class="score-label">${label}</div>
-      <div class="score-bar-track"><div class="score-bar-fill" style="width:${pct}%"></div></div>
-      <div class="score-val">${val}/5</div>
-    </div>`;
-  }).join('');
-
-  // Stats
-  const statsEl = document.getElementById('modalStats');
-  const avgPrice = t.avg_price ? `₹${Math.round(t.avg_price)}` : '—';
-  const priceRange = t.min_price ? `₹${Math.round(t.min_price)}–${Math.round(t.max_price)}` : '—';
-  const rating = t.avg_rating ? t.avg_rating.toFixed(1) : '—';
-  statsEl.innerHTML = [
-    ['Styles Found', t.product_count, `across ${Object.keys(t.sources).length} platforms`],
-    ['Buyer Rating', `★ ${rating}`, 'average out of 5.0'],
-    ['Price Range',  priceRange, `avg ${avgPrice}`],
-    ['Trend Score',  `${fireMeter(t.score.total)}`, `${t.score.total} / 25`],
-  ].map(([label, val, sub]) =>
-    `<div class="stat-card">
-      <div class="stat-label">${label}</div>
-      <div class="stat-value">${val}</div>
-      <div class="stat-sub">${sub}</div>
-    </div>`
-  ).join('');
-
-  // Colors
-  const colorsEl = document.getElementById('modalColors');
-  const palette = topColors(t.colors, 8);
-  colorsEl.innerHTML = palette.map(name => {
-    const css = colorCss(name);
-    const bg = css.startsWith('linear') ? `background:${css}` : `background-color:${css}`;
-    const border = name === 'white' ? 'border:1.5px solid #e0e0e0' : '';
-    return `<div class="color-swatch" style="${bg};${border}" data-name="${name}" title="${name}"></div>`;
-  }).join('');
-
-  // Platforms
-  const plEl = document.getElementById('modalPlatforms');
-  plEl.innerHTML = Object.entries(t.sources).map(([p, count]) => {
-    const col = PLATFORM_COLORS[p] || '#999';
-    return `<div class="platform-pill">
-      <span class="platform-pill-dot" style="background:${col}"></span>
-      ${capitalize(p)} <span style="color:var(--text-muted);font-weight:500">(${count})</span>
-    </div>`;
-  }).join('');
-
-  // B2B Decision Panel
-  const b2bEl = document.getElementById('b2bContent');
-  const recAction = t.recommended_action || 'Watch — Needs Evidence';
-  const testQty = t.test_quantity || '10–25 pcs';
-  const marginTier = t.margin_tier || 'Moderate (25–40%)';
-  const seasonFit = t.season_fit || 'Year-round';
-  const buyerSegment = (t.buyer_segment || []).join(' · ');
-  const riskFlags = (t.risk_flags || []).length > 0 ? t.risk_flags.join(', ') : 'None flagged';
-  b2bEl.innerHTML = `
-    <div style="font-weight: 600; color: #111; margin-bottom: 8px;">${recAction}</div>
-    <div style="margin-bottom: 6px;"><strong>Suggested first order:</strong> ${testQty}</div>
-    <div style="margin-bottom: 6px;"><strong>Margin:</strong> ${marginTier} · ${seasonFit}</div>
-    <div style="border-top: 1px solid #d1d5db; padding-top: 8px; margin-top: 8px;">
-      <div style="margin-bottom: 6px;"><strong>Buyers:</strong> ${buyerSegment}</div>
-      <div><strong>Risk:</strong> ${riskFlags}</div>
-    </div>
-  `;
-
-  // Trust Section
-  const trustEl = document.getElementById('trustContent');
-  const confTier = t.confidence_tier || 'Unknown';
-  const confPct = t.confidence_pct || 0;
-  const platformCount = Object.keys(t.sources).length;
-  const sourceBreakdown = Object.entries(t.sources).map(([p, c]) => `${capitalize(p)} ·${c}`).join(' ');
-  trustEl.innerHTML = `
-    <div style="margin-bottom: 8px;"><strong>Confidence:</strong> ${confTier}</div>
-    <div style="margin-bottom: 8px;">Based on ${t.product_count} products across ${platformCount} platforms</div>
-    <div style="margin-bottom: 8px;"><strong>Feature classification:</strong> ${confPct}% reliable</div>
-    <div style="margin-bottom: 8px;"><strong>Score capped:</strong> ${t.score.capped ? 'Yes (weak platform spread)' : 'No'}</div>
-    <div style="font-size: 11px; color: #666; margin-top: 8px;"><strong>Data sources:</strong> ${sourceBreakdown}</div>
-  `;
-
-  refreshModalActions(t.cluster_key);
-
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function refreshModalActions(key) {
-  const s = getState();
-  const liked     = s.reactions[key] === 'like';
-  const disliked  = s.reactions[key] === 'dislike';
-  const wishlisted = s.wishlist.includes(key);
-
-  document.getElementById('modalActions').innerHTML = `
-    <button class="modal-action-btn like-btn ${liked ? 'active' : ''}"
-      onclick="toggleLike(event,'${key}')">
-      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${liked ? 'currentColor' : 'none'}" stroke-linecap="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-      </svg>
-      ${liked ? 'Interested ✓' : 'Interested'}
-    </button>
-    <button class="modal-action-btn wishlist-btn ${wishlisted ? 'active' : ''}"
-      onclick="toggleWishlist(event,'${key}')">
-      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="${wishlisted ? 'currentColor' : 'none'}" stroke-linecap="round">
-        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-      </svg>
-      ${wishlisted ? 'Shortlist ✓' : 'Shortlist'}
-    </button>
-    <button class="modal-action-btn skip-btn ${disliked ? 'active' : ''}"
-      onclick="toggleDislike(event,'${key}')">
-      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
-        <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
-      </svg>
-      ${disliked ? 'Reject ✓' : 'Reject'}
-    </button>
-  `;
-}
-
-function toggleTrustSection() {
-  const content = document.getElementById('trustContent');
-  const toggle = document.getElementById('trustToggle');
-  if (content.style.display === 'none') {
-    content.style.display = 'block';
-    toggle.textContent = '▲';
-  } else {
-    content.style.display = 'none';
-    toggle.textContent = '▼';
-  }
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-  currentModalKey = null;
-}
-
-function handleModalOverlayClick(e) {
-  if (e.target === document.getElementById('modal')) closeModal();
-}
 
 // ── Export ─────────────────────────────────────────────────────
 function exportWishlist() {
@@ -1648,6 +1201,9 @@ function exportWishlist() {
     rank: t.rank,
     cluster: t.cluster_key,
     title: formatTitle(t),
+    source: t.source,
+    url: t.url,
+    review_numeric: t.review_numeric,
     decision: t.decision,
     score: t.score.total,
     avg_price: t.avg_price,
@@ -1676,11 +1232,13 @@ function exportWishlist() {
     let text = `📋 SHORTLISTED NIGHTY TRENDS\nGenerated: ${today}\n\n`;
     items.forEach((item, idx) => {
       text += `${idx + 1}. ${item.title}\n`;
+      text += `   Source: ${item.source}\n`;
+      text += `   Reviews: ${item.review_numeric || 0}\n`;
       text += `   Action: ${item.decision}\n`;
       text += `   Score: ${item.score}/25\n`;
-      text += `   Price: ₹${item.min_price}–₹${item.max_price} (avg ₹${item.avg_price})\n`;
+      text += `   Price: ₹${item.min_price || item.avg_price} (avg ₹${item.avg_price})\n`;
       text += `   Rating: ${item.avg_rating ? item.avg_rating.toFixed(1) : 'N/A'} ⭐\n`;
-      text += `   Found: ${item.product_count} styles\n\n`;
+      text += `   Link: ${item.url || 'N/A'}\n\n`;
     });
     const blob = new Blob([text], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -1697,10 +1255,6 @@ window.addEventListener('scroll', () => {
   else btn.classList.remove('visible');
 }, { passive: true });
 
-// ── Keyboard ───────────────────────────────────────────────────
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
 
 // ── Init ───────────────────────────────────────────────────────
 (async () => {
