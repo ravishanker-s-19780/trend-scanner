@@ -20,7 +20,9 @@
     "analyze:top10": "node skills/b2b-trend-scorer/scripts/analyze-trends.js --top=10",
     "pipeline": "npm run normalize && npm run analyze",
     "report": "node generate-report.js",
-    "catalog": "node generate-catalog.js"
+    "catalog": "node generate-catalog.js",
+    "top-products": "node generate-top-products.js",
+    "top-products:50": "node generate-top-products.js --top=50"
   },
   "dependencies": {
     "playwright": "^1.47.0"
