@@ -113,6 +113,7 @@ header {
   border-radius: 999px;
   padding: 3px;
 }
+@media (max-width: 767px) { .header-tabs { display: none; } }
 .tab-btn {
   padding: 6px 14px;
   border-radius: 999px;
@@ -626,7 +627,6 @@ main {
         <span class="wishlist-badge" id="headerWishlistBadge"></span>
       </button>
     </div>
-    <div class="header-count" id="headerCount"></div>
   </div>
 </header>
 
@@ -953,17 +953,6 @@ function renderCard(t, state) {
     : '';
 
   const confidenceTier = t.confidence_tier || 'Unknown';
-  const confidenceColor = confidenceTier === 'High' ? '#10b981'
-    : confidenceTier === 'Medium' ? '#f59e0b'
-    : confidenceTier === 'Low' ? '#f97316'
-    : '#ef4444';
-  const platformCount = Object.keys(t.sources).length;
-  const confidenceRow = `
-    <div class="confidence-row" style="display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid #f0f0f0; margin-top: 8px;">
-      <span class="confidence-dot" style="width: 8px; height: 8px; border-radius: 50%; background: ${confidenceColor}; flex-shrink: 0;"></span>
-      <span class="confidence-label" style="font-size: 12px; color: #666;">${confidenceTier} confidence · ${(t.review_numeric || 0).toLocaleString()} reviews</span>
-    </div>
-  `;
 
   return `
   <article class="card${disliked ? ' disliked' : ''}"
@@ -986,7 +975,6 @@ function renderCard(t, state) {
         ${priceStr  ? `<span class="card-price">${priceStr}</span>` : ''}
         <span class="card-count">${(t.review_numeric || 0).toLocaleString()} reviews</span>
       </div>
-      ${confidenceRow}
     </div>
     <div class="action-row">
       <button class="action-btn${liked ? ' liked' : ''}"
@@ -995,13 +983,6 @@ function renderCard(t, state) {
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
         <span class="btn-label">Interested</span>
-      </button>
-      <button class="action-btn${disliked ? ' disliked-state' : ''}"
-        onclick="toggleDislike(event,'${t.cluster_key}')" title="Reject">
-        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
-          <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
-        </svg>
-        <span class="btn-label">Reject</span>
       </button>
       <button class="action-btn${wishlisted ? ' wishlisted' : ''}"
         onclick="toggleWishlist(event,'${t.cluster_key}')" title="Shortlist">
@@ -1049,16 +1030,12 @@ function renderGrid() {
   const list = getFilteredList();
   const grid = document.getElementById('trendGrid');
   const empty = document.getElementById('emptyState');
-  const count = document.getElementById('headerCount');
-
   if (list.length === 0) {
     grid.innerHTML = '';
     empty.classList.add('visible');
-    count.textContent = '';
   } else {
     empty.classList.remove('visible');
     grid.innerHTML = list.map(t => renderCard(t, state)).join('');
-    count.textContent = `${list.length} products`;
   }
 
   updateBadges();
